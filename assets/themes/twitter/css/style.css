@@ -1,11 +1,17 @@
 body {
-    font-family: 'Merriweather', serif;
+    font-family: 'Roboto Slab', serif;
 }
 .navbar, h1, h2, h3, h4, h5 {
     font-family: 'Lato', sans-serif;
 }
+code {
+    font-size: 110%;
+}
 #cl-pages {
     margin-top: 2.3ex;
+}
+.cl-index p {
+    display: inline;
 }
 
 
