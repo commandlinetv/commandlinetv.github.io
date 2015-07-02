@@ -73,6 +73,76 @@ task :post do
   end
 end # task :post
 
+# Usage: rake episode num=N
+desc "Prepare a new episode"
+task :episode do
+  abort("Must specify episode num=N") unless ENV["num"]
+  num = ENV["num"]
+  slug = sprintf("episode%03d", num)
+  title = sprintf("Episode %d", num)
+  date = Time.now.strftime('%Y-%m-%d')
+  postfile = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  if File.exist?(postfile)
+    puts "Skipping #{postfile}"
+  else
+    puts "Writing #{postfile}"
+    open(postfile, 'w') do |post|
+      post.puts "---"
+      post.puts "layout: post"
+      post.puts "title: #{title}"
+      post.puts "slug: #{slug}"
+      post.puts "tagline: "
+      post.puts "---"
+      post.puts "{% include JB/setup %}"
+      post.puts ""
+      post.puts "Episode #{num} description goes here."
+    end # open
+  end #unless
+  epdir = File.join(slug)
+  puts "Creating #{epdir}/"
+  FileUtils.mkpath(epdir)
+  tranfile = File.join(epdir, "#{slug}.html")
+  if File.exist?(tranfile)
+    puts "Skipping #{tranfile}"
+  else
+    puts "Writing #{tranfile}"
+    open(tranfile, 'w') do |tran|
+      tran.puts "---"
+      tran.puts "layout: transcript"
+      tran.puts "slug: #{slug}"
+      tran.puts "title: #{title} transcript"
+      tran.puts "---"
+    end
+  end
+  capfile = File.join(epdir, "#{slug}.srt")
+  if File.exist?(capfile)
+    puts "Skipping #{capfile}"
+  else
+    puts "Writing #{capfile}"
+    open(capfile, 'w') do |cap|
+      cap.puts "---"
+      cap.puts "layout: captions"
+      cap.puts "slug: #{slug}"
+      cap.puts "---"
+    end
+  end
+  datfile = File.join("_data", "#{slug}.yaml")
+  if File.exist?(datfile)
+    puts "Skipping #{datfile}"
+  else
+    puts "Writing #{datfile}"
+    open(datfile, 'w') do |dat|
+      dat.puts "- time: \"00:00:00\""
+      dat.puts "  speaker: League"
+      dat.puts "  index: \"``\""
+      dat.puts "  cmd: |"
+      dat.puts "    echo"
+      dat.puts "  caption: |"
+      dat.puts "    Hello."
+    end
+  end
+end # task :episode
+
 # Usage: rake page name="about.html"
 # You can also specify a sub-directory path.
 # If you don't specify a file extention we create an index.html at the path specified
