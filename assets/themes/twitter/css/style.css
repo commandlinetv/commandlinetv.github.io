@@ -7,6 +7,24 @@ body {
 .navbar .brand {
     font-weight: 400;
 }
+em, .cl-speaker {
+    font-weight: 700;
+    font-style: normal;
+}
+.cl-Lopes {
+    background: #f7f7ff;
+}
+.cl-League {
+    background: #f3fff3;
+}
+.cl-transcript-anchor {
+    color: #aaa;
+    float: right;
+    margin-right: -1.2em;
+}
+.cl-transcript-anchor:hover {
+    text-decoration: none
+}
 code {
     font-size: 110%;
 }

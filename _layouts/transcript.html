@@ -3,13 +3,29 @@ layout: page
 ---
 {% include JB/setup %}
 
-{% for e in site.data[page.slug] %}
-{% if e.speaker != prev %}
-<b>{{e.speaker}}</b>
-{% endif %}
-{% assign prev = e.speaker %}
-{{ e.caption | markdownify }}
-{% if e.cmd %}
-<pre>{{e.cmd}}</pre>
-{% endif %}
+{% for p in site.posts %}
+  {% if p.slug == page.slug %}
+  <p>{{ p.content }}</p>
+  {% endif %}
 {% endfor %}
+
+<table class="table">
+  {% assign prev = "nothing" %}
+  {% for e in site.data[page.slug] %}
+    {% if e.speaker != prev %}
+      {% if forloop.index > 1 %}
+        </td></tr>
+      {% endif %}
+      <tr class="cl-{{e.speaker}}">
+        <td class="cl-speaker">{{e.speaker}}</td>
+        <td>
+    {% endif %}
+    {% assign prev = e.speaker %}
+    <a class="cl-transcript-anchor" title="{{e.time}}" name="{{e.time}}">&bullet;</a>
+    {{ e.caption | markdownify }}
+    {% if e.cmd %}
+      <pre>{{e.cmd}}</pre>
+    {% endif %}
+  {% endfor %}
+  </td></tr>
+</table>

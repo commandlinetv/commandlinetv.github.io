@@ -1,0 +1,1573 @@
+- time: "00:00:02"
+  caption: |
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:22"
+  speaker: "League"
+  caption: |
+    Welcome back to Command Line TV.
+    This is Episode 3.
+
+- time: "00:00:25"
+  speaker: "League"
+  index: pipeline
+  caption: |
+    Today we're going to talk about wildcards
+    and text processing using pipelines.
+
+- time: "00:00:32"
+  speaker: "League"
+  caption: |
+    First of all, do we have any follow-up from last time?
+
+- time: "00:00:34"
+  speaker: "Lopes"
+  index: filename extension
+  caption: |
+    I did have a question about accessing files,
+    especially when it comes to their extensions.
+
+- time: "00:00:39"
+  speaker: "Lopes"
+  caption: |
+    We did access a `.gz` file and I was curious --
+    one of the other files we had was a `.tar.gz` --
+
+- time: "00:00:47"
+  speaker: "Lopes"
+  caption: |
+    and I was curious as to which one was the
+    actual extension type?
+
+- time: "00:00:50"
+  speaker: "League"
+  caption: |
+    Yeah, so first of all, extensions in UNIX don't mean
+    quite as much as they do on other systems.
+
+- time: "00:00:59"
+  speaker: "League"
+  caption: |
+    They are primarily there for humans,
+    and the system can work --
+
+- time: "00:01:04"
+  speaker: "League"
+  caption: |
+    most commands at least can work perfectly well
+    with whatever extension you want to give it.
+
+- time: "00:01:09"
+  speaker: "League"
+  caption: |
+    So when you have a file like this `.tar.gz` --
+    what's happening there is that it's one type of file,
+
+- time: "00:01:17"
+  speaker: "League"
+  index: "`.tar`"
+  caption: |
+    which is a `.tar` -- `tar` is an archive file,
+    kind of like a zip.
+
+- time: "00:01:23"
+  speaker: "League"
+  caption: |
+    But what's interesting about tar is
+    that it's not by itself compressed.
+
+- time: "00:01:28"
+  speaker: "League"
+  caption: |
+    All it does is it packages up a bunch of files,
+    so that it creates one file,
+
+- time: "00:01:32"
+  speaker: "League"
+  caption: |
+    and then you can compress that separately.
+
+- time: "00:01:35"
+  speaker: "League"
+  caption: |
+    So that's why it gets 2 extensions.
+    The `.tar` means that it's archived files,
+
+- time: "00:01:41"
+  speaker: "League"
+  index: "`.gz`"
+  caption: |
+    and the `.gz` means that it's compressed.
+
+- time: "00:01:43"
+  speaker: "League"
+  caption: |
+    And so they go in that order.
+
+- time: "00:01:46"
+  speaker: "League"
+  caption: |
+    But extensions are really not as
+    meaningful as on other systems.
+
+- time: "00:01:51"
+  speaker: "League"
+  caption: |
+    So for example, if I wanted to rename that as
+    something else, I can still use it as a compressed file.
+
+- time: "00:01:58"
+  speaker: "League"
+  caption: |
+    Or another pretty shocking example -- last time
+    I think we looked at a `.png` file --
+
+- time: "00:02:04"
+  speaker: "League"
+  cmd: |
+    cd thinkjava/figs/
+    ls *.png
+  caption: |
+    we did an external viewer to open up the PNG.
+    That was in `thinkjava/figs`.
+
+- time: "00:02:13"
+  speaker: "League"
+  index: "`xdg-open`"
+  cmd: |
+    xdg-open gridworld.png
+  caption: |
+    And I have this PNG, so we did `xdg-open
+    gridworld.png` to look at this file.
+
+- time: "00:02:21"
+  speaker: "League"
+  caption: |
+    And it pops up in a separate viewer here.
+
+- time: "00:02:24"
+  speaker: "League"
+  caption: |
+    But that viewer doesn't -- and even `xdg-open` itself --
+    doesn't care that it's a `.png` extension.
+
+- time: "00:02:31"
+  speaker: "League"
+  index: "`mv`"
+  caption: |
+    I can rename that file. So, to rename a file is `mv` --
+
+- time: "00:02:36"
+  speaker: "League"
+  caption: |
+    we're going to learn a lot more about `mv`,
+    probably in the next episode.
+
+- time: "00:02:42"
+  speaker: "League"
+  caption: |
+    And then I rename it so it has a `.txt` extension.
+
+- time: "00:02:46"
+  speaker: "League"
+  caption: |
+    So it looks like that would be a text file.
+    But when I do `xdg-open` on that,
+
+- time: "00:02:53"
+  speaker: "League"
+  caption: |
+    it still opens up the image viewer. It still knows
+    that it's an image.
+
+- time: "00:02:58"
+  speaker: "League"
+  caption: |
+    So that's a little bit odd.
+
+- time: "00:03:01"
+  speaker: "League"
+  caption: |
+    The way that it knows that is that it actually looks
+    at the content of the file, rather than the extension.
+
+- time: "00:03:08"
+  speaker: "League"
+  index: "`file`"
+  cmd: |
+    file gridworld.txt
+  caption: |
+    So there's a command that does that too,
+    called the `file` command.
+
+- time: "00:03:15"
+  speaker: "League"
+  caption: |
+    When you run `file` on a text, or on any type of file.
+
+- time: "00:03:19"
+  speaker: "League"
+  caption: |
+    It looks into the file content and identifies what's
+    there to tell you what it is.
+
+- time: "00:03:25"
+  speaker: "League"
+  caption: |
+    And so `file` knows, even though I called this `.txt`,
+    it knows it's a PNG image, and it has its dimensions
+
+- time: "00:03:33"
+  speaker: "League"
+  caption: |
+    and everything else about the image.
+    So that's pretty useful.
+
+- time: "00:03:38"
+  speaker: "League"
+  caption: |
+    For that `.tar.gz`, that you mentioned, if I run the
+    `file` command, it just says that it's compressed data.
+
+- time: "00:03:48"
+  speaker: "League"
+  caption: |
+    It doesn't actually decompress to say what is there
+    behind the compressed data.
+
+- time: "00:03:54"
+  speaker: "Lopes"
+  index: "wildcard"
+  caption: |
+    So you just did `ls *.png`.
+    I know that 'star' is one of the wildcards.
+
+- time: "00:04:00"
+  speaker: "Lopes"
+  index: "`*` wildcard"
+  caption: |
+    What are other things that this `*` wildcard
+    is capable of?
+
+- time: "00:04:04"
+  speaker: "League"
+  caption: |
+    Right, so `*` -- the idea is that it matches filenames.
+
+- time: "00:04:10"
+  speaker: "League"
+  caption: |
+    And `*` can match any number of characters,
+    including zero characters.
+
+- time: "00:04:15"
+  speaker: "League"
+  caption: |
+    And including characters that seem like
+    they would be special, like dots.
+
+- time: "00:04:20"
+  speaker: "League"
+  caption: |
+    So a very common way to use it is with an extension,
+    so `*.png` means anything followed by a `.png`.
+
+- time: "00:04:31"
+  speaker: "League"
+  caption: |
+    And we know that works.
+
+- time: "00:04:34"
+  speaker: "League"
+  caption: |
+    But you can also use it in some other interesting ways.
+
+- time: "00:04:37"
+  speaker: "League"
+  cmd: |
+    ls *a*
+  caption: |
+    So if I want to see every filename here that has an
+    `a` in it. Okay, I could say `ls *a*`, right.
+
+- time: "00:04:50"
+  speaker: "League"
+  caption: |
+    And this means that any characters come before an
+    `a`, and any characters come after an `a`.
+
+- time: "00:04:58"
+  speaker: "League"
+  caption: |
+    And both of those stars could match emptiness,
+    so it could start with an `a` or end with an `a`.
+
+- time: "00:05:04"
+  speaker: "League"
+  caption: |
+    And we get a subset of the files that were listed --
+    just the ones that have an `a` in them.
+
+- time: "00:05:12"
+  speaker: "League"
+  cmd: |
+    ls a*
+  caption: |
+    Or if it's just `a*`, then that's any filename
+    that starts with an `a`.
+
+- time: "00:05:17"
+  speaker: "League"
+  caption: |
+    So you don't have to do it just
+    along the lines of extensions.
+
+- time: "00:05:21"
+  speaker: "League"
+  cmd: |
+    ls card.*
+  caption: |
+    You might think it only works with `*.png`
+    or something like `card.*`.
+
+- time: "00:05:28"
+  speaker: "League"
+  caption: |
+    Those work fine, but you can
+    also use it in more flexible ways.
+
+- time: "00:05:32"
+  speaker: "Lopes"
+  caption: |
+    Besides star, are there any other wildcards that exist?
+
+- time: "00:05:35"
+  speaker: "League"
+  caption: |
+    Sure, some of it depends on what shell you're using
+    and how it's configured.
+
+- time: "00:05:42"
+  speaker: "League"
+  caption: |
+    But I'll give you 2 more of the basic ones
+    that are always available.
+
+- time: "00:05:46"
+  speaker: "League"
+  index: "`?` wildcard"
+  caption: |
+    One is the question mark. So, like a star, a question
+    mark matches characters, but it only matches
+
+- time: "00:05:55"
+  speaker: "League"
+  caption: |
+    exactly one character -- not zero or more.
+    So you can use it to substitute a missing character.
+
+- time: "00:06:02"
+  speaker: "League"
+  caption: |
+    And a great example of that is -- I have files here
+    that have numbers in them, so `list1 list2 list3`.
+
+- time: "00:06:11"
+  speaker: "League"
+  caption: |
+    If I wanted to match all the list files
+    with any number after them,
+
+- time: "00:06:15"
+  speaker: "League"
+  cmd: |
+    ls list?.fig
+  caption: |
+    I could say `list?.fig` to get anything where
+    there's one character following `list`.
+
+- time: "00:06:27"
+  speaker: "League"
+  cmd: |
+    ls list?.*
+  caption: |
+    Or it could be `list?.*` to mix and match
+    both kinds of wildcards.
+
+- time: "00:06:34"
+  speaker: "League"
+  caption: |
+    So that question mark matching one character
+    is useful in lots of situations.
+
+- time: "00:06:39"
+  speaker: "League"
+  caption: |
+    You can also pile them together a little bit.
+
+- time: "00:06:43"
+  speaker: "League"
+  caption: |
+    So if I wanted to match multiple characters,
+    but a specific number of them, like 3 characters.
+
+- time: "00:06:53"
+  speaker: "League"
+  cmd: |
+    ls list*.???
+  caption: |
+    Then I could put 3 question marks.
+    So let's say for example `list*.???`.
+
+- time: "00:07:05"
+  speaker: "League"
+  caption: |
+    So the star will match anything -- that's going
+    to match my numbers --
+
+- time: "00:07:09"
+  speaker: "League"
+  caption: |
+    and then the question mark matches one character,
+    but it does that 3 times.
+
+- time: "00:07:14"
+  speaker: "League"
+  caption: |
+    So that will get any file that starts with list
+    and has a 3 character extension.
+
+- time: "00:07:19"
+  speaker: "League"
+  caption: |
+    But it would not work if there was a
+    one or 2 character extension.
+
+- time: "00:07:25"
+  speaker: "Lopes"
+  caption: |
+    So the star could be used to search for things
+    that you have unknown lengths for,
+
+- time: "00:07:30"
+  speaker: "Lopes"
+  caption: |
+    and the question mark is used for more precise queries?
+
+- time: "00:07:33"
+  speaker: "League"
+  caption: |
+    Yeah, I think so. If you know exactly that it's one
+    character, or how many chars it needs to be,
+    then that's useful.
+
+- time: "00:07:41"
+  speaker: "League"
+  caption: |
+    One great example is when you're doing C --
+    so I'm going to go over here to a little C program.
+
+- time: "00:07:53"
+  speaker: "League"
+  caption: |
+    So C programs usually use the extensions `.c` and `.h`
+    especially, and those are single character extensions.
+
+- time: "00:08:01"
+  speaker: "League"
+  cmd: |
+    ls *.?
+  caption: |
+    So you can do something like `ls *.?` to just
+    pull out those single-character extensions.
+
+- time: "00:08:08"
+  speaker: "League"
+  caption: |
+    It turns out every file in this folder is a single-
+    character extension, so it matched all of them.
+
+- time: "00:08:15"
+  speaker: "League"
+  caption: |
+    But if these were interspersed with other files,
+    it would allow me to select just those.
+
+- time: "00:08:23"
+  speaker: "League"
+  index: "`[]` wildcard"
+  caption: |
+    That leads me to the third kind of wildcard
+    we can do today, which is the square brackets.
+
+- time: "00:08:31"
+  speaker: "League"
+  caption: |
+    So when you put square brackets into a file
+    expression like this, then you can put
+
+- time: "00:08:37"
+  speaker: "League"
+  caption: |
+    individual characters that would match.
+
+- time: "00:08:40"
+  speaker: "League"
+  cmd: |
+    ls *.[ch]
+  caption: |
+    So if I only want to match files that end with a `c`
+    or an `h`, I put the `ch` in brackets.
+
+- time: "00:08:47"
+  speaker: "League"
+  caption: |
+    And that matches only one character,
+    like the question mark,
+
+- time: "00:08:50"
+  speaker: "League"
+  caption: |
+    but the character has to be one of
+    the specified characters.
+
+- time: "00:08:57"
+  speaker: "League"
+  caption: |
+    So this would match the `.c` and the `.h`
+    but not the `.o`.
+
+- time: "00:09:01"
+  speaker: "League"
+  cmd: |
+    ls *.[hc]
+  caption: |
+    You can switch the order of these, but that won't make
+    a difference -- it's just any character from the set.
+
+- time: "00:09:11"
+  speaker: "League"
+  caption: |
+    So the order within that set doesn't matter.
+
+- time: "00:09:15"
+  speaker: "Lopes"
+  index: "`{}` wildcard"
+  caption: |
+    I know that besides the square brackets, we also used
+    the squiggly braces as a wildcard.
+
+- time: "00:09:20"
+  speaker: "Lopes"
+  caption: |
+    What's the purpose of that?
+
+- time: "00:09:22"
+  speaker: "League"
+  caption: |
+    It's a little bit of overlap with what we've
+    already seen, but it works a little differently.
+
+- time: "00:09:29"
+  speaker: "League"
+  caption: |
+    So it's important to understand the difference.
+
+- time: "00:09:31"
+  speaker: "League"
+  caption: |
+    If I use squiggly braces here, I can specify
+    different possible extensions.
+
+- time: "00:09:38"
+  speaker: "League"
+  caption: |
+    They can be more than one character, so we're
+    going to separate them with commas.
+
+- time: "00:09:43"
+  speaker: "League"
+  cmd: |
+    ls *.{c,h}
+  caption: |
+    So if I did something like `*.{c,h}`, that would
+    match anything that ends in a `c` or ends in an `h`.
+
+- time: "00:09:52"
+  speaker: "League"
+  caption: |
+    So that is the same as with square brackets,
+    no more power.
+
+- time: "00:09:57"
+  speaker: "League"
+  caption: |
+    But let's look at some other files up here.
+
+- time: "00:10:01"
+  speaker: "League"
+  caption: |
+    So I've got a bunch of files that start with config,
+    right -- `config.*` -- there are 4 of them.
+
+- time: "00:10:07"
+  speaker: "League"
+  cmd: |
+    ls *.{h,log}
+  caption: |
+    And if I only wanted the `.h` and `.log`, then
+    I could use the curly braces to specify `{h,log}`
+
+- time: "00:10:18"
+  speaker: "League"
+  caption: |
+    and it would only match those 2.
+
+- time: "00:10:21"
+  speaker: "Lopes"
+  caption: |
+    So far we've only used wildcards
+    with the `ls` command.
+
+- time: "00:10:24"
+  speaker: "Lopes"
+  caption: |
+    Can wildcards be used with the other commands
+    we've used so far, such as `more` or `less`?
+
+- time: "00:10:30"
+  speaker: "League"
+  caption: |
+    Yeah, definitely. So wildcards can be used
+    with any command.
+
+- time: "00:10:34"
+  speaker: "League"
+  caption: |
+    In fact, wildcards are expanded by your shell program
+    -- the program that is interpreting all your commands.
+
+- time: "00:10:42"
+  speaker: "League"
+  caption: |
+    That means they can work with commands that
+    aren't even necessarily programmed to use them.
+
+- time: "00:10:48"
+  speaker: "League"
+  caption: |
+    So let's try it with a couple other commands.
+    So `cat` we know can show the contents of a file.
+
+- time: "00:10:55"
+  speaker: "League"
+  cmd: |
+    cat config.h
+  caption: |
+    So if I do `cat config.h` it will dump out those
+    contents on my screen.
+
+- time: "00:11:03"
+  speaker: "League"
+  cmd: |
+    cat config.{h,log}
+  caption: |
+    If I give it multiple files, using for example curly
+    braces, it will just dump the contents of both files.
+
+- time: "00:11:13"
+  speaker: "League"
+  caption: |
+    And of course that scrolled off the screen,
+    but then I can pipe it into `more` or `less`.
+
+- time: "00:11:19"
+  speaker: "League"
+  caption: |
+    So I'm first getting the `config.h` and later on --
+    somewhere -- I'll get the `config.log`.
+
+- time: "00:11:29"
+  speaker: "League"
+  caption: |
+    So it can `cat` both of those files at the same time.
+
+- time: "00:11:34"
+  speaker: "League"
+  index: "`head`"
+  caption: |
+    A command we learned last week that does something
+    especially useful with multiple files is `head`.
+
+- time: "00:11:42"
+  speaker: "League"
+  cmd: |
+    head config.h
+  caption: |
+    So if I do `head config.h` --
+    you remember what `head` does?
+
+- time: "00:11:47"
+  speaker: "Lopes"
+  caption: |
+    It just shows the intro to that file?
+
+- time: "00:11:50"
+  speaker: "League"
+  caption: |
+    Yeah, the first 8 or 10 lines, whatever that is.
+
+- time: "00:11:53"
+  speaker: "League"
+  cmd: |
+    head -3 config.h
+  caption: |
+    And we can specify an option here to
+    make it shorter or longer.
+
+- time: "00:11:59"
+  speaker: "League"
+  caption: |
+    But you can also give that multiple files.
+
+- time: "00:12:03"
+  speaker: "League"
+  cmd: |
+    head -3 config.*
+  caption: |
+    So if I said `config.*` here -- this is pretty cool
+    -- it actually puts a little header with the filename,
+
+- time: "00:12:10"
+  speaker: "League"
+  caption: |
+    and gives me 3 lines from that file, a blank line,
+    and then the next file.
+
+- time: "00:12:15"
+  speaker: "League"
+  caption: |
+    3 lines from that file, blank line, and so on.
+
+- time: "00:12:19"
+  speaker: "League"
+  caption: |
+    So it's showing me the top couple
+    of lines from each of multiple files.
+
+- time: "00:12:24"
+  speaker: "League"
+  caption: |
+    And the multiple files are just based on the wildcard.
+
+- time: "00:12:27"
+  speaker: "Lopes"
+  caption: |
+    Using `head`, we were able to find out what
+    the top 3 or 4 or 5 lines of each file had.
+
+- time: "00:12:34"
+  speaker: "Lopes"
+  index: "`grep`"
+  caption: |
+    What if instead we wanted to search throughout
+    those files for particular words or phrases?
+
+- time: "00:12:40"
+  speaker: "League"
+  caption: |
+    Great, there's a *perfect* command for that,
+    that you're going to love. [Laughs]
+
+- time: "00:12:44"
+  speaker: "League"
+  caption: |
+    This is one of *the* most powerful Unix commands
+    that is accessible to a beginner.
+
+- time: "00:12:50"
+  speaker: "League"
+  caption: |
+    And it's called `grep`.
+
+- time: "00:12:54"
+  speaker: "League"
+  caption: |
+    What you do with `grep` is you specify a word or
+    pattern of some sort that it will search for in files.
+
+- time: "00:13:03"
+  speaker: "League"
+  caption: |
+    So let's say I want to search for
+    a word like `Copyright`.
+
+- time: "00:13:08"
+  speaker: "League"
+  caption: |
+    And the files I want to search in are what I put next.
+
+- time: "00:13:11"
+  speaker: "League"
+  caption: |
+    So you could list multiple files here -- like that --
+    or you could use your wildcards to specify which files.
+
+- time: "00:13:18"
+  speaker: "League"
+  cmd: |
+    grep Copyright *
+  caption: |
+    What if I just put star, all by itself?
+
+- time: "00:13:22"
+  speaker: "League"
+  caption: |
+    That will match any file at all in the current directory.
+
+- time: "00:13:26"
+  speaker: "League"
+  caption: |
+    So this command says I want to see occurrences of the
+    word `Copyright` in any file in the current directory.
+
+- time: "00:13:35"
+  speaker: "League"
+  caption: |
+    And what this output does -- it shows us a filename,
+    so for example, there's a file called `Makefile`.
+
+- time: "00:13:47"
+  speaker: "League"
+  caption: |
+    And then in that file, it's showing me only the
+    lines that match the word `Copyright`.
+
+- time: "00:13:55"
+  speaker: "League"
+  caption: |
+    So the `Makefile` seems to have 4 lines that match.
+    And then there's another file called `Makefile.am`
+
+- time: "00:14:05"
+  speaker: "League"
+  caption: |
+    which has one line which matches, and so on.
+    The `README` has one line.
+
+- time: "00:14:11"
+  speaker: "League"
+  caption: |
+    So that's the basic structure of grep.
+
+- time: "00:14:15"
+  speaker: "Lopes"
+  caption: |
+    Now the `grep` command you just typed dumped
+    a lot of content onto the terminal.
+
+- time: "00:14:19"
+  speaker: "Lopes"
+  caption: |
+    Is there a better way to organize or view
+    what we're trying to see?
+
+- time: "00:14:23"
+  speaker: "League"
+  caption: |
+    Yeah, one thing is that it paged off the screen,
+    so we have to scroll up to see some of it.
+
+- time: "00:14:27"
+  speaker: "League"
+  cmd: |
+    grep Copyright * | less
+  caption: |
+    And of course we know how to do a pager,
+    so we could pipe it to `less`
+
+- time: "00:14:32"
+  speaker: "League"
+  caption: |
+    and see only one screen at a time.
+    That's part of it.
+
+- time: "00:14:36"
+  speaker: "League"
+  caption: |
+    But something else really cool you can do is `grep`
+
+- time: "00:14:40"
+  speaker: "League"
+  caption: |
+    -- at least the version from the GNU project
+    (which we mentioned last time as well).
+
+- time: "00:14:46"
+  speaker: "League"
+  caption: |
+    `grep` supports coloring its output.
+
+- time: "00:14:49"
+  speaker: "League"
+  index: "`grep --color`"
+  cmd: |
+    grep --color Copyright *
+  caption: |
+    So if you say double-dash color `--color` then it
+    will give you this colorful output where
+
+- time: "00:14:57"
+  speaker: "League"
+  caption: |
+    the filenames are in purple, the text you're looking
+    for is in red, and then the rest of that line is black.
+
+- time: "00:15:07"
+  speaker: "League"
+  caption: |
+    And that just makes it a whole lot easier
+    to see the different matches.
+
+- time: "00:15:16"
+  speaker: "Lopes"
+  index: case-sensitivity
+  caption: |
+    So like most of the commands we've learned,
+    it seems that `grep` has a case-sensitivity issue.
+
+- time: "00:15:23"
+  speaker: "Lopes"
+  caption: |
+    Is there a way to work around that?
+
+- time: "00:15:25"
+  speaker: "League"
+  index: "`grep -i`"
+  caption: |
+    Yeah, you notice here that I typed `Copyright`
+    with a capital C.
+
+- time: "00:15:30"
+  speaker: "League"
+  caption: |
+    And all of the matches it's giving are a capital C.
+
+- time: "00:15:34"
+  speaker: "League"
+  caption: |
+    If I searched for `copyright` with a lowercase C,
+    it would also look for matches
+
+- time: "00:15:41"
+  speaker: "League"
+  caption: |
+    -- oh let's also keep the color -- there are ways
+    to specify we always want color output,
+
+- time: "00:15:48"
+  speaker: "League"
+  caption: |
+    but I'm not going to get into them right now.
+
+- time: "00:15:50"
+  speaker: "League"
+  caption: |
+    So I'll just remember to put that `--color`.
+
+- time: "00:15:53"
+  speaker: "League"
+  caption: |
+    So when I use lowercase `copyright`, it's finding
+    instances where copyright appears in lowercase,
+
+- time: "00:16:00"
+  speaker: "League"
+  caption: |
+    and those are different than the upper-case ones.
+    So yeah it is case-sensitive.
+
+- time: "00:16:06"
+  speaker: "League"
+  cmd: |
+    grep --color -i copyright *
+  caption: |
+    But I can put a `-i`, which means that it will
+    do an insensitive search.
+
+- time: "00:16:12"
+  speaker: "League"
+  caption: |
+    So now it will give me every match of `copyright`
+    -- some of them are lowercase, as in here,
+
+- time: "00:16:21"
+  speaker: "League"
+  caption: |
+    and some of them are uppercase.
+    And I think there are even ones,
+
+- time: "00:16:25"
+  speaker: "League"
+  caption: |
+    if I search up a little bit, that are all caps.
+
+- time: "00:16:29"
+  speaker: "League"
+  caption: |
+    Yeah here it appears in all caps, which we didn't
+    get by doing `c` or `C`, but it matches that too.
+
+- time: "00:16:40"
+  speaker: "Lopes"
+  caption: |
+    I notice that the last 2 lines
+    that your terminal put out
+
+- time: "00:16:43"
+  speaker: "Lopes"
+  caption: |
+    didn't seem to put out anything in regards to
+    `copyright`, that we searched for.
+
+- time: "00:16:48"
+  speaker: "League"
+  caption: |
+    Yeah these are errors, or warning messages.
+
+- time: "00:16:52"
+  speaker: "League"
+  index: "binary file"
+  caption: |
+    The last one here -- `grep` can search
+    through binary files as well as text,
+
+- time: "00:17:00"
+  speaker: "League"
+  caption: |
+    but it's not useful to show you the lines of
+    a binary file, because they won't be understandable.
+
+- time: "00:17:06"
+  speaker: "League"
+  caption: |
+    So it just says that it matches, without showing me
+    the line where it matches.
+
+- time: "00:17:10"
+  speaker: "League"
+  caption: |
+    So that explains that one.
+
+- time: "00:17:13"
+  speaker: "League"
+  caption: |
+    These other ones, which also appeared
+    sprinkled throughout up here.
+
+- time: "00:17:18"
+  speaker: "League"
+  caption: |
+    When I specified `*`, star matches everything
+    in the current directory,
+
+- time: "00:17:23"
+  speaker: "League"
+  caption: |
+    but that includes other directories.
+
+- time: "00:17:26"
+  speaker: "League"
+  caption: |
+    So `grep` by default doesn't descend into directories,
+    and it doesn't search in a directory on its own.
+
+- time: "00:17:37"
+  speaker: "League"
+  caption: |
+    So it just gives me a warning that one of the
+    filenames that I included here, by typing `*`,
+
+- time: "00:17:44"
+  speaker: "League"
+  caption: |
+    it's not going to look at.
+
+- time: "00:17:46"
+  speaker: "League"
+  caption: |
+    There are 2 things I can do about that.
+
+- time: "00:17:48"
+  speaker: "League"
+  index: "`grep -s`"
+  caption: |
+    One is to just silence those types of messages.
+
+- time: "00:17:52"
+  speaker: "League"
+  caption: |
+    So there's an `s` option. It can either go separately,
+    or -- like we did with `ls -ltr` --
+
+- time: "00:18:00"
+  speaker: "League"
+  caption: |
+    you can merge that in with another switch.
+
+- time: "00:18:02"
+  speaker: "League"
+  caption: |
+    So `i` and `s` are different options that
+    I'm specifying here, but they're all
+
+- time: "00:18:07"
+  speaker: "League"
+  caption: |
+    part of the one dash: `-is`.
+
+- time: "00:18:11"
+  speaker: "League"
+  caption: |
+    So `s` means to silence any error messages.
+
+- time: "00:18:15"
+  speaker: "League"
+  cmd: |
+    grep --color -is copyright *
+  caption: |
+    And if I do it that way, it doesn't say anything
+    about those directories, just silently ignores them.
+
+- time: "00:18:22"
+  speaker: "League"
+  caption: |
+    So that is a little bit of a cleaner output.
+
+- time: "00:18:27"
+  speaker: "League"
+  index: "`grep -r`"
+  caption: |
+    The other option is you can actually ask `grep`
+    to look inside directories, and grep through
+
+- time: "00:18:33"
+  speaker: "League"
+  caption: |
+    all of the files within them. So when you do that,
+
+- time: "00:18:36"
+  speaker: "League"
+  cmd: |
+    grep --color -ir copyright *
+  caption: |
+    you specify `-r` for recursive.
+    And now we're going to see lots of files
+
+- time: "00:18:41"
+  speaker: "League"
+  caption: |
+    we didn't see before. And some of them with slash
+    in them, which means it's in a sub-directory.
+
+- time: "00:18:49"
+  speaker: "League"
+  caption: |
+    So previously it just ignored the `src` folder.
+
+- time: "00:18:52"
+  speaker: "League"
+  caption: |
+    But now it's going and looking at all the files
+    in there, also searching for `copyright`.
+
+- time: "00:18:58"
+  speaker: "League"
+  caption: |
+    So that allows you to search many more files,
+    very quickly.
+
+- time: "00:19:03"
+  speaker: "Lopes"
+  index: "`grep -n`"
+  caption: |
+    Well now that we used `grep` to search for any
+    instance of `copyright` -- it puts out a lot of data
+
+- time: "00:19:09"
+  speaker: "Lopes"
+  caption: |
+    is there any way to tell exactly where
+    within the file that line is?
+
+- time: "00:19:14"
+  speaker: "League"
+  caption: |
+    Yeah, that's a great question, and very useful.
+
+- time: "00:19:17"
+  speaker: "League"
+  caption: |
+    There's a very simple option we can add to grep,
+    which is `-n`.
+
+- time: "00:19:22"
+  speaker: "League"
+  cmd: |
+    grep --color -ir -n copyright *
+  caption: |
+    So again, I can keep it as part of this same block
+    or make a separate `-n`.
+
+- time: "00:19:28"
+  speaker: "League"
+  caption: |
+    And what this will do is it adds number
+    after each filename here.
+
+- time: "00:19:34"
+  speaker: "League"
+  caption: |
+    That number tells me what line it
+    appeared on in that file.
+
+- time: "00:19:38"
+  speaker: "League"
+  caption: |
+    So you can see that in this one file, `hello.c`,
+    copyright appeared on line 3,
+
+- time: "00:19:44"
+  speaker: "League"
+  caption: |
+    but it also appeared down on 167, 180, and 183.
+
+- time: "00:19:49"
+  speaker: "League"
+  caption: |
+    So it gives you a sense of whether all of the
+    instances appear in the same place,
+
+- time: "00:19:53"
+  speaker: "League"
+  caption: |
+    or are they spread out more -- stuff like that.
+
+- time: "00:19:57"
+  speaker: "League"
+  caption: |
+    There are a couple more options related to
+    changing the output style.
+
+- time: "00:20:04"
+  speaker: "League"
+  index: "`grep -l`"
+  caption: |
+    One of them is -- let's say that I only
+    want to see what files matched.
+
+- time: "00:20:10"
+  speaker: "League"
+  caption: |
+    I don't really care to see the text of the
+    line that matched, just which files.
+
+- time: "00:20:18"
+  speaker: "League"
+  caption: |
+    So that is an option called `-l`.
+    This is a lowercase 'L'.
+
+- time: "00:20:25"
+  speaker: "League"
+  cmd: |
+    grep --color -ils copyright *
+  caption: |
+    And I'm not going to do recursive anymore,
+    but I'll turn the `-s` back on,
+
+- time: "00:20:32"
+  speaker: "League"
+  caption: |
+    which means suppress the error messages.
+
+- time: "00:20:37"
+  speaker: "League"
+  caption: |
+    So `-l` will change this to be much simpler.
+
+- time: "00:20:41"
+  speaker: "League"
+  caption: |
+    It's just going to give me a list of filenames
+    that contain that word copyright.
+
+- time: "00:20:48"
+  speaker: "League"
+  caption: |
+    It doesn't show me where it matches, and
+    the file only appears once in this list
+
+- time: "00:20:53"
+  speaker: "League"
+  caption: |
+    even if it has multiple occurrences of that text.
+
+- time: "00:21:02"
+  speaker: "League"
+  caption: |
+    So let's try to search for a different word,
+    and we'll see different files that match.
+
+- time: "00:21:07"
+  speaker: "League"
+  cmd: |
+    grep --color -ils printf *
+  caption: |
+    Let's try `printf` -- and we still see `printf`
+    in many of those files.
+
+- time: "00:21:16"
+  speaker: "League"
+  cmd: |
+    grep --color -is printf *
+  caption: |
+    If you want to go back to the style we had before,
+    just delete the `-l`,
+
+- time: "00:21:22"
+  speaker: "League"
+  cmd: |
+    grep --color -is printf *
+  caption: |
+    and now we will see where it matches.
+
+- time: "00:21:25"
+  speaker: "League"
+  caption: |
+    A lot of these are matching capitalized
+    versions of `PRINTF`.
+
+- time: "00:21:28"
+  speaker: "League"
+  caption: |
+    So if I wanted to see if lowercase `printf`
+    appears in any files, and which files it appears in,
+
+- time: "00:21:35"
+  speaker: "League"
+  cmd: |
+    grep --color -ls printf *
+  caption: |
+    I'll get rid of the `-i` and keep the `-l`.
+    and now it appears in all of those.
+
+- time: "00:21:41"
+  speaker: "League"
+  cmd: |
+    grep --color -s printf *
+  caption: |
+    And here are some of those.
+
+- time: "00:21:45"
+  speaker: "League"
+  caption: |
+    So `grep` is a very powerful tool,
+    just for searching for text within a file.
+
+- time: "00:21:52"
+  speaker: "League"
+  index: "`grep -c`"
+  caption: |
+    So in addition to that `-l`, which just prints
+    the filenames that match,
+
+- time: "00:21:56"
+  speaker: "League"
+  caption: |
+    there's one other option that's really cool,
+    which is `-c` -- lowercase 'C'.
+
+- time: "00:22:02"
+  speaker: "League"
+  cmd: |
+    grep --color -cs printf *
+  caption: |
+    And that means to print a count of
+    how many matches within the file.
+
+- time: "00:22:07"
+  speaker: "League"
+  caption: |
+    But again, it doesn't show us the
+    lines that match -- it just shows us the counts.
+
+- time: "00:22:12"
+  speaker: "League"
+  caption: |
+    So that looks like this.
+
+- time: "00:22:15"
+  speaker: "League"
+  caption: |
+    What's happening here is it has a filename,
+    and following that filename it puts a number,
+
+- time: "00:22:23"
+  speaker: "League"
+  caption: |
+    which is the number of times that the match -- I
+    believe it's actually the number of lines that match.
+
+- time: "00:22:29"
+  speaker: "League"
+  caption: |
+    So if the word `printf` appears on
+    the same line twice, it only counts once.
+
+- time: "00:22:37"
+  speaker: "Lopes"
+  index: "`--help`"
+  caption: |
+    I guess this is a good place to mention that,
+    like all the other commands,
+
+- time: "00:22:40"
+  speaker: "Lopes"
+  caption: |
+    you can use the `--help` option with grep.
+
+- time: "00:22:44"
+  speaker: "League"
+  caption: |
+    Definitely. So `grep` has lots more
+    options to explore.
+
+- time: "00:22:48"
+  speaker: "League"
+  cmd: |
+    grep --help | less
+  caption: |
+    And if we do `--help` and `less`, like that, then we
+    get to see some more of the options that it supports.
+
+- time: "00:22:57"
+  speaker: "League"
+  index: "spaces"
+  caption: |
+    Another small tip is that, if you have a phrase
+    you want to search for rather than just a single word.
+
+- time: "00:23:04"
+  speaker: "League"
+  index: "quoting"
+  caption: |
+    Remember that spaces are significant in command lines.
+
+- time: "00:23:09"
+  speaker: "League"
+  caption: |
+    So if I put spaces -- let's say I want to search for
+    `free software` in all of the files.
+
+- time: "00:23:16"
+  speaker: "League"
+  caption: |
+    The problem with that is it interprets the
+    first parameter as what you're searching for,
+
+- time: "00:23:22"
+  speaker: "League"
+  caption: |
+    and the rest as filenames that you're searching in.
+
+- time: "00:23:26"
+  speaker: "League"
+  caption: |
+    So there is no file called `software`
+    which means this is going to be a problem.
+
+- time: "00:23:31"
+  speaker: "League"
+  caption: |
+    So to do that, I can use quotes.
+
+- time: "00:23:34"
+  speaker: "League"
+  caption: |
+    The same way that I quoted spaces in filenames.
+
+- time: "00:23:40"
+  speaker: "League"
+  caption: |
+    So I can use quotes there to group together
+    `"free software"` as one thing that I search for.
+
+- time: "00:23:46"
+  speaker: "League"
+  caption: |
+    And then, wherever that appears will show up.
+
+- time: "00:23:50"
+  speaker: "League"
+  caption: |
+    But I need the quotes to group it together.
+
+- time: "00:23:54"
+  speaker: "Lopes"
+  caption: |
+    So today we went over the wildcards as well as a lot
+    of features that `grep` has to offer our Linux users.
+
+- time: "00:24:02"
+  speaker: "League"
+  caption: |
+    Yeah, and next time I think we will look at
+    a few more of the text processing commands.
+
+- time: "00:24:08"
+  speaker: "League"
+  caption: |
+    There's a command called `cut`,
+    and `sort`, and `uniq`.
+
+- time: "00:24:13"
+  speaker: "League"
+  caption: |
+    A lot of data in Unix systems
+    is kept in plain text files.
+
+- time: "00:24:16"
+  speaker: "League"
+  caption: |
+    And these commands will allow us to process them
+    and search them in particular ways.
+
+- time: "00:24:21"
+  speaker: "League"
+  caption: |
+    And they all interact with each other very nicely.
+
+- time: "00:24:25"
+  speaker: "League"
+  caption: |
+    We may also look a little bit at renaming files using
+    the move (`mv`) command, which came up today.
+
+- time: "00:24:33"
+  speaker: "League"
+  caption: |
+    So we'll go into some of the features of that as well.
+
+- time: "00:24:37"
+  speaker: "League"
+  caption: |
+    So join us next time!
+
+- time: "00:24:41"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:25:17"
+  caption: |
+    [End]

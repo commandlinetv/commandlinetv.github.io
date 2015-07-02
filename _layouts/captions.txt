@@ -1,4 +1,4 @@
 {% for e in site.data[page.slug] %}{{ forloop.index }}
-{{ e.time }} --> {%if site.data[page.slug][forloop.index].time %}{{site.data[page.slug][forloop.index].time}}{%else%}99:99:99,999{%endif%}
+{{ e.time }},000 --> {%if site.data[page.slug][forloop.index].time %}{{site.data[page.slug][forloop.index].time}},000{%else%}99:99:99,999{%endif%}
 {{ e.caption }}
 {% endfor %}

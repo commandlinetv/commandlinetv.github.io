@@ -19,16 +19,18 @@
       <a href="{{page.slug}}.srt">Captions</a>
     </p>
 
-    Episode index:
+    <b>Episode index:</b>
     <ul class="cl-index">
       {% for e in site.data[page.slug] %}
-      {% if e.index %}
-      <li>
-        <a href="#{{e.time}}" title="Jump to {{e.time}}">
-          {{e.index|markdownify}} {{e.time}}
-        </a>
-      </li>
-      {% endif %}
+        {% if e.index %}
+         <li>
+            {{e.index|markdownify}}
+            &nbsp;&nbsp;
+            <a href="{{page.slug}}.html#{{e.time}}">&rarr;txt</a>
+            &nbsp;&nbsp;
+            &uarr;v(TODO)
+          </li>
+        {% endif %}
       {% endfor %}
     </ul>
 

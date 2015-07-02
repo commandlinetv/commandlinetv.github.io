@@ -14,6 +14,11 @@
     I learned `cd` and `ls`.
     This is the second line.
 
+- time: "00:00:25,000"
+  speaker: Lopes
+  caption: |
+    I'm saying more stuff.
+
 - time: "01:14:25,000"
   speaker: League
   index: "`..`"
