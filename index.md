@@ -1,7 +1,6 @@
 ---
 layout: page
 title: Hello World!
-tagline: Supporting tagline
 ---
 {% include JB/setup %}
 
@@ -30,7 +29,7 @@ When you don't need the samples anymore just delete the `_posts/core-samples` fo
 
     $ rm -rf _posts/core-samples
 
-Here's a sample "posts list".
+Here's a sample "posts list."
 
 <ul class="posts">
   {% for post in site.posts %}

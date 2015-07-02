@@ -1,12 +1,13 @@
 body {
     font-family: 'Merriweather', serif;
 }
-.brand, h1, h2, h3, h4, h5 {
+.navbar, h1, h2, h3, h4, h5 {
     font-family: 'Lato', sans-serif;
 }
 #cl-pages {
-    margin-top: 1ex;
+    margin-top: 2.3ex;
 }
+
 
 /* Custom container */
 .container-narrow {
