@@ -1,7 +1,79 @@
 ---
-theme :
-  name : twitter
 layout: default
 ---
 {% include JB/setup %}
-{% include themes/twitter/post.html %}
+
+<ul class="breadcrumb">
+  <li><a href="/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+  <li class="active">{{page.title}}</li>
+</ul>
+
+<h1>{{ page.title }} {% if page.tagline %}<small>{{page.tagline}}</small>{% endif %}</h1>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+
+    <video id="video_1" class="video-js vjs-default-skin"
+           controls preload="auto" width="640" height="360"
+           poster="//d2he78l8f4fi4u.cloudfront.net/video/commandline.tv/{{page.slug}}.jpg"
+           data-setup='{"example_option":true}'>
+      <source src="//d2he78l8f4fi4u.cloudfront.net/video/commandline.tv/{{page.slug}}.mp4"  type="video/mp4" />
+      <source src="//d2he78l8f4fi4u.cloudfront.net/video/commandline.tv/{{page.slug}}.webm" type="video/webm" />
+      <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+    <div class="cl-gap"></div>
+
+    <div class="content">
+      {{ content }}
+    </div>
+
+    <p><b>{{ page.date | date:"%-d %B %Y" }}</b></p>
+
+    <div id="cl-ep-nav">
+      <div class="btn-group">
+        {% if page.previous %}
+          <a class="btn" href="{{BASE_PATH}}{{page.previous.url}}"><i class="icon-chevron-left"></i> Previous</a>
+        {% else %}
+          <span class="btn disabled"><i class="icon-chevron-left"></i> Previous</span>
+        {% endif %}
+        {% if page.next %}
+          <a class="btn" href="{{BASE_PATH}}{{page.next.url}}"><i class="icon-chevron-right"></i> Next</a>
+        {% else %}
+          <span class="btn disabled"><i class="icon-chevron-right"></i> Next</span>
+        {% endif %}
+        <a class="btn" href="{{page.slug}}.html"><i class="icon-list"></i> Transcript</a>
+        <a class="btn" href="#"><i class="icon-download-alt"></i> Video (.mp4, 368MB)</a>
+        <a class="btn" href="{{page.slug}}.srt"><i class="icon-download-alt"></i> Captions (.srt)</a>
+      </div>
+    </div>
+
+    <table class="table table-hover table-bordered table-condensed cl-index">
+      <tr>
+        <th style="text-align:right">Time&darr;</th>
+        <th style="text-align:center">Jump</th>
+        <th>Topic or command</th>
+      </tr>
+      {% for e in site.data[page.slug] %}
+        {% if e.index %}
+          <tr>
+            <td style="text-align:right">
+              {{e.time}}
+            </td>
+            <td style="text-align:center" class="span2">
+              &nbsp;
+              <div class="btn-group btn-small">
+                <a class="btn btn-small" title="Cue video"
+                   href="#{{e.time}}"><i class="icon-play"></i></a>
+                <a class="btn btn-small" title="Jump to transcript"
+                   href="{{page.slug}}.html#{{e.time}}"><i class="icon-list"></i></a>
+              </div>
+            </td>
+            <td>{{e.index|markdownify}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+
+    {% include JB/comments %}
+  </div>
+</div>

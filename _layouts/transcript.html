@@ -1,15 +1,23 @@
 ---
-layout: page
+layout: default
 ---
 {% include JB/setup %}
 
 {% for p in site.posts %}
   {% if p.slug == page.slug %}
-  <p>{{ p.content }}</p>
+    <ul class="breadcrumb">
+      <li><a href="/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+      <li><a href="./">{{ p.title }}</a> <span class="divider">/</span></li>
+      <li class="active">Transcript</li>
+    </ul>
+
+    <h1>{{p.title}} {%if p.tagline%}<small>{{p.tagline}}</small>{%endif%}</h1>
+    <p>{{ p.content }}</p>
+    <p><b>{{p.date|date:"%-d %B %Y"}}</b></p>
   {% endif %}
 {% endfor %}
 
-<table class="table">
+<table class="table table-bordered cl-transcript">
   {% assign prev = "nothing" %}
   {% for e in site.data[page.slug] %}
     {% if e.speaker != prev %}

@@ -18,6 +18,11 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Lato rel='stylesheet' type='text/css'>
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+    <link href="//vjs.zencdn.net/4.11/video-js.css" rel="stylesheet">
+    <style>
+      .vjs-default-skin { border: 2px solid black;}
+    </style>
+    <script src="//vjs.zencdn.net/4.11/video.js"></script>
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -34,7 +39,7 @@
   </head>
 
   <body>
-    <div class="navbar">
+    <div class="navbar navbar-static-top" id="cl-navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
           <a class="brand" href="{{ HOME_PATH }}">
@@ -60,9 +65,9 @@
       <div class="content">
         {{ content }}
       </div>
-      <hr>
       <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }},
+          all rights reserved.
         </p>
       </footer>
 
