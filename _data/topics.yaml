@@ -1,0 +1,85 @@
+- term: "`*` wildcard"
+  refs:
+    - 3#episode003#00:04:00
+- term: "`--help`"
+  refs:
+    - 3#episode003#00:22:37
+- term: "`..`"
+  refs:
+    - 0#episode00#01:14:25
+- term: "`.gz`"
+  refs:
+    - 3#episode003#00:01:41
+- term: "`.tar`"
+  refs:
+    - 3#episode003#00:01:17
+- term: "`?` wildcard"
+  refs:
+    - 3#episode003#00:05:46
+- term: "`[]` wildcard"
+  refs:
+    - 3#episode003#00:08:23
+- term: "`cd`"
+  refs:
+    - 0#episode00#00:00:25
+- term: "`file`"
+  refs:
+    - 3#episode003#00:03:08
+- term: "`grep --color`"
+  refs:
+    - 3#episode003#00:14:49
+- term: "`grep -c` (count)"
+  refs:
+    - 3#episode003#00:21:52
+- term: "`grep -i` (ignore-case)"
+  refs:
+    - 3#episode003#00:15:25
+- term: "`grep -l` (files-with-matches)"
+  refs:
+    - 3#episode003#00:20:04
+- term: "`grep -n` (line-number)"
+  refs:
+    - 3#episode003#00:19:03
+- term: "`grep -r` (recursive)"
+  refs:
+    - 3#episode003#00:18:27
+- term: "`grep -s` (no-messages)"
+  refs:
+    - 3#episode003#00:17:48
+- term: "`grep`"
+  refs:
+    - 3#episode003#00:12:34
+- term: "`head`"
+  refs:
+    - 0#episode00#01:15:00
+    - 3#episode003#00:11:34
+- term: "`mv`"
+  refs:
+    - 3#episode003#00:02:31
+- term: "`xdg-open`"
+  refs:
+    - 3#episode003#00:02:13
+- term: "`{}` wildcard"
+  refs:
+    - 3#episode003#00:09:15
+- term: "binary file"
+  refs:
+    - 3#episode003#00:16:52
+- term: "case-sensitivity"
+  refs:
+    - 3#episode003#00:15:16
+- term: "filename extension"
+  refs:
+    - 3#episode003#00:00:34
+- term: "pipeline"
+  refs:
+    - 3#episode003#00:00:25
+- term: "quoting"
+  refs:
+    - 3#episode003#00:23:04
+- term: "spaces"
+  refs:
+    - 3#episode003#00:22:57
+- term: "wildcard"
+  refs:
+    - 3#episode003#00:03:54

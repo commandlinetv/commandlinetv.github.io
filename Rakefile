@@ -73,6 +73,37 @@ task :post do
   end
 end # task :post
 
+desc "Update topic index"
+task :reindex do
+  master = {}
+  Dir.glob("_data/episode*.yaml").each do |ep|
+    dat = YAML.load_file(ep).each do |item|
+      if item['index']
+        x = item['index']
+        slug = /episode[^\.]*/.match(ep)[0]
+        num = slug[7..-1].to_i
+        ref = "#{num}##{slug}##{item['time']}"
+        if !master[x]
+          master[x] = [ref]
+        else
+          master[x].push(ref)
+        end
+      end
+    end
+  end
+  filename = "_data/topics.yaml"
+  puts "Writing #{filename}"
+  open(filename, 'w') do |topics|
+    master.sort.each do |item|
+      topics.puts "- term: \"#{item[0]}\""
+      topics.puts "  refs:"
+      item[1].each do |ref|
+        topics.puts "    - #{ref}"
+      end
+    end
+  end
+end
+
 # Usage: rake episode num=N
 desc "Prepare a new episode"
 task :episode do

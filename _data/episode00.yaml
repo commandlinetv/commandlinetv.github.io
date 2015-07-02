@@ -1,37 +1,38 @@
-- time: "00:00:01,000"
+- time: "00:00:01"
   caption: |
     [Electronic music]
 
-- time: "00:00:05,000"
+- time: "00:00:05"
   speaker: League
   caption: |
     Welcome to Command Line TV
 
-- time: "00:00:25,000"
+- time: "00:00:25"
   speaker: Lopes
   index: "`cd`"
   caption: |
     I learned `cd` and `ls`.
     This is the second line.
 
-- time: "00:00:25,000"
+- time: "00:00:25"
   speaker: Lopes
   caption: |
     I'm saying more stuff.
 
-- time: "01:14:25,000"
+- time: "01:14:25"
   speaker: League
   index: "`..`"
   caption: |
     Yes that's right.
 
-- time: "01:14:25,000"
+- time: "01:14:25"
   speaker: League
   cmd: |
     cd ..
   caption: |
     We can use `..` to move up.
 
-- time: "01:15:00,000"
+- time: "01:15:00"
+  index: "`head`"
   caption: |
     [End]

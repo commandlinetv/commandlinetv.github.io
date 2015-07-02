@@ -943,7 +943,7 @@
 
 - time: "00:15:25"
   speaker: "League"
-  index: "`grep -i`"
+  index: "`grep -i` (ignore-case)"
   caption: |
     Yeah, you notice here that I typed `Copyright`
     with a capital C.
@@ -1100,7 +1100,7 @@
 
 - time: "00:17:48"
   speaker: "League"
-  index: "`grep -s`"
+  index: "`grep -s` (no-messages)"
   caption: |
     One is to just silence those types of messages.
 
@@ -1146,7 +1146,7 @@
 
 - time: "00:18:27"
   speaker: "League"
-  index: "`grep -r`"
+  index: "`grep -r` (recursive)"
   caption: |
     The other option is you can actually ask `grep`
     to look inside directories, and grep through
@@ -1189,7 +1189,7 @@
 
 - time: "00:19:03"
   speaker: "Lopes"
-  index: "`grep -n`"
+  index: "`grep -n` (line-number)"
   caption: |
     Well now that we used `grep` to search for any
     instance of `copyright` -- it puts out a lot of data
@@ -1261,7 +1261,7 @@
 
 - time: "00:20:04"
   speaker: "League"
-  index: "`grep -l`"
+  index: "`grep -l` (files-with-matches)"
   caption: |
     One of them is -- let's say that I only
     want to see what files matched.
@@ -1377,7 +1377,7 @@
 
 - time: "00:21:52"
   speaker: "League"
-  index: "`grep -c`"
+  index: "`grep -c` (count)"
   caption: |
     So in addition to that `-l`, which just prints
     the filenames that match,
