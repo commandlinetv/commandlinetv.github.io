@@ -74,6 +74,19 @@ h1 {
     padding: 3px;
     margin-bottom: 1ex;
 }
+#cl-about img {
+    border: 1px solid #999;
+    float: left;
+    clear: both;
+    margin: 0 1em 1ex 0;
+}
+.cl-about-profile {
+    clear: both;
+    padding-top: 2ex;
+}
+blockquote p {
+    font-weight: 400;
+}
 
 /* Custom container */
 .container-narrow {
