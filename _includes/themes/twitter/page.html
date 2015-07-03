@@ -1,5 +1,12 @@
-<div class="cl-gap"></div>
+
+{% if page.url != "/index.html" %}
+<ul class="breadcrumb">
+  <li><a href="/"><i class="icon-home"></i></a> <span class="divider">/</span></li>
+  <li class="active">{{page.title}}</li>
+</ul>
 <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
+{% endif %}
+
 
 <div class="row-fluid" id="cl-{{page.slug}}">
   <div class="span12">
