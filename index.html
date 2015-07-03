@@ -1,49 +1,61 @@
 ---
-layout: page
+layout: default
 title: Welcome!
 ---
 {% include JB/setup %}
 
-<p>
-  <b>Command Line TV</b> is a video podcast to help you learn and master the
-  Unix shell.
+<div class="row-fluid">
+  <div class="span7">
+    <h1>{{ page.title }} {% if page.tagline %} <small>{{ page.tagline }}</small>{% endif %}</h1>
 
-  Informally, ‘Unix’ refers to a family of operating systems that includes
-  GNU/Linux, Mac OS X, and FreeBSD.
+    <p>
+      <b>Command Line TV</b> is a video podcast to help you learn and master the
+      Unix shell.
 
-  Operating a computer via the command line gives you tremendous power and
-  flexibility, but it’s not easy to learn.
-</p>
+      Informally, ‘Unix’ refers to a family of operating systems that includes
+      GNU/Linux, Mac OS X, and FreeBSD.
 
-<blockquote>
-  <p>
- “Unix is user-friendly. It just happens to be very selective about who it
- befriends.” —Unknown
-  </p>
-</blockquote>
+      Operating a computer via the command line gives you tremendous power and
+      flexibility, but it’s not easy to learn.
+    </p>
 
-<p>
-  We’re here to help!
+    <blockquote>
+      <p>
+        “Unix is user-friendly. It just happens to be very selective about who it
+        befriends.” —Unknown
+      </p>
+    </blockquote>
 
-  We start from the beginning, but also try to include some tips suitable for
-  intermediate users.
+    <p>
+      We’re here to help!
 
-  Each video is about 20 minutes long, and we aim to release a new episode
-  every week or so.
+      We start from the beginning, but also try to include some tips suitable for
+      intermediate users.
 
-  Watch here on our site, on <a href="{{site.links.youtube}}">YouTube</a>, on
-  <a href="{{site.links.itunes}}">iTunes</a>, or in any video-capable
-  podcatcher using the
-  <a href="{{BASE_PATH}}{{site.JB.rss_path}}">RSS feed</a>.
-</p>
+      Each video is about 20 minutes long, and we aim to release a new episode
+      every week or so.
 
-<p>
-  We’re also happy to address viewers’ questions and comments on the show.
-  Contact us using
-  <a href="https://twitter.com/{{site.author.twitter}}">@{{site.author.twitter}}</a>
-  on Twitter, or by email
-  to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
-</p>
+      Watch here on our site, on <a href="{{site.links.youtube}}">YouTube</a>, on
+      <a href="{{site.links.itunes}}">iTunes</a>, or in any video-capable
+      podcatcher using the
+      <a href="{{BASE_PATH}}{{site.JB.rss_path}}">RSS feed</a>.
+    </p>
+
+    <p>
+      We’re also happy to address viewers’ questions and comments on the show.
+      Contact us using
+      <a href="https://twitter.com/{{site.author.twitter}}">@{{site.author.twitter}}</a>
+      on Twitter, or by email
+      to <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
+    </p>
+  </div>
+  <div class="span5">
+    <div class="cl-gap"></div>
+    <a height="450" class="twitter-timeline" data-dnt="true" href="https://twitter.com/commandlinetv" data-widget-id="617069316798857216">Tweets by @commandlinetv</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+  </div>
+</div>
+
 
 <h2>Episodes</h2>
 
