@@ -15,11 +15,13 @@ layout: default
 
     <video id="video_1" class="video-js vjs-default-skin"
            controls preload="auto" width="640" height="360"
-           poster="//d2ak8c8tjr6apn.cloudfront.net/{{page.slug}}.jpg"
+           poster="{{site.links.cloudfront}}/{{page.slug}}.jpg"
            data-setup='{"example_option":true}'>
-      <source src="//d2ak8c8tjr6apn.cloudfront.net/{{page.slug}}.mp4"  type="video/mp4" />
-      <source src="//d2ak8c8tjr6apn.cloudfront.net/{{page.slug}}.webm" type="video/webm" />
-      <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+      <source src="{{site.links.cloudfront}}/{{page.slug}}.mp4"  type="video/mp4" />
+      <source src="{{site.links.cloudfront}}/{{page.slug}}.webm" type="video/webm" />
+      <p class="vjs-no-js">To view this video please enable JavaScript, and
+        consider upgrading to a web browser that
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
     </video>
     <div class="cl-gap"></div>
 
@@ -42,7 +44,7 @@ layout: default
           <span class="btn disabled"><i class="icon-chevron-right"></i> Next</span>
         {% endif %}
         <a class="btn" href="{{page.slug}}.html"><i class="icon-list"></i> Transcript</a>
-        <a class="btn" href="#"><i class="icon-download-alt"></i> Video (.mp4, 368MB)</a>
+        <a class="btn" href="{{site.links.cloudfront}}/{{page.slug}}.mp4"><i class="icon-download-alt"></i> Video (.mp4)</a>
         <a class="btn" href="{{page.slug}}.srt"><i class="icon-download-alt"></i> Captions (.srt)</a>
       </div>
     </div>
@@ -57,13 +59,14 @@ layout: default
         {% if e.index %}
           <tr>
             <td style="text-align:right">
-              {{e.time}}
+              {% assign a = e.time | split:":" %}
+              {% if a[0] != "00" %}{{a[0]}}:{% endif %}{{a[1]}}:{{a[2]}}
             </td>
             <td style="text-align:center" class="span2">
               &nbsp;
               <div class="btn-group btn-small">
                 <a class="btn btn-small" title="Cue video"
-                   href="#{{e.time}}"><i class="icon-play"></i></a>
+                   href="javascript:cueVideo('{{e.time}}')"><i class="icon-play"></i></a>
                 <a class="btn btn-small" title="Jump to transcript"
                    href="{{page.slug}}.html#{{e.time}}"><i class="icon-list"></i></a>
               </div>
@@ -77,3 +80,5 @@ layout: default
     {% include JB/comments %}
   </div>
 </div>
+
+<script src="/assets/video-helper.js"></script>

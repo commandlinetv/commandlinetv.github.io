@@ -17,6 +17,12 @@ author :
   twitter : commandlinetv
   feedburner : feedname
 
+links:
+  youtube: https://www.youtube.com/channel/UCPLrnv9tVt6d9BEr-3vFIUQ
+  cloudfront: //d2ak8c8tjr6apn.cloudfront.net
+  itunes: "#"
+  github: https://github.com/commandlinetv/commandlinetv.github.io
+
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt
 # Most places will/should use BASE_PATH to make the urls
