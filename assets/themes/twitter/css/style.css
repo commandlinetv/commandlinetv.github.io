@@ -23,7 +23,7 @@ footer {
 .navbar, h1, h2, h3, h4, h5 {
     font-family: 'Lato', sans-serif;
 }
-.navbar .brand, .navbar .nav > li > a, .navbar .nav > li > a:hover {
+.navbar .brand, .navbar .nav > li > a, .navbar .nav > li > a:hover, .navbar .nav > li > a:visited {
     color: #ffda1e;
     font-weight: 400;
     text-shadow: 0px 2px 0px #000;
@@ -33,13 +33,13 @@ em, .cl-speaker {
     font-style: normal;
 }
 .cl- {
-    background: #fff0f0;
+    background: #fff6f6;
 }
 .cl-Lopes {
-    background: #ffffe8;
+    background: #fffff3;
 }
 .cl-League {
-    background: #f3fff3;
+    background: #f6fff6;
 }
 .cl-transcript {
     margin-top: 3ex;
