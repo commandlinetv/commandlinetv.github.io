@@ -87,6 +87,12 @@ h1 {
 blockquote p {
     font-weight: 400;
 }
+.btn-group {
+    margin-bottom: 4px;
+}
+.btn-group + .btn-group {
+    margin: 0 0px 4px 0;
+}
 
 /* Custom container */
 .container-narrow {
