@@ -71,6 +71,7 @@ and commit also the changes to `_data/topics.yaml`
  8. Fill in episode tagline (same file)
 
  9. Write episode transcript in `_data/episodeNNN.yaml`.
+
      a. TODO: add recommendations for managing
      b. TODO: transcription details
 
