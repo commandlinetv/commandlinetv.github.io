@@ -1,78 +1,102 @@
-# Jekyll-Bootstrap
+# Command Line TV
 
-The quickest way to start and publish your Jekyll powered blog. 100% compatible with GitHub pages
+These are the Jekyll sources for the [commandline.tv](http://commandline.tv/)
+web site. The primary way that you can help us maintain the site is to provide
+or fix our episode transcripts, which are kept in the `_data` directory.
 
-## Usage
+The format for each item is:
 
-For all usage and documentation please see: <http://jekyllbootstrap.com>
+``` .yaml
+- time: "00:00:25"
+  speaker: League
+  index: "`*` wildcard"
+  cmd: |
+    echo "This is a sample command."
+  caption: |
+    Today we're going to talk about wildcards
+    and text processing using pipelines.
+```
 
-## Version
+where all but the `time` and `caption` entries are optional.
 
-0.3.0 - stable and versioned using [semantic versioning](http://semver.org/).
+The time format must be "HH:MM:SS", and cannot contain sub-second resolution.
+The caption lines should have a newline in a sensible place, but a maximum of
+two lines, with up to about 45-50 characters per line.
 
-**NOTE:** 0.3.0 introduces a new theme which is not backwards compatible in the sense it won't _look_ like the old version.
-However, the actual API has not changed at all.
-You might want to run 0.3.0 in a branch to make sure you are ok with the theme design changes.
+The `index` key, if present, will add an entry to the site index. Use
+back-ticks to enclose literal commands and options. We try not to use the same
+index term multiple times in one episode, so tag the point where we *begin*
+talking about that thing. Currently we support only one index term per
+time-code.
 
-## Milestones
+The `cmd` key is meant to provide a complete command line that can be
+copy-pasted, and corresponds to what is being typed on-screen at that moment.
 
-[0.4.0](https://github.com/plusjade/jekyll-bootstrap/milestones/v%200.4.0) - next release [ETA 03/29/2015]
+After making changes to a transcript, we run
 
-### GOALS
+```
+rake reindex
+```
 
-* No open PRs against master branch.
-* Squash some bugs.
-* Add some new features (low-hanging fruit).
-* Establish social media presence.
+and commit also the changes to `_data/topics.yaml`
 
+## Our check-list for releasing a new episode
 
-### Bugs
+ 1. Upload video to S3
 
-|Bug |Description
-|------|---------------
-|[#86](https://github.com/plusjade/jekyll-bootstrap/issues/86)  |&#x2611; Facebook Comments
-|[#113](https://github.com/plusjade/jekyll-bootstrap/issues/113)|&#x2611; ASSET_PATH w/ page & post
-|[#144](https://github.com/plusjade/jekyll-bootstrap/issues/144)|&#x2610; BASE_PATH w/ FQDN
-|[#227](https://github.com/plusjade/jekyll-bootstrap/issues/227)|&#x2611; Redundant JB/setup
+    ```
+    s3cmd put -P EpNN.mp4 s3://commandline.tv/media/episodeNNN.mp4
+    ```
 
-### Features
+ 2. Upload video to YouTube
 
-|Bug |Description
-|------|---------------
-|[#98](https://github.com/plusjade/jekyll-bootstrap/issues/98)  |&#x2611; GIST Integration
-|[#244](https://github.com/plusjade/jekyll-bootstrap/issues/244)|&#x2611; JB/file_exists Helper
-|[#42](https://github.com/plusjade/jekyll-bootstrap/issues/42)  |&#x2611; Sort collections of Pages / Posts
-|[#84](https://github.com/plusjade/jekyll-bootstrap/issues/84)  |&#x2610; Detecting production mode
+ 3. Capture a video snapshot using VLC » Video » Take snapshot.
 
-### TODOS
+ 4. Overlay with text (TODO) and convert to JPG.
 
-Review existing pull requests against plusjake/jekyll-bootstrap:master. Merge or close each.
+ 5. Upload snapshot to S3 and YouTube
 
-* Create twitter account. Add link / icon on jekyllbootstrap.com.
-* Create blog posts under plusjade/gh-pages, expose on jekyllbootstrap.com, feed to twitter account.
-* Announce state of project, announce roadmap(s), announce new versions as they’re released.
+    ```
+    s3cmd put -P episodeNNN.jpg s3://commandline.tv/media/
+    ```
 
-## Contributing
+ 6. Create skeletons for episode:
 
+    ```
+    rake episode num=N
+    ```
 
-To contribute to the framework please make sure to checkout your branch based on `jb-development`!!
-This is very important as it allows me to accept your pull request without having to publish a public version release.
+ 7. Write episode description in `YYYY-MM-DD-episodeNNN.md`
 
-Small, atomic Features, bugs, etc.
-Use the `jb-development` branch but note it will likely change fast as pull requests are accepted.
-Please rebase as often as possible when working.
-Work on small, atomic features/bugs to avoid upstream commits affecting/breaking your development work.
+ 8. Fill in episode tagline (same file)
 
-For Big Features or major API extensions/edits:
-This is the one case where I'll accept pull-requests based off the master branch.
-This allows you to work in isolation but it means I'll have to manually merge your work into the next public release.
-Translation : it might take a bit longer so please be patient! (but sincerely thank you).
+ 9. Write episode transcript in `_data/episodeNNN.yaml`.
+     a. TODO: add recommendations for managing
+     b. TODO: transcription details
 
-**Jekyll-Bootstrap Documentation Website.**
+ 10. After adding indices to transcript, reindex:
 
-The documentation website at <http://jekyllbootstrap.com> is maintained at https://github.com/plusjade/jekyllbootstrap.com
+    ```
+    rake reindex
+    ```
 
+ 11. Test website locally using
 
-## License
+    ```
+    jekyll serve
+    ```
 
-[MIT](http://opensource.org/licenses/MIT)
+ 12. Spot-check episode entry in `_site/rss.xml`.
+
+ 13. Push new content to GitHub.
+
+    ```
+    git add _posts _data episodeNNN
+    git commit -m "Episode N"
+    git push
+    ```
+
+ 14. Tweet about episode from CLTV account.
+
+ 15. Upload captions in `_site/episodeNNN/episodeNNN.srt` to YouTube.
+
