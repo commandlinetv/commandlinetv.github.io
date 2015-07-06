@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ page.title }} | Command Line TV</title>
+    <title>{{ page.title }}</title>
     {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
 
@@ -15,15 +15,8 @@
     <![endif]-->
 
     <!-- Le styles -->
-    <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,700|Lato:400,700" rel='stylesheet' type='text/css'>
     <link href="{{ ASSET_PATH }}/bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
     <link href="{{ ASSET_PATH }}/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
-    <link href="//vjs.zencdn.net/4.12/video-js.css" rel="stylesheet">
-    <style>
-      .vjs-default-skin { border: 2px solid black;}
-    </style>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//vjs.zencdn.net/4.12/video.js"></script>
 
     <!-- Le fav and touch icons -->
   <!-- Update these with your own images
@@ -40,22 +33,14 @@
   </head>
 
   <body>
-    <div class="navbar navbar-static-top" id="cl-navbar">
+    <div class="navbar">
       <div class="navbar-inner">
         <div class="container-narrow">
-          <a class="brand" href="{{ HOME_PATH }}">
-            <img src="/assets/amber-prompt.png">
-            &nbsp;{{ site.title }}
-          </a>
-          <ul id="cl-pages" class="nav">
+          <a class="brand" href="{{ HOME_PATH }}">{{ site.title }}</a>
+          <ul class="nav">
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
-            <li><a href="https://www.youtube.com/channel/UCPLrnv9tVt6d9BEr-3vFIUQ">YouTube</a></li>
-            <li><a href="{{site.links.itunes}}">iTunes</a></li>
-            <li><a href="{{BASE_PATH}}{{site.JB.rss_path}}">RSS
-                <img style="position:relative; top:-2px" src="/assets/feed-icon-14x14.png"
-                     width="14" height="14"></a></li>
-            <li><a href="/about/">About</a></li>
+            {% include JB/pages_list %}
           </ul>
         </div>
       </div>
@@ -66,9 +51,11 @@
       <div class="content">
         {{ content }}
       </div>
+      <hr>
       <footer>
-        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }},
-          all rights reserved.
+        <p>&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
         </p>
       </footer>
 

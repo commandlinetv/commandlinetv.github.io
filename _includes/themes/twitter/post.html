@@ -4,18 +4,12 @@
 
 <div class="row-fluid post-full">
   <div class="span12">
-    <div>
-      <p>VJS player here, based on name {{page.slug}}</p>
+    <div class="date">
+      <span>{{ page.date | date_to_long_string }}</span>
     </div>
     <div class="content">
       {{ content }}
     </div>
-
-    <p>
-      <b>{{ page.date | date:"%-d %B %Y" }}</b> |
-      <a href="{{page.slug}}.html">Transcript</a> |
-      <a href="{{page.slug}}.srt">Captions (.srt)</a>
-    </p>
 
   {% unless page.categories == empty %}
     <ul class="tag_box inline">
@@ -23,7 +17,7 @@
       {% assign categories_list = page.categories %}
       {% include JB/categories_list %}
     </ul>
-  {% endunless %}
+  {% endunless %}  
 
   {% unless page.tags == empty %}
     <ul class="tag_box inline">
@@ -31,8 +25,9 @@
       {% assign tags_list = page.tags %}
       {% include JB/tags_list %}
     </ul>
-  {% endunless %}
+  {% endunless %}  
 
+    <hr>
     <div class="pagination">
       <ul>
       {% if page.previous %}
@@ -48,34 +43,7 @@
       {% endif %}
       </ul>
     </div>
-
-    <table class="table table-hover table-bordered table-condensed cl-index">
-      <tr>
-        <th style="text-align:right">Time&darr;</th>
-        <th style="text-align:center">Links</th>
-        <th>Topic or command</th>
-      </tr>
-      {% for e in site.data[page.slug] %}
-        {% if e.index %}
-          <tr>
-            <td style="text-align:right">
-              {{e.time}}
-            </td>
-            <td style="text-align:center" class="span2">
-              &nbsp;
-              <div class="btn-group btn-small">
-                <a class="btn btn-small" title="Cue video"
-                   href="#{{e.time}}"><i class="icon-film"></i></a>
-                <a class="btn btn-small" title="Jump to transcript"
-                   href="{{page.slug}}.html#{{e.time}}"><i class="icon-file"></i></a>
-              </div>
-            </td>
-            <td>{{e.index|markdownify}}</td>
-          </tr>
-        {% endif %}
-      {% endfor %}
-    </table>
-
+    <hr>
     {% include JB/comments %}
   </div>
 </div>
