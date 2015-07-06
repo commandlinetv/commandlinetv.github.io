@@ -1,4 +1,0 @@
----
-layout: captions
-slug: episode00
----

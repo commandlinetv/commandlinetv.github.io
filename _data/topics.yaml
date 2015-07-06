@@ -4,9 +4,6 @@
 - term: "`--help`"
   refs:
     - 3#episode003#00:22:37
-- term: "`..`"
-  refs:
-    - 0#episode00#01:14:25
 - term: "`.gz`"
   refs:
     - 3#episode003#00:01:41
@@ -19,9 +16,6 @@
 - term: "`[]` wildcard"
   refs:
     - 3#episode003#00:08:23
-- term: "`cd`"
-  refs:
-    - 0#episode00#00:00:25
 - term: "`file`"
   refs:
     - 3#episode003#00:03:08
@@ -51,7 +45,6 @@
     - 3#episode003#00:12:34
 - term: "`head`"
   refs:
-    - 0#episode00#01:15:00
     - 3#episode003#00:11:34
 - term: "`mv`"
   refs:
