@@ -16,3 +16,13 @@ function cueVideo(timeCode) {
     myPlayer.play();
     window.scrollTo(0,100);
 }
+
+function indexByTopic() {
+    $("#cl-index-by-time").toggleClass("hidden", true);
+    $("#cl-index-by-topic").toggleClass("hidden", false);
+}
+
+function indexByTime() {
+    $("#cl-index-by-topic").toggleClass("hidden", true);
+    $("#cl-index-by-time").toggleClass("hidden", false);
+}

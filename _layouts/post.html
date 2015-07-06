@@ -50,11 +50,11 @@ layout: default
       </div>
     </div>
 
-    <table class="table table-hover table-bordered table-condensed cl-index">
+    <table id="cl-index-by-time" class="table table-hover table-bordered table-condensed cl-index">
       <tr>
-        <th style="text-align:right">Time&darr;</th>
-        <th style="text-align:center">Jump</th>
-        <th>Topic or command</th>
+        <th class="span2" style="text-align:right">&darr;Time</th>
+        <th class="span2" style="text-align:center">Jump</th>
+        <th><a href="javascript:indexByTopic()">Topic or command</a></th>
       </tr>
       {% for e in site.data[page.slug] %}
         {% if e.index %}
@@ -75,6 +75,37 @@ layout: default
             <td>{{e.index|markdownify}}</td>
           </tr>
         {% endif %}
+      {% endfor %}
+    </table>
+
+    <table id="cl-index-by-topic" class="table table-hover table-bordered table-condensed cl-index hidden">
+      <tr>
+        <th class="span2" style="text-align:right"><a href="javascript:indexByTime()">Time</a></th>
+        <th class="span2" style="text-align:center">Jump</th>
+        <th>Topic or command&darr;</th>
+      </tr>
+      {% for e in site.data.topics %}
+        {% for r in e.refs %}
+          {% assign rs = r | split:"#" %}
+          {% if rs[1] == page.slug %}
+            <tr>
+              <td style="text-align:right">
+                {% assign a = rs[2] | split:":" %}
+                {% if a[0] != "00" %}{{a[0]}}:{% endif %}{{a[1]}}:{{a[2]}}
+              </td>
+              <td style="text-align:center" class="span2">
+                &nbsp;
+                <div class="btn-group btn-small">
+                  <a class="btn btn-small" title="Cue video"
+                     href="javascript:cueVideo('{{rs[2]}}')"><i class="icon-play"></i></a>
+                  <a class="btn btn-small" title="Jump to transcript"
+                     href="{{page.slug}}.html#{{rs[2]}}"><i class="icon-list"></i></a>
+                </div>
+              </td>
+              <td>{{e.term|markdownify}}</td>
+            </tr>
+          {% endif %}
+        {% endfor %}
       {% endfor %}
     </table>
 
