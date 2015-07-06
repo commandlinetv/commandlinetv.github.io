@@ -82,8 +82,8 @@ title: Welcome!
 
 <table class="table table-hover table-bordered table-condensed cl-index">
   <tr>
-    <th>Topic or command</th>
-    <th>Episode references</th>
+    <th class="span4" >Topic or command</th>
+    <th class="span8" >Episode references</th>
   </tr>
   {% for t in site.data.topics %}
   <tr>
@@ -93,11 +93,11 @@ title: Welcome!
     <td>
       {% for r in t.refs %}
       {% assign rs = r | split:"#" %}
-      <div class="btn-group btn-small">
-        <div class="btn btn-success btn-small disabled" title="Episode {{rs[0]}}, {{rs[2]}}">{{rs[0]}}</div>
-        <a class="btn btn-small" title="Jump to Episode {{rs[0]}} video"
+      <div class="btn-group btn-mini">
+        <div class="btn btn-success btn-mini disabled" title="Episode {{rs[0]}}, {{rs[2]}}">{{rs[0]}}</div>
+        <a class="btn btn-mini" title="Jump to Episode {{rs[0]}} video"
            href="../{{rs[1]}}/#{{rs[2]}}"><i class="icon-play"></i></a>
-        <a class="btn btn-small" title="Jump to Episode {{rs[0]}} transcript"
+        <a class="btn btn-mini" title="Jump to Episode {{rs[0]}} transcript"
            href="../{{rs[1]}}/{{rs[1]}}.html#{{rs[2]}}"><i class="icon-list"></i></a>
       </div>
       {% endfor %}

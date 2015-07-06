@@ -52,9 +52,15 @@ layout: default
 
     <table id="cl-index-by-time" class="table table-hover table-bordered table-condensed cl-index">
       <tr>
-        <th class="span2" style="text-align:right">&darr;Time</th>
+        <th class="span2" style="text-align:right">
+          <span class="btn btn-mini btn-success disabled"><i class="icon-arrow-down"></i></span>
+          Time
+        </th>
         <th class="span2" style="text-align:center">Jump</th>
-        <th><a href="javascript:indexByTopic()">Topic or command</a></th>
+        <th>
+          Topic or command
+          <a class="btn btn-mini" title="Sort by topic" href="javascript:indexByTopic()"><i class="icon-arrow-down"></i></a>
+        </th>
       </tr>
       {% for e in site.data[page.slug] %}
         {% if e.index %}
@@ -65,10 +71,10 @@ layout: default
             </td>
             <td style="text-align:center" class="span2">
               &nbsp;
-              <div class="btn-group btn-small">
-                <a class="btn btn-small" title="Cue video"
+              <div class="btn-group btn-mini">
+                <a class="btn btn-mini" title="Cue video"
                    href="javascript:cueVideo('{{e.time}}')"><i class="icon-play"></i></a>
-                <a class="btn btn-small" title="Jump to transcript"
+                <a class="btn btn-mini" title="Jump to transcript"
                    href="{{page.slug}}.html#{{e.time}}"><i class="icon-list"></i></a>
               </div>
             </td>
@@ -80,9 +86,15 @@ layout: default
 
     <table id="cl-index-by-topic" class="table table-hover table-bordered table-condensed cl-index hidden">
       <tr>
-        <th class="span2" style="text-align:right"><a href="javascript:indexByTime()">Time</a></th>
+        <th class="span2" style="text-align:right">
+          <a class="btn btn-mini" title="Sort by time" href="javascript:indexByTime()"><i class="icon-arrow-down"></i></a>
+          Time
+        </th>
         <th class="span2" style="text-align:center">Jump</th>
-        <th>Topic or command&darr;</th>
+        <th>
+          Topic or command
+          <span class="btn btn-mini btn-success disabled"><i class="icon-arrow-down"></i></span>
+        </th>
       </tr>
       {% for e in site.data.topics %}
         {% for r in e.refs %}
@@ -95,10 +107,10 @@ layout: default
               </td>
               <td style="text-align:center" class="span2">
                 &nbsp;
-                <div class="btn-group btn-small">
-                  <a class="btn btn-small" title="Cue video"
+                <div class="btn-group btn-mini">
+                  <a class="btn btn-mini" title="Cue video"
                      href="javascript:cueVideo('{{rs[2]}}')"><i class="icon-play"></i></a>
-                  <a class="btn btn-small" title="Jump to transcript"
+                  <a class="btn btn-mini" title="Jump to transcript"
                      href="{{page.slug}}.html#{{rs[2]}}"><i class="icon-list"></i></a>
                 </div>
               </td>
