@@ -4,25 +4,68 @@ title : RSS Feed
 ---
 
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-        <title>{{ site.title | xml_escape }}</title>
-        <description>{{ site.title | xml_escape }} - {{ site.author.name | xml_escape }}</description>
-        <link>{{ site.production_url }}</link>
-        <atom:link href="{{ site.production_url }}{{ site.JB.rss_path }}" rel="self" type="application/rss+xml" />
-        <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-        <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-        <ttl>60</ttl>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>{{ site.title | xml_escape }}</title>
+    <link>{{ site.production_url }}</link>
+    <language>en-us</language>
+    <copyright>
+      &#x2117; &amp; &#xA9; {{site.time|date:'%Y'}} {{site.author.name}}
+    </copyright>
+    <itunes:subtitle>Learn the Unix shell</itunes:subtitle>
+    <itunes:author>{{site.author.name}}</itunes:author>
+    <itunes:explicit>clean</itunes:explicit>
+    <itunes:summary><![CDATA[ Command Line TV is a video podcast to help you
+    learn and master the Unix shell. Informally, ‘Unix’ refers to a family of
+    operating systems that includes GNU/Linux, Mac OS X, and FreeBSD. Operating
+    a computer via the command line gives you tremendous power and flexibility,
+    but it’s not easy to learn. We’re here to help! We start from the
+    beginning, but also try to include some tips suitable for intermediate
+    users. Each video is about 20 minutes long, and we aim to release a new
+    episode every week or so. ]]></itunes:summary>
+    <description><![CDATA[ Command Line TV is a video podcast to help you
+    learn and master the Unix shell. Informally, ‘Unix’ refers to a family of
+    operating systems that includes GNU/Linux, Mac OS X, and FreeBSD. Operating
+    a computer via the command line gives you tremendous power and flexibility,
+    but it’s not easy to learn. We’re here to help! We start from the
+    beginning, but also try to include some tips suitable for intermediate
+    users. Each video is about 20 minutes long, and we aim to release a new
+    episode every week or so.]]></description>
+    <itunes:owner>
+      <itunes:name>Christopher League</itunes:name>
+      <itunes:email>league@contrapunctus.net</itunes:email>
+    </itunes:owner>
+    <itunes:image href="{{ site.production_url }}/assets/itunes-art.jpg" />
+    <itunes:category text="Education">
+      <itunes:category text="Training" />
+    </itunes:category>
+    <itunes:category text="Technology">
+      <itunes:category text="Software How-To" />
+    </itunes:category>
+    <atom:link href="{{ site.production_url }}{{ site.JB.rss_path }}" rel="self" type="application/rss+xml" />
+    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+    <ttl>60</ttl>
 
-{% for post in site.posts limit:20 %}
-        <item>
-                <title>{{ post.title | xml_escape }}</title>
-                <description>{{ post.content | xml_escape }}</description>
-                <link>{{ site.production_url }}{{ post.url }}</link>
-                <guid>{{ site.production_url }}{{ post.id }}</guid>
-                <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        </item>
-{% endfor %}
+    {% for post in site.posts limit:20 %}
+    <item>
+      <title>{{post.title|xml_escape}}: {{post.tagline|xml_escape}}</title>
+      <itunes:summary><![CDATA[
+      {{ post.content }}
+      ]]></itunes:summary>
+      <description><![CDATA[
+      {{ post.content }}
+      ]]></description>
+      <itunes:explicit>clean</itunes:explicit>
+      <enclosure url="http:{{site.links.cloudfront}}/{{post.slug}}.mp4"
+                 length="{{post.size}}" type="video/mp4" />
+      <link>{{ site.production_url }}{{ post.url }}</link>
+      <guid>{{ site.production_url }}{{ post.id }}</guid>
+      <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+    </item>
+    {% endfor %}
 
-</channel>
+  </channel>
 </rss>

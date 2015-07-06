@@ -123,6 +123,7 @@ task :episode do
       post.puts "title: #{title}"
       post.puts "slug: #{slug}"
       post.puts "tagline: "
+      post.puts "size: "
       post.puts "---"
       post.puts "{% include JB/setup %}"
       post.puts ""

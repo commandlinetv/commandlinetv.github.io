@@ -68,7 +68,7 @@ and commit also the changes to `_data/topics.yaml`
 
  7. Write episode description in `YYYY-MM-DD-episodeNNN.md`
 
- 8. Fill in episode tagline (same file)
+ 8. Fill in episode `tagline` (same file) and `size` of mp4 file, in bytes.
 
  9. Write episode transcript in `_data/episodeNNN.yaml`.
 
