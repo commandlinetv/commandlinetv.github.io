@@ -1,4 +1,6 @@
-{% for e in site.data[page.slug] %}{{ forloop.index }}
-{{ e.time }},000 --> {%if site.data[page.slug][forloop.index].time %}{{site.data[page.slug][forloop.index].time}},000{%else%}99:99:99,999{%endif%}
+{% assign z = page.url|split:"." %}{% if z[1] == "vtt" %}WEBVTT
+
+{% endif %}{% for e in site.data[page.slug] %}{{ forloop.index }}
+{{ e.time }}{{page.sep}}000 --> {%if site.data[page.slug][forloop.index].time %}{{site.data[page.slug][forloop.index].time}}{{page.sep}}000{% else %}99:99:99{{page.sep}}999{% endif %}
 {{ e.caption }}
 {% endfor %}

@@ -144,16 +144,23 @@ task :episode do
       tran.puts "---"
     end
   end
-  capfile = File.join(epdir, "#{slug}.srt")
-  if File.exist?(capfile)
-    puts "Skipping #{capfile}"
-  else
-    puts "Writing #{capfile}"
-    open(capfile, 'w') do |cap|
-      cap.puts "---"
-      cap.puts "layout: captions"
-      cap.puts "slug: #{slug}"
-      cap.puts "---"
+  [".srt", ".vtt"].each do |ext|
+    capfile = File.join(epdir, "#{slug}#{ext}")
+    if File.exist?(capfile)
+      puts "Skipping #{capfile}"
+    else
+      puts "Writing #{capfile}"
+      open(capfile, 'w') do |cap|
+        cap.puts "---"
+        cap.puts "layout: captions"
+        cap.puts "slug: #{slug}"
+        if ext == ".srt"
+          cap.puts "sep: \",\""
+        else
+          cap.puts "sep: \".\""
+        end
+        cap.puts "---"
+      end
     end
   end
   datfile = File.join("_data", "#{slug}.yaml")
