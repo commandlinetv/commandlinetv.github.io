@@ -42,54 +42,45 @@ and commit also the changes to `_data/topics.yaml`
 
 ## Our check-list for releasing a new episode
 
- 1. Upload video to S3
+Once we have a final cut exported to an MP4 file, here are the steps to publish
+it as a new episode. Replace `N` with the episode number.
+
+ 1. Upload `Ep-NN.mp4` to YouTube, so it can start converting.
+
+ 2. Capture a video snapshot for the poster, using VLC » Video » Take snapshot,
+    then rename it:
 
     ```
-    s3cmd put -P EpNN.mp4 s3://commandline.tv/media/episodeNNN.mp4
+    mv ~/vlcsnap* snapNNN.png
     ```
 
- 2. Upload video to YouTube
-
- 3. Capture a video snapshot using VLC » Video » Take snapshot.
-
- 4. Overlay with text (TODO) and convert to JPG.
-
- 5. Upload snapshot to S3 and YouTube
+ 3. Run the scripts in Makefile, to transcode and upload:
 
     ```
-    s3cmd put -P episodeNNN.jpg s3://commandline.tv/media/
+    make -j NUM=N FILE=~/tmp/Ep-NN.mp4
     ```
 
- 6. Create skeletons for episode:
+ 4. Write episode transcript in `_data/episodeNNN.yaml`.
 
-    ```
-    rake episode num=N
-    ```
+ 5. Write episode description in `YYYY-MM-DD-episodeNNN.md`
 
- 7. Write episode description in `YYYY-MM-DD-episodeNNN.md`
+ 6. Fill in episode `tagline` (same file) and `size` of mp4 file, in bytes.
 
- 8. Fill in episode `tagline` (same file) and `size` of mp4 file, in bytes.
-
- 9. Write episode transcript in `_data/episodeNNN.yaml`.
-
-     a. TODO: add recommendations for managing
-     b. TODO: transcription details
-
- 10. After adding indices to transcript, reindex:
+ 7. After adding indices to transcript, reindex:
 
     ```
     rake reindex
     ```
 
- 11. Test website locally using
+ 8. Test website locally using
 
     ```
     jekyll serve
     ```
 
- 12. Spot-check episode entry in `_site/rss.xml`.
+ 9. Spot-check episode entry in `_site/rss.xml`.
 
- 13. Push new content to GitHub.
+ 10. Push new content to GitHub.
 
     ```
     git add _posts _data episodeNNN
@@ -97,7 +88,7 @@ and commit also the changes to `_data/topics.yaml`
     git push
     ```
 
- 14. Tweet about episode from CLTV account.
+ 11. Tweet about episode from CLTV account.
 
- 15. Upload captions in `_site/episodeNNN/episodeNNN.srt` to YouTube.
+ 12. Upload captions in `_site/episodeNNN/episodeNNN.srt` to YouTube.
 
