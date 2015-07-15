@@ -76,7 +76,7 @@ end # task :post
 desc "Update topic index"
 task :reindex do
   master = {}
-  Dir.glob("_data/episode*.yaml").each do |ep|
+  Dir.glob("_data/episode*.yaml").sort.each do |ep|
     dat = YAML.load_file(ep).each do |item|
       if item['index']
         x = item['index']

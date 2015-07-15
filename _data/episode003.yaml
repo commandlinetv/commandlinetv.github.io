@@ -1037,7 +1037,7 @@
 
 - time: "00:16:52"
   speaker: "League"
-  index: "binary file"
+  index: "file type, binary"
   caption: |
     The last one here -- `grep` can search
     through binary files as well as text,

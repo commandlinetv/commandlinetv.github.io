@@ -1,12 +1,24 @@
+- term: "GNU"
+  refs:
+    - 2#episode002#00:03:05
 - term: "`*` wildcard"
   refs:
+    - 2#episode002#00:08:55
     - 3#episode003#00:04:00
 - term: "`--help`"
   refs:
+    - 2#episode002#00:03:26
     - 3#episode003#00:22:37
+- term: "`--version`"
+  refs:
+    - 2#episode002#00:02:50
 - term: "`.gz`"
   refs:
+    - 2#episode002#00:06:10
     - 3#episode003#00:01:41
+- term: "`.png`"
+  refs:
+    - 2#episode002#00:07:59
 - term: "`.tar`"
   refs:
     - 3#episode003#00:01:17
@@ -16,6 +28,12 @@
 - term: "`[]` wildcard"
   refs:
     - 3#episode003#00:08:23
+- term: "`^C` (interrupt)"
+  refs:
+    - 2#episode002#00:06:47
+- term: "`cat`"
+  refs:
+    - 2#episode002#00:05:04
 - term: "`file`"
   refs:
     - 3#episode003#00:03:08
@@ -45,27 +63,73 @@
     - 3#episode003#00:12:34
 - term: "`head`"
   refs:
+    - 2#episode002#00:14:14
     - 3#episode003#00:11:34
+- term: "`less`"
+  refs:
+    - 2#episode002#00:12:34
+- term: "`ls -F`"
+  refs:
+    - 2#episode002#00:02:20
+- term: "`more`"
+  refs:
+    - 2#episode002#00:05:37
 - term: "`mv`"
   refs:
     - 3#episode003#00:02:31
+- term: "`open`"
+  refs:
+    - 2#episode002#00:08:43
+- term: "`reset`"
+  refs:
+    - 2#episode002#00:06:55
+- term: "`tail -#`"
+  refs:
+    - 2#episode002#00:15:08
+- term: "`tail`"
+  refs:
+    - 2#episode002#00:14:20
 - term: "`xdg-open`"
   refs:
+    - 2#episode002#00:08:03
     - 3#episode003#00:02:13
 - term: "`{}` wildcard"
   refs:
     - 3#episode003#00:09:15
-- term: "binary file"
+- term: "`|` (pipe)"
   refs:
-    - 3#episode003#00:16:52
+    - 2#episode002#00:11:34
 - term: "case-sensitivity"
   refs:
     - 3#episode003#00:15:16
+- term: "color"
+  refs:
+    - 2#episode002#00:01:50
+- term: "contacting us"
+  refs:
+    - 2#episode002#00:04:17
+- term: "file type, PDF"
+  refs:
+    - 2#episode002#00:07:33
+- term: "file type, binary"
+  refs:
+    - 2#episode002#00:07:02
+    - 3#episode003#00:16:52
+- term: "file type, image"
+  refs:
+    - 2#episode002#00:07:29
 - term: "filename extension"
   refs:
     - 3#episode003#00:00:34
+- term: "path, absolute"
+  refs:
+    - 2#episode002#00:01:02
+- term: "path, relative"
+  refs:
+    - 2#episode002#00:00:38
 - term: "pipeline"
   refs:
+    - 2#episode002#00:11:51
     - 3#episode003#00:00:25
 - term: "quoting"
   refs:
@@ -73,6 +137,9 @@
 - term: "spaces"
   refs:
     - 3#episode003#00:22:57
+- term: "syntax"
+  refs:
+    - 2#episode002#00:10:11
 - term: "wildcard"
   refs:
     - 3#episode003#00:03:54

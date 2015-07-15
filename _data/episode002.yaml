@@ -1,0 +1,1418 @@
+- time: "00:00:00"
+  caption: |
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:21"
+  speaker: League
+  caption: |
+    Hi, welcome back to Command Line TV. I'm Chris
+    League and with me is my co-host Chris Lopes.
+
+- time: "00:00:26"
+  speaker: League
+  caption: |
+    Last time we learned how to list files and
+    navigate the directory structure.
+
+- time: "00:00:30"
+  speaker: League
+  caption: |
+    And today we'll cover the basics of viewing and
+    manipulating files from the Unix terminal.
+
+- time: "00:00:34"
+  speaker: League
+  caption: |
+    First are there any questions or issues you'd
+    like to address from last time?
+
+- time: "00:00:38"
+  speaker: Lopes
+  index: "path, relative"
+  caption: |
+    Actually I had one. I remember last time we
+    navigated using `cd`,
+
+- time: "00:00:43"
+  speaker: Lopes
+  caption: |
+    We did that in two different ways.
+
+- time: "00:00:45"
+  speaker: Lopes
+  caption: |
+    We did it the relative way from the directory
+    we were currently in,
+
+- time: "00:00:48"
+  speaker: Lopes
+  caption: |
+    And then we also did it using the tilde (`~`).
+    Is there a big difference between those two?
+
+- time: "00:00:53"
+  speaker: League
+  caption: |
+    Not really, it's just a matter of what's
+    convenient, but
+
+- time: "00:00:57"
+  speaker: League
+  caption: |
+    there is terminology about them.
+    You said relative for one, which is correct.
+
+- time: "00:01:02"
+  speaker: League
+  index: "path, absolute"
+  caption: |
+    So it's relative if it matters where you're
+    starting from. And when you started with `~`,
+
+- time: "00:01:07"
+  speaker: League
+  caption: |
+    then it's called an absolute path because then
+    it doesn't matter where you start from,
+
+- time: "00:01:12"
+  speaker: League
+  caption: |
+    it always goes to your home directory first.
+
+- time: "00:01:18"
+  speaker: League
+  caption: |
+    So one way to think of that is that
+    an absolute path starts with a `/`
+
+- time: "00:01:24"
+  speaker: League
+  caption: |
+    and the `~` is just really an abbreviation.
+
+- time: "00:01:26"
+  speaker: League
+  cmd: |
+    echo ~
+  caption: |
+    So I'm going to do here a command called
+    `echo ~` and this shows me that it's actually
+
+- time: "00:01:33"
+  speaker: League
+  caption: |
+    an abbreviation for `/home/cltv`, which is my
+    username. So that's an absolute path.
+
+- time: "00:01:40"
+  speaker: Lopes
+  caption: |
+    So this terminal actually looks a little
+    different as well.
+
+- time: "00:01:43"
+  speaker: Lopes
+  caption: |
+    I guess is that because we're using Linux as
+    opposed to the Mac this time?
+
+- time: "00:01:47"
+  speaker: League
+  caption: |
+    Yeah, last time we were on a Mac terminal, and
+    this is Linux.
+
+- time: "00:01:50"
+  speaker: League
+  index: color
+  caption: |
+    There are some minor differences. One of them
+    is that the `ls` output
+
+- time: "00:01:56"
+  speaker: League
+  caption: |
+    actually has color in it.
+
+- time: "00:02:00"
+  speaker: League
+  caption: |
+    The prompt also looks a little different,
+    but it shows the same stuff.
+
+- time: "00:02:04"
+  speaker: League
+  caption: |
+    It's got your username and host name (the name
+    of the machine), current directory --
+
+- time: "00:02:09"
+  speaker: League
+  caption: |
+    so if I go to Downloads, then it shows up
+    there. And then the dollar sign is my prompt.
+
+- time: "00:02:20"
+  speaker: League
+  index: "`ls -F`"
+  caption: |
+    And one cool thing about the colors is that it's
+    showing us directories in blue,
+
+- time: "00:02:26"
+  speaker: League
+  caption: |
+    and it sometimes has other colors for other
+    file types.
+
+- time: "00:02:29"
+  speaker: League
+  cmd: |
+    ls -F
+  caption: |
+    So that helps us distinguish things in a
+    similar way to doing that `ls -F`
+
+- time: "00:02:33"
+  speaker: League
+  caption: |
+    that we learned last time, which adds a slash.
+
+- time: "00:02:37"
+  speaker: League
+  caption: |
+    That's a little redundant now because the color
+    gives it away.
+
+- time: "00:02:41"
+  speaker: Lopes
+  caption: |
+    Can the `ls` command on a Mac also be
+    configured to use colors?
+
+- time: "00:02:45"
+  speaker: League
+  caption: |
+    Not directly, but you can install a different
+    version of `ls` on the Mac if you want to.
+
+- time: "00:02:50"
+  speaker: League
+  index: "`--version`"
+  cmd: |
+    ls --version
+  caption: |
+    So the version of `ls` I'm using here -- you
+    can do this double-dash option `--version`
+
+- time: "00:03:00"
+  speaker: League
+  caption: |
+    -- it needs to be exactly like that,
+    no extra spaces.
+
+- time: "00:03:05"
+  speaker: League
+  index: GNU
+  caption: |
+    This shows me that I'm using the
+    GNU version of `ls`,
+
+- time: "00:03:08"
+  speaker: League
+  caption: |
+    which has this feature of adding colors.
+
+- time: "00:03:11"
+  speaker: League
+  caption: |
+    And on the Mac you're using the
+    BSD version of `ls` --
+
+- time: "00:03:15"
+  speaker: League
+  caption: |
+    these are just two different variants
+    of the Unix operating system.
+
+- time: "00:03:20"
+  speaker: League
+  caption: |
+    And so you can install the
+    GNU version on the Mac,
+
+- time: "00:03:22"
+  speaker: League
+  caption: |
+    but it's not the version that
+    comes with it by default.
+
+- time: "00:03:26"
+  speaker: League
+  index: "`--help`"
+  cmd: |
+    ls --help
+  caption: |
+    The other thing that GNU supports is a lot of
+    commands have a double-dash `--help` option.
+
+- time: "00:03:35"
+  speaker: League
+  caption: |
+    So if we do `ls --help`, you see that it showed
+    us tons of options here --
+
+- time: "00:03:42"
+  speaker: League
+  caption: |
+    I have to scroll up to see the rest.
+
+- time: "00:03:45"
+  speaker: League
+  caption: |
+    But this gives you a quick reference for the
+    different options that it supports.
+
+- time: "00:03:49"
+  speaker: League
+  caption: |
+    And we can find things that we learned last
+    time, like reversing the order of the sort.
+
+- time: "00:03:54"
+  speaker: League
+  caption: |
+    So we can see those details.
+
+- time: "00:03:58"
+  speaker: Lopes
+  caption: |
+    So the `--help`, does that
+    work on all commands, or?
+
+- time: "00:04:02"
+  speaker: League
+  caption: |
+    I would say it works on most commands,
+    certainly all commands from the GNU project,
+
+- time: "00:04:07"
+  speaker: League
+  caption: |
+    but not every command is from GNU.
+
+- time: "00:04:11"
+  speaker: League
+  caption: |
+    But it's always worth trying, because
+    a lot of commands do support it.
+
+- time: "00:04:17"
+  speaker: Lopes
+  index: contacting us
+  caption: |
+    In future episodes we also hope to address
+    questions and comments from our viewers
+
+- time: "00:04:21"
+  speaker: League
+  caption: |
+    Yeah I hope you'll get in touch with us with
+    your questions, corrections, comments,
+
+- time: "00:04:26"
+  speaker: League
+  caption: |
+    and we'll be happy to respond on the show.
+    How will they get in touch with us?
+
+- time: "00:04:30"
+  speaker: Lopes
+  caption: |
+    Uh right now we have two options:
+    on Twitter `@commandlinetv`
+
+- time: "00:04:35"
+  speaker: Lopes
+  caption: |
+    or via email `heychris@commandline.tv`.
+
+- time: "00:04:40"
+  speaker: League
+  caption: |
+    Alright, thanks.
+
+- time: "00:04:42"
+  speaker: League
+  caption: |
+    So now we'll learn a little about viewing and
+    manipulating files from the command line.
+
+- time: "00:04:47"
+  speaker: League
+  caption: |
+    So I'm here in my Downloads folder.
+
+- time: "00:04:50"
+  speaker: Lopes
+  caption: |
+    So now that we learned how to navigate through
+    the directories,
+
+- time: "00:04:53"
+  speaker: Lopes
+  caption: |
+    how can we actually view the files that are
+    within those directories?
+
+- time: "00:04:56"
+  speaker: League
+  caption: |
+    Right, so there's a text file here about
+    languages, and the most basic command
+
+- time: "00:05:04"
+  speaker: League
+  index: "`cat`"
+  caption: |
+    to dump out the contents of a file is called
+    `cat`, which stands for `catenate` --
+
+- time: "00:05:10"
+  speaker: League
+  caption: |
+    it doesn't matter, but that's what it's called.
+
+- time: "00:05:13"
+  speaker: League
+  cmd: |
+    cat languages.txt
+  caption: |
+    So i can type `cat` and then the name of a
+    file, `languages.txt`, and it will just
+
+- time: "00:05:19"
+  speaker: League
+  caption: |
+    dump out the contents right onto my terminal,
+    like that.
+
+- time: "00:05:23"
+  speaker: League
+  caption: |
+    Now that was a really long file so I have to
+    scroll up to see more of the content of it.
+
+- time: "00:05:31"
+  speaker: League
+  caption: |
+    But another way so that I don't have to scroll
+    in my terminal is
+
+- time: "00:05:37"
+  speaker: League
+  index: "`more`"
+  cmd: |
+    more languages.txt
+  caption: |
+    I can replace `cat` with a command called
+    `more`.
+
+- time: "00:05:42"
+  speaker: League
+  caption: |
+    And what `more` will do is just show me one
+    screen-full of that file,
+
+- time: "00:05:48"
+  speaker: League
+  caption: |
+    and it gives me this prompt at the bottom with
+    a percentage of how much of the file I've seen.
+
+- time: "00:05:53"
+  speaker: League
+  caption: |
+    And I've got a couple options here. If I just
+    want to see the next full page,
+
+- time: "00:05:57"
+  speaker: League
+  caption: |
+    I can hit the space bar. So now I'm looking at
+    page 2, and so on.
+
+- time: "00:06:03"
+  speaker: League
+  caption: |
+    It pages through the file that way.
+
+- time: "00:06:05"
+  speaker: League
+  caption: |
+    And if I'm done looking I can hit the `q`
+    to go back to my regular prompt.
+
+- time: "00:06:10"
+  speaker: Lopes
+  index: "`.gz`"
+  caption: |
+    Now does `cat` and `more` work on files other
+    than text files, such as the `.gz` there?
+
+- time: "00:06:16"
+  speaker: League
+  caption: |
+    Yeah, so `gz` is like a compressed file, which
+    means it may not be viewable as plain text.
+
+- time: "00:06:23"
+  speaker: League
+  cmd: |
+    cat hello-2.10.tar.gz
+  caption: |
+    And I can try to do `cat` on that --
+
+- time: "00:06:27"
+  speaker: League
+  caption: |
+    2.10, okay --
+
+- time: "00:06:30"
+  speaker: League
+  caption: |
+    but I'm going to regret it [laughs].
+    I'll show you what it does anyway.
+
+- time: "00:06:35"
+  speaker: League
+  caption: |
+    So if I do `cat` on the `.gz` file,
+    I start to get a bunch of this stuff
+
+- time: "00:06:37"
+  speaker: League
+  caption: |
+    dumped to my terminal. So it really is just
+    dumping out the contents of that file,
+
+- time: "00:06:42"
+  speaker: League
+  caption: |
+    but that's not something that I can see on my
+    terminal in a reasonable way.
+
+- time: "00:06:47"
+  speaker: League
+  index: "`^C` (interrupt)"
+  caption: |
+    So what I have to do here to fix this is hit
+    control-C to stop it --
+
+- time: "00:06:50"
+  speaker: League
+  caption: |
+    and sometimes that'll take a moment. And once
+    it actually stops,
+
+- time: "00:06:55"
+  speaker: League
+  index: "`reset`"
+  cmd: |
+    reset
+  caption: |
+    what you might want to do is reset your
+    terminal. There's a command called `reset` --
+
+- time: "00:07:02"
+  speaker: League
+  index: "file type, binary"
+  caption: |
+    sometimes dumping the contents of a binary file
+    will mess with your terminal settings
+
+- time: "00:07:07"
+  speaker: League
+  caption: |
+    and things might not come out quite right.
+
+- time: "00:07:09"
+  speaker: League
+  caption: |
+    Sometimes when you start to type after that,
+    it will actually show you funny characters
+
+- time: "00:07:13"
+  speaker: League
+  caption: |
+    instead of the keys you pressed. But typing
+    `reset` should fix all of that.
+
+- time: "00:07:19"
+  speaker: League
+  caption: |
+    Now my terminal is back to its default
+    settings.
+
+- time: "00:07:23"
+  speaker: Lopes
+  caption: |
+    Now that we learned `cat` to open text files,
+    and tried to open a binary file,
+
+- time: "00:07:29"
+  speaker: Lopes
+  index: "file type, image"
+  caption: |
+    is it the same process to open images as well,
+    and PDFs?
+
+- time: "00:07:33"
+  speaker: League
+  index: "file type, PDF"
+  caption: |
+    So images and PDFs you might want to be
+    able to view from the command line,
+
+- time: "00:07:37"
+  speaker: League
+  caption: |
+    but you can't actually see the content
+    directly.
+
+- time: "00:07:40"
+  speaker: League
+  caption: |
+    However, you can open them in another program
+    by typing a command.
+
+- time: "00:07:45"
+  speaker: League
+  caption: |
+    So I've got here -- down in some
+    sub-directory -- I've got some figures
+
+- time: "00:07:51"
+  speaker: League
+  caption: |
+    that are part of a book. And a lot of these are
+    in Postscript format,
+
+- time: "00:07:57"
+  speaker: League
+  caption: |
+    which we're not going to worry about right now.
+
+- time: "00:07:59"
+  speaker: League
+  index: "`.png`"
+  cmd: |
+    ls *.png
+  caption: |
+    But I do have down here an image file,
+    in PNG format.
+
+- time: "00:08:03"
+  speaker: League
+  index: "`xdg-open`"
+  caption: |
+    And if I want to open that on the command line,
+    on Linux the command would be `xdg-open`.
+
+- time: "00:08:11"
+  speaker: League
+  caption: |
+    What this does is it connects to your desktop
+    environment that you have installed,
+
+- time: "00:08:16"
+  speaker: League
+  caption: |
+    and chooses the appropriate viewer for the file
+    type.
+
+- time: "00:08:20"
+  speaker: League
+  caption: |
+    So you can use this for both images and PDFs,
+    and some other things as well.
+
+- time: "00:08:24"
+  speaker: League
+  cmd: |
+    xdg-open gridworld.png
+  caption: |
+    So I `xdg-open gridworld.png` and it opens in
+    this external application
+
+- time: "00:08:30"
+  speaker: League
+  caption: |
+    to show you the image. And then you can close
+    that and switch back to the command line.
+
+- time: "00:08:37"
+  speaker: League
+  caption: |
+    On a Mac, the command that does the same thing
+    -- that hooks into the graphical environment
+
+- time: "00:08:43"
+  speaker: League
+  index: "`open`"
+  cmd: |
+    open gridworld.png
+  caption: |
+    on the Mac -- it's just called `open`. So you
+    would say `open gridworld.png`
+
+- time: "00:08:49"
+  speaker: League
+  caption: |
+    and that won't work on Linux but it works fine
+    on Mac.
+
+- time: "00:08:51"
+  speaker: Lopes
+  caption: |
+    And I noticed at the top you did `ls` asterisk
+    -- what is that?
+
+- time: "00:08:55"
+  speaker: League
+  index: "`*` wildcard"
+  caption: |
+    Yeah, so this asterisk, or 'star' as I will
+    usually say, is a wildcard.
+
+- time: "00:09:01"
+  speaker: League
+  caption: |
+    It just matches anything. So this is a way of
+    showing -- so if I just do `ls`
+
+- time: "00:09:06"
+  speaker: League
+  cmd: |
+    ls *.png
+  caption: |
+    it shows all the files in this directory.
+    `ls *.png` means show me all the files
+
+- time: "00:09:12"
+  speaker: League
+  caption: |
+    where there is anything followed by a `.png`.
+    So any file that matches that.
+
+- time: "00:09:18"
+  speaker: League
+  caption: |
+    And so you can use that in a nice way to limit
+    what files you're seeing,
+
+- time: "00:09:23"
+  speaker: League
+  caption: |
+    to just the files that end with `.fig` --
+
+- time: "00:09:25"
+  speaker: League
+  caption: |
+    it doesn't have to have a boundary with the
+    dot, you can use it elsewhere.
+
+- time: "00:09:32"
+  speaker: League
+  caption: |
+    Like I can show all files that have `ren` in
+    the name.
+
+- time: "00:09:39"
+  speaker: League
+  cmd: |
+    ls *ren*
+  caption: |
+    So this `*ren*` means anything, followed by
+    `ren`, followed by anything.
+
+- time: "00:09:44"
+  speaker: League
+  caption: |
+    And that `ren` matches the middle of the word
+    `reference`, so it shows those filenames.
+
+- time: "00:09:49"
+  speaker: League
+  caption: |
+    We'll say a lot more about wildcards in another
+    episode, but that's a good introduction.
+
+- time: "00:09:55"
+  speaker: Lopes
+  caption: |
+    Now I see that after the `ls` you have the
+    `*ren*` --
+
+- time: "00:10:00"
+  speaker: Lopes
+  caption: |
+    earlier when we did `ls` we had a dash in front
+    of it.
+
+- time: "00:10:03"
+  speaker: Lopes
+  caption: |
+    So is there a difference between those options
+    and what we're seeing right now?
+
+- time: "00:10:09"
+  speaker: League
+  caption: |
+    Yeah, sort of...
+
+- time: "00:10:11"
+  speaker: League
+  index: "syntax"
+  caption: |
+    the syntax of these commands is usually that
+    you have the name of the command
+
+- time: "00:10:15"
+  speaker: League
+  caption: |
+    (which is `ls` in this case), and a space, and
+    then you typically put your options
+
+- time: "00:10:21"
+  speaker: League
+  caption: |
+    if you have any. So `-l` for example to get the
+    detailed listing,
+
+- time: "00:10:27"
+  speaker: League
+  caption: |
+    and then space, and then you do any other
+    arguments that you would have.
+
+- time: "00:10:34"
+  speaker: League
+  caption: |
+    So for example, names of files or wildcard
+    patterns for files, or whatever.
+
+- time: "00:10:41"
+  speaker: League
+  cmd: |
+    ls -l *ren*
+  caption: |
+    So I can do that to get a detailed listing of
+    just those files that I selected before.
+
+- time: "00:10:49"
+  speaker: League
+  caption: |
+    Some commands also support putting the options
+    after the arguments,
+
+- time: "00:10:54"
+  speaker: League
+  cmd: |
+    ls *ren* -l
+  caption: |
+    so you could do `ls *ren*` and then `-l` at the
+    end.
+
+- time: "00:10:59"
+  speaker: League
+  caption: |
+    And for `ls` that ends up being the same
+    thing. Not every command supports that though,
+
+- time: "00:11:03"
+  speaker: League
+  caption: |
+    and it's more typical to put the options before
+    the arguments.
+
+- time: "00:11:09"
+  speaker: League
+  caption: |
+    When you do `--help` for a command, it will
+    often show you a brief synopsis
+
+- time: "00:11:15"
+  speaker: League
+  caption: |
+    of how to use it, including the order that the
+    options and arguments should go in.
+
+- time: "00:11:22"
+  speaker: League
+  caption: |
+    We did `ls --help` previously, but I want to
+    also introduce that we can keep it
+
+- time: "00:11:29"
+  speaker: League
+  caption: |
+    from scrolling way off the page by using the
+    `more` command, but in a different way.
+
+- time: "00:11:34"
+  speaker: League
+  index: "`|` (pipe)"
+  caption: |
+    So previously we said `more` and a filename,
+    and now I'm using this 'pipe' character `|`
+
+- time: "00:11:40"
+  speaker: League
+  caption: |
+    and it's usually, on most keyboards it's
+    shift-backslash.
+
+- time: "00:11:45"
+  speaker: League
+  caption: |
+    So we call it 'pipe' or 'vertical bar', but
+    Unix people will just call it 'pipe'.
+
+- time: "00:11:51"
+  speaker: League
+  index: "pipeline"
+  caption: |
+    What this means is take the output of the thing
+    on the left
+
+- time: "00:11:55"
+  speaker: League
+  cmd: |
+    ls --help | more
+  caption: |
+    and feed it to the program on the right. So
+    we're combining two programs together
+
+- time: "00:11:59"
+  speaker: League
+  caption: |
+    and then we get the help message from `ls`
+    but it's paged so we see
+
+- time: "00:12:04"
+  speaker: League
+  caption: |
+    the `--More--` prompt at the bottom. And here's
+    that usage synopsis I was talking about,
+
+- time: "00:12:10"
+  speaker: League
+  caption: |
+    where after `ls` you put the options and then
+    you put the files you want to see.
+
+- time: "00:12:15"
+  speaker: League
+  caption: |
+    And then `more` allows us to page through this
+    just like we page through a text file,
+
+- time: "00:12:19"
+  speaker: League
+  caption: |
+    or hit `q` to go back to the prompt.
+
+- time: "00:12:23"
+  speaker: Lopes
+  caption: |
+    I noticed that when you did `ls|more` that we
+    could scroll down through the list,
+
+- time: "00:12:29"
+  speaker: Lopes
+  caption: |
+    but we couldn't go back up.
+
+- time: "00:12:31"
+  speaker: Lopes
+  caption: |
+    What if I wanted to go back up to view the
+    options I already passed?
+
+- time: "00:12:34"
+  speaker: League
+  index: "`less`"
+  caption: |
+    Yeah, exactly, so `more` only allows you to go
+    in one direction.
+
+- time: "00:12:39"
+  speaker: League
+  caption: |
+    That's a serious limitation to it, so a lot of
+    people actually use a newer command
+
+- time: "00:12:44"
+  speaker: League
+  caption: |
+    called `less`. So, you know, `more` and `less`
+    are kind of --
+
+- time: "00:12:49"
+  speaker: League
+  caption: |
+    `less` was named that to be the opposite of
+    `more` or something like that?
+
+- time: "00:12:53"
+  speaker: League
+  caption: |
+    So it's just a silly name.
+
+- time: "00:12:55"
+  speaker: League
+  cmd: |
+    ls --help | less
+  caption: |
+    But it does essentially the same stuff. The
+    prompt looks a little different,
+
+- time: "00:13:00"
+  speaker: League
+  caption: |
+    so it just has this colon `:` down here where
+    my cursor is.
+
+- time: "00:13:04"
+  speaker: League
+  caption: |
+    But it allows me to page forward in the same
+    way using the space bar.
+
+- time: "00:13:09"
+  speaker: League
+  caption: |
+    But I can also go back up, and I can do that
+    with the arrow keys to go up a line at a time,
+
+- time: "00:13:17"
+  speaker: League
+  caption: |
+    or you can use page-up and page-down to go up
+    toward the top and down toward the bottom.
+
+- time: "00:13:23"
+  speaker: League
+  caption: |
+    There are a couple other commands that it
+    supports too.
+
+- time: "00:13:27"
+  speaker: League
+  caption: |
+    If you want to go all the way to the top with
+    one keystroke, that's the less-than key.
+
+- time: "00:13:33"
+  speaker: League
+  caption: |
+    So less-than takes me all the way to the top,
+    and greater-than all the way to the bottom.
+
+- time: "00:13:38"
+  speaker: League
+  caption: |
+    And then just like `more`,
+    you can use `q` to quit.
+
+- time: "00:13:42"
+  speaker: League
+  caption: |
+    However on `less` you *have* to use `q` to
+    quit. One thing about `more` is that
+
+- time: "00:13:49"
+  speaker: League
+  caption: |
+    if you page all the way to the bottom, it just
+    exits by itself when it gets to the bottom.
+
+- time: "00:13:55"
+  speaker: League
+  caption: |
+    `less` doesn't do that. Page all the way to the
+    bottom,
+
+- time: "00:13:59"
+  speaker: League
+  caption: |
+    it stays there still running until you hit `q`.
+
+- time: "00:14:02"
+  speaker: League
+  caption: |
+    So it's really a matter of preference which one
+    you want to use,
+
+- time: "00:14:05"
+  speaker: League
+  caption: |
+    but `less` has more features than `more`.
+
+- time: "00:14:09"
+  speaker: Lopes
+  caption: |
+    So if I didn't want to view the entire file,
+
+- time: "00:14:11"
+  speaker: Lopes
+  caption: |
+    but I just want to know what's at the beginning
+    or end of it, do I have options for that?
+
+- time: "00:14:14"
+  speaker: League
+  index: "`head`"
+  caption: |
+    Yeah, very good. There are two commands, one
+    called `head` and one called `tail`,
+
+- time: "00:14:20"
+  speaker: League
+  index: "`tail`"
+  caption: |
+    that show the beginning and end of files.
+
+- time: "00:14:24"
+  speaker: League
+  caption: |
+    `tail` is especially useful for doing log
+    files.
+
+- time: "00:14:29"
+  speaker: League
+  caption: |
+    So I've got a log file down here in this
+    `hello` project.
+
+- time: "00:14:35"
+  speaker: League
+  caption: |
+    There's a `config.log` which keeps track of
+    what happened when I tried
+
+- time: "00:14:40"
+  speaker: League
+  caption: |
+    to configure this software. And if I just want
+    to review the last couple of lines
+
+- time: "00:14:46"
+  speaker: League
+  caption: |
+    of that file, to see if it was successful or
+    there was an error.
+
+- time: "00:14:49"
+  speaker: League
+  cmd: |
+    tail config.log
+  caption: |
+    You can see `tail config.log` and it will just
+    dump out the last few lines --
+
+- time: "00:14:57"
+  speaker: League
+  caption: |
+    looks like it's 1, 2, 3, ... 10 lines that it's
+    showing.
+
+- time: "00:15:02"
+  speaker: League
+  caption: |
+    And the bottom-most line just says `exit 0`,
+    which means it was successful.
+
+- time: "00:15:08"
+  speaker: League
+  index: "`tail -#`"
+  caption: |
+    You can configure `tail` in order to show you a
+    different number of lines besides 10.
+
+- time: "00:15:16"
+  speaker: League
+  caption: |
+    So if I only want to see that last one line,
+
+- time: "00:15:18"
+  speaker: League
+  cmd: |
+    tail -1 config.log
+  caption: |
+    I can say `-1` and there's the
+    very last line from that file.
+
+- time: "00:15:24"
+  speaker: Lopes
+  caption: |
+    So when we were talking about the syntax before
+
+- time: "00:15:28"
+  speaker: League
+  caption: |
+    Yeah, that's one of the options
+    that `tail` supports.
+
+- time: "00:15:31"
+  speaker: League
+  caption: |
+    So you put that, and then you put
+    the filename afterwards.
+
+- time: "00:15:35"
+  speaker: League
+  caption: |
+    How about `head`, same idea just shows you the
+    top of the file.
+
+- time: "00:15:39"
+  speaker: League
+  caption: |
+    So this can allow you to identify files, for
+    example.
+
+- time: "00:15:43"
+  speaker: League
+  caption: |
+    Like a lot of times there is authorship
+    information or copyright information
+
+- time: "00:15:48"
+  speaker: League
+  caption: |
+    at the top of the file. So I've got here a file
+    called Changelog.
+
+- time: "00:15:54"
+  speaker: League
+  caption: |
+    And the Changelog probably has information
+    about what changes have been made
+
+- time: "00:15:58"
+  speaker: League
+  caption: |
+    to this software. And generally when we keep
+    those files,
+
+- time: "00:16:02"
+  speaker: League
+  caption: |
+    we put the most recent stuff at the top.
+
+- time: "00:16:04"
+  speaker: League
+  cmd: |
+    head ChangeLog
+  caption: |
+    So if I want to see the most recent stuff in
+    the Changelog, I see here --
+
+- time: "00:16:09"
+  speaker: League
+  caption: |
+    `head` just shows the top ten lines, and the
+    first entry was from November 2014
+
+- time: "00:16:14"
+  speaker: League
+  caption: |
+    and it's for version 2.10.
+
+- time: "00:16:17"
+  speaker: League
+  caption: |
+    So that's an example of using `head` and again
+    I can just get the top --
+
+- time: "00:16:22"
+  speaker: League
+  cmd: |
+    head -4 ChangeLog
+  caption: |
+    let's say four lines of that file, using the
+    `-4` option.
+
+- time: "00:16:30"
+  speaker: League
+  caption: |
+    One other cool way to use `head` and `tail` is
+    after a pipe --
+
+- time: "00:16:34"
+  speaker: League
+  caption: |
+    the same way that I showed you to use `more`.
+    Like we did `ls --help|more`, right?
+
+- time: "00:16:43"
+  speaker: League
+  caption: |
+    Well instead of that we can pipe to head, and
+    what do you think that's going to do.
+
+- time: "00:16:47"
+  speaker: Lopes
+  caption: |
+    I'm assuming it will only show the first few
+    lines for the help
+
+- time: "00:16:50"
+  speaker: League
+  cmd: |
+    ls --help | head
+  caption: |
+    Yeah, the first few lines of that help message,
+    and then just return me to the terminal.
+
+- time: "00:16:54"
+  speaker: League
+  caption: |
+    So if all I really wanted to see was the
+    synopsis at the top,
+
+- time: "00:16:59"
+  speaker: League
+  caption: |
+    `head` is a great option for that.
+
+- time: "00:17:03"
+  speaker: Lopes
+  caption: |
+    Now could we do `ls` and `--help` and then
+
+- time: "00:17:05"
+  speaker: Lopes
+  caption: |
+    combine `head` with the amount of lines we want
+    to show?
+
+- time: "00:17:09"
+  speaker: League
+  caption: |
+    Yup, so `ls` takes its option of `--help`, the
+    result of that can be piped into `head`,
+
+- time: "00:17:16"
+  speaker: League
+  cmd: |
+    ls --help | head -3
+  caption: |
+    and you put its option out here, so let's say
+    we want to see 3 lines.
+
+- time: "00:17:21"
+  speaker: League
+  caption: |
+    Then there's just the 3-line synopsis.
+
+- time: "00:17:23"
+  speaker: Lopes
+  caption: |
+    Nice.
+
+- time: "00:17:25"
+  speaker: League
+  caption: |
+    So this is what I think is the really cool
+    thing about the terminal.
+
+- time: "00:17:28"
+  speaker: League
+  caption: |
+    You have these little commands that you can
+    then mix and match
+
+- time: "00:17:31"
+  speaker: League
+  caption: |
+    in a bunch of different ways
+    to get things done.
+
+- time: "00:17:34"
+  speaker: League
+  caption: |
+    And we're only seeing the glimpse of that right
+    now but we're going to do
+
+- time: "00:17:39"
+  speaker: League
+  caption: |
+    much more powerful pipelines with some other
+    commands in future episodes.
+
+- time: "00:17:44"
+  speaker: Lopes
+  caption: |
+    Thanks for joining us today for episode 2.
+    Professor, what's the topic for next time?
+
+- time: "00:17:49"
+  speaker: League
+  caption: |
+    So I think next time we'll dig into wildcards a
+    little bit more.
+
+- time: "00:17:52"
+  speaker: League
+  caption: |
+    And we're going to use pipes for simple text
+    manipulation with a few more commands
+
+- time: "00:17:56"
+  speaker: League
+  caption: |
+    we'll learn. But we've already started to see
+    the power of pipes to some extent,
+
+- time: "00:18:00"
+  speaker: League
+  caption: |
+    just with commands like `ls` and `head` and
+    `tail` and `more` and `less`.
+
+- time: "00:18:06"
+  speaker: League
+  caption: |
+    We're going to see even more sophisticated ways
+    to combine small commands
+
+- time: "00:18:10"
+  speaker: League
+  caption: |
+    together in the next episode.
+
+- time: "00:18:14"
+  speaker: Lopes
+  caption: |
+    Sounds good.
+
+- time: "00:18:15"
+  speaker: League
+  caption: |
+    See you then!
+
+- time: "00:18:17"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:18:25"
+  caption: |
+    [Captions by Christopher League]
+
+- time: "00:18:45"
+  caption: |
+    [End]
