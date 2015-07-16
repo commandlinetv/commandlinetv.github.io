@@ -5,8 +5,8 @@
 - time: "00:00:21"
   speaker: League
   caption: |
-    Hi, welcome back to Command Line TV. I'm Chris
-    League and with me is my co-host Chris Lopes.
+    Hi, welcome back to Command Line TV. I'm
+    Chris League, with me is my co-host Chris Lopes.
 
 - time: "00:00:26"
   speaker: League
@@ -1018,8 +1018,8 @@
 - time: "00:13:33"
   speaker: League
   caption: |
-    So less-than takes me all the way to the top,
-    and greater-than all the way to the bottom.
+    So `<` takes me all the way to the top,
+    and `>` all the way to the bottom.
 
 - time: "00:13:38"
   speaker: League

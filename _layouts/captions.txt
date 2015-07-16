@@ -1,6 +1,6 @@
 {% assign z = page.url|split:"." %}{% if z[1] == "vtt" %}WEBVTT
 
-{% endif %}{% for e in site.data[page.slug] %}{{ forloop.index }}
+{% endif %}{% assign prev = "" %}{% for e in site.data[page.slug] %}{{ forloop.index }}
 {{ e.time }}{{page.sep}}000 --> {%if site.data[page.slug][forloop.index].time %}{{site.data[page.slug][forloop.index].time}}{{page.sep}}000{% else %}99:99:99{{page.sep}}999{% endif %}
-{{ e.caption }}
+{% if e.speaker != prev %}{% if e.speaker %}{{e.speaker|upcase}}: {% endif %}{% assign prev = e.speaker %}{% endif %}{% if z[1] == "vtt" %}{{e.caption|escape|replace:"&#39;","'"}}{% else %}{{e.caption}}{% endif %}
 {% endfor %}
