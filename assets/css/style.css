@@ -1,6 +1,11 @@
 body {
     font-family: 'Roboto Slab', serif;
 }
+pre, code {
+    background: #f3f3ff;
+    color: #a14;
+    font-size: 14px;
+}
 footer {
     margin-top: 4ex;
 }
@@ -54,9 +59,6 @@ em, .cl-speaker {
 }
 #cl-ep-nav {
     margin: 2ex 0 4ex 0;
-}
-code {
-    font-size: 110%;
 }
 #cl-pages {
     margin-top: 2.3ex;
