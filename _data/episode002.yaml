@@ -155,7 +155,7 @@
 
 - time: "00:02:20"
   speaker: League
-  index: "`ls -F`"
+  index: "`ls -F` (classify)"
   caption: |
     And one cool thing about the colors is that it's
     showing us directories in blue,
@@ -374,7 +374,7 @@
 
 - time: "00:05:04"
   speaker: League
-  index: "`cat`"
+  index: "`cat` (concatenate files)"
   caption: |
     to dump out the contents of a file is called
     `cat`, which stands for `catenate` --
@@ -412,7 +412,7 @@
 
 - time: "00:05:37"
   speaker: League
-  index: "`more`"
+  index: "`more` (pager)"
   cmd: |
     more languages.txt
   caption: |
@@ -518,7 +518,7 @@
 
 - time: "00:06:55"
   speaker: League
-  index: "`reset`"
+  index: "`reset` (initialize terminal)"
   cmd: |
     reset
   caption: |
@@ -615,7 +615,7 @@
 
 - time: "00:08:03"
   speaker: League
-  index: "`xdg-open`"
+  index: "`xdg-open` (Linux desktop)"
   caption: |
     And if I want to open that on the command line,
     on Linux the command would be `xdg-open`.
@@ -660,7 +660,7 @@
 
 - time: "00:08:43"
   speaker: League
-  index: "`open`"
+  index: "`open` (Mac desktop)"
   cmd: |
     open gridworld.png
   caption: |
@@ -943,7 +943,7 @@
 
 - time: "00:12:34"
   speaker: League
-  index: "`less`"
+  index: "`less` (pager)"
   caption: |
     Yeah, exactly, so `more` only allows you to go
     in one direction.
@@ -1074,14 +1074,14 @@
 
 - time: "00:14:14"
   speaker: League
-  index: "`head`"
+  index: "`head` (first few lines)"
   caption: |
     Yeah, very good. There are two commands, one
     called `head` and one called `tail`,
 
 - time: "00:14:20"
   speaker: League
-  index: "`tail`"
+  index: "`tail` (last few lines)"
   caption: |
     that show the beginning and end of files.
 
@@ -1137,7 +1137,7 @@
 
 - time: "00:15:08"
   speaker: League
-  index: "`tail -#`"
+  index: "`tail -n` (lines)"
   caption: |
     You can configure `tail` in order to show you a
     different number of lines besides 10.
@@ -1234,6 +1234,7 @@
 
 - time: "00:16:17"
   speaker: League
+  index: "`head -n` (lines)"
   caption: |
     So that's an example of using `head` and again
     I can just get the top --

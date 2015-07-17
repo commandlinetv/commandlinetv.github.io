@@ -133,7 +133,7 @@
 
 - time: "00:02:13"
   speaker: "League"
-  index: "`xdg-open`"
+  index: "`xdg-open` (Linux desktop)"
   cmd: |
     xdg-open gridworld.png
   caption: |
@@ -153,7 +153,7 @@
 
 - time: "00:02:31"
   speaker: "League"
-  index: "`mv`"
+  index: "`mv` (move or rename)"
   caption: |
     I can rename that file. So, to rename a file is `mv` --
 
@@ -193,7 +193,7 @@
 
 - time: "00:03:08"
   speaker: "League"
-  index: "`file`"
+  index: "`file` (show file type)"
   cmd: |
     file gridworld.txt
   caption: |
@@ -694,7 +694,7 @@
 
 - time: "00:11:34"
   speaker: "League"
-  index: "`head`"
+  index: "`head` (first few lines)"
   caption: |
     A command we learned last week that does something
     especially useful with multiple files is `head`.
@@ -768,7 +768,7 @@
 
 - time: "00:12:34"
   speaker: "Lopes"
-  index: "`grep`"
+  index: "`grep` (show matching lines)"
   caption: |
     What if instead we wanted to search throughout
     those files for particular words or phrases?
@@ -1567,6 +1567,10 @@
 - time: "00:24:41"
   caption: |
     [Dark electronic beat]
+
+- time: "00:24:49"
+  caption: |
+    [Captions by Christopher League]
 
 - time: "00:25:17"
   caption: |
