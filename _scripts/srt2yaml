@@ -1,0 +1,39 @@
+#!/usr/bin/python2
+import sys
+import re
+
+deltaSec = -13
+
+timeRegex = re.compile(r'(\d{2})\:(\d{2}):(\d{2}),(\d{3}) --> \d{2}\:\d{2}:\d{2},\d{3}')
+
+serial = sys.stdin.readline()
+while serial:
+    times = sys.stdin.readline()
+    #print(repr(times))
+    text = sys.stdin.readline()
+    blank = sys.stdin.readline()
+    tm = timeRegex.match(times)
+    hh = int(tm.group(1))
+    mm = int(tm.group(2))
+    ss = int(tm.group(3))
+    ms = int(tm.group(4))
+    # Round to nearest second
+    if ms >= 500:
+        ss += 1
+        if ss >= 60:
+            mm += 1
+            if mm >= 60:
+                hh += 1
+    # Convert to just seconds and apply delta
+    secs = hh*3600 + mm*60 + ss + deltaSec
+    #print(secs)
+    # Convert back
+    ss = secs % 60
+    mm = (secs//60) % 60
+    hh = secs // 3600
+    # Dump
+    print('- time: "%02d:%02d:%02d"' % (hh,mm,ss))
+    print("  caption: |")
+    print("    %s" % text)
+    # Again
+    serial = sys.stdin.readline()
