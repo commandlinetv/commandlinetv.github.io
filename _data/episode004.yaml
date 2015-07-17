@@ -1,0 +1,1585 @@
+- time: "00:00:02"
+  caption: |
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:22"
+  speaker: League
+  caption: |
+    Welcome to Episode 4 of Command Line TV.
+
+- time: "00:00:26"
+  speaker: League
+  caption: |
+    Today we're going to talk about `cut`, `uniq`
+    and `sort`, some commands for text processing,
+
+- time: "00:00:34"
+  speaker: League
+  caption: |
+    and with me is my co-host, as always,
+    Christian Lopes.
+
+- time: "00:00:38"
+  speaker: League
+  caption: |
+    Do you have any questions from last time?
+
+- time: "00:00:40"
+  speaker: Lopes
+  caption: |
+    I did have one question in terms of --
+    we did a lot of text manipulations,
+
+- time: "00:00:45"
+  speaker: Lopes
+  caption: |
+    but what if I just wanted to start with a text
+    file? How would I open one of those files?
+
+- time: "00:00:51"
+  speaker: League
+  caption: |
+    If you have, like I've got in here a
+    text file `languages.txt`, for example,
+
+- time: "00:00:59"
+  speaker: League
+  cmd: |
+    cat languages.txt
+  caption: |
+    and we know we can dump
+    its content out using `cat`.
+
+- time: "00:01:02"
+  speaker: League
+  cmd: |
+    less languages.txt
+  caption: |
+    We can also use things like more or less
+    to see it.
+
+- time: "00:01:05"
+  speaker: League
+  caption: |
+    But if you want to modify the content or create
+    a new file,
+
+- time: "00:01:09"
+  speaker: League
+  index: text editor
+  caption: |
+    what you want to do is open up a text editor.
+
+- time: "00:01:13"
+  speaker: League
+  index: "`nano` (editor)"
+  caption: |
+    There are a variety of different text editors
+    available on the command line,
+
+- time: "00:01:16"
+  speaker: League
+  caption: |
+    or from the command line, and some of it
+    depends on
+
+- time: "00:01:20"
+  speaker: League
+  caption: |
+    what platform you're on and what's installed.
+
+- time: "00:01:23"
+  speaker: League
+  caption: |
+    But one simple thing that works on almost every
+    platform is a really simple editor called `nano`.
+
+- time: "00:01:32"
+  speaker: League
+  cmd: |
+    nano languages.txt
+  caption: |
+    So if I do `nano` on `languages.txt`, it will
+    open up a little editor
+
+- time: "00:01:39"
+  speaker: League
+  caption: |
+    where it shows me the content of this, and I
+    can move around through it,
+
+- time: "00:01:43"
+  speaker: League
+  caption: |
+    but I can also go in here and make changes to
+    it.
+
+- time: "00:01:49"
+  speaker: League
+  caption: |
+    Now it's a little bit unusual the way its
+    commands work. There isn't a menu.
+
+- time: "00:01:55"
+  speaker: League
+  caption: |
+    You can't really use the mouse like you're used
+    to because this is a command line-only editor.
+
+- time: "00:02:03"
+  speaker: League
+  caption: |
+    But down across the bottom are some hints as to
+    keystrokes that work.
+
+- time: "00:02:08"
+  speaker: League
+  caption: |
+    So if you want to save the file -- save is what
+    they call "write out" --
+
+- time: "00:02:12"
+  speaker: League
+  caption: |
+    you hit 'control-O' and it just confirms for
+    you the file name.
+
+- time: "00:02:17"
+  speaker: League
+  caption: |
+    You confirm that and press 'Enter', and it
+    saved that file,
+
+- time: "00:02:21"
+  speaker: League
+  caption: |
+    and then when you want to exit, there's
+    'control-X'.
+
+- time: "00:02:25"
+  speaker: League
+  caption: |
+    Now we're back and that file has been modified.
+    So `nano` is very simple to use.
+
+- time: "00:02:32"
+  speaker: League
+  caption: |
+    But you can also use graphical editors.
+
+- time: "00:02:35"
+  speaker: League
+  index: "`gedit` (desktop editor)"
+  caption: |
+    Most Ubuntu systems will have `gedit`
+    installed,
+
+- time: "00:02:39"
+  speaker: League
+  cmd: |
+    gedit languages.txt
+  caption: |
+    and you can just type "gedit" with the file
+    name.
+
+- time: "00:02:42"
+  speaker: League
+  caption: |
+    It will open up a separate window, and you can
+    use your mouse here.
+
+- time: "00:02:48"
+  speaker: League
+  caption: |
+    It's got a menu -- this is more like a standard
+    editor.
+
+- time: "00:02:52"
+  speaker: League
+  caption: |
+    So we can go in there and make changes and save
+    it and so on.
+
+- time: "00:02:55"
+  speaker: League
+  caption: |
+    And then when you exit that, you just go back
+    to the command line.
+
+- time: "00:02:59"
+  speaker: League
+  caption: |
+    There might be some messages here from `gedit`
+    as it ran, but most of them are ignorable.
+
+- time: "00:03:07"
+  speaker: League
+  index: "`open -e` (Mac TextEdit)"
+  caption: |
+    On a Mac the way to hook into the text edit
+    application is to type `open -e`.
+
+- time: "00:03:16"
+  speaker: League
+  cmd: |
+    open -e languages.txt
+  caption: |
+    This means open with 'TextEdit', and then you
+    put the file name.
+
+- time: "00:03:20"
+  speaker: League
+  caption: |
+    That won't work here because we're on Linux but
+    that should do okay on the Mac.
+
+- time: "00:03:24"
+  speaker: Lopes
+  index: "file type, text"
+  caption: |
+    Now that we've been working on the terminal so
+    much, it's obvious how important
+
+- time: "00:03:28"
+  speaker: Lopes
+  caption: |
+    these text files are. What else can we do with
+    the text files in terms of editing and whatnot?
+
+- time: "00:03:35"
+  speaker: League
+  caption: |
+    Text files are very important on UNIX systems
+    because a lot of the configuration
+
+- time: "00:03:40"
+  speaker: League
+  caption: |
+    and just data is kept in text files.
+
+- time: "00:03:44"
+  speaker: League
+  caption: |
+    So we have a lot of commands that are around
+    editing and manipulating text in different ways.
+
+- time: "00:03:53"
+  speaker: League
+  caption: |
+    We're going to look at some of those commands,
+    but first I want to show you one of these
+
+- time: "00:03:57"
+  speaker: League
+  index: password
+  caption: |
+    configuration files that's part of pretty much
+    every UNIX system, and that's the password file.
+
+- time: "00:04:03"
+  speaker: League
+  cmd: |
+    cat /etc/passwd
+  caption: |
+    So if I use `cat` to dump out the contents of
+    `/etc/passwd` --
+
+- time: "00:04:10"
+  speaker: League
+  index: "`/etc`"
+  caption: |
+    `etc` is a directory at the top level of a UNIX
+    system that keeps a lot of configuration files
+
+- time: "00:04:17"
+  speaker: League
+  caption: |
+    within it, so 'password' is one of those. And
+    we spell `passwd` abbreviated like that.
+
+- time: "00:04:23"
+  speaker: League
+  caption: |
+    I dumped that out and I've got all kinds of
+    information here
+
+- time: "00:04:26"
+  speaker: League
+  caption: |
+    about different users in the system.
+
+- time: "00:04:29"
+  speaker: League
+  caption: |
+    So this is my personal account and then I've
+    got an account down here for `cltv`,
+
+- time: "00:04:38"
+  speaker: League
+  caption: |
+    and we've got information about each of these
+    users. Most of these are system users,
+
+- time: "00:04:45"
+  speaker: League
+  caption: |
+    so that means that they represent different
+    software on the system or different servers.
+
+- time: "00:04:51"
+  speaker: League
+  caption: |
+    For example, 'Postgres' and 'CouchDB' are two
+    different database systems
+
+- time: "00:04:58"
+  speaker: League
+  caption: |
+    and they each have users for them. But then the
+    different information that we have here
+
+- time: "00:05:05"
+  speaker: League
+  caption: |
+    is separated by colons, so there are six or
+    seven fields.
+
+- time: "00:05:10"
+  speaker: League
+  caption: |
+    The first field is the user name,
+
+- time: "00:05:13"
+  speaker: League
+  caption: |
+    the second field traditionally was where we
+    would store the password,
+
+- time: "00:05:16"
+  speaker: League
+  caption: |
+    which is why this is called a password file,
+    but eventually UNIX systems started
+
+- time: "00:05:24"
+  speaker: League
+  caption: |
+    moving the passwords into a separate file so
+    that it could be protected a lot better.
+
+- time: "00:05:28"
+  speaker: League
+  caption: |
+    So in most systems this will just have an `x`
+    in it or it will be blank.
+
+- time: "00:05:33"
+  speaker: League
+  caption: |
+    Then I've got a 'user ID' number and a 'group
+    ID' number.
+
+- time: "00:05:38"
+  speaker: League
+  caption: |
+    Following that, for me it's empty, but it's
+    supposed to be the full name of that user.
+
+- time: "00:05:43"
+  speaker: League
+  caption: |
+    You can put a user's complete name there.
+
+- time: "00:05:46"
+  speaker: League
+  caption: |
+    So I've got things like that for my database
+    users.
+
+- time: "00:05:50"
+  speaker: League
+  index: "`~` (home directory)"
+  caption: |
+    And then finally these last two are the user's
+    home directory,
+
+- time: "00:05:54"
+  speaker: League
+  caption: |
+    so when I'm logged in as this person and I type
+    `~`, that's the directory it refers to.
+
+- time: "00:06:00"
+  speaker: League
+  index: "`bash` (default shell)"
+  caption: |
+    And then the shell for that user, so there are
+    different command shells that are available.
+
+- time: "00:06:05"
+  speaker: League
+  caption: |
+    The one we've been using is `bash`; it's the
+    most common,
+
+- time: "00:06:08"
+  speaker: League
+  caption: |
+    it's the default on Ubuntu and on the Mac, but
+    there are others,
+
+- time: "00:06:12"
+  speaker: League
+  caption: |
+    and later on we'll look at some of the
+    differences between them.
+
+- time: "00:06:16"
+  speaker: Lopes
+  index: "`cut` (select fields)"
+  caption: |
+    What if I don't want to see all this
+    information on the screen?
+
+- time: "00:06:19"
+  speaker: League
+  caption: |
+    What if I'm only interested in the user and
+    that user's home directory?
+
+- time: "00:06:23"
+  speaker: League
+  caption: |
+    We can cut out different fields of this so that
+    you don't have to see everything,
+
+- time: "00:06:28"
+  speaker: League
+  caption: |
+    and that's a command called `cut`. So what we
+    will do is type `cut`,
+
+- time: "00:06:35"
+  speaker: League
+  index: "`cut -d` (delimiter)"
+  caption: |
+    and then you have to specify with `cut` what
+    the delimiter is,
+
+- time: "00:06:39"
+  speaker: League
+  caption: |
+    that means what is separating each field, so
+    for the password file that's the colon.
+
+- time: "00:06:44"
+  speaker: League
+  caption: |
+    And then you have to specify which fields you
+    want to see,
+
+- time: "00:06:48"
+  speaker: League
+  index: "`cut -f` (fields)"
+  caption: |
+    so if I just wanted to see the first field --
+    they're numbered starting from 1 --
+
+- time: "00:06:53"
+  speaker: League
+  cmd: |
+    cut -d: -f1 /etc/passwd
+  caption: |
+    then I'd put the file name I'm looking at, so
+    that command will just dump out the first field,
+
+- time: "00:07:01"
+  speaker: League
+  caption: |
+    which is the names. If I also want to include
+    the home directory --
+
+- time: "00:07:06"
+  speaker: League
+  cmd: |
+    cut -d: -f1,6 /etc/passwd
+  caption: |
+    I think that was the sixth field -- I could put
+    `1,6` here, and that will give me
+
+- time: "00:07:13"
+  speaker: League
+  caption: |
+    the user name and that user's home directory,
+    separated again by the delimiter,
+
+- time: "00:07:19"
+  speaker: League
+  caption: |
+    but it omits all of the other information. You
+    can also do a range,
+
+- time: "00:07:24"
+  speaker: League
+  caption: |
+    so if the fields you want are in order -- let's
+    say I want 1 to 4 --
+
+- time: "00:07:32"
+  speaker: League
+  cmd: |
+    cut -d: -f1-4 /etc/passwd
+  caption: |
+    then that command with `-f 1-4` gives me the
+    first four fields
+
+- time: "00:07:40"
+  speaker: League
+  caption: |
+    of each entry in the password file.
+
+- time: "00:07:43"
+  speaker: Lopes
+  caption: |
+    So again that would be the user name, what
+    originally used to be the password, the ID?
+
+- time: "00:07:51"
+  speaker: League
+  caption: |
+    Yeah, user ID.
+
+- time: "00:07:52"
+  speaker: Lopes
+  caption: |
+    The user ID and then the group ID.
+
+- time: "00:07:54"
+  speaker: League
+  caption: |
+    Exactly.
+
+- time: "00:07:56"
+  speaker: League
+  index: "`cut -c` (characters)"
+  caption: |
+    There's another way that cut can work which is
+    useful if you've got some text where it's
+
+- time: "00:08:02"
+  speaker: League
+  caption: |
+    already aligned into columns instead of being
+    delimited by a particular character.
+
+- time: "00:08:08"
+  speaker: League
+  cmd: |
+    ls -l
+  caption: |
+    An example of that is if we take the output of
+    `ls -l`, you see how things line up here,
+
+- time: "00:08:14"
+  speaker: League
+  caption: |
+    so they intentionally insert some spaces around
+    these numbers and in dates and so on
+
+- time: "00:08:20"
+  speaker: League
+  caption: |
+    so that everything winds up into these columns,
+    and we can process that
+
+- time: "00:08:26"
+  speaker: League
+  caption: |
+    by specifying which character positions to cut.
+
+- time: "00:08:31"
+  speaker: League
+  caption: |
+    So if I do `ls -l` and pipe that output into
+    `cut`, then I can specify `-c`
+
+- time: "00:08:39"
+  speaker: League
+  cmd: |
+    ls -l | cut -c1-10
+  caption: |
+    to say which characters you want. For example,
+    I could do characters 1-10
+
+- time: "00:08:45"
+  speaker: League
+  caption: |
+    and that would be just the first part here,
+    these first 10 characters.
+
+- time: "00:08:51"
+  speaker: League
+  caption: |
+    So let's say I want to cut out these file
+    sizes, the numbers here.
+
+- time: "00:08:57"
+  speaker: League
+  caption: |
+    What I would normally do is just eyeball that
+    to try and get it right, like I might guess
+
+- time: "00:09:01"
+  speaker: League
+  caption: |
+    that it's about 23 characters in, and if I
+    leave off the ending of that range
+
+- time: "00:09:08"
+  speaker: League
+  cmd: |
+    ls -l | cut -c23-
+  caption: |
+    it will just take character 23 to the end, so
+    that seemed to work out exactly right.
+
+- time: "00:09:16"
+  speaker: League
+  caption: |
+    I start with just these numbers and there's
+    even a space before the 358,
+
+- time: "00:09:23"
+  speaker: League
+  caption: |
+    so that's cutting right at that point.
+
+- time: "00:09:28"
+  speaker: League
+  cmd: |
+    ls -l | cut -c23-33
+  caption: |
+    And then I want to go out to, let's say, 33,
+    but that brought in some of the months,
+
+- time: "00:09:33"
+  speaker: League
+  cmd: |
+    ls -l | cut -c23-29
+  caption: |
+    so I'm going to cut it back to 29, and that
+    looks about right,
+
+- time: "00:09:39"
+  speaker: League
+  caption: |
+    so I've been able to figure out this range of
+    character positions that will exactly
+
+- time: "00:09:44"
+  speaker: League
+  caption: |
+    cut out that information from the original `ls
+    -l` output.
+
+- time: "00:09:50"
+  speaker: Lopes
+  caption: |
+    On that password file that we were looking at,
+
+- time: "00:09:53"
+  speaker: Lopes
+  caption: |
+    was there any particular order to the file
+    structure?
+
+- time: "00:09:57"
+  speaker: League
+  caption: |
+    Usually not.
+
+- time: "00:09:59"
+  speaker: League
+  caption: |
+    If I dump out the password file here, these
+    just appear in arbitrary order.
+
+- time: "00:10:05"
+  speaker: League
+  caption: |
+    It could be that the latest additions were at
+    the end so it just puts them in the
+
+- time: "00:10:10"
+  speaker: League
+  caption: |
+    order that they were created, but I'm not even
+    sure that that's reliable;
+
+- time: "00:10:15"
+  speaker: League
+  caption: |
+    basically the order of the password file
+    doesn't matter.
+
+- time: "00:10:18"
+  speaker: League
+  index: "`sort` (put lines in order)"
+  caption: |
+    But if you wanted to see it in order, there's a
+    command to do that. It's called `sort`.
+
+- time: "00:10:24"
+  speaker: League
+  cmd: |
+    sort /etc/passwd
+  caption: |
+    So instead of `cat`, if I just sort password,
+    this doesn't change that file,
+
+- time: "00:10:29"
+  speaker: League
+  caption: |
+    it only reads that file as input and gives it
+    to us as output.
+
+- time: "00:10:34"
+  speaker: League
+  caption: |
+    Later on we'll see how to take that output and
+    store it back into a file.
+
+- time: "00:10:38"
+  speaker: League
+  caption: |
+    But if I sort it, what it does is it looks at
+    each line and just
+
+- time: "00:10:42"
+  speaker: League
+  caption: |
+    puts them in alphabetical order, so now I've
+    got the users that start with a `c` up here
+
+- time: "00:10:47"
+  speaker: League
+  caption: |
+    and `s` down here and so on, so that's
+    alphabetical order.
+
+- time: "00:10:52"
+  speaker: League
+  caption: |
+    `sort` is really great even in a pipeline if you
+    want to sort the output of another command.
+
+- time: "00:10:57"
+  speaker: League
+  index: "`du` (disk usage)"
+  caption: |
+    So a command that I think is really useful to
+    demonstrate that is called `du`,
+
+- time: "00:11:04"
+  speaker: League
+  caption: |
+    which stands for "disk usage." It's basically
+    showing us how much space files and folders
+
+- time: "00:11:09"
+  speaker: League
+  index: "`du -s` (summarize)"
+  caption: |
+    are taking up on our system. I'm going to use
+    the `-s` command to summarize the results,
+
+- time: "00:11:16"
+  speaker: League
+  cmd: |
+    du -s *
+  caption: |
+    and `*` means for every file and folder in the
+    current directory. So I get this.
+
+- time: "00:11:23"
+  speaker: League
+  caption: |
+    These numbers out front are in units of
+    kilobytes although some versions
+
+- time: "00:11:27"
+  speaker: League
+  caption: |
+    of `du` use different units.
+
+- time: "00:11:30"
+  speaker: League
+  caption: |
+    There are some ways to specify what units you
+    want as options.
+
+- time: "00:11:34"
+  speaker: League
+  caption: |
+    We're going to get into all of that later;
+
+- time: "00:11:36"
+  speaker: League
+  caption: |
+    we're going to do a section on file system
+    tools and we'll talk about `du` a lot more.
+
+- time: "00:11:41"
+  speaker: League
+  caption: |
+    But what I want to show here is just that I
+    might want to put these in order.
+
+- time: "00:11:46"
+  speaker: League
+  caption: |
+    `du` is showing them in the order that they
+    appear,
+
+- time: "00:11:50"
+  speaker: League
+  caption: |
+    like alphabetical order by the file name, just
+    like `ls` does.
+
+- time: "00:11:54"
+  speaker: League
+  caption: |
+    But with the number beside it of how much space
+    that's taking up, I might want to sort that,
+
+- time: "00:12:01"
+  speaker: League
+  cmd: |
+    du -s * | sort
+  caption: |
+    so I can take that result and pipe it into
+    `sort`, and then it puts those in order,
+
+- time: "00:12:07"
+  speaker: League
+  caption: |
+    except it's kind of weird because I've got
+    these 4's right in the middle here.
+
+- time: "00:12:12"
+  speaker: League
+  caption: |
+    So if you look at just the first character,
+    these are in order, right: 2 3 4 4 5 7 9.
+
+- time: "00:12:19"
+  speaker: League
+  caption: |
+    But it's not really numerical order based on
+    the entire number.
+
+- time: "00:12:23"
+  speaker: League
+  index: "`sort -n` (numeric)"
+  caption: |
+    So sorting text is different than sorting
+    numbers, and when you sort numbers,
+
+- time: "00:12:29"
+  speaker: League
+  cmd: |
+    du -s * | sort -n
+  caption: |
+    you tell `sort -n` and that will compensate for
+    that.
+
+- time: "00:12:34"
+  speaker: League
+  caption: |
+    So now I get them in numerical order from
+    smallest to biggest.
+
+- time: "00:12:38"
+  speaker: League
+  index: "`sort -r` (reverse)"
+  cmd: |
+    du -s * | sort -n -r
+  caption: |
+    If you want it reversed, of course sort can
+    take `-r` to reverse it
+
+- time: "00:12:43"
+  speaker: League
+  caption: |
+    and now the smallest come out at the bottom.
+
+- time: "00:12:47"
+  speaker: League
+  caption: |
+    So that's a useful usage of `du`
+    and `sort` together.
+
+- time: "00:12:52"
+  speaker: Lopes
+  caption: |
+    Back in the password directory, we have a lot
+    of users
+
+- time: "00:12:55"
+  speaker: Lopes
+  caption: |
+    and they have a lot of separate home
+    directories.
+
+- time: "00:12:58"
+  speaker: Lopes
+  caption: |
+    However, some of them are the same; a lot just
+    have the `/` or root as their directory,
+
+- time: "00:13:05"
+  speaker: Lopes
+  caption: |
+    but the `cltv` and yours, which is `league`,
+    have `/home`.
+
+- time: "00:13:11"
+  speaker: Lopes
+  caption: |
+    Is there a way to sort these out and see how
+    many there are?
+
+- time: "00:13:15"
+  speaker: League
+  caption: |
+    Yeah -- first of all you might to just want to
+    cut out the home directory field
+
+- time: "00:13:22"
+  speaker: League
+  caption: |
+    so that we can see the variety of things that
+    are there more easily.
+
+- time: "00:13:28"
+  speaker: League
+  caption: |
+    Recall that our delimiter was colon, and I
+    think that's Field 6 in the password file.
+
+- time: "00:13:35"
+  speaker: League
+  caption: |
+    So here are all of the home directories, and
+    one thing you could do --
+
+- time: "00:13:40"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd|grep /home
+  caption: |
+    we learned `grep` previously -- you could
+    `grep` for `/home` to see just those users
+
+- time: "00:13:47"
+  speaker: League
+  caption: |
+    that have directories in `/home`.
+
+- time: "00:13:49"
+  speaker: League
+  caption: |
+    That's one indication that those are regular
+    human users as opposed to system users,
+
+- time: "00:13:54"
+  speaker: League
+  caption: |
+    which usually have their directories somewhere
+    else.
+
+- time: "00:13:58"
+  speaker: League
+  index: "`uniq` (omit repeated lines)"
+  caption: |
+    But another thing that we can do that's pretty
+    cool is remove the duplicates
+
+- time: "00:14:03"
+  speaker: League
+  caption: |
+    or count the duplicates. Here I've got a bunch
+    of different users that just use
+
+- time: "00:14:08"
+  speaker: League
+  caption: |
+    the root as their directory, so if I do unique,
+    -- unique is just spelled `uniq` --
+
+- time: "00:14:17"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd|uniq
+  caption: |
+    what it will do is remove duplicates, so what
+    happens is now we only see the slash once,
+
+- time: "00:14:24"
+  speaker: League
+  caption: |
+    except we actually see it twice, and that's
+    because those were not consecutive.
+
+- time: "00:14:30"
+  speaker: League
+  caption: |
+    So basically if two lines are side by side or
+    adjacent, then `uniq` can detect that
+
+- time: "00:14:36"
+  speaker: League
+  caption: |
+    they're the same and eliminate them, but if
+    they're not adjacent, it doesn't notice.
+
+- time: "00:14:44"
+  speaker: League
+  caption: |
+    So it's very common, unless you know that the
+    data is already in order,
+
+- time: "00:14:49"
+  speaker: League
+  caption: |
+    to put a `sort` before the `uniq`.
+
+- time: "00:14:53"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd|sort
+  caption: |
+    Now I take those directories, sort them --
+    let's just look at the result of that first --
+
+- time: "00:14:58"
+  speaker: League
+  caption: |
+    so now all of the slashes are together and
+    these appear in alphabetical order,
+
+- time: "00:15:04"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd|sort |uniq
+  caption: |
+    and then if I do `uniq`, it will have the slash
+    only appear once because all of them
+
+- time: "00:15:11"
+  speaker: League
+  index: "`uniq -c` (count)"
+  caption: |
+    were together and now `uniq` can filter them
+    properly. Another thing that `uniq` supports
+
+- time: "00:15:17"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd|sort |uniq -c
+  caption: |
+    is I can do the `-c` option, which means count
+    the number of duplicates
+
+- time: "00:15:22"
+  speaker: League
+  caption: |
+    instead of just eliminate them. So now I see
+    that that slash appeared 14 times
+
+- time: "00:15:29"
+  speaker: League
+  caption: |
+    and the rest of these appeared once. Another
+    cool thing that I thought we could do is
+
+- time: "00:15:35"
+  speaker: League
+  caption: |
+    try to count out based on just the top level of
+    the directory,
+
+- time: "00:15:40"
+  speaker: League
+  caption: |
+    so how many are in `var` vs. how many are in
+    `srv`.
+
+- time: "00:15:45"
+  speaker: League
+  caption: |
+    To do that, what I'm going to try to do is
+    `cut` again.
+
+- time: "00:15:49"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd
+  caption: |
+    So the first cut from the password file just
+    gives me these directory names,
+
+- time: "00:15:55"
+  speaker: League
+  caption: |
+    and then if I cut with a different delimiter --
+    so let's pretend slash is a delimiter --
+
+- time: "00:16:02"
+  speaker: League
+  caption: |
+    I can basically cut apart these directory names
+    as if they were separate fields.
+
+- time: "00:16:07"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd | cut -d/ -f2
+  caption: |
+    So field 1 would be before the first slash, and
+    this first bit here is Field 2,
+
+- time: "00:16:13"
+  speaker: League
+  caption: |
+    so `-f2`, and now I'm getting blank where it
+    was just the root directory
+
+- time: "00:16:19"
+  speaker: League
+  caption: |
+    or I'm getting `var`, `home`, `srv`,
+    whatever.
+
+- time: "00:16:22"
+  speaker: League
+  cmd: |
+    cut -d: -f6 /etc/passwd | cut -d/ -f2 |sort|uniq -c
+  caption: |
+    Then I can sort those and then `uniq -c`, and I
+    see that there are two people
+
+- time: "00:16:29"
+  speaker: League
+  caption: |
+    with home directories in home, three in `srv`,
+    seven in `var` and so on.
+
+- time: "00:16:36"
+  speaker: Lopes
+  caption: |
+    We have here a `survey.tsv` file. Is there a
+    way we can use the `uniq` command
+
+- time: "00:16:43"
+  speaker: Lopes
+  caption: |
+    to do a more practical analysis of data?
+
+- time: "00:16:47"
+  speaker: League
+  caption: |
+    Yeah, definitely. This survey file came from a
+    spreadsheet which originally was a Google form.
+
+- time: "00:16:55"
+  speaker: League
+  caption: |
+    We can see here I made a Google form just to
+    survey a class about how well
+
+- time: "00:17:00"
+  speaker: League
+  caption: |
+    things are going so far, so these 1-5 represent
+    Strongly Agree to Strongly Disagree.
+
+- time: "00:17:07"
+  speaker: League
+  caption: |
+    I don't remember which order is which, but it
+    doesn't matter.
+
+- time: "00:17:12"
+  speaker: League
+  caption: |
+    I basically downloaded this spreadsheet into
+    tab-separated values, tsv,
+
+- time: "00:17:18"
+  speaker: League
+  caption: |
+    and that's what we've got over here.
+
+- time: "00:17:22"
+  speaker: League
+  cmd: |
+    cat survey.tsv
+  caption: |
+    If we take a look at that file, it just has all
+    of the data in it,
+
+- time: "00:17:29"
+  speaker: League
+  caption: |
+    and in between each is a tab character, right
+    there. So we can do cut on that, and the
+
+- time: "00:17:39"
+  speaker: League
+  caption: |
+    delimiter is tab, but we don't have to worry
+    about how to specify a tab on the command line.
+
+- time: "00:17:45"
+  speaker: League
+  caption: |
+    If I just tried to type tab here it wouldn't
+    really work. But tab is the default delimiter
+
+- time: "00:17:51"
+  speaker: League
+  caption: |
+    for `cut`, so it's going to assume that if I
+    don't specify `-d`, which means I can just
+
+- time: "00:17:55"
+  speaker: League
+  cmd: |
+    cat survey.tsv | cut -f1
+  caption: |
+    leave it out and specify which fields I want.
+    So if I just want Field 1, that's the
+
+- time: "00:18:01"
+  speaker: League
+  cmd: |
+    cat survey.tsv | cut -f2
+  caption: |
+    time stamp and Field 2 is the first question,
+    Field 3 is the second question, and so on.
+
+- time: "00:18:09"
+  speaker: League
+  cmd: |
+    cat survey.tsv | cut -f2 | sort
+  caption: |
+    Now I can try to summarize this data by
+    applying `sort` to it.
+
+- time: "00:18:17"
+  speaker: League
+  caption: |
+    It's putting our responses in order from one to
+    five.
+
+- time: "00:18:20"
+  speaker: League
+  cmd: |
+    cat survey.tsv | cut -f2 | sort | uniq -c
+  caption: |
+    Then how do I summarize those `uniq -c` to count
+    them? So now I can tell that there were
+
+- time: "00:18:28"
+  speaker: League
+  caption: |
+    12 responses of 1 and three people responded 2
+    and so on.
+
+- time: "00:18:32"
+  speaker: League
+  caption: |
+    That corresponds to the same type of summary
+    you can get out of a Google spreadsheet itself,
+
+- time: "00:18:39"
+  speaker: League
+  caption: |
+    so here I've got a summary of responses, and
+    for this question we saw that 12 people said 1,
+
+- time: "00:18:45"
+  speaker: League
+  caption: |
+    three people said 2 and so on, so it's exactly
+    the same data.
+
+- time: "00:18:51"
+  speaker: Lopes
+  caption: |
+    So far we've used the delimiter with colon as
+    well as its native tab value.
+
+- time: "00:18:58"
+  speaker: Lopes
+  caption: |
+    What if we needed to use a special character as
+    a delimiter?
+
+- time: "00:19:01"
+  speaker: League
+  caption: |
+    Yeah, if you've got a special character like a
+    quote or a space or something,
+
+- time: "00:19:06"
+  speaker: League
+  caption: |
+    then you have to do something special to pass
+    that into `cut`.
+
+- time: "00:19:11"
+  speaker: League
+    cat weblog.txt
+  caption: |
+    One example we could look at is this weblog
+    file.  I grabbed about a day's worth
+
+- time: "00:19:18"
+  speaker: League
+  caption: |
+    of accesses to my web server and it's a lot to
+    look at, but this is basically one line of text
+
+- time: "00:19:28"
+  speaker: League
+  caption: |
+    here that goes on past the width of my screen.
+    But the first part of that is an IP address
+
+- time: "00:19:34"
+  speaker: League
+  caption: |
+    and there's a time stamp and some other
+    information. Let's say I just want to know
+
+- time: "00:19:39"
+  speaker: League
+  caption: |
+    what IP addresses are accessing my web site.
+    I could split that out based on this
+
+- time: "00:19:45"
+  speaker: League
+  caption: |
+    space character, so I'm going to do `cut` with
+    the delimiter being a space,
+
+- time: "00:19:51"
+  speaker: League
+  caption: |
+    but you can't just type space because that
+    would mean I'm just all done with my option,
+
+- time: "00:19:57"
+  speaker: League
+  caption: |
+    so we put the space in quotes. You could
+    actually use single quotes or double quotes
+
+- time: "00:20:02"
+  speaker: League
+  caption: |
+    for this as long as it's consistent. But there
+    are other cases where
+
+- time: "00:20:07"
+  speaker: League
+  caption: |
+    you might to cut on a quote character, so if I
+    wanted to cut on that as a delimiter,
+
+- time: "00:20:12"
+  speaker: League
+  caption: |
+    then I would put the double quote within the
+    single quotes, and that should work.
+
+- time: "00:20:18"
+  speaker: League
+  cmd: |
+    cut -d' ' -f1 weblog.txt
+  caption: |
+    So let's cut based on space and I'll take Field
+    1 of the weblog.
+
+- time: "00:20:23"
+  speaker: League
+  caption: |
+    That's going to give me these IP addresses.
+    They don't necessarily appear in order;
+
+- time: "00:20:30"
+  speaker: League
+  caption: |
+    they're in order of access, so I could have the
+    same IP address appearing at different times.
+
+- time: "00:20:38"
+  speaker: League
+  cmd: |
+    cut -d' ' -f1 weblog.txt | sort
+  caption: |
+    So I'm going to do sort to put them in order by
+    the IP address and then I can do `uniq -c`
+
+- time: "00:20:44"
+  speaker: League
+  cmd: |
+    cut -d' ' -f1 weblog.txt | sort | uniq -c
+  caption: |
+    to count how many times each IP address
+    accessed the site, right?
+
+- time: "00:20:51"
+  speaker: League
+  caption: |
+    Now I've got a count of how many times each IP
+    accessed the site, but maybe
+
+- time: "00:20:56"
+  speaker: League
+  caption: |
+    I want to put those in order, so I just get
+    back that previous command and tack onto it
+
+- time: "00:21:03"
+  speaker: League
+  cmd: |
+    cut -d' ' -f1 weblog.txt |sort|uniq -c|sort -n
+  caption: |
+    another sort, but this one is going to be
+    a numeric sort because those are numbers
+
+- time: "00:21:10"
+  speaker: League
+  caption: |
+    so I do `-n`. Now I see in order of how many
+    times each IP address accessed my web site,
+
+- time: "00:21:20"
+  speaker: League
+  caption: |
+    and I can do all of that just by incrementally
+    building up this pipeline.
+
+- time: "00:21:26"
+  speaker: Lopes
+  caption: |
+    You could also append a `-r` to put it in
+    reverse,
+
+- time: "00:21:30"
+  speaker: Lopes
+  caption: |
+    so you could see the least-accessed ones as
+    well.
+
+- time: "00:21:32"
+  speaker: League
+  cmd: |
+    cut -d' ' -f1 weblog.txt |sort|uniq -c|sort -n -r
+  caption: |
+    Yup -- `-r` would give me a bunch of ones at
+    the end. This is an interesting finding here.
+
+- time: "00:21:38"
+  speaker: League
+  caption: |
+    These are IP addresses but they started with
+    this 'quad f' thing.
+
+- time: "00:21:44"
+  speaker: League
+  caption: |
+    That's because this notation is using IP
+    Version 6 notation.
+
+- time: "00:21:49"
+  speaker: League
+  caption: |
+    But most accesses are from IP Version 4. These
+    at the bottom are native accesses
+
+- time: "00:21:57"
+  speaker: League
+  caption: |
+    from IP Version 6, so those addresses look
+    quite different,
+
+- time: "00:22:02"
+  speaker: League
+  caption: |
+    but it's kind of neat that they popped out when
+    we did that in reverse.
+
+- time: "00:22:06"
+  speaker: Lopes
+  caption: |
+    So in today's episode, we did a lot on text
+    manipulation in terms of
+
+- time: "00:22:10"
+  speaker: Lopes
+  caption: |
+    counting files and organizing them. What do we
+    have in store for our viewers next time?
+
+- time: "00:22:15"
+  speaker: League
+  caption: |
+    I think next time we are -- I think we promised
+    it last time too -- but we're going to get to
+
+- time: "00:22:19"
+  speaker: League
+  caption: |
+    manipulating files themselves, like renaming
+    them with mv or moving them
+
+- time: "00:22:24"
+  speaker: League
+  caption: |
+    from one directory to another, copying files,
+    deleting files and things like that.
+
+- time: "00:22:30"
+  speaker: League
+  caption: |
+    We'll use `mv`, `cp` and `rm`. Those will be
+    the commands for next time.
+
+- time: "00:22:34"
+  speaker: Lopes
+  caption: |
+    All right.
+
+- time: "00:22:36"
+  speaker: League
+  caption: |
+    See you then.
+
+- time: "00:22:39"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:22:49"
+  caption: |
+    [Captions by GetTranscribed.com
+    and Christopher League]
+
+- time: "00:23:08"
+  caption: |
+    [End]
