@@ -45,7 +45,9 @@ and commit also the changes to `_data/topics.yaml`
 Once we have a final cut exported to an MP4 file, here are the steps to publish
 it as a new episode. Replace `N` with the episode number.
 
- 1. Upload `Ep-NN.mp4` to YouTube, so it can start converting.
+ 1. Upload `Ep-NN.mp4` to YouTube, so it can start converting. Use these tags:
+    Command-line interface, Unix (Operating System), Unix-like, Unix Shell,
+    Operating System, Programming Language, Technology.
 
  2. Capture a video snapshot for the poster, using VLC » Video » Take snapshot,
     then rename it:
