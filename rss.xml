@@ -18,18 +18,20 @@ title : RSS Feed
     <itunes:author>{{site.author.name}}</itunes:author>
     <itunes:explicit>clean</itunes:explicit>
     <itunes:summary><![CDATA[ Command Line TV is a video podcast to help you
-    learn and master the Unix shell. Informally, ‘Unix’ refers to a family of
+    learn and master the Unix shell. Informally, &lsquo;Unix&rsquo; refers to a
+    family of
     operating systems that includes GNU/Linux, Mac OS X, and FreeBSD. Operating
     a computer via the command line gives you tremendous power and flexibility,
-    but it’s not easy to learn. We’re here to help! We start from the
+    but it&rsquo;s not easy to learn. We&rsquo;re here to help! We start from the
     beginning, but also try to include some tips suitable for intermediate
     users. Each video is about 20 minutes long, and we aim to release a new
     episode every week or so. ]]></itunes:summary>
     <description><![CDATA[ Command Line TV is a video podcast to help you
-    learn and master the Unix shell. Informally, ‘Unix’ refers to a family of
+    learn and master the Unix shell. Informally, &lsquo;Unix&rsquo; refers to a
+    family of
     operating systems that includes GNU/Linux, Mac OS X, and FreeBSD. Operating
     a computer via the command line gives you tremendous power and flexibility,
-    but it’s not easy to learn. We’re here to help! We start from the
+    but it&rsquo;s not easy to learn. We&rsquo;re here to help! We start from the
     beginning, but also try to include some tips suitable for intermediate
     users. Each video is about 20 minutes long, and we aim to release a new
     episode every week or so.]]></description>
