@@ -1,6 +1,11 @@
 body {
     font-family: 'Roboto Slab', serif;
 }
+.blurb {
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 1.4ex;
+}
 pre, code {
     background: #f3f3ff;
     color: #a14;
@@ -88,6 +93,8 @@ h1 {
 }
 blockquote p {
     font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
 }
 .btn-group {
     margin-bottom: 4px;
