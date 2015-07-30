@@ -37,7 +37,7 @@ title : RSS Feed
       <itunes:name>Christopher League</itunes:name>
       <itunes:email>league@contrapunctus.net</itunes:email>
     </itunes:owner>
-    <itunes:image href="{{ site.production_url }}/assets/itunes-art.jpg" />
+    <itunes:image href="http://commandline.tv.s3.amazonaws.com/media/itunes-art.jpg" />
     <itunes:category text="Education">
       <itunes:category text="Training" />
     </itunes:category>
