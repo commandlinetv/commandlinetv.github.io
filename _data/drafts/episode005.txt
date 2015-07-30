@@ -1,0 +1,712 @@
+
+0:20
+LEAGUE
+Welcome back to command line TV.
+
+0:22
+Last time we talked about text manipulation
+using commands like `cut`, `sort`, and `uniq`.
+
+0:28
+And what are we doing today?
+
+0:30
+LOPES
+Today we'll be doing more file management,
+we'll be using the move command,
+
+0:34
+the copy command, remove, and then we'll touch
+on removing and making directories.
+
+0:40
+LEAGUE
+Great. So the move and copy commands, I think
+is where we'll start.
+
+0:44
+And there are two ways to use these commands.
+I'm going to get the usage screen --
+
+0:49
+the help screen -- for the `mv` command.
+
+0:52
+So that's the `--help` and we'll pipe that into
+`less`.
+
+0:59
+And the two ways are summarized by these top
+two lines here.
+
+1:05
+The third one is just an alternative to another
+of them.
+
+1:10
+But the first way that you use `mv` is you
+specify a single source
+
+1:14
+and a single destination. These are filenames,
+and so what it means is that you are moving,
+
+1:21
+you're renaming the file to a different file
+name. So this version of the command
+
+1:27
+could just be called 'rename', and on other
+systems it might be.
+
+1:32
+So let's take a look at trying that version of
+the `mv` command first.
+
+1:38
+I'm in my `Downloads` folder, and I've got a
+couple of files here.
+
+1:42
+Let's say that I want to take this `weblog.txt`
+and rename it, maybe to put a date in the file.
+
+1:51
+So I can do `mv weblog.txt` and then I just
+give a destination name,
+
+1:57
+which could be `weblog-2015-07-11.txt` or
+something like that.
+
+2:04
+And so my move command has a source and a
+destination.
+
+2:09
+When I do `ls` now, the name of that file has
+changed. But it's exactly the same content.
+
+2:16
+Now the destination doesn't have to be in the
+same directory.
+
+2:20
+You can specify a different directory where it
+will go.
+
+2:24
+So then it feels like a little bit more than a
+rename.
+
+2:26
+So let's say for example, if I want to move my
+`languages.txt` file into
+
+2:37
+the `thinkjava` directory, but I might also
+rename it at the same time.
+
+2:43
+Let's call it `internationalization.txt`. So
+this is a rename combined with
+
+2:52
+also moving it into a sub-directory. And that
+works fine. So if I `ls` from up here,
+
+2:59
+that `languages.txt` is gone, but if we look
+inside the `thinkjava`,
+
+3:05
+which I could do with `cd` there first and
+`ls`, or I can just say `ls`
+
+3:10
+and the name of that directory.
+
+3:12
+You see here that `internationalization.txt`
+file is now in that directory.
+
+3:19
+The second way to use `mv` is -- let's get back
+this `less` command --
+
+3:29
+you move multiple source files. So the dots
+here mean I can specify multiple sources --
+
+3:34
+you might want to use a wildcard to specify
+multiple sources --
+
+3:37
+and then the last thing you specify is the
+destination directory.
+
+3:42
+It'll keep the names of all those files,
+
+3:44
+but then move them all into that destination
+directory.
+
+3:49
+So let's say for example -- I'm going to go
+down into my `thinkjava/figs` folder.
+
+3:57
+We've been here before, to look at images and
+so forth.
+
+4:00
+And there are different formats here --
+
+4:04
+so `.eps` and `.fig` as well as different
+prefixes.
+
+4:07
+And I could move them into separate folders. So
+for example, let's make a separate folder
+
+4:13
+for `fig` and for `eps`. So I'm going to also
+introduce this command --
+
+4:18
+one of the simplest there is -- called `mkdir`.
+That creates a new directory,
+
+4:27
+and we can specify just one directory name, or
+multiple directory names,
+
+4:33
+and those would get created if they don't exist
+yet.
+
+4:38
+So now I've got listed here, among all of my
+other files,
+
+4:44
+I've got an `eps` and `fig` folder. And now I'm
+going to use `mv`, the second version
+
+4:50
+along with a wildcard. So I say `*.fig` and the
+destination directory, so `fig`.
+
+5:00
+Or `mv *.eps` and the destination is `eps`.
+
+5:08
+And now this looks a lot cleaner because all of
+those files are in their various sub-folders.
+
+5:17
+LOPES
+Now professor, when I originally learned about
+the `mv` command, I know it was
+
+5:20
+especially dangerous to use it if files already
+existed and you might overwrite something.
+
+5:26
+LEAGUE
+Yeah, it's a real sharp edge of the way `mv`
+works. When that destination already exists,
+
+5:34
+if you're using the first form where you're
+just renaming --
+
+5:37
+if that destination file exists it will just
+overwrite it.
+
+5:41
+It doesn't even tell you that it did that.
+
+5:45
+So let's go back up here to my regular
+`Downloads` folder where I
+
+5:50
+created this `weblog.txt`, right. Let's say
+that I want to rename `survey.tsv` --
+
+5:59
+let's imagine that this survey actually is a
+web log -- so I want to rename it and
+
+6:03
+give it a different date. So I put
+`weblog-2015-07-12.txt`.
+
+6:10
+Now that'll be harmless because that file
+doesn't exist. But what if I make a typo
+
+6:16
+or something, and put a file that *does* exist.
+This will rename `survey.tsv`
+
+6:24
+into that `weblog` for July 11th. And it
+overwrote the old one.
+
+6:31
+If I do `ls` there's no more `survey.tsv`,
+however this file contains the *content*
+
+6:40
+from the old `survey.tsv`. And the old content
+from the weblog file is gone!
+
+6:47
+It just doesn't exist anymore. So if I do
+`head` on this,
+
+6:50
+we'll see that it's actually the survey data
+and not the web log.
+
+6:56
+So yeah, that's a really dangerous thing to do.
+
+6:59
+It's especially dangerous if you're using
+wildcards.
+
+7:02
+So sometimes you'll want to use a wildcard in
+order to move multiple files into a destination
+
+7:13
+directory. So let's say I `mkdir hello` and I
+want to move `hello-2.10.tar*`
+
+7:25
+so basically this use of a wildcard here will
+match both of these files --
+
+7:31
+the `.tar.gz` as well as the `.tar.gz.sig`. So
+I want to move both of those files
+
+7:36
+into the destination directory, `hello`. That
+will work fine. However,
+
+7:43
+what if I just forget to put the destination
+directory? Now what happens is
+
+7:50
+this wildcard happens to expand to *two*
+separate files. So that expansion is
+
+7:57
+what's going to happen first. It's going to
+become the `.tar.gz` as well as
+
+8:03
+the `.tar.gz.sig`. And now my command looks
+like that. I don't have to type this,
+
+8:08
+it's just what the wildcard expansion will do.
+And so now instead of triggering
+
+8:13
+the second form where we're moving to a
+directory, it's triggering the first form,
+
+8:19
+where I'm just renaming. And remember that the
+rename can clobber something.
+
+8:25
+So now I'm just missing one of those files --
+it's gone. So that's a real sharp edge.
+
+8:31
+There are a couple of things you can do to make
+that a little bit more safe --
+
+8:37
+a little easier to deal with. One thing that
+you can do is --
+
+8:43
+there are a couple of options to do -- like
+there's something called `mv -n`.
+
+8:50
+Let's take a look at the help page again.
+
+8:54
+The `-n` stands for 'no-clobber', so do not
+overwrite an existing file.
+
+9:01
+So if I had remembered to specify `-n` before I
+did that --
+
+9:05
+let's actually put back -- I'm just going to
+fake this -- by creating an empty filename.
+
+9:14
+So if I just create an empty `.gz` file using
+my editor -- and save --
+
+9:21
+we covered nano previously. Now I've got, not
+the original content,
+
+9:27
+but at least I've got two files. So I can try
+again.
+
+9:31
+If I do `mv -n hello-2.10.tar.gz*`, it didn't
+give me an error message,
+
+9:37
+but it didn't do the move. It left both the
+files alone.
+
+9:43
+Another way besides `-n` is `-i` which is
+'interactive'. So we'll try that as well.
+
+9:51
+What interactive does is it prompts you to
+whether you really want to overwrite files
+
+9:57
+or not. And you can type yes or no. So I say,
+
+10:01
+"Oh I didn't mean to overwrite that file,"
+so I'll do 'n'.
+
+10:05
+So those are two options to `mv` that make it a
+little bit safer.
+
+10:10
+Another technique is inherent in that third
+format of `mv`.
+
+10:19
+So this does the same thing as the second
+format -- it moves a bunch of source files
+
+10:24
+into a target or destination directory. But by
+specifying the directory first,
+
+10:31
+maybe you're less likely to forget to put it.
+
+10:34
+So if I wanted to move both of these `hello`
+files into the `hello` directory,
+
+10:41
+I might say move to the *target* `hello`, and
+then do `hello-2.10.tar.gz*`.
+
+10:49
+And now both of those are gone from this
+directory, but they're both present
+
+10:53
+in the sub-directory. So those are a couple of
+options for the `mv` command.
+
+10:58
+LOPES
+It seems like the move command should
+automatically have the `-n` or `-i`
+
+11:02
+embedded into it for safety reasons. Is there
+anything we can do about that?
+
+11:06
+LEAGUE
+Yeah, the philosophy of Unix is often that you
+know what you're doing [laughs],
+
+11:12
+and if you don't -- if you're making a mistake
+-- then it doesn't do a lot to prevent it.
+
+11:17
+Unix commands in general are not meant to
+protect you from yourself.
+
+11:22
+And in fact one time when I was a teaching
+assistant we had two different sections
+
+11:27
+of a programming course that we were teaching.
+And we kept the grades in two separate
+
+11:34
+spreadsheet files. I wanted to move both of
+them into -- or maybe copy both of them,
+
+11:39
+I don't remember -- into a different directory.
+So I did like `cp *.spreadsheet` or whatever,
+
+11:47
+and that ended up taking one of those files,
+and using that data to overwrite the other.
+
+11:54
+So we lost the grades for one of our sections.
+We did have a backup of them,
+
+11:59
+but we lost a couple days of work. So the other
+TAs weren't very happy with me.
+
+12:06
+But there is a way, if you would like to have
+greater defenses for this kind of thing,
+
+12:12
+to ensure that. So we can make it so that the
+`-n` or `-i` options are automatic.
+
+12:21
+The way to do that is what we call an alias. So
+the way an alias works is you type `alias`
+
+12:29
+and then the name of the command you want to
+create.
+
+12:32
+So for example, we can make a brand new
+command.
+
+12:37
+`lt` is not a command that exists on Unix
+systems, generally.
+
+12:42
+But I can make a command called `lt` by
+declaring an alias.
+
+12:46
+And then I just specify an equals sign and
+quotes -- usually single quotes,
+
+12:50
+but probably could be double quotes -- and I
+want that to stand for this `ls -ltr`
+
+12:59
+which I said I use all the time, right?
+
+13:01
+Because it shows me a detailed listing in
+reverse chronological order.
+
+13:08
+So I declare that alias and now when I type
+`lt` it does that `ls -ltr`
+
+13:14
+and the most recent stuff is at the bottom.
+
+13:18
+So I can do that same thing for the `mv`
+command.
+
+13:23
+Let's say I want to use `mv -i` by default. So
+`-i` is the 'interactive'.
+
+13:31
+And now that I've got that alias set up, if I
+go down into hello where I've got
+
+13:36
+these two files, and I try to do `mv
+hello-2.10.tar.gz*`,
+
+13:42
+the way that would have worked by default is it
+takes one of those and
+
+13:46
+overwrites the other one. But because of my
+alias with `-i`,
+
+13:50
+it will ask me to overwrite. And so I can just
+say `n`.
+
+13:55
+Now we would like to save that for the future
+as well.
+
+13:58
+An alias, if I just type it at the command line
+like that, will only be good
+
+14:03
+for the current session. And when I close this
+terminal or log out, it's gone.
+
+14:07
+So I'd like to keep it longer than that.
+
+14:11
+To do that, I'm going to go up to my home
+folder (`~`),
+
+14:17
+and we're going to look at what we call the
+'dot' files.
+
+14:21
+So `ls` hides some files from us by default.
+Any filename or directory name that starts
+
+14:27
+with a `.` is meant to be hidden out of the
+way. But the `-a` on `ls` will show them.
+
+14:34
+So one of those files here -- well, two of them
+-- are `.bash_profile` and `.bashrc`.
+
+14:40
+And if `bash` is your shell -- which it
+probably is --
+
+14:45
+then profile is a file where you can put
+definitions and configuration
+
+14:50
+that will be read every time you log in. And
+then `.bashrc` gets read
+
+14:55
+every time you start a new terminal -- a new
+shell.
+
+15:00
+So you can probably put it in either one. Let's
+go with the `.bashrc`.
+
+15:04
+So I'm going to run my nano editor on
+`.bashrc`. If you don't already have
+
+15:10
+your `.bashrc` or `.bash_profile`, this command
+will still work fine,
+
+15:14
+you'll just create a brand new file.
+
+15:17
+Mine will show that the file already exists,
+because when I created a new user on this
+
+15:22
+system it gave me a default `.bashrc`. But if
+this is empty to start out, it's no problem.
+
+15:28
+You can see here it's already got an alias for
+`ls`.
+
+15:30
+This explains why we had the color output on
+`ls`.
+
+15:35
+It was giving a `--color` option to `ls`
+whenever we type it, because of that alias.
+
+15:41
+So I'm going to go just below that somewhere,
+and do my `mv` alias, to `mv -i`.
+
+15:50
+And let's also do it for `cp` -- we haven't
+really talked about copy,
+
+15:54
+but it's got the same sort of issues.
+
+15:58
+I create those aliases and I'm going to save
+that with control-O, and exit with control-X.
+
+16:05
+And now to get that to take effect in the
+current shell without restarting the terminal,
+
+16:13
+I can type `source .bashrc`. So now that `cp`
+alias should be available.
+
+16:20
+If I go down to `hello` again -- I guess it's
+in `Downloads/hello`.
+
+16:26
+And we're going to do the `cp on these files.
+
+16:30
+So this means copy one file to a different
+filename. It won't remove the original --
+
+16:36
+which maybe is an improvement, but copy by
+default will clobber the destination
+
+16:40
+if it already exists. But since I added that
+alias for `-i`,
+
+16:45
+it's asking me whether to overwrite.
+
+16:47
+So I've been able to use aliases to make those
+commands a little bit safer.
+
+16:52
+Today we learned to use `mv` to move and rename
+files, and some basics of `cp` to copy files.
+
+17:00
+We also learned how to make a simple alias and
+to edit our `.bashrc`
+
+17:04
+to customize settings beyond the current
+terminal.
+
+17:08
+We'll continue with more file management next
+time. Thanks for joining us.
