@@ -81,7 +81,6 @@
 
 - time: "00:01:26"
   speaker: League
-  index: " "
   cmd: |
         
   caption: |
@@ -96,7 +95,6 @@
 
 - time: "00:01:41"
   speaker: League
-  index: " "
   cmd: |
         cp weblog-2015-07-11.txt weblog-2015-07-12.txt
   caption: |
@@ -152,7 +150,6 @@
         
 - time: "00:02:29"
   speaker: League
-  index: " "
   cmd: |
         cd thinkjava/figs
   caption: |
@@ -173,7 +170,6 @@
 
 - time: "00:02:46"
   speaker: League
-  index: " "
   cmd: |
         cp fig/* .
   caption: |
@@ -462,7 +458,6 @@
 
 - time: "00:07:12"
   speaker: League
-  index: " "
   cmd: |
         
   caption: |
@@ -669,7 +664,6 @@
 
 - time: "00:10:26"
   speaker: League
-  index: " "
   cmd: |
         rmdir proj4/assets, rmdir proj4
   caption: |
