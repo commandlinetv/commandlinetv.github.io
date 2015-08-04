@@ -1,6 +1,84 @@
+- term: "automation"
+  refs:
+    - 1#episode001#00:01:55
+- term: "case sensitive"
+  refs:
+    - 1#episode001#00:15:38
+- term: "color"
+  refs:
+    - 2#episode002#00:01:50
+- term: "command prompt (Windows)"
+  refs:
+    - 1#episode001#00:07:00
+- term: "completion"
+  refs:
+    - 1#episode001#00:16:23
+- term: "contacting us"
+  refs:
+    - 2#episode002#00:04:17
+- term: "cygwin"
+  refs:
+    - 1#episode001#00:07:42
+- term: "desktop environment"
+  refs:
+    - 1#episode001#00:03:20
+- term: "directory"
+  refs:
+    - 1#episode001#00:08:53
+- term: "distribution"
+  refs:
+    - 1#episode001#00:06:24
+- term: "file type, binary"
+  refs:
+    - 2#episode002#00:07:02
+- term: "file type, image"
+  refs:
+    - 2#episode002#00:07:29
+- term: "file type, PDF"
+  refs:
+    - 2#episode002#00:07:33
+- term: "folder"
+  refs:
+    - 1#episode001#00:08:52
+- term: "free software"
+  refs:
+    - 1#episode001#00:03:42
 - term: "GNU"
   refs:
     - 2#episode002#00:03:05
+- term: "history"
+  refs:
+    - 1#episode001#00:11:15
+- term: "path, absolute"
+  refs:
+    - 2#episode002#00:01:02
+- term: "path, relative"
+  refs:
+    - 2#episode002#00:00:38
+- term: "pipeline"
+  refs:
+    - 2#episode002#00:11:51
+- term: "rationale for command line"
+  refs:
+    - 1#episode001#00:01:36
+- term: "server"
+  refs:
+    - 1#episode001#00:03:13
+- term: "spaces"
+  refs:
+    - 1#episode001#00:17:11
+- term: "syntax"
+  refs:
+    - 2#episode002#00:10:11
+- term: "terminal (Mac)"
+  refs:
+    - 1#episode001#00:04:31
+- term: "utilities (Mac)"
+  refs:
+    - 1#episode001#00:04:26
+- term: "WYSIWYG"
+  refs:
+    - 1#episode001#00:02:19
 - term: "`*` wildcard"
   refs:
     - 2#episode002#00:08:55
@@ -10,18 +88,27 @@
 - term: "`--version`"
   refs:
     - 2#episode002#00:02:50
+- term: "`..`"
+  refs:
+    - 1#episode001#00:10:55
 - term: "`.gz`"
   refs:
     - 2#episode002#00:06:10
 - term: "`.png`"
   refs:
     - 2#episode002#00:07:59
-- term: "`^C` (interrupt)"
+- term: "`bash`"
   refs:
-    - 2#episode002#00:06:47
+    - 1#episode001#00:07:29
 - term: "`cat` (concatenate files)"
   refs:
     - 2#episode002#00:05:04
+- term: "`cd` (change working dir)"
+  refs:
+    - 1#episode001#00:08:46
+- term: "`git`"
+  refs:
+    - 1#episode001#00:07:22
 - term: "`head -n` (lines)"
   refs:
     - 2#episode002#00:16:17
@@ -33,13 +120,29 @@
     - 2#episode002#00:12:34
 - term: "`ls -F` (classify)"
   refs:
+    - 1#episode001#00:13:17
     - 2#episode002#00:02:20
+- term: "`ls -l` (long)"
+  refs:
+    - 1#episode001#00:13:43
+- term: "`ls -r` (reverse)"
+  refs:
+    - 1#episode001#00:14:56
+- term: "`ls -t` (sort by mtime)"
+  refs:
+    - 1#episode001#00:14:25
+- term: "`ls` (list files)"
+  refs:
+    - 1#episode001#00:08:40
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
 - term: "`open` (Mac desktop)"
   refs:
     - 2#episode002#00:08:43
+- term: "`pwd` (print working dir)"
+  refs:
+    - 1#episode001#00:10:03
 - term: "`reset` (initialize terminal)"
   refs:
     - 2#episode002#00:06:55
@@ -52,33 +155,15 @@
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
+- term: "`xterm`"
+  refs:
+    - 1#episode001#00:06:46
+- term: "`^C` (interrupt)"
+  refs:
+    - 2#episode002#00:06:47
 - term: "`|` (pipe)"
   refs:
     - 2#episode002#00:11:34
-- term: "color"
+- term: "`~`"
   refs:
-    - 2#episode002#00:01:50
-- term: "contacting us"
-  refs:
-    - 2#episode002#00:04:17
-- term: "file type, PDF"
-  refs:
-    - 2#episode002#00:07:33
-- term: "file type, binary"
-  refs:
-    - 2#episode002#00:07:02
-- term: "file type, image"
-  refs:
-    - 2#episode002#00:07:29
-- term: "path, absolute"
-  refs:
-    - 2#episode002#00:01:02
-- term: "path, relative"
-  refs:
-    - 2#episode002#00:00:38
-- term: "pipeline"
-  refs:
-    - 2#episode002#00:11:51
-- term: "syntax"
-  refs:
-    - 2#episode002#00:10:11
+    - 1#episode001#00:09:10

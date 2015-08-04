@@ -94,7 +94,7 @@ task :reindex do
   filename = "_data/topics.yaml"
   puts "Writing #{filename}"
   open(filename, 'w') do |topics|
-    master.sort.each do |item|
+    master.sort{|a,b| a[0].casecmp(b[0])}.each do |item|
       topics.puts "- term: \"#{item[0]}\""
       topics.puts "  refs:"
       item[1].each do |ref|

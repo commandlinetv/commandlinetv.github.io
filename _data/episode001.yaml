@@ -509,7 +509,7 @@
 
 - time: "00:07:22"
   speaker: League
-  index: "`git`"
+  index: "`git` (version control)"
   caption: |
     heard of the version control system called Git,
     and when you install Git on Windows it comes
@@ -596,14 +596,14 @@
  
 - time: "00:08:40"
   speaker: Lopes
-  index: "`ls`"
+  index: "`ls` (list files)"
   caption: |
     `ls` simply lists everything that is in the
     current directory. So you know what's going on,
 
 - time: "00:08:46"
   speaker: Lopes
-  index: "`cd`"
+  index: "`cd` (change working dir)"
   caption: |
     what folders and files you have accessible to
     you. `cd` is what you use to either move up
@@ -703,7 +703,7 @@
 
 - time: "00:10:03"
   speaker: League
-  index: "`pwd`"
+  index: "`pwd` (print working dir)"
   cmd: |
     pwd
   caption: |  
