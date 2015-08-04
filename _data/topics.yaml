@@ -103,10 +103,13 @@
 - term: "`cat` (concatenate files)"
   refs:
     - 2#episode002#00:05:04
+- term: "`cd -` (previous dir)"
+  refs:
+    - 1#episode001#00:12:32
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
-- term: "`git`"
+- term: "`git` (version control)"
   refs:
     - 1#episode001#00:07:22
 - term: "`head -n` (lines)"

@@ -872,6 +872,7 @@
 
 - time: "00:12:32"
   speaker: League
+  index: "`cd -` (previous dir)"
   cmd: |
     cd -
   caption: |
