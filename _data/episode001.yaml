@@ -1,1213 +1,1213 @@
 - time: "00:00:00"
- caption: |
-  [Rhythmic, dark electronic intro music]
+  caption: |
+    [Rhythmic, dark electronic intro music]
   
--time: "00:00:25"
-speaker: League
- caption: |
-  Welcome to Command Line TV. 
-	
+- time: "00:00:25"
+  speaker: League
+  caption: |
+    Welcome to Command Line TV. 
+
 - time: "00:00:27"
- speaker: League
- caption: |
-	This is a Video Podcast designed to help you learn
-  the Unix Shell. 
-	
+  speaker: League
+  caption: |
+    This is a Video Podcast designed to help you learn
+    the Unix Shell. 
+    
 - time: "00:00:31"
- speaker: League
- caption: |
-	I am Chris League. I am a professor of
-	computer science at L.I.U. in Brooklyn.
-	
+  speaker: League
+  caption: |
+    I am Chris League. I am a professor of
+    computer science at L.I.U. in Brooklyn.
+    
 - time: "00:00:35"
- speaker: League
- caption: |
-	And with me is my co-host Christian
-	Lopes. Tell us a little about yourself.
+  speaker: League
+  caption: |
+    And with me is my co-host Christian
+    Lopes. Tell us a little about yourself.
   
 - time: "00:00:39"
- speaker: Lopes
- caption: |
-  My name is Christian Lopes. 
-	
+  speaker: Lopes
+  caption: |
+    My name is Christian Lopes. 
+    
 - time: "00:00:40"
- speaker: Lopes
- caption: |
-	I'm currently an undergraduate at L.I.U.
-	Brooklyn studying computer science.
+  speaker: Lopes
+  caption: |
+    I'm currently an undergraduate at L.I.U.
+    Brooklyn studying computer science.
 
 - time: "00:00:44"
- speaker: Lopes
- caption: |
-	I've always been interested in computers
-	and tinkering with things. 
-	
+  speaker: Lopes
+  caption: |
+    I've always been interested in computers
+    and tinkering with things. 
+    
 - time: "00:00:47"
- speaker: Lopes
- caption: |
-	So I will be learning along with our viewers today.
-	
+  speaker: Lopes
+  caption: |
+    So I will be learning along with our viewers today.
+    
 - time: "00:00:49"
- speaker: League
- caption: |
-  Great! Let's begin by discussing the scope
-	of what we're going to do here.
+  speaker: League
+  caption: |
+    Great! Let's begin by discussing the scope
+    of what we're going to do here.
 
 - time: "00:00:54"
- speaker: League
- caption: |
-	We're going to learn about shell commands
-	available on Linux and MAC OS X.
-	
+  speaker: League
+  caption: |
+    We're going to learn about shell commands
+    available on Linux and MAC OS X.
+    
 - time: "00:01:00"
- speaker: League
- caption: |
-	Not so much the Windows command prompt.
-  A little bit about my technological biases.
+  speaker: League
+  caption: |
+    Not so much the Windows command prompt.
+    A little bit about my technological biases.
 
 - time: "00:01:06"
- speaker: League
- caption: |
-	And where I'm coming from. I have been
-	a full time Unix user since the early 90's.
+  speaker: League
+  caption: |
+    And where I'm coming from. I have been
+    a full time Unix user since the early 90's.
 
 - time: "00:01:12"
- speaker: League
- caption: |
-	I have used Linux quite a bit since then,
-	and also part time on MAC OS X.
+  speaker: League
+  caption: |
+    I have used Linux quite a bit since then,
+    and also part time on MAC OS X.
 
 - time: "00:01:18"
- speaker: League
- caption: |
-	What's your background with tech?
+  speaker: League
+  caption: |
+    What's your background with tech?
   
 - time: "00:01:20"
- speaker: Lopes
- caption: |
-  My background is primarily with Windows,
-	I did start using Ubuntu Linux on a spare laptop.
+  speaker: Lopes
+  caption: |
+    My background is primarily with Windows,
+    I did start using Ubuntu Linux on a spare laptop.
 
 - time: "00:01:26"
- speaker: Lopes
- caption: |
-	I know that we use shell commands and a lot
-  of programming commands so, 
-	
+  speaker: Lopes
+  caption: |
+    I know that we use shell commands and a lot
+    of programming commands so, 
+    
 - time: "00:01:32"
- speaker: Lopes
- caption: |
-	I'd like to understand more about how
-	they work.
+  speaker: Lopes
+  caption: |
+    I'd like to understand more about how
+    they work.
   
 - time: "00:01:33"
- speaker: League
- caption: |
-  Great! That's what we'll be doing.
+  speaker: League
+  caption: |
+    Great! That's what we'll be doing.
   
 - time: "00:01:36"
- speaker: Lopes
- caption: |
-  My first question will be, why would you use a
-	Linux terminal as opposed to a desktop environment.
+  speaker: Lopes
+  caption: |
+    My first question will be, why would you use a
+    Linux terminal as opposed to a desktop environment.
   
 - time: "00:01:42"
- speaker: League
- caption: |
-  Yeah, it's kind of unusual, these days to stick
-	to a command terminal. 
-	
+  speaker: League
+  caption: |
+    Yeah, it's kind of unusual, these days to stick
+    to a command terminal. 
+    
 - time: "00:01:48"
- speaker: League
- caption: |
-	It's not the easiest thing to learn, but it gives
-	you a lot of flexibility, power and precision. 
-	
+  speaker: League
+  caption: |
+    It's not the easiest thing to learn, but it gives
+    you a lot of flexibility, power and precision. 
+    
 - time: "00:01:55"
- speaker: League
- caption: |
-	So, any commands that you type on a command
-	line can be almost as easily scripted and automated,
+  speaker: League
+  caption: |
+    So, any commands that you type on a command
+    line can be almost as easily scripted and automated,
 
 - time: "00:02:01"
- speaker: League
- caption: |
-	So that you can take your work flow and
-	automate a lot of things. 
-	
+  speaker: League
+  caption: |
+    So that you can take your work flow and
+    automate a lot of things. 
+    
 - time: "00:02:04"
- speaker: League
- caption: |
-	Which I think is a really great way to work.
-	
+  speaker: League
+  caption: |
+    Which I think is a really great way to work.
+    
 - time: "00:02:08"
- speaker: League
- caption: |
-	Also, when you control things from the
-	command line it can be configured endlessly
+  speaker: League
+  caption: |
+    Also, when you control things from the
+    command line it can be configured endlessly
 
 - time: "00:02:13"
- speaker: League
- caption: |
-	And adapted to the way that you like to work.
-	Desktop environments and graphical applications
-	
+  speaker: League
+  caption: |
+    And adapted to the way that you like to work.
+    Desktop environments and graphical applications
+    
 - time: "00:02:19"
- speaker: League
- caption: |
-	Are often called "WYSIWYG". Which is, uhh, 
-	What You See Is What You Get,
+  speaker: League
+  caption: |
+    Are often called "WYSIWYG". Which is, uhh, 
+    What You See Is What You Get,
 
 - time: "00:02:26"
- speaker: League
- caption: |
-	And that's a positive to some extent because, you
-	know, when you're dealing with a graphical program,
+  speaker: League
+  caption: |
+    And that's a positive to some extent because, you
+    know, when you're dealing with a graphical program,
 
 - time: "00:02:31"
- speaker: League
- caption: |
-  You want to see what you're producing.
-	But another way of thinking of that is
+  speaker: League
+  caption: |
+    You want to see what you're producing.
+    But another way of thinking of that is
 
 - time: "00:02:37"
- speaker: League
- caption: |
-	What You See Is All You've Got, and so the power
-	of those types of programs can be limited
+  speaker: League
+  caption: |
+    What You See Is All You've Got, and so the power
+    of those types of programs can be limited
 
 - time: "00:02:43"
- speaker: League
- caption: |
-	By having to manually select and click on things
-	and work with menus. 
-	
+  speaker: League
+  caption: |
+    By having to manually select and click on things
+    and work with menus. 
+    
 - time: "00:02:50"
- speaker: League
- caption: |
-	So those types of apps have their place.
-	I probably wouldn't create graphics for a website
+  speaker: League
+  caption: |
+    So those types of apps have their place.
+    I probably wouldn't create graphics for a website
 
 - time: "00:02:57"
- speaker: League
- caption: |
-	Using only the command line. I certainly
-	wouldn't edit a video using only a command line,
+  speaker: League
+  caption: |
+    Using only the command line. I certainly
+    wouldn't edit a video using only a command line,
 
 - time: "00:03:03"
- speaker: League
- caption: |
-	But there are command line tools for doing
-	image processing and video transcoding, and 
-	
+  speaker: League
+  caption: |
+    But there are command line tools for doing
+    image processing and video transcoding, and 
+    
 - time: "00:03:07"
- speaker: League
- caption: |
-	I use them all the time because we can automate
-	them. So we're going to look at some of
-	
+  speaker: League
+  caption: |
+    I use them all the time because we can automate
+    them. So we're going to look at some of
+    
 - time: "00:03:13"
- speaker: League
- caption: |
-	Those commands later on as we get a little more
-	advanced. Also, Unix is often used in server situations.
+  speaker: League
+  caption: |
+    Those commands later on as we get a little more
+    advanced. Also, Unix is often used in server situations.
 
 - time: "00:03:20"
- speaker: League
- caption: |
-	So the Unix machine is just in a data
-	center somewhere. It's not something
+  speaker: League
+  caption: |
+    So the Unix machine is just in a data
+    center somewhere. It's not something
 
 - time: "00:03:26"
- speaker: League
- caption: |
-	Where there's even a monitor or a keyboard
-	attached to it, and so a graphical desktop 
-	
+  speaker: League
+  caption: |
+    Where there's even a monitor or a keyboard
+    attached to it, and so a graphical desktop 
+    
 - time: "00:03:33"
- speaker: League
- caption: |
-	Environment would be a waste of resources.
-	You can log-in to that machine remotely.
+  speaker: League
+  caption: |
+    Environment would be a waste of resources.
+    You can log-in to that machine remotely.
 
 - time: "00:03:37"
- speaker: League
- caption: |
-	And just get the command prompt and it is very
-	simple to take care of things that way.
+  speaker: League
+  caption: |
+    And just get the command prompt and it is very
+    simple to take care of things that way.
   
 - time: "00:03:42"
- speaker: Lopes
- caption: |	
-  Also, most of the software on Linux is free,
-	
+  speaker: Lopes
+  caption: |	
+    Also, most of the software on Linux is free,
+    
 - time: "00:03:45"
- speaker: Lopes
- caption: |
-	So once you start using it you become part of
-	that big community.
+  speaker: Lopes
+  caption: |
+    So once you start using it you become part of
+    that big community.
   
 - time: "00:03:48"
- speaker: League
- caption: |
-  Yeah, free software it's contributed by
-	lots of people around the world. So the goal
+  speaker: League
+  caption: |
+    Yeah, free software it's contributed by
+    lots of people around the world. So the goal
 
 - time: "00:03:53"
- speaker: League
- caption: |
-	Of this podcast is to help our viewers become
-	adept at the command line and to join in this
+  speaker: League
+  caption: |
+    Of this podcast is to help our viewers become
+    adept at the command line and to join in this
 
 - time: "00:04:00"
- speaker: League
- caption: |
-	Community of people that are users and power
-	users, developers, although you don't have to
+  speaker: League
+  caption: |
+    Community of people that are users and power
+    users, developers, although you don't have to
 
 - time: "00:04:05"
- speaker: League
- caption: |
-	Be a software developer to be interested in
-	this, and that's what we'll do.
+  speaker: League
+  caption: |
+    Be a software developer to be interested in
+    this, and that's what we'll do.
   
 - time: "00:04:10"
- speaker: Lopes
- caption: |
-  Alright, well let's get hacking! So, I guess
-	the first thing we should learn is how to
+  speaker: Lopes
+  caption: |
+    Alright, well let's get hacking! So, I guess
+    the first thing we should learn is how to
 
 - time: "00:04:15"
- speaker: Lopes
- caption: |
-	Actually access the command line that we'll
-	be working in. 
+  speaker: Lopes
+  caption: |
+    Actually access the command line that we'll
+    be working in. 
 
 - time: "00:04:18"
- speaker: Lopes
- caption: |	
-	How do we do that using a MAC, like we are now?
+  speaker: Lopes
+  caption: |	
+    How do we do that using a MAC, like we are now?
   
 - time: "00:04:20"
- speaker: League
- caption: |
-  So, in the Finder application, which is your
-	basic file explorer, on the go menu, 
-	
+  speaker: League
+  caption: |
+    So, in the Finder application, which is your
+    basic file explorer, on the go menu, 
+    
 - time: "00:04:26"
- speaker: League
- caption: |
-	It refers to a folder called Utilities. Within
-	the Utilities folder you can find an app called
+  speaker: League
+  caption: |
+    It refers to a folder called Utilities. Within
+    the Utilities folder you can find an app called
 
 - time: "00:04:31"
- speaker: League
- caption: |
-	Terminal, and when you open that, it gives you
-	this little window with your prompt in it.
+  speaker: League
+  caption: |
+    Terminal, and when you open that, it gives you
+    this little window with your prompt in it.
 
 - time: "00:04:36"
- speaker: League
- caption: |
-	There are other terminal programs available
-	for the MAC. Some people might actually prefer
+  speaker: League
+  caption: |
+    There are other terminal programs available
+    for the MAC. Some people might actually prefer
 
 - time: "00:04:40"
- speaker: League
- caption: |
-	Them over the one that is built in. One that
-	I've used is called iTerm. They just have
+  speaker: League
+  caption: |
+    Them over the one that is built in. One that
+    I've used is called iTerm. They just have
 
 - time: "00:04:44"
- speaker: League
- caption: |
-	Different minor capabilities and we can discuss
-	those differences at a later time. 
-	
+  speaker: League
+  caption: |
+    Different minor capabilities and we can discuss
+    those differences at a later time. 
+    
 - time: "00:04:51"
- speaker: League
- caption: |
-	So, I'm going to actually log-in as a different
-	user so I can have an environment set up
+  speaker: League
+  caption: |
+    So, I'm going to actually log-in as a different
+    user so I can have an environment set up
 
 - time: "00:04:55"
- speaker: League
- caption: |
-	Strictly for this pod-cast, and let's not worry
-	about what that command is at the moment.
-	
+  speaker: League
+  caption: |
+    Strictly for this pod-cast, and let's not worry
+    about what that command is at the moment.
+    
 - time: "00:05:01"
- speaker: League
- caption: |
-	You can make your terminal font bigger or smaller
-	using `command` and `+` or `-`, and then we're
+  speaker: League
+  caption: |
+    You can make your terminal font bigger or smaller
+    using `command` and `+` or `-`, and then we're
 
 - time: "00:05:08"
- speaker: League
- caption: |
-	Also going to go full-screen so that we aren't
-	distracted by other pictures and things.
+  speaker: League
+  caption: |
+    Also going to go full-screen so that we aren't
+    distracted by other pictures and things.
 
 - time: "00:05:14"
- speaker: League
- caption: |
-	We're starting out here with this prompt.
-	What does all of this mean?
+  speaker: League
+  caption: |
+    We're starting out here with this prompt.
+    What does all of this mean?
   
 - time: "00:05:18"
- speaker: Lopes
- caption: |
-  Well, the first part of it, "agenor", that
-	would be the computer's name. 
-	
+  speaker: Lopes
+  caption: |
+    Well, the first part of it, "agenor", that
+    would be the computer's name. 
+    
 - time: "00:05:24"
- speaker: Lopes
- caption: |
-	It's just a reference to what the computer is
-	labeled as when it communicates with other
+  speaker: Lopes
+  caption: |
+    It's just a reference to what the computer is
+    labeled as when it communicates with other
 
 - time: "00:05:29"
- speaker: Lopes
- caption: |
-	Machines on the network. After the "colon",
-	you have the "tilde" (~) which just represents
+  speaker: Lopes
+  caption: |
+    Machines on the network. After the "colon",
+    you have the "tilde" (~) which just represents
 
 - time: "00:05:35"
- speaker: Lopes
- caption: |
-	The home directory that the computer is in.
+  speaker: Lopes
+  caption: |
+    The home directory that the computer is in.
   
 - time: "00:05:37"
- speaker: League
- caption: |
-  Right!
+  speaker: League
+  caption: |
+    Right!
   
-	
+    
 - time: "00:05:38"
- speaker: Lopes
- caption: |
-  After that you have what we see here "cltv", which
-	is the user that we are currently logged in as.
+  speaker: Lopes
+  caption: |
+    After that you have what we see here "cltv", which
+    is the user that we are currently logged in as.
   
 - time: "00:05:45"
- speaker: League
- caption: |
-  Then the "dollar sign" just means that the
-	terminal is here waiting for me to type a command.
+  speaker: League
+  caption: |
+    Then the "dollar sign" just means that the
+    terminal is here waiting for me to type a command.
 
 - time: "00:05:52"
- speaker: League
- caption: |
-	That "dollar sign" is kind of interesting because
-	when you do things as an administrator, as the
+  speaker: League
+  caption: |
+    That "dollar sign" is kind of interesting because
+    when you do things as an administrator, as the
 
 - time: "00:05:59"
- speaker: League
- caption: |
-	Super user of the system, than that often will
-	change to a pound sign, and that's your
-	
+  speaker: League
+  caption: |
+    Super user of the system, than that often will
+    change to a pound sign, and that's your
+    
 - time: "00:06:04"
- speaker: League
- caption: |
-	Indication that, when there is a "pound sign"
-	there it means that the commands can have a
+  speaker: League
+  caption: |
+    Indication that, when there is a "pound sign"
+    there it means that the commands can have a
 
 - time: "00:06:10"
- speaker: League
- caption: |
-	Greater effect on the system. I can do a lot more 
-	things in that case because I am the administrator.
-	
+  speaker: League
+  caption: |
+    Greater effect on the system. I can do a lot more 
+    things in that case because I am the administrator.
+    
 - time: "00:06:15"
- speaker: Lopes
- caption: |
-  What about Linux systems, would you
-	access the terminal in the same way?
+  speaker: Lopes
+  caption: |
+    What about Linux systems, would you
+    access the terminal in the same way?
   
 - time: "00:06:19"
- speaker: League
- caption: |
-  It's very similar, but there's not a whole lot
-	of uniformity in the Linux world. 
+  speaker: League
+  caption: |
+    It's very similar, but there's not a whole lot
+    of uniformity in the Linux world. 
 
 - time: "00:06:24"
- speaker: League
- caption: |
-	There are a ton of different Linux
-	distributions and we'll talk later about the
+  speaker: League
+  caption: |
+    There are a ton of different Linux
+    distributions and we'll talk later about the
 
 - time: "00:06:29"
- speaker: League
- caption: |
-	Differences between some of them. Even within
-	a distribution there can be different desktop
+  speaker: League
+  caption: |
+    Differences between some of them. Even within
+    a distribution there can be different desktop
 
 - time: "00:06:34"
- speaker: League
- caption: |
-	Environments and window managers and terminal
-	programs. So, for now all you want to do is go
+  speaker: League
+  caption: |
+    Environments and window managers and terminal
+    programs. So, for now all you want to do is go
 
 - time: "00:06:40"
- speaker: League
- caption: |
-	Through menus to try and find something called
-	terminal. It might be "Gnome" terminal or
+  speaker: League
+  caption: |
+    Through menus to try and find something called
+    terminal. It might be "Gnome" terminal or
 
 - time: "00:06:46"
- speaker: League
- caption: |
-	Console, or Xterm is one of the most basic
-	terminals that's available. So if you find
+  speaker: League
+  caption: |
+    Console, or Xterm is one of the most basic
+    terminals that's available. So if you find
 
 - time: "00:06:51"
- speaker: League
- caption: |
-	A program like that and you get to your command
-	line prompt, that's all we need for now.
+  speaker: League
+  caption: |
+    A program like that and you get to your command
+    line prompt, that's all we need for now.
   
 - time: "00:06:57"
- speaker: Lopes
- caption: |
-  What about Microsoft systems?
-	
+  speaker: Lopes
+  caption: |
+    What about Microsoft systems?
+    
 - time: "00:07:00"
- speaker: League
- caption: |
-  Yeah, it's not quite the same. There is a
-	command line for Microsoft Windows and it's
+  speaker: League
+  caption: |
+    Yeah, it's not quite the same. There is a
+    command line for Microsoft Windows and it's
 
 - time: "00:07:05"
- speaker: League
- caption: |
-	The application that is called "Command Prompt",
-	but it's a completely different language,
+  speaker: League
+  caption: |
+    The application that is called "Command Prompt",
+    but it's a completely different language,
 
 - time: "00:07:11"
- speaker: League
- caption: |
-	And in my judgement not nearly as flexible and
-	useful. However, there are some ways to run a
+  speaker: League
+  caption: |
+    And in my judgement not nearly as flexible and
+    useful. However, there are some ways to run a
 
 - time: "00:07:17"
- speaker: League
- caption: |
-	Unix like shell on Windows. One of them if
-	you're a software developer is, you may have
+  speaker: League
+  caption: |
+    Unix like shell on Windows. One of them if
+    you're a software developer is, you may have
 
 - time: "00:07:22"
- speaker: League
- caption: |
-	Heard of the version control system called Git,
-	and when you install Git on Windows it comes
+  speaker: League
+  caption: |
+    Heard of the version control system called Git,
+    and when you install Git on Windows it comes
 
 - time: "00:07:29"
- speaker: League
- caption: |
-	With an app called Git Bash. Bash is one of the
-	Unix shells, and what it is doing there is
+  speaker: League
+  caption: |
+    With an app called Git Bash. Bash is one of the
+    Unix shells, and what it is doing there is
 
 - time: "00:07:35"
- speaker: League
- caption: |
-	Emulating the Unix environment on Windows so
-	that you can operate Git more efficiently, or
+  speaker: League
+  caption: |
+    Emulating the Unix environment on Windows so
+    that you can operate Git more efficiently, or
 
 - time: "00:07:42"
- speaker: League
- caption: |
-	More effectively. So that has a limited form
-	of the Unix shell you can use. There's another
-	
+  speaker: League
+  caption: |
+    More effectively. So that has a limited form
+    of the Unix shell you can use. There's another
+    
 - time: "00:07:49"
- speaker: League
- caption: |
-	system you can get for Windows called Cygwin,
-	and Cygwin is more of a complete command line
+  speaker: League
+  caption: |
+    system you can get for Windows called Cygwin,
+    and Cygwin is more of a complete command line
 
 - time: "00:07:55"
- speaker: League
- caption: |
-	Environment. You can install different applications
-	in it and it's not perfect as far as an emulation 
+  speaker: League
+  caption: |
+    Environment. You can install different applications
+    in it and it's not perfect as far as an emulation 
 
 - time: "00:08:03"
- speaker: League
- caption: |
-	Of Linux, but it allows you to do a lot of the
-	same things we are going to cover on Windows.
+  speaker: League
+  caption: |
+    Of Linux, but it allows you to do a lot of the
+    same things we are going to cover on Windows.
 
 - time: "00:08:09"
- speaker: League
- caption: |
-	So we are going to start just by exploring the
-	filesystem. The files and folders on your
+  speaker: League
+  caption: |
+    So we are going to start just by exploring the
+    filesystem. The files and folders on your
 
 - time: "00:08:14"
- speaker: League
- caption: |
-	System are structured as a tree. Here's a
-	diagram that we've got of a directory tree.
+  speaker: League
+  caption: |
+    System are structured as a tree. Here's a
+    diagram that we've got of a directory tree.
 
 - time: "00:08:20"
- speaker: League
- caption: |
-	This exact set of files and folders can be
-	downloaded if you want to follow along with what
+  speaker: League
+  caption: |
+    This exact set of files and folders can be
+    downloaded if you want to follow along with what
 
 - time: "00:08:24"
- speaker: League
- caption: |
-	We're doing exactly. Checkout the link in the
-	show notes for directions for doing that.
+  speaker: League
+  caption: |
+    We're doing exactly. Checkout the link in the
+    show notes for directions for doing that.
 
 - time: "00:08:30"
- speaker: League
- caption: |
-	So what were the first couple of commands we
-	learned for navigating around the file system?
+  speaker: League
+  caption: |
+    So what were the first couple of commands we
+    learned for navigating around the file system?
 
 - time: "00:08:34"
- speaker: Lopes
- caption: |
-  I think the first two commands I've
-	learned were `cd` and `ls`.
+  speaker: Lopes
+  caption: |
+    I think the first two commands I've
+    learned were `cd` and `ls`.
   
 - time: "00:08:38"
- speaker: League
- caption: |
-  Sure, and what do they do? 
-	What's the difference between them?
+  speaker: League
+  caption: |
+    Sure, and what do they do? 
+    What's the difference between them?
  
- - time: "00:08:40"
- speaker: Lopes
- caption: |
-	`ls` simply lists everything that is in the
-	current directory. So you know what's going on,
+- time: "00:08:40"
+  speaker: Lopes
+  caption: |
+    `ls` simply lists everything that is in the
+    current directory. So you know what's going on,
 
 - time: "00:08:46"
- speaker: Lopes
- caption: |
-	What folders and files you have accessible to
-	you. `cd` is what you use to either move up
+  speaker: Lopes
+  caption: |
+    What folders and files you have accessible to
+    you. `cd` is what you use to either move up
 
 - time: "00:08:52"
- speaker: Lopes
- caption: |
-	and down that file system.
+  speaker: Lopes
+  caption: |
+    and down that file system.
 
 - time: "00:08:53"
- speaker: League
- caption: |
-  Yeah, and just as a note, we're going to use
-	the terms folder and directory interchangeably.
+  speaker: League
+  caption: |
+    Yeah, and just as a note, we're going to use
+    the terms folder and directory interchangeably.
 
 - time: "00:09:00"
- speaker: League
- caption: |
-	They mean the same thing. Directory is just
-	an older school term for it, but a lot of people
+  speaker: League
+  caption: |
+    They mean the same thing. Directory is just
+    an older school term for it, but a lot of people
 
 - time: "00:09:04"
- speaker: League
- caption: |
-	More familiar with the desktop environments
-	would use folder, and that means the same thing.
+  speaker: League
+  caption: |
+    More familiar with the desktop environments
+    would use folder, and that means the same thing.
 
 - time: "00:09:10"
- speaker: League
- caption: |
-	So at the top of this directory tree we have the
-	tilde character, which represents our home directory. 
-	
+  speaker: League
+  caption: |
+    So at the top of this directory tree we have the
+    tilde character, which represents our home directory. 
+    
 - time: "00:09:15"
- speaker: League
- caption: |
-	Two of its sub-directories are "cs101" and
-	"Downloads".
-	
+  speaker: League
+  caption: |
+    Two of its sub-directories are "cs101" and
+    "Downloads".
+    
 - time: "00:09:19"
- speaker: League
- caption: |
-  So let's say I want to look into that
-	"Downloads" folder. How would I get there?
+  speaker: League
+  caption: |
+    So let's say I want to look into that
+    "Downloads" folder. How would I get there?
   
 - time: "00:09:22"
- speaker: Lopes
- caption: |
-  You can do `cd`, and then "Downloads".
+  speaker: Lopes
+  caption: |
+    You can do `cd`, and then "Downloads".
 
 - time: "00:09:26"
- speaker: League
- caption: |
-	Right! So I just type `cd` "Downloads", and you
-	see that part of the prompt here has changed to
+  speaker: League
+  caption: |
+    Right! So I just type `cd` "Downloads", and you
+    see that part of the prompt here has changed to
 
 - time: "00:09:31"
- speaker: League
- caption: |
-	Show me that I am in the "Downloads" folder, and
-	then I can do `ls` to show the files within there. 
-	
+  speaker: League
+  caption: |
+    Show me that I am in the "Downloads" folder, and
+    then I can do `ls` to show the files within there. 
+    
 - time: "00:09:40"
- speaker: League
- caption: |
-	So say that we want to get down to this "js"
-	folder within "django". How would I get there?
+  speaker: League
+  caption: |
+    So say that we want to get down to this "js"
+    folder within "django". How would I get there?
   
 - time: "00:09:45"
- speaker: Lopes
- caption: |
-  Well, the "js" folder is three levels down.
-	So using the `cd` command we learned, 
-	
+  speaker: Lopes
+  caption: |
+    Well, the "js" folder is three levels down.
+    So using the `cd` command we learned, 
+    
 - time: "00:09:50"
- speaker: Lopes
- caption: |
-	We can do `cd` "django", and then `cd` "media",
-	and then finally `cd` "js".
-	
+  speaker: Lopes
+  caption: |
+    We can do `cd` "django", and then `cd` "media",
+    and then finally `cd` "js".
+    
 - time: "00:09:58"
- speaker: League
- caption: |  
-  Yup! So that's doing it with three separate
-	commands, and I'm down in that "js" folder
+  speaker: League
+  caption: |  
+    Yup! So that's doing it with three separate
+    commands, and I'm down in that "js" folder
 
- - time: "00:10:03"
- speaker: League
- caption: |  
-	Which it indicates in my prompt. I'll also point
-	out this command `pwd`, which tells you the 
-	
- - time: "00:10:11"
- speaker: League
- caption: | 
-	Exact path to where you currently are. So,
-	what's showing up in my prompt is just the last
+- time: "00:10:03"
+  speaker: League
+  caption: |  
+    Which it indicates in my prompt. I'll also point
+    out this command `pwd`, which tells you the 
+    
+- time: "00:10:11"
+  speaker: League
+  caption: | 
+    Exact path to where you currently are. So,
+    what's showing up in my prompt is just the last
 
- - time: "00:10:17"
- speaker: League
- caption: | 
-	Piece of that, but this shows me the complete
-	path to get there. So that also shows us that 
+- time: "00:10:17"
+  speaker: League
+  caption: | 
+    Piece of that, but this shows me the complete
+    path to get there. So that also shows us that 
 
- - time: "00:10:23"
- speaker: League
- caption: | 
-	We can write these directory names, like when
-	one directory is nested in another we can separate
+- time: "00:10:23"
+  speaker: League
+  caption: | 
+    We can write these directory names, like when
+    one directory is nested in another we can separate
 
- - time: "00:10:28"
- speaker: League
- caption: | 
-	Them with slashes. It can be more convenient
-	to do it all at once. The way to do that is to
+- time: "00:10:28"
+  speaker: League
+  caption: | 
+    Them with slashes. It can be more convenient
+    to do it all at once. The way to do that is to
 
- - time: "00:10:34"
- speaker: League
- caption: | 
-	Just join the directories together with a slash.
-	So I would be able to say `cd` django/media/js,
+- time: "00:10:34"
+  speaker: League
+  caption: | 
+    Just join the directories together with a slash.
+    So I would be able to say `cd` django/media/js,
 
- - time: "00:10:41"
- speaker: League
- caption: | 
-	And that's the forward slash not the back slash,
-	but this won't work from the current place
+- time: "00:10:41"
+  speaker: League
+  caption: | 
+    And that's the forward slash not the back slash,
+    but this won't work from the current place
 
- - time: "00:10:48"
- speaker: League
- caption: | 
-	Because I'm already in "js", and so there is no
-	django folder to descend into. So what I'm going
+- time: "00:10:48"
+  speaker: League
+  caption: | 
+    Because I'm already in "js", and so there is no
+    django folder to descend into. So what I'm going
 
- - time: "00:10:55"
- speaker: League
- caption: | 
-	To do first is go back up. Do you remember the
-	command to go back up to a parent directory?
+- time: "00:10:55"
+  speaker: League
+  caption: | 
+    To do first is go back up. Do you remember the
+    command to go back up to a parent directory?
 
- - time: "00:11:02"
- speaker: Lopes
- caption: | 
-  Going back up you would do `cd` dot-dot.
+- time: "00:11:02"
+  speaker: Lopes
+  caption: | 
+    Going back up you would do `cd` dot-dot.
 
- - time: "00:11:02"
- speaker: League
- caption: | 
-  Yup! So dot-dot goes up one. So I can go
-	back up to media, or you can also combine
+- time: "00:11:02"
+  speaker: League
+  caption: | 
+    Yup! So dot-dot goes up one. So I can go
+    back up to media, or you can also combine
 
- - time: "00:11:10"
- speaker: League
- caption: |
-	Those together with slashes to get all the way
-	back up to "Downloads". Then I'll be able to
+- time: "00:11:10"
+  speaker: League
+  caption: |
+    Those together with slashes to get all the way
+    back up to "Downloads". Then I'll be able to
 
- - time: "00:11:15"
- speaker: League
- caption: |
-	The cd "django" slash "media" slash "js".
-	I'm getting back previous commands I typed by
+- time: "00:11:15"
+  speaker: League
+  caption: |
+    The cd "django" slash "media" slash "js".
+    I'm getting back previous commands I typed by
 
- - time: "00:11:20"
- speaker: League
- caption: |
-	Just using the "up" and "down" arrows, and
-	now that will work just as well. So if you look
+- time: "00:11:20"
+  speaker: League
+  caption: |
+    Just using the "up" and "down" arrows, and
+    now that will work just as well. So if you look
 
- - time: "00:11:26"
- speaker: League
- caption: |
-	At our file system tree, "js" has a sibling
-	directory called "css".
-	
- - time: "00:11:31"
- speaker: League
- caption: |
-	How would we get to the "css" directory?
+- time: "00:11:26"
+  speaker: League
+  caption: |
+    At our file system tree, "js" has a sibling
+    directory called "css".
+    
+- time: "00:11:31"
+  speaker: League
+  caption: |
+    How would we get to the "css" directory?
    
- - time: "00:11:35"
- speaker: Lopes
- caption: |
-  Combining the dot-dot as well as the `cd`.
-	We can do `cd` dot-dot forward slash "css".
-
- - time: "00:11:42"
- speaker: League
- caption: |
-  Right. So the dot-dot goes up to the parent
-	and then "css" goes down again to the sibling,
-
- - time: "00:11:48"
- speaker: League
- caption: |
-	and now I'm in "css".
-
- - time: "00:11:50"
- speaker: Lopes
- caption: |
-  On the complete opposite side of our file
-	system tree we have a file called "sys", S Y S. 
-
- - time: "00:11:55"
- speaker: Lopes
- caption: |
-	How do we go about navigating to that file?
-
- - time: "00:11:58"
- speaker: League
- caption: |	
-  So one way is to just go up to the top of the
-	tree and down again. So you can see that it's,
-
- - time: "00:12:05"
- speaker: League
- caption: |
-	It looks like three levels up to your home
-	directory. So if we go up three times from here.
-
- - time: "00:12:12"
- speaker: League
- caption: |
-	Now we're in home, but I can just continue
-	from there and do "cs101" "hello" "lib" "sys".
-
- - time: "00:12:18"
- speaker: League
- caption: |
-	So you just trace the path up and down the
-	tree, and I'm over in "sys". Another way to
-
- - time: "00:12:25"
- speaker: League
- caption: |
-	Do that is, you can use that tilde to short cut
-	directly to your home. So I'm going to use a
-
- - time: "00:12:32"
- speaker: League
- caption: |
-	Command, or another form of `cd`, which is `cd`
-	dash, and that takes me back to the place I was
-
- - time: "00:12:39"
- speaker: League
- caption: |
-	Previously. So now I'm back in templates,
-	and instead of using all of those dots, we'll
-
- - time: "00:12:45"
- speaker: League
- caption: |
-	Just do `cd` tilde slash "cs101" "hello" "lib"
-	"sys", and now I'm back there again.
-
- - time: "00:12:54"
- speaker: Lopes
- caption: |
-  So now that we've used `cd` to navigate to
-	different directories, how would we use the
-
- - time: "00:12:58"
- speaker: Lopes
- caption: |
-	`ls` command to tell what are in all of
-	those directories?
-
- - time: "00:13:02"
- speaker: League
- caption: |
-  So `ls` lists files and directories in the
-	current directory. It's a little unclear what's
-
- - time: "00:13:10"
- speaker: League
- caption: |
-	what if you just have a basic `ls` output like
-	this. So one thing I like to do is, there's an 
-
- - time: "00:13:17"
- speaker: League
- caption: |
-	Option to `ls` which is dash... capital F. You
-	can't have any space in there. It has to be
-
- - time: "00:13:23"
- speaker: League
- caption: |
-	Dash F. When I do that, it adds a character to
-	certain types of entries here. Which indicates,
-
- - time: "00:13:32"
- speaker: League
- caption: |
-	In this case, that slash indicates that those are 
-	sub-directories and everything else that doesn't 
-
- - time: "00:13:37"
- speaker: League
- caption: |
-	Have the slash is a regular file. So that
-	helps me orient myself a little more in 
-
- - time: "00:13:43"
- speaker: League
- caption: |
-	The tree structure. A more detailed version
-	of that is `ls` dash l. This is a long, or a
-
- - time: "00:13:50"
- speaker: League
- caption: |
-	Detailed listing, and it gives lots of
-	information. The file names are here on the
-
- - time: "00:13:55"
- speaker: League
- caption: |
-	Right side, and then we've got some permissions.
-	We'll later, we'll go into exactly what those mean,
-
- - time: "00:14:01"
- speaker: League
- caption: |
-	But for now you see that the "d" here
-	corresponds to the directories. Ignore that
-
- - time: "00:14:09"
- speaker: League
- caption: |
-	Number. We've got a user and a group name, so
-	that's the owner of this file. The file size, and then
-
- - time: "00:14:15"
- speaker: League
- caption: |
-	A time stamp, which is when the file was
-	last modified.
-
- - time: "00:14:20"
- speaker: Lopes
- caption: |
-  So is there an option with the `ls` command
-	in terms of changing the ordering?
-  
-
- - time: "00:14:25 "
- speaker: League
- caption: |
-  Yeah, there are a few ways to change how it
-	gets sorted. So, one that is very useful is to
-
- - time: "00:14:32"
- speaker: League
- caption: |
-	Sort by modification times. So that's called
-	`ls` dash "t", and you might also want to do
-
- - time: "00:14:38"
-  speaker: League
-  caption: |
-	That with "l". So that when I combine multiple
-	options together, I can either have them as
-	
- - time: "00:14:42"
-  speaker: League
-  caption: |
-	Separate switches like this with a space, or
-	most commands support having them merge together
-
- - time: "00:14:49"
-  speaker: League
-  caption: |
-	So that it's just dash "l" "t". And now what
-	it's doing here is it's showing these entries
-
- - time: "00:14:56"
-  speaker: League
-  caption: |
-	Sorted by the modification time. So the most
-	recently modified is at the top, and I often want
-
- - time: "00:15:02"
-  speaker: League
-  caption: |
-	To reverse that. So, if you want to reverse
-	however it's being sorted, you can add an "r"
-
- - time: "00:15:08"
-  speaker: League
-  caption: |
-	Or dash "r" to it, and that will put those in
-	reverse order. So now the most recent is at
-
- - time: "00:15:16"
-  speaker: League
-  caption: |
-	The bottom. I find that really useful because
-	a lot of times you'll have more files than fit
-
- - time: "00:15:20"
-  speaker: League
-  caption: |
-	On the screen, but then the bottom most file
-	that you see is the most recent.
-
- - time: "00:15:26"Lopes
-  caption: |
-	So I had a question in terms of case sensitivity.
-	Earlier when you went into downloads, you
-
- - time: "00:15:30"
+- time: "00:11:35"
   speaker: Lopes
   caption: |
-	Used a capital "D", when you did `cd`
-	"Downloads", and then when you did the 
-	
- - time: "00:15:34"
+    Combining the dot-dot as well as the `cd`.
+    We can do `cd` dot-dot forward slash "css".
+
+- time: "00:11:42"
+  speaker: League
+  caption: |
+    Right. So the dot-dot goes up to the parent
+    and then "css" goes down again to the sibling,
+
+- time: "00:11:48"
+  speaker: League
+  caption: |
+    and now I'm in "css".
+
+- time: "00:11:50"
   speaker: Lopes
   caption: |
-	`ls` command you used a lower case "l",
-	but a capital "F".
+    On the complete opposite side of our file
+    system tree we have a file called "sys", S Y S. 
 
- - time: "00:15:38"
+- time: "00:11:55"
+  speaker: Lopes
+  caption: |
+    How do we go about navigating to that file?
+
+- time: "00:11:58"
   speaker: League
   caption: |
-	Right. Yeah a lot of the Unix system is case
-	sensitive. So it matters which way you us
+    So one way is to just go up to the top of the
+    tree and down again. So you can see that it's,
 
- - time: "00:15:46"
+- time: "00:12:05"
   speaker: League
   caption: |
-	Uppercase and lowercase, and that includes for
-	commands. So you can't type capital "LS" to get
+    It looks like three levels up to your home
+    directory. So if we go up three times from here.
 
- - time: "00:15:53"
+- time: "00:12:12"
   speaker: League
   caption: |
-	The `ls` command, and switches to commands like
-	you noticed here. But also the file and folder
+    Now we're in home, but I can just continue
+    from there and do "cs101" "hello" "lib" "sys".
 
- - time: "00:16:01"
+- time: "00:12:18"
   speaker: League
   caption: |
-	Names. So if I go up here again and I try type
-	"downloads", then... actually that works on
+    So you just trace the path up and down the
+    tree, and I'm over in "sys". Another way to
 
- - time: "00:16:09"
+- time: "00:12:25"
   speaker: League
   caption: |
-	A MAC because the file system on a MAC is not
-	case sensitive. Even though the Unix shell is
+    Do that is, you can use that tilde to short cut
+    directly to your home. So I'm going to use a
 
- - time: "00:16:18"
+- time: "00:12:32"
   speaker: League
   caption: |
-	Case sensitive. So you get some weird artifacts
-	with that. Let me try that again, but this time
+    Command, or another form of `cd`, which is `cd`
+    dash, and that takes me back to the place I was
 
- - time: "00:16:23"
+- time: "00:12:39"
   speaker: League
   caption: |
-	I am going to use the "TAB" key. "TAB" is a way
-	to complete a file name, so you only have to
+    Previously. So now I'm back in templates,
+    and instead of using all of those dots, we'll
 
- - time: "00:16:28"
+- time: "00:12:45"
   speaker: League
   caption: |
-	Type part of it and then you hit "TAB". So if
-	I try to type "downloads" and hit "TAB" with
+    Just do `cd` tilde slash "cs101" "hello" "lib"
+    "sys", and now I'm back there again.
 
- - time: "00:16:34"
+- time: "00:12:54"
+  speaker: Lopes
+  caption: |
+    So now that we've used `cd` to navigate to
+    different directories, how would we use the
+
+- time: "00:12:58"
+  speaker: Lopes
+  caption: |
+    `ls` command to tell what are in all of
+    those directories?
+
+- time: "00:13:02"
   speaker: League
   caption: |
-	A lowercase "d" it doesn't complete because the
-	shell, which is doing that TAB completion, knows
+    So `ls` lists files and directories in the
+    current directory. It's a little unclear what's
 
- - time: "00:16:41"
+- time: "00:13:10"
   speaker: League
   caption: |
-	That nothing starts with a lowercase "down" like
-	that. But if I do down with a capital "D" and
+    what if you just have a basic `ls` output like
+    this. So one thing I like to do is, there's an 
 
- - time: "00:16:46"
+- time: "00:13:17"
   speaker: League
   caption: |
-	I hit "TAB", then it works again. So, the
-	strange thing is that although the MAC
+    Option to `ls` which is dash... capital F. You
+    can't have any space in there. It has to be
 
- - time: "00:16:52"
+- time: "00:13:23"
   speaker: League
   caption: |
-	Filesystem is not case sensitive, the shell
-	that's interpreting your command still is. And
+    Dash F. When I do that, it adds a character to
+    certain types of entries here. Which indicates,
 
- - time: "00:16:59"
+- time: "00:13:32"
   speaker: League
   caption: |
-	When we switch to Linux next time, Linux has
-	a case sensitive filesystem, so it's important
+    In this case, that slash indicates that those are 
+    sub-directories and everything else that doesn't 
 
- - time: "00:17:03"
+- time: "00:13:37"
   speaker: League
   caption: |
-	To be aware of that distinction.
+    Have the slash is a regular file. So that
+    helps me orient myself a little more in 
 
- - time: "00:17:05"
+- time: "00:13:43"
+  speaker: League
+  caption: |
+    The tree structure. A more detailed version
+    of that is `ls` dash l. This is a long, or a
+
+- time: "00:13:50"
+  speaker: League
+  caption: |
+    Detailed listing, and it gives lots of
+    information. The file names are here on the
+
+- time: "00:13:55"
+  speaker: League
+  caption: |
+    Right side, and then we've got some permissions.
+    We'll later, we'll go into exactly what those mean,
+
+- time: "00:14:01"
+  speaker: League
+  caption: |
+    But for now you see that the "d" here
+    corresponds to the directories. Ignore that
+
+- time: "00:14:09"
+  speaker: League
+  caption: |
+    Number. We've got a user and a group name, so
+    that's the owner of this file. The file size, and then
+
+- time: "00:14:15"
+  speaker: League
+  caption: |
+    A time stamp, which is when the file was
+    last modified.
+
+- time: "00:14:20"
+  speaker: Lopes
+  caption: |
+    So is there an option with the `ls` command
+    in terms of changing the ordering?
+
+- time: "00:14:25 "
+  speaker: League
+  caption: |
+    Yeah, there are a few ways to change how it
+    gets sorted. So, one that is very useful is to
+
+- time: "00:14:32"
+  speaker: League
+  caption: |
+    Sort by modification times. So that's called
+    `ls` dash "t", and you might also want to do
+
+- time: "00:14:38"
+  speaker: League
+  caption: |
+    That with "l". So that when I combine multiple
+    options together, I can either have them as
+    
+- time: "00:14:42"
+  speaker: League
+  caption: |
+    Separate switches like this with a space, or
+    most commands support having them merge together
+
+- time: "00:14:49"
+  speaker: League
+  caption: |
+    So that it's just dash "l" "t". And now what
+    it's doing here is it's showing these entries
+
+- time: "00:14:56"
+  speaker: League
+  caption: |
+    Sorted by the modification time. So the most
+    recently modified is at the top, and I often want
+
+- time: "00:15:02"
+  speaker: League
+  caption: |
+    To reverse that. So, if you want to reverse
+    however it's being sorted, you can add an "r"
+
+- time: "00:15:08"
+  speaker: League
+  caption: |
+    Or dash "r" to it, and that will put those in
+    reverse order. So now the most recent is at
+
+- time: "00:15:16"
+  speaker: League
+  caption: |
+    The bottom. I find that really useful because
+    a lot of times you'll have more files than fit
+
+- time: "00:15:20"
+  speaker: League
+  caption: |
+    On the screen, but then the bottom most file
+    that you see is the most recent.
+
+- time: "00:15:26"
+  speaker: Lopes
+  caption: |
+    So I had a question in terms of case sensitivity.
+    Earlier when you went into downloads, you
+
+- time: "00:15:30"
+  speaker: Lopes
+  caption: |
+    Used a capital "D", when you did `cd`
+    "Downloads", and then when you did the 
+    
+- time: "00:15:34"
+  speaker: Lopes
+  caption: |
+    `ls` command you used a lower case "l",
+    but a capital "F".
+
+- time: "00:15:38"
+  speaker: League
+  caption: |
+    Right. Yeah a lot of the Unix system is case
+    sensitive. So it matters which way you us
+
+- time: "00:15:46"
+  speaker: League
+  caption: |
+    Uppercase and lowercase, and that includes for
+    commands. So you can't type capital "LS" to get
+
+- time: "00:15:53"
+  speaker: League
+  caption: |
+    The `ls` command, and switches to commands like
+    you noticed here. But also the file and folder
+
+- time: "00:16:01"
+  speaker: League
+  caption: |
+    Names. So if I go up here again and I try type
+    "downloads", then... actually that works on
+
+- time: "00:16:09"
+  speaker: League
+  caption: |
+    A MAC because the file system on a MAC is not
+    case sensitive. Even though the Unix shell is
+
+- time: "00:16:18"
+  speaker: League
+  caption: |
+    Case sensitive. So you get some weird artifacts
+    with that. Let me try that again, but this time
+
+- time: "00:16:23"
+  speaker: League
+  caption: |
+    I am going to use the "TAB" key. "TAB" is a way
+    to complete a file name, so you only have to
+
+- time: "00:16:28"
+  speaker: League
+  caption: |
+    Type part of it and then you hit "TAB". So if
+    I try to type "downloads" and hit "TAB" with
+
+- time: "00:16:34"
+  speaker: League
+  caption: |
+    A lowercase "d" it doesn't complete because the
+    shell, which is doing that TAB completion, knows
+
+- time: "00:16:41"
+  speaker: League
+  caption: |
+    That nothing starts with a lowercase "down" like
+    that. But if I do down with a capital "D" and
+
+- time: "00:16:46"
+  speaker: League
+  caption: |
+    I hit "TAB", then it works again. So, the
+    strange thing is that although the MAC
+
+- time: "00:16:52"
+  speaker: League
+  caption: |
+    Filesystem is not case sensitive, the shell
+    that's interpreting your command still is. And
+
+- time: "00:16:59"
+  speaker: League
+  caption: |
+    When we switch to Linux next time, Linux has
+    a case sensitive filesystem, so it's important
+
+- time: "00:17:03"
+  speaker: League
+  caption: |
+    To be aware of that distinction.
+
+- time: "00:17:05"
   speaker: Lopes
   caption: |
    So it's pretty simple to access the files once
    we know the correct capitalization and spelling
 
- - time: "00:17:11"
+- time: "00:17:11"
   speaker: Lopes
   caption: |
    Of it. What if we have a file such as Command
    Line TV with spaces in it?
 
- - time: "00:17:14"
+- time: "00:17:14"
   speaker: League
   caption: |
    Yeah, spaces are a real issue in file names
    because spaces are used to separate the
 
- - time: "00:17:20"
+- time: "00:17:20"
   speaker: League
   caption: |
    Different parameters on the command line, and
    so a lot of people that use the command line
 
- - time: "00:17:26"
+- time: "00:17:26"
   speaker: League
   caption: |
    Have a hard and fast rule I just never put
    spaces in file names. I'll use a dash or maybe
 
- - time: "00:17:31"
+- time: "00:17:31"
   speaker: League
   caption: |
    An underscore, but the real world is messy and
    sometimes you've got to deal with spaces in file
 
- - time: "00:17:37"
+- time: "00:17:37"
   speaker: League
   caption: |
    Names and directory names. So for example here
    I want to `cd` into "Command Line TV", and one
 
- - time: "00:17:44"
+- time: "00:17:44"
   speaker: League
   caption: |
    Way to do that is to put quotes. It can be a
    double quote or a single quote, as long as it
 
- - time: "00:17:48"
+- time: "00:17:48"
   speaker: League
   caption: |
    Is consistent, and then you type it out with
    the spaces in it and close the quote.
 
- - time: "00:17:54"
+- time: "00:17:54"
   speaker: League
   caption: |
    That allows me to descend into that directory.
    Another way is with a back slash. So instead of
 
- - time: "00:18:03"
+- time: "00:18:03"
   speaker: League
   caption: |
    Putting the quote you just start to type it.
    Again I'll use "TAB" to do the completion
 
- - time: "00:18:08"
+- time: "00:18:08"
   speaker: League
   caption: |
    Because the "TAB" completion helps me out.
    What it's going to do is insert these
 
- - time: "00:18:13"
+- time: "00:18:13"
   speaker: League
   caption: |
    Back slashes before each space, and that tells 
    the shell that this isn't really a space that
 
- - time: "00:18:19"
+- time: "00:18:19"
   speaker: League
   caption: |
    Separates the next parameter of the command,
    but instead it's a space that's a part of that
 
- - time: "00:18:25"
+- time: "00:18:25"
   speaker: League
   caption: |
    Same directory name. So that works fine too.
 
- - time: "00:18:28"
+- time: "00:18:28"
   speaker: Lopes
   caption: |
    So today we covered the `cd` command, the `ls`
    command, a basic introduction to the terminal.
 
- - time: "00:18:35"
+- time: "00:18:35"
   speaker: Lopes
   caption: |
    What do we have in store for episode 2?
 
- - time: "00:18:37"
+- time: "00:18:37"
   speaker: League
   caption: |
    So next time we're going to look at how to view
    different file types from the command line. And
 
- - time: "00:18:42"
+- time: "00:18:42"
   speaker: League
   caption: |
    Also, how to construct some very simple
    pipelines in order to view the content of
 
- - time: "00:18:49"
+- time: "00:18:49"
   speaker: League
   caption: |
    Different things. So see you next time!
@@ -1223,22 +1223,3 @@ speaker: League
 - time: "00:19:19"
   caption: |
     [End]
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
