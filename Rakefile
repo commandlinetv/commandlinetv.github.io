@@ -9,6 +9,8 @@ CONFIG = {
   'themes' => File.join(SOURCE, "_includes", "themes"),
   'layouts' => File.join(SOURCE, "_layouts"),
   'posts' => File.join(SOURCE, "_posts"),
+  'data' => File.join(SOURCE, "_data"),
+  'drafts' => File.join(SOURCE, "_drafts"),
   'post_ext' => "md",
   'theme_package_version' => "0.1.0"
 }
@@ -73,25 +75,34 @@ task :post do
   end
 end # task :post
 
+# Usage: rake reindex [drafts=1]
 desc "Update topic index"
 task :reindex do
   master = {}
-  Dir.glob("_data/episode*.yaml").sort.each do |ep|
-    dat = YAML.load_file(ep).each do |item|
-      if item['index']
-        x = item['index']
-        slug = /episode[^\.]*/.match(ep)[0]
-        num = slug[7..-1].to_i
-        ref = "#{num}##{slug}##{item['time']}"
-        if !master[x]
-          master[x] = [ref]
-        else
-          master[x].push(ref)
+  eps = Dir.glob(File.join(CONFIG['posts'], "*episode*.md"))
+  if ENV['drafts']
+    eps = eps + Dir.glob(File.join(CONFIG['drafts'], "*episode*.md"))
+  end
+  eps.sort.each do |ep|
+    slug = /episode[^\.]*/.match(ep)[0]
+    num = slug[7..-1].to_i
+    yaml = File.join(CONFIG['data'], slug + ".yaml")
+    puts "Reading #{yaml}"
+    if File.exist?(yaml)
+      dat = YAML.load_file(yaml).each do |item|
+        if item['index']
+          x = item['index']
+          ref = "#{num}##{slug}##{item['time']}"
+          if !master[x]
+            master[x] = [ref]
+          else
+            master[x].push(ref)
+          end
         end
       end
     end
   end
-  filename = "_data/topics.yaml"
+  filename = File.join(CONFIG['data'], "topics.yaml")
   puts "Writing #{filename}"
   open(filename, 'w') do |topics|
     master.sort{|a,b| a[0].casecmp(b[0])}.each do |item|
@@ -164,7 +175,7 @@ task :episode do
       end
     end
   end
-  datfile = File.join("_data", "#{slug}.yaml")
+  datfile = File.join(CONFIG['data'], "#{slug}.yaml")
   if File.exist?(datfile)
     puts "Skipping #{datfile}"
   else
