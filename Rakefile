@@ -123,7 +123,7 @@ task :episode do
   slug = sprintf("episode%03d", num)
   title = sprintf("Episode %d", num)
   date = Time.now.strftime('%Y-%m-%d')
-  postfile = File.join(CONFIG['posts'], "#{date}-#{slug}.#{CONFIG['post_ext']}")
+  postfile = File.join(CONFIG['drafts'], "#{slug}.#{CONFIG['post_ext']}")
   if File.exist?(postfile)
     puts "Skipping #{postfile}"
   else
