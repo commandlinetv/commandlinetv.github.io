@@ -1,35 +1,35 @@
 - time: "00:00:00"
   caption: |
     [Rhythmic, dark electronic intro music]
-  
+
 - time: "00:00:25"
   speaker: League
   caption: |
-    Welcome to Command Line TV. 
+    Welcome to Command Line TV.
 
 - time: "00:00:27"
   speaker: League
   caption: |
     This is a video podcast designed to help you learn
-    the Unix Shell. 
-    
+    the Unix Shell.
+
 - time: "00:00:31"
   speaker: League
   caption: |
     I'm Chris League. I am a professor of
     computer science at LIU Brooklyn.
-    
+
 - time: "00:00:35"
   speaker: League
   caption: |
     And with me is my co-host Christian
     Lopes. Tell us a little about yourself.
-  
+
 - time: "00:00:39"
   speaker: Lopes
   caption: |
-    My name is Christian Lopes. 
-    
+    My name is Christian Lopes.
+
 - time: "00:00:41"
   speaker: Lopes
   caption: |
@@ -40,13 +40,13 @@
   speaker: Lopes
   caption: |
     I've always been interested in computers
-    and tinkering with things. 
-    
+    and tinkering with things.
+
 - time: "00:00:47"
   speaker: Lopes
   caption: |
     So I will be learning along with our viewers today.
-    
+
 - time: "00:00:49"
   speaker: League
   caption: |
@@ -58,7 +58,7 @@
   caption: |
     We're going to learn about shell commands
     available on Linux and Mac OS X.
-    
+
 - time: "00:01:00"
   speaker: League
   caption: |
@@ -81,7 +81,7 @@
   speaker: League
   caption: |
     What's your background with tech?
-  
+
 - time: "00:01:20"
   speaker: Lopes
   caption: |
@@ -92,38 +92,38 @@
   speaker: Lopes
   caption: |
     I know that we use shell commands and a lot
-    of programming commands so, 
-    
+    of programming commands so,
+
 - time: "00:01:32"
   speaker: Lopes
   caption: |
     I'd like to understand more about how
     they work.
-  
+
 - time: "00:01:33"
   speaker: League
   caption: |
     Great! That's what we'll be doing.
-  
+
 - time: "00:01:36"
   speaker: Lopes
   index: rationale for command line
   caption: |
     My first question will be, why would you use a
     Linux terminal as opposed to a desktop environment.
-  
+
 - time: "00:01:42"
   speaker: League
   caption: |
     Yeah, it's kind of unusual, these days to stick
-    to a command terminal. 
-    
+    to a command terminal.
+
 - time: "00:01:48"
   speaker: League
   caption: |
     It's not the easiest thing to learn, but it gives
-    you a lot of flexibility, power, and precision. 
-    
+    you a lot of flexibility, power, and precision.
+
 - time: "00:01:55"
   speaker: League
   index: automation
@@ -135,13 +135,13 @@
   speaker: League
   caption: |
     So that you can take your work flow and
-    automate a lot of things. 
-    
+    automate a lot of things.
+
 - time: "00:02:04"
   speaker: League
   caption: |
     Which I think is a really great way to work.
-    
+
 - time: "00:02:08"
   speaker: League
   caption: |
@@ -153,12 +153,12 @@
   caption: |
     And adapted to the way that you like to work.
     Desktop environments and graphical applications
-    
+
 - time: "00:02:19"
   speaker: League
   index: WYSIWYG
   caption: |
-    Are often called "WYSIWYG". Which is, uhh, 
+    Are often called "WYSIWYG". Which is, uhh,
     What You See Is What You Get,
 
 - time: "00:02:26"
@@ -183,8 +183,8 @@
   speaker: League
   caption: |
     by having to manually select and click on things
-    and work with menus. 
-    
+    and work with menus.
+
 - time: "00:02:50"
   speaker: League
   caption: |
@@ -201,14 +201,14 @@
   speaker: League
   caption: |
     but there are command line tools for doing
-    image processing and video transcoding, and 
-    
+    image processing and video transcoding, and
+
 - time: "00:03:07"
   speaker: League
   caption: |
     I use them all the time because we can automate
     them. So we're going to look at some of
-    
+
 - time: "00:03:13"
   speaker: League
   index: server
@@ -227,8 +227,8 @@
   speaker: League
   caption: |
     Where there's even a monitor or a keyboard
-    attached to it, and so a graphical desktop 
-    
+    attached to it, and so a graphical desktop
+
 - time: "00:03:33"
   speaker: League
   caption: |
@@ -240,19 +240,19 @@
   caption: |
     and just get the command prompt and it is very
     simple to take care of things that way.
-  
+
 - time: "00:03:42"
   speaker: Lopes
   index: free software
-  caption: |	
+  caption: |
     Also, most of the software on Linux is free,
-    
+
 - time: "00:03:45"
   speaker: Lopes
   caption: |
     so once you start using it you become part of
     that big community.
-  
+
 - time: "00:03:48"
   speaker: League
   caption: |
@@ -276,7 +276,7 @@
   caption: |
     be a software developer to be interested in
     this -- and that's what we'll do.
-  
+
 - time: "00:04:10"
   speaker: Lopes
   caption: |
@@ -287,29 +287,29 @@
   speaker: Lopes
   caption: |
     actually access the command line that we'll
-    be working in. 
+    be working in.
 
 - time: "00:04:18"
   speaker: Lopes
-  caption: |	
+  caption: |
     How do we do that using a Mac, like we are now?
-  
+
 - time: "00:04:20"
   speaker: League
   caption: |
     So, in the Finder application, which is your
-    basic file explorer, on the 'Go' menu, 
-    
+    basic file explorer, on the 'Go' menu,
+
 - time: "00:04:26"
   speaker: League
-  index: utilities (Mac)
+  index: Utilities (Mac)
   caption: |
     it refers to a folder called 'Utilities'. Within
     the Utilities folder you can find an app called
 
 - time: "00:04:31"
   speaker: League
-  index: terminal (Mac)
+  index: Terminal (Mac)
   caption: |
     'Terminal', and when you open that, it gives you
     this little window with your prompt in it.
@@ -330,8 +330,8 @@
   speaker: League
   caption: |
     different minor capabilities and we can discuss
-    those differences at a later time. 
-    
+    those differences at a later time.
+
 - time: "00:04:51"
   speaker: League
   caption: |
@@ -343,7 +343,7 @@
   caption: |
     strictly for this podcast, and let's not worry
     about what that command is at the moment.
-    
+
 - time: "00:05:01"
   speaker: League
   caption: |
@@ -361,13 +361,13 @@
   caption: |
     We're starting out here with this prompt.
     What does all of this mean?
-  
+
 - time: "00:05:18"
   speaker: Lopes
   caption: |
     Well, the first part of it, "agenor", that
-    would be the computer's name. 
-    
+    would be the computer's name.
+
 - time: "00:05:24"
   speaker: Lopes
   caption: |
@@ -384,19 +384,19 @@
   speaker: Lopes
   caption: |
     the home directory that the computer is in.
-  
+
 - time: "00:05:37"
   speaker: League
   caption: |
     Right!
-  
-    
+
+
 - time: "00:05:38"
   speaker: Lopes
   caption: |
     After that you have what we see here "cltv",
     which is the user that we are currently logged in as.
-  
+
 - time: "00:05:45"
   speaker: League
   caption: |
@@ -414,7 +414,7 @@
   caption: |
     'super user' of the system, than that often will
     change to a pound sign, and that's your
-    
+
 - time: "00:06:04"
   speaker: League
   caption: |
@@ -424,20 +424,20 @@
 - time: "00:06:10"
   speaker: League
   caption: |
-    greater effect on the system. I can do a lot more 
+    greater effect on the system. I can do a lot more
     things in that case because I am the administrator.
-    
+
 - time: "00:06:15"
   speaker: Lopes
   caption: |
     What about Linux systems, would you
     access the terminal in the same way?
-  
+
 - time: "00:06:19"
   speaker: League
   caption: |
     It's very similar, but there's not a whole lot
-    of uniformity in the Linux world. 
+    of uniformity in the Linux world.
 
 - time: "00:06:24"
   speaker: League
@@ -476,12 +476,12 @@
   caption: |
     a program like that and you get to your command
     line prompt, that's all we need for now.
-  
+
 - time: "00:06:57"
   speaker: Lopes
   caption: |
     What about Microsoft systems?
-    
+
 - time: "00:07:00"
   speaker: League
   index: command prompt (Windows)
@@ -533,7 +533,7 @@
   caption: |
     more effectively. So that has a limited form
     of the Unix shell you can use. There's another
-    
+
 - time: "00:07:49"
   speaker: League
   caption: |
@@ -544,7 +544,7 @@
   speaker: League
   caption: |
     environment. You can install different applications
-    in it and it's not perfect as far as an emulation 
+    in it and it's not perfect as far as an emulation
 
 - time: "00:08:03"
   speaker: League
@@ -587,13 +587,13 @@
   caption: |
     I think the first two commands I've
     learned were `cd` and `ls`.
-  
+
 - time: "00:08:38"
   speaker: League
   caption: |
-    Sure, and what do they do? 
+    Sure, and what do they do?
     What's the difference between them?
- 
+
 - time: "00:08:40"
   speaker: Lopes
   index: "`ls` (list files)"
@@ -635,23 +635,23 @@
 
 - time: "00:09:10"
   speaker: League
-  index: "`~`"
+  index: "`~` (home directory)"
   caption: |
     So at the top of this directory tree we have the
-    tilde character, which represents our home directory. 
-    
+    tilde character, which represents our home directory.
+
 - time: "00:09:15"
   speaker: League
   caption: |
     two of its sub-directories are `cs101` and
     `Downloads`.
-    
+
 - time: "00:09:19"
   speaker: League
   caption: |
     So let's say I want to look into that
     `Downloads` folder. How would I get there?
-  
+
 - time: "00:09:22"
   speaker: Lopes
   cmd: |
@@ -671,20 +671,20 @@
     ls
   caption: |
     show me that I am in the `Downloads` folder, and
-    then I can do `ls` to show the files within there. 
-    
+    then I can do `ls` to show the files within there.
+
 - time: "00:09:40"
   speaker: League
   caption: |
     So say that we want to get down to this `js`
     folder within `django`. How would I get there?
-  
+
 - time: "00:09:45"
   speaker: Lopes
   caption: |
     Well, the `js` folder is three levels down.
-    So using the `cd` command we learned, 
-    
+    So using the `cd` command we learned,
+
 - time: "00:09:50"
   speaker: Lopes
   cmd: |
@@ -694,10 +694,10 @@
   caption: |
     We can do `cd django`, and then `cd media`,
     and then finally `cd js`.
-    
+
 - time: "00:09:58"
   speaker: League
-  caption: |  
+  caption: |
     Yup! So that's doing it with three separate
     commands, and I'm down in that `js` folder
 
@@ -706,31 +706,31 @@
   index: "`pwd` (print working dir)"
   cmd: |
     pwd
-  caption: |  
+  caption: |
     which it indicates in my prompt. I'll also point
-    out this command `pwd`, which tells you the 
-    
+    out this command `pwd`, which tells you the
+
 - time: "00:10:11"
   speaker: League
-  caption: | 
+  caption: |
     exact path to where you currently are. So,
     what's showing up in my prompt is just the last
 
 - time: "00:10:17"
   speaker: League
-  caption: | 
+  caption: |
     piece of that, but this shows me the complete
-    path to get there. So that also shows us that 
+    path to get there. So that also shows us that
 
 - time: "00:10:23"
   speaker: League
-  caption: | 
+  caption: |
     we can write these directory names, like when
     one directory is nested in another we can separate
 
 - time: "00:10:28"
   speaker: League
-  caption: | 
+  caption: |
     them with slashes. It can be more convenient
     to do it all at once. The way to do that is to
 
@@ -738,26 +738,26 @@
   speaker: League
   cmd: |
     cd django/media/js
-  caption: | 
+  caption: |
     just join the directories together with a slash.
     So I would be able to say `cd django/media/js`,
 
 - time: "00:10:41"
   speaker: League
-  caption: | 
+  caption: |
     And that's the forward slash not the back slash,
     but this won't work from the current place
 
 - time: "00:10:48"
   speaker: League
-  caption: | 
+  caption: |
     because I'm already in `js`, and so there is no
     `django` folder to descend into. So what I'm going
 
 - time: "00:10:55"
   speaker: League
   index: "`..`"
-  caption: | 
+  caption: |
     to do first is go back up. Do you remember the
     command to go back up to a parent directory?
 
@@ -765,12 +765,12 @@
   speaker: Lopes
   cmd: |
     cd ..
-  caption: | 
+  caption: |
     Going back up you would do `cd ..` (dot-dot).
 
 - time: "00:11:02"
   speaker: League
-  caption: | 
+  caption: |
     Yup! So `..` goes up one. So I can go
     back up to `media`, or you can also combine
 
@@ -802,12 +802,12 @@
   caption: |
     at our file system tree, `js` has a sibling
     directory called `css`.
-    
+
 - time: "00:11:31"
   speaker: League
   caption: |
     How would we get to the `css` directory?
-   
+
 - time: "00:11:35"
   speaker: Lopes
   cmd: |
@@ -917,7 +917,7 @@
   speaker: League
   caption: |
     what if you just have a basic `ls` output like
-    this. So one thing I like to do is, there's an 
+    this. So one thing I like to do is, there's an
 
 - time: "00:13:17"
   speaker: League
@@ -937,14 +937,14 @@
 - time: "00:13:32"
   speaker: League
   caption: |
-    in this case, that slash indicates that those are 
-    sub-directories and everything else that doesn't 
+    in this case, that slash indicates that those are
+    sub-directories and everything else that doesn't
 
 - time: "00:13:37"
   speaker: League
   caption: |
     have the slash is a regular file. So that
-    helps me orient myself a little more in 
+    helps me orient myself a little more in
 
 - time: "00:13:43"
   speaker: League
@@ -1011,7 +1011,7 @@
   caption: |
     that with `l`. So that when I combine multiple
     options together, I can either have them as
-    
+
 - time: "00:14:42"
   speaker: League
   cmd: |
@@ -1070,7 +1070,7 @@
   caption: |
     used a capital `D`, when you did
     `cd Downloads` and then when you did
-    
+
 - time: "00:15:34"
   speaker: Lopes
   caption: |
@@ -1079,7 +1079,7 @@
 
 - time: "00:15:38"
   speaker: League
-  index: case sensitive
+  index: case sensitivity
   caption: |
     Right. Yeah a lot of the Unix system is case
     sensitive. So it matters which way you use
@@ -1242,7 +1242,7 @@
 - time: "00:18:13"
   speaker: League
   caption: |
-   back slashes before each space, and that tells 
+   back slashes before each space, and that tells
    the shell that this isn't really a space that
 
 - time: "00:18:19"

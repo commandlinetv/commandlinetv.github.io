@@ -5,1092 +5,1094 @@
 - time: "00:00:20"
   speaker: League
   caption: |
-        welcome back to command line tv. Last time
-        we talked about text manipulation using
+    Welcome back to Command Line TV. Last time
+    we talked about text manipulation using
 
 - time: "00:00:25"
-  speaker: League 
+  speaker: League
   caption: |
-        commands like cut sort and uniq. And 
-        what are we doing today?
+    commands like `cut`, `sort`, and `uniq`. And
+    what are we doing today?
 
 - time: "00:00:30"
   speaker: Lopes
   caption: |
-        Today we'll be doing more file management.
-        We'll be using the 'mv' command, the 'cp'
+    Today we'll be doing more file management.
+    We'll be using the move (`mv`) command,
 
 - time: "00:00:35"
   speaker: Lopes
   caption: |
-        command, 'rm' and then we'll touch base
-        on removing and making directories.
-        
+    the copy (`cp`) command, remove (`rm`) and then
+    we'll touch base on removing and making directories.
+
 - time: "00:00:40"
   speaker: League
-  index: "'mv'"
+  index: "`mv` (move or rename files)"
   caption: |
-        Great. yeah. So the 'mv' and 'cp' commands
-        I think is where we'll start. And there
+    Great. So the `mv` and `cp` commands
+    I think is where we'll start. And there
 
 - time: "00:00:45"
   speaker: League
   caption: |
-        are two ways to use these commands. I'm
-        going to get the usage screen - the help
-        
+    are two ways to use these commands. I'm
+    going to get the usage screen -- the help
+
 - time: "00:00:50"
   speaker: League
   cmd: |
-        mv --help | less
+    mv --help | less
   caption: |
-        screen for the 'mv' command. So thats 
-        the '-- help' and we'll pipe that into
-        
+    screen for the `mv` command. So thats
+    the `-- help` and we'll pipe that into
+
 - time: "00:00:57"
   speaker: League
   caption: |
-        'less' And the two ways are summarized 
-        by these top two lines here, the third 
-        
+    `less` And the two ways are summarized
+    by these top two lines here, the third
+
 - time: "00:01:05"
   speaker: League
   caption: |
-        one is just an alternative to another 
-        of them. But the first way that you use 
-        
+    one is just an alternative to another
+    of them. But the first way that you use
+
 - time: "00:01:12"
   speaker: League
   caption: |
-        'mv' is you specify a single source
-        and a single destination. these are file
+    `mv` is you specify a single source
+    and a single destination. These are file
 
 - time: "00:01:17"
   speaker: League
   caption: |
-        names and so what it means is that you 
-        are moving actually, you're renaming the
-        
+    names and so what it means is that you
+    are moving -- actually, you're renaming the
+
 - time: "00:01:23"
   speaker: League
   caption: |
-        file to a different file name. So this 
-        version of the command could just be
+    file to a different file name. So this
+    version of the command could just be
 
 - time: "00:01:27"
   speaker: League
-  caption: |    
-        called rename, and on other systems it 
-        might be called rename. So lets take a 
+  caption: |
+    called 'rename', and on other systems it
+    might be called rename. So let's take a
 
 - time: "00:01:34"
   speaker: League
   caption: |
-        look at trying that version of the 'mv'
-        command first. So I'm in my downloads
+    look at trying that version of the `mv`
+    command first. So I'm in my `Downloads`
 
 - time: "00:01:40"
   speaker: League
-  caption: |    
-        folder and i've got a couple of files 
-        here. Lets say that I want to take this
-        
+  caption: |
+    folder and I've got a couple of files
+    here. Let's say that I want to take this
+
 - time: "00:01:45"
   speaker: League
   caption: |
-        'weblog.txt' and rename it maybe to put
-        a date in the file name or something
+    `weblog.txt` and rename it maybe to put
+    a date in the file name or something
 
 - time: "00:01:50"
   speaker: League
-  cmd: |
-        mv weblog.txt
-  caption: |    
-        like that. So I can do 'mv weblog.txt'
-        and then I just give a destination name
-        
+  caption: |
+    like that. So I can do `mv weblog.txt`
+    and then I just give a destination name
+
 - time: "00:01:57"
   speaker: League
+  cmd: |
+    mv weblog.txt weblog-2015-07-11.txt
   caption: |
-        which could be like 'weblog-2015-07-11.txt'
-        something like that. And so my 'mv'
+    which could be like `weblog-2015-07-11.txt`
+    something like that. And so my move
 
 - time: "00:02:06"
   speaker: League
-  caption: |    
-        command had a source and a destination.
-        when I do 'ls' now, the name of that file
-        
+  caption: |
+    command had a source and a destination.
+    when I do `ls` now, the name of that file
+
 - time: "00:02:12"
   speaker: League
-  index: "different destinations"
   caption: |
-        has changed but it's exactly the same
-        content. Now the destination doesn't
+    has changed but it's exactly the same
+    content. Now the destination doesn't
 
 - time: "00:02:18"
   speaker: League
-  caption: |    
-        have to be in the same directory. You 
-        can specify a different directory where
-        
+  caption: |
+    have to be in the same directory. You
+    can specify a different directory where
+
 - time: "00:02:23"
   speaker: League
-  cmd: |
-        
   caption: |
-        it will go. So then it feels like a 
-        little bit more than a rename. So lets
-        
+    it will go. So then it feels like a
+    little bit more than a rename. So let's
+
 - time: "00:02:27"
   speaker: League
-  cmd: |
-        mv languages.txt thinkjava/internationalization.txt
   caption: |
-        say for example, if I want to move my
-        'languages' file into the 'thinkjava'
+    say for example, if I want to move my
+    `languages` file into the `thinkjava`
 
 - time: "00:02:38"
   speaker: League
-  caption: |    
-        directory, but I might also rename it 
-        at the same time. so I could call it
+  caption: |
+    directory, but I might also rename it
+    at the same time. so I could call it
 
 - time: "00:02:43"
   speaker: League
-  caption: |    
-        "internationalization" or something like
-        that '.txt'. So, this is a rename 
-        
+  cmd: |
+    mv languages.txt thinkjava/internationalization.txt
+  caption: |
+    "internationalization" or something like
+    that `.txt`. So, this is a rename
+
 - time: "00:02:52"
   speaker: League
   caption: |
-        combined with also moving it into a 
-        subdirectory. And that works fine.
-        
+    combined with also moving it into a
+    subdirectory. And that works fine.
+
 - time: "00:02:57"
   speaker: League
   caption: |
-        So if I 'ls' from up here, that languages.txt 
-        is gone, but if we look inside the
+    So if I `ls` from up here, that `languages.txt`
+    is gone, but if we look inside the
 
 - time: "00:03:03"
   speaker: League
-  caption: |    
-        'thinkjava' which I can do with 'cd' there
-        first and 'ls' or I can just say 'ls'
+  cmd: |
+    ls thinkjava
+  caption: |
+    `thinkjava` which I can do with `cd` there
+    first and `ls` or I can just say `ls`
 
 - time: "00:03:09"
   speaker: League
-  caption: |    
-        and the name of that directory.
-        you see here that 'internationalization'
+  caption: |
+    and the name of that directory.
+    You see here that internationalization
 
 - time: "00:03:14"
   speaker: League
-  caption: |    
-        file is now in that directory.
-        
+  caption: |
+    file is now in that directory.
+
 - time: "00:03:19"
   speaker: League
-  index: "'mv' (alternate)"
+  index: wildcard
   caption: |
-        The second way to use 'mv' is - lets get 
-        back this 'less' command - is you move
+    The second way to use `mv` is -- let's get
+    back this `less` command -- is you move
 
 - time: "00:03:30"
   speaker: League
-  caption: |    
-        multiple source files. So the dots here
-        mean I can specify multiple sources you
-        
+  caption: |
+    multiple source files. So the dots here
+    mean I can specify multiple sources -- you
+
 - time: "00:03:35"
   speaker: League
   caption: |
-        might want to use a wildcard to specify 
-        multiple sources. And then the last thing
-        
+    might want to use a wildcard to specify
+    multiple sources. And then the last thing
+
 - time: "00:03:39"
   speaker: League
   caption: |
-        you specify is a destination directory.
-        It'll keep the names of all those files
-        
+    you specify is a destination directory.
+    It'll keep the names of all those files
+
 - time: "00:03:45"
   speaker: League
   caption: |
-        but then move them all into that 
-        destination directory. So let's say for
-        
+    but then move them all into that
+    destination directory. So let's say for
+
 - time: "00:03:50"
   speaker: League
-  index: "'mv' with wildcards"
   caption: |
-        example I'm going to go down into my 
-        'thinkjava/figs' folder. We've been here
-        
+    example -- I'm going to go down into my
+    `thinkjava/figs` folder. We've been here
+
 - time: "00:03:57"
   speaker: League
   caption: |
-        before to look at images and so forth.
-        And there are different formats here.
-        
+    before to look at images and so forth.
+    And there are different formats here.
+
 - time: "00:04:04"
   speaker: League
   caption: |
-        So 'eps' and 'fig' as well as different
-        prefixes. And I could move them into
-        
+    So `eps` and `fig` as well as different
+    prefixes. And I could move them into
+
 - time: "00:04:08"
   speaker: League
   caption: |
-        separate folders. So for example lets
-        make a separate folder for 'fig' and
+    separate folders. So for example let's
+    make a separate folder for `fig` and
 
 - time: "00:04:14"
   speaker: League
-  caption: |    
-        for 'eps'. so I'm going to also introduce
-        this command - this is one of the
+  caption: |
+    for `eps`. so I'm going to also introduce
+    this command -- this is one of the
 
 - time: "00:04:19"
   speaker: League
-  index: "'mkdir'"
+  index: "`mkdir` (make dirs)"
   cmd: |
-        mkdir fig eps
-  caption: |    
-        simplest commands there is - called 
-        'mkdir' spelled "m k d i r" that creates
-        
+    mkdir fig eps
+  caption: |
+    simplest commands there is -- called
+    `mkdir` spelled "m k d i r" -- that creates
+
 - time: "00:04:25"
   speaker: League
-  cmd: |
-        
   caption: |
-        a new directory and we can specify just
-        one directory name or multiple directory
-        
+    a new directory and we can specify just
+    one directory name or multiple directory
+
 - time: "00:04:33"
   speaker: League
   caption: |
-        names and those would get created if they
-        dont exist yet. So now I've got listed
-        
+    names and those would get created if they
+    dont exist yet. So now I've got listed
+
 - time: "00:04:42"
   speaker: League
   caption: |
-        here among all my other files I've got
-        an 'eps' and a 'fig' folder. And now I'm
-        
+    here among all my other files I've got
+    an `eps` and a `fig` folder. And now I'm
+
 - time: "00:04:48"
   speaker: League
   cmd: |
-        mv *.fig fig
+    mv *.fig fig
   caption: |
-        going to use 'mv' - the second version 
-        - along with a wildcard so I say '*.fig'
-        
+    going to use `mv` -- the second version
+    -- along with a wildcard so I say `*.fig`
+
 - time: "00:04:56"
   speaker: League
   cmd: |
-        mv *.eps eps
+    mv *.eps eps
   caption: |
-        and the destination directory is called
-        'fig'. Or 'mv *.eps' and the destination
-        
+    and the destination directory is called
+    `fig`. Or `mv *.eps` and the destination
+
 - time: "00:05:04"
   speaker: League
   caption: |
-        is 'eps'. And now this looks alot
-        cleaner because all of those files are 
+    is `eps`. And now this looks a lot
+    cleaner because all of those files are
 
 - time: "00:05:12"
   speaker: League
-  caption: |    
-        in their various subfolders. 
+  caption: |
+    in their various subfolders.
 
 - time: "00:05:16"
   speaker: Lopes
-  index: "'mv' options"
   caption: |
-        Now professor, when I originally learned
-        about the 'mv' command I know it was
-        
+    Now professor, when I originally learned
+    about the `mv` command I know it was
+
 - time: "00:05:20"
   speaker: Lopes
   caption: |
-        especially dangerous to use it if files
-        already existed and you might
+    especially dangerous to use it if files
+    already existed and you might
 
 - time: "00:05:25"
   speaker: Lopes
-  caption: | 
-        overwrite something. 
+  caption: |
+    overwrite something.
 
 - time: "00:05:26"
   speaker: League
   caption: |
-        Yeah, it's a real sharp edge of the way
-        'mv' works is that when that destination
-        
+    Yeah, it's a real sharp edge of the way
+    `mv` works is that when that destination
+
 - time: "00:05:32"
   speaker: League
   caption: |
-        already exists. If you're using the 
-        first form where you're just renaming,
-        
+    already exists -- if you're using the
+    first form where you're just renaming --
+
 - time: "00:05:37"
   speaker: League
   caption: |
-        if that destination file exists, it 
-        will just overwrite it and it doesn't
-        
+    if that destination file exists, it
+    will just overwrite it and it doesn't
+
 - time: "00:05:42"
   speaker: League
   caption: |
-        even tell you that it did that. So 
-        let's go back up here to my regular
+    even tell you that it did that. So
+    let's go back up here to my regular
 
 - time: "00:05:49"
   speaker: League
-  caption: |    
-        downloads folder where I created this 
-        'weblog.txt'. So lets say that I want
+  caption: |
+    downloads folder where I created this
+    `weblog.txt`. So let's say that I want
 
 - time: "00:05:56"
   speaker: League
   cmd: |
-        mv survey.tsv weblog-2015-07-12.txt
-  caption: |    
-        to rename survey - lets imagine that 
-        this survey actually is a weblog - so
+    mv survey.tsv weblog-2015-07-12.txt
+  caption: |
+    to rename survey -- let's imagine that
+    this survey actually is a weblog -- so
 
 - time: "00:06:02"
   speaker: League
-  caption: |    
-        I want to rename it and give it a 
-        different date, right. So I put '12' or
-        
+  caption: |
+    I want to rename it and give it a
+    different date, right. So I put `12` or
+
 - time: "00:06:08"
   speaker: League
   caption: |
-        something like that. Now that will be 
-        harmless because that file doesn't
+    something like that. Now that will be
+    harmless because that file doesn't
 
 - time: "00:06:14"
   speaker: League
-  caption: | 
-        exist. But what if I make a typo or 
-        something and I put a file that does
+  caption: |
+    exist. But what if I make a typo or
+    something and I put a file that does
 
 - time: "00:06:19"
   speaker: League
   cmd: |
-        mv survey.tsv weblog-2015-07-11.txt
-  caption: |    
-        exist? This will rename 'survey.tsv' 
-        into that weblog for July 11th. And it
+    mv survey.tsv weblog-2015-07-11.txt
+  caption: |
+    exist? This will rename `survey.tsv`
+    into that weblog for July 11th. And it
 
 - time: "00:06:29"
   speaker: League
-  caption: |    
-        overwrote the old one. If I do 'ls' 
-        there's no more 'survey.tsv'. However 
-        
+  caption: |
+    *overwrote* the old one. If I do `ls`
+    there's no more `survey.tsv`. However
+
 - time: "00:06:38"
   speaker: League
   caption: |
-        this file contains the content from the
-        old 'survey.tsv' and the old content
-        
+    this file contains the content from the
+    old `survey.tsv` and the old content
+
 - time: "00:06:44"
   speaker: League
   caption: |
-        from this weblog file is gone, it just 
-        doesn't exist anymore. So if I do 
-        
+    from this weblog file is gone, it just
+    doesn't exist anymore. So if I do
+
 - time: "00:06:49"
   speaker: League
   cmd: |
-        head weblog-2015-07-11.txt
+    head weblog-2015-07-11.txt
   caption: |
-        'head' on this we'll see that it's 
-        actually the survey data and not the
-        
+    `head` on this we'll see that it's
+    actually the survey data and not the
+
 - time: "00:06:53"
   speaker: League
   caption: |
-        weblog data. So yeah, that's a really
-        dangerous thing to do. It's especially 
-        
+    weblog data. So yeah, that's a really
+    dangerous thing to do. It's especially
+
 - time: "00:06:59"
   speaker: League
-  index: "'mv' with wildcards"
   caption: |
-        dangerous if you're using wildcards. 
-        So sometimes you will mean to use a
+    dangerous if you're using wildcards.
+    So sometimes you will mean to use a
 
 - time: "00:07:06"
   speaker: League
-  caption: |    
-        wildcard in order to move multiple files
-        into a destination directory, right. So
-        
+  caption: |
+    wildcard in order to move multiple files
+    into a destination directory, right. So
+
 - time: "00:07:14"
   speaker: League
   cmd: |
-        mkdir hello;
+    mkdir hello
   caption: |
-        lets say I 'mkdir hello' and I want to 
-        'mv hello-2.10.tar*' so basically this
-        
+    let's say I `mkdir hello` and I want to
+    move `hello-2.10.tar*` so basically this
+
 - time: "00:07:26"
   speaker: League
   caption: |
-        use of a wildcard here will match both 
-        of these files right, the 'tar.gz' as
+    use of a wildcard here will match both
+    of these files right, the `tar.gz` as
 
 - time: "00:07:32"
   speaker: League
-  caption: |    
-        well as the 'tar.gz.sig'. So I want to 
-        move both of those files into the
+  caption: |
+    well as the `tar.gz.sig'. So I want to
+    move both of those files into the
 
 - time: "00:07:36"
   speaker: League
   cmd: |
-        mv hello-2.10.tar* hello
-  caption: |    
-        destination directory 'hello' alright. 
-        That will work fine. However, what if I
+    mv hello-2.10.tar* hello
+  caption: |
+    destination directory `hello` alright.
+    That will work fine. However, what if I
 
 - time: "00:07:43"
   speaker: League
-  caption: |    
-        just forget to put the destination 
-        directory? Now what happens is this
+  caption: |
+    just forget to put the destination
+    directory? Now what happens is this
 
 - time: "00:07:51"
   speaker: League
-  caption: |    
-        wildcard happens to expand to two separate
-        files right. So that expansion is whats
-        
+  caption: |
+    wildcard happens to expand to two separate
+    files, right? So that expansion is what's
+
 - time: "00:07:57"
   speaker: League
   caption: |
-        going to happen first. It's going to 
-        become the 'tar.gz' as well as the
-        
+    going to happen first. It's going to
+    become the `tar.gz` as well as the
+
 - time: "00:08:03"
   speaker: League
   caption: |
-        'tar.gz.sig' and now my command looks 
-        like that. I dont have to type this,
+    `tar.gz.sig` and now my command looks
+    like that. I don't have to type this,
 
 - time: "00:08:09"
   speaker: League
-  caption: |    
-        this is just what the wildcard expansion
-        will do. And so now instead of triggering
-        
+  caption: |
+    this is just what the wildcard expansion
+    will do. And so now instead of triggering
+
 - time: "00:08:14"
   speaker: League
   caption: |
-        the second form where we're moving to 
-        a directory, it's triggering the first
-        
+    the second form where we're moving to
+    a directory, it's triggering the first
+
 - time: "00:08:19"
   speaker: League
   caption: |
-        form where i'm just renaming. And 
-        remember that that rename can clobber 
-        
+    form where i'm just renaming. And
+    remember that that rename can clobber
+
 - time: "00:08:24"
   speaker: League
   caption: |
-        something so now I'm just missing one 
-        of those files, it's gone. So that's a
-        
+    something so now I'm just missing one
+    of those files, it's gone. So that's a
+
 - time: "00:08:31"
-  speaker: League       
+  speaker: League
   caption: |
-        real sharp edge. There are a couple of 
-        things that you can do to make that a 
-        
+    real sharp edge. There are a couple of
+    things that you can do to make that a
+
 - time: "00:08:35"
   speaker: League
-  index: "'mv' options ('-n')"
+  index: "`mv -n` (no-clobber)"
   caption: |
-        little bit more safe, a little easier 
-        to deal with. One thing that you can do 
-        
+    little bit more safe -- a little easier
+    to deal with. One thing that you can do
+
 - time: "00:08:43"
   speaker: League
-  cmd: |
-        mv -n
   caption: |
-        is, there are a couple of options to do
-        like there's something called 'mv -n'. 
-        
+    is, there are a couple of options to do --
+    like there's something called `mv -n`.
+
 - time: "00:08:50"
   speaker: League
   cmd: |
-        mv --help | less
+    mv --help | less
   caption: |
-        Lets take a look at the help page again.
-        '-n' stands for "no clobber"  so do not
-        
+    Let's take a look at the help page again.
+    '-n' stands for "no clobber"  so do not
+
 - time: "00:08:58"
   speaker: League
   caption: |
-        overwrite an existing file. So if I had
-        remembered to specify '-n' before I did
-        
+    overwrite an existing file. So if I had
+    remembered to specify `-n` before I did
+
 - time: "00:09:05"
   speaker: League
   caption: |
-        that - lets actually put back, i'm just
-        going to fake this by creating an empty
-        
+    that -- let's actually put back -- I'm just
+    going to fake this by creating an empty
+
 - time: "00:09:12"
   speaker: League
   cmd: |
-        nano hello-2.10.tar.gz
+    nano hello-2.10.tar.gz
   caption: |
-        filename. So if I just create an empty
-        '.gz' file using my editor and save it
-        
+    filename. So if I just create an empty
+    `.gz` file using my editor and save it
+
 - time: "00:09:21"
   speaker: League
   caption: |
-        - we covered 'nano' previously. Now I've
-        got, not the original content, but at
+    -- we covered `nano` previously. Now I've
+    got, not the original content, but at
 
 - time: "00:09:27"
   speaker: League
-  caption: |    
-        least I've got two files with that name
-        so I can try it again. So if I do
+  caption: |
+    least I've got two files with that name
+    so I can try it again. So if I do
 
 - time: "00:09:31"
   speaker: League
   cmd: |
-        mv -n hello-2.10.tar.gz*
-  caption: |    
-        '-n hello-2.10*' it didn't give me an 
-        error message but it didn't do the move. 
-        
+    mv -n hello-2.10.tar.gz*
+  caption: |
+    `mv -n hello-2.10*` it didn't give me an
+    error message but it didn't do the move.
+
 - time: "00:09:39"
   speaker: League
-  index: "'mv' options ('-i') "
+  index: "`mv -i` (interactive) "
   caption: |
-        It left both the files alone. Another 
-        way besides '-n' is '-i' which is for
+    It left both the files alone. Another
+    way besides `-n` is `-i` which is for
 
 - time: "00:09:46"
   speaker: League
   cmd: |
-        mv -i hello-2.10.tar.gz*
-  caption: |    
-        interactive. So we'll try that as well. 
-        What interactive does is it prompts you
-        
+    mv -i hello-2.10.tar.gz*
+  caption: |
+    interactive. So we'll try that as well.
+    What interactive does is it prompts you
+
 - time: "00:09:54"
   speaker: League
   caption: |
-        whether you really want to overwrite
-        files or not. And you can type yes or no.
+    whether you really want to overwrite
+    files or not. And you can type yes or no.
 
 - time: "00:10:00"
   speaker: League
-  caption: |    
-        So I say "oh I didnt mean to 
-        overwrite that file" so I'll do 'n'.
+  caption: |
+    So I say "oh I didnt mean to
+    overwrite that file" so I'll do `n`.
 
 - time: "00:10:05"
   speaker: League
-  caption: |    
-        So those are two options to move that 
-        make it a little bit safer. 
-        
+  caption: |
+    So those are two options to `mv` that
+    make it a little bit safer.
+
 - time: "00:10:10"
   speaker: League
-  index: "'mv' options ('-t') "
+  index: "`mv -t` (target-directory)"
   caption: |
-        Another technique is inherent in that third 
-        format of 'mv'. So this does the same
-        
+    Another technique is inherent in that third
+    format of `mv`. So this does the same
+
 - time: "00:10:20"
   speaker: League
-  cmd: |
   caption: |
-        thing as the second format, it moves a 
-        bunch of source files into a target or 
-        
+    thing as the second format, it moves a
+    bunch of source files into a target or
+
 - time: "00:10:25"
   speaker: League
   caption: |
-        destination directory, but by specifying
-        the directory first, maybe you're less
+    destination directory, but by specifying
+    the directory first, maybe you're less
 
 - time: "00:10:32"
   speaker: League
-  caption: |    
-        likely to forget to put it, right. 
-        So if I wanted to move both of these
+  caption: |
+    likely to forget to put it, right.
+    So if I wanted to move both of these
 
 - time: "00:10:39"
   speaker: League
   cmd: |
-        mv -t hello hello-2.10.tar.gz*
-  caption: |    
-        'hello' files into the 'hello' 
-        directory I might say 'mv -t hello' I'm
-        
+    mv -t hello hello-2.10.tar.gz*
+  caption: |
+    `hello` files into the `hello` directory,
+    I might say `mv -t hello` -- I'm
+
 - time: "00:10:45"
   speaker: League
   caption: |
-        moving stuff into there, and then do 
-        'hello-2.10.tar.gz*'. And now both of
+    moving stuff into there, and then do
+    `hello-2.10.tar.gz*`. And now both of
 
 - time: "00:10:50"
   speaker: League
-  caption: |    
-        those are gone from this directory but 
-        they're both present in the sub-
-        
+  caption: |
+    those are gone from this directory but
+    they're both present in the sub-directory.
+
 - time: "00:10:53"
   speaker: League
   caption: |
-        directory. So those are a couple of 
-        options for the move command. 
+    So those are a couple of
+    options for the move command.
 
 - time: "00:10:58"
   speaker: Lopes
   caption: |
-        It seems like the move command should
-        automatically have the '-n' or the '-i'
-        
+    It seems like the move command should
+    automatically have the `-n` or the `-i`
+
 - time: "00:11:03"
   speaker: League
-  index: " Alias' "
+  index: "`alias`"
   caption: |
-        embedded into it for safety reasons. 
-        Is there anything we can do about that?
-        
+    embedded into it for safety reasons.
+    Is there anything we can do about that?
+
 - time: "00:11:06"
   speaker: League
+  index: philosophy
   caption: |
-        Yeah, the philosophy of UNIX is often 
-        that you know what you're doing and if
-        
+    Yeah, the philosophy of Unix is often
+    that you know what you're doing and if
+
 - time: "00:11:13"
   speaker: League
   caption: |
-        you dont, if you're making a mistake, 
-        then it doesnt do alot to prevent it.
+    you don't, if you're making a mistake,
+    then it doesn't do a lot to prevent it.
 
 - time: "00:11:17"
   speaker: League
-  caption: |    
-        UNIX commands in general are not meant
-        to protect you from yourself, and in
+  caption: |
+    Unix commands in general are not meant
+    to protect you from yourself, and in
 
 - time: "00:11:22"
   speaker: League
-  caption: |    
-        fact one time when I was a teaching 
-        assistant, we had two different
+  caption: |
+    fact one time when I was a teaching
+    assistant, we had two different
 
 - time: "00:11:27"
   speaker: League
-  caption: |    
-        sections of a programming course that 
-        we were teaching and we kept the grades
-        
+  caption: |
+    sections of a programming course that
+    we were teaching and we kept the grades
+
 - time: "00:11:33"
   speaker: League
   caption: |
-        in two seperate spreadsheet files. And 
-        I wanted to move both of them into, or
+    in two seperate spreadsheet files. And
+    I wanted to move both of them into, or
 
 - time: "00:11:39"
   speaker: League
-  caption: |    
-        maybe copy both of them - I dont 
-        remember - into a different directory.
+  caption: |
+    maybe copy both of them -- I don't
+    remember -- into a different directory.
 
 - time: "00:11:42"
   speaker: League
-  caption: |    
-        So I did like 'cp *.spreadsheet' 
-        whatever, and that ended up taking one
+  caption: |
+    So I did like `cp *.spreadsheet`
+    whatever, and that ended up taking one
 
 - time: "00:11:51"
   speaker: League
-  caption: |    
-        of those files and using that data to 
-        overwrite the other file, so we lost
+  caption: |
+    of those files and using that data to
+    overwrite the other file, so we lost
 
 - time: "00:11:54"
   speaker: League
-  caption: |    
-        the grades for one of our sections. 
-        We did have a backup of them but you
+  caption: |
+    the grades for one of our sections.
+    We did have a backup of them but you
 
 - time: "00:11:58"
   speaker: League
-  caption: |    
-        know, we lost a couple days of work. 
-        So the other TA's were not very happy 
-        
+  caption: |
+    know, we lost a couple days of work.
+    So the other TA's were not very happy
+
 - time: "00:12:04"
   speaker: League
   caption: |
-        with me. But there is a way if you 
-        would like to have greater defenses
+    with me. But there is a way if you
+    would like to have greater defenses
 
 - time: "00:12:11"
   speaker: League
-  caption: |    
-        for this kind of thing, to ensure that.
-        So we can make it so that the '-n' or
+  caption: |
+    for this kind of thing, to ensure that.
+    So we can make it so that the `-n` or
 
 - time: "00:12:18"
   speaker: League
-  caption: |    
-        '-i' commands are automatic. The way to
-        do that is what we call an 'alias'.
+  caption: |
+    `-i` commands are automatic. The way to
+    do that is what we call an `alias`.
 
 - time: "00:12:24"
   speaker: League
-  cmd: |
-        alias 
-  caption: |    
-        So the way an 'alias' works is you type
-        'alias' and then the name of the command
-        
+  caption: |
+    So the way an alias works is you type
+    `alias` and then the name of the command
+
 - time: "00:12:30"
   speaker: League
   caption: |
-        you want to create. So for example we 
-        can make a brand new command. 'lt' is
+    you want to create. So for example we
+    can make a brand new command. `lt` is
 
 - time: "00:12:38"
   speaker: League
-  index: "'alias' lt "
-  caption: |    
-        not a command that exists on Unix system
-        generally. But I can make a command 
-        
+  caption: |
+    not a command that exists on Unix system
+    generally. But I can make a command
+
 - time: "00:12:43"
   speaker: League
   cmd: |
-        alias lt='ls -ltr' 
+    alias lt='ls -ltr'
   caption: |
-        called 'lt' by declaring an alias. 
-        Then I just specify an equal sign and 
-        
+    called `lt` by declaring an alias.
+    Then I just specify an equal sign and
+
 - time: "00:12:48"
   speaker: League
   caption: |
-        quotes, usually single quotes but 
-        probably could be double quotes. And I 
-        
+    quotes, usually single quotes but
+    probably could be double quotes. And I
+
 - time: "00:12:55"
   speaker: League
   caption: |
-        want that to stand for this 'ls -ltr' 
-        which I said I use all the time right,
-        
+    want that to stand for this `ls -ltr`
+    which I said I use all the time right,
+
 - time: "00:13:00"
   speaker: League
   caption: |
-        because it shows me detailed listing 
-        in reverse chronological order. 
-        
+    because it shows me detailed listing
+    in reverse chronological order.
+
 - time: "00:13:08"
   speaker: League
   cmd: |
-        lt
+    lt
   caption: |
-        So I declare that alias and now when I
-        type 'lt' it does that 'ls -ltr' and
+    So I declare that alias and now when I
+    type `lt` it does that `ls -ltr` and
 
 - time: "00:13:14"
   speaker: League
-  caption: |    
-        the most recent stuff is at the bottom.
-        So I can do that same thing for the
+  caption: |
+    the most recent stuff is at the bottom.
+    So I can do that same thing for the
 
 - time: "00:13:20"
   speaker: League
   cmd: |
-        alias mv='mv -i'
-  caption: |    
-        'mv' command, and lets say I want to 
-        use 'mv -i' by default. So '-i' is the
+    alias mv='mv -i'
+  caption: |
+    `mv` command, and let's say I want to
+    use `mv -i` by default. So `-i` is the
 
 - time: "00:13:28"
   speaker: League
-  caption: |    
-        interactive one. And now that I've got 
-        that alias set up, if I go down into 
-        
+  caption: |
+    interactive one. And now that I've got
+    that alias set up, if I go down into
+
 - time: "00:13:35"
   speaker: League
   cmd: |
-        mv hello*
+    mv hello*
   caption: |
-        'hello' where I've got these two files 
-        and I try to do 'mv hello*' the way
+    `hello` where I've got these two files
+    and I try to do `mv hello*` the way
 
 - time: "00:13:43"
   speaker: League
-  caption: |    
-        that would have worked by default is 
-        it takes one of those and overwrites
+  caption: |
+    that would have worked by default is
+    it takes one of those and overwrites
 
 - time: "00:13:46"
   speaker: League
-  caption: |    
-        the other one. But because of my alias
-        with '-i' it will ask me to overwrite,
-        
+  caption: |
+    the other one. But because of my alias
+    with `-i` it will ask me to overwrite,
+
 - time: "00:13:52"
   speaker: League
-  index: "saving alias'"
   caption: |
-        and so I can just say no. 
-        Now we would like to save that for
-        
+    and so I can just say no.
+    Now we would like to save that for
+
 - time: "00:13:57"
   speaker: League
   caption: |
-        the future as well. An alias, if I just
-        type it at the command line like that
+    the future as well. An alias, if I just
+    type it at the command line like that
 
 - time: "00:14:02"
   speaker: League
-  caption: |    
-        will only be good for the current 
-        session and when I close this terminal
-        
+  caption: |
+    will only be good for the current
+    session and when I close this terminal
+
 - time: "00:14:06"
   speaker: League
   caption: |
-        or log out, it's gone. So I'd like to 
-        keep it longer than that. To do that 
-        
+    or log out, it's gone. So I'd like to
+    keep it longer than that. To do that
+
 - time: "00:14:12"
   speaker: League
+  index: "file type, hidden (dot files)"
   cmd: |
-        cd ~
+    cd ~
   caption: |
-        I'm going to go up to my home folder 
-        which is '~' and we're going to look 
-        
+    I'm going to go up to my home folder
+    which is `~` and we're going to look
+
 - time: "00:14:18"
   speaker: League
-  index: "dot files "
+  index: "`ls -a` (all)"
   cmd: |
-        ls -a
+    ls -a
   caption: |
-        at what we call the 'dot' files. 
-        So 'ls' hides some files from us by
-        
+    at what we call the 'dot' files.
+    So `ls` hides some files from us by
+
 - time: "00:14:24"
   speaker: League
   caption: |
-        default. Any file name or directory 
-        that starts with a '.' is meant to be
+    default. Any file name or directory
+    that starts with a `.` is meant to be
 
 - time: "00:14:29"
   speaker: League
+  index: "`.bash_profile`"
   caption: |
-        hidden out of the way, but the '-a' on 
-        'ls' will show them. So one of those 
-        
+    hidden out of the way, but the `-a` on
+    `ls` will show them. So one of those
+
 - time: "00:14:35"
   speaker: League
-  index: ".bash_profile & .bashrc "
+  index: "`.bashrc`"
   caption: |
-        files here - well two of them - are 
-        '.bash_profile' and '.bashrc'. And if
+    files here -- well two of them -- are
+    `.bash_profile` and `.bashrc`. And if
 
 - time: "00:14:41"
   speaker: League
-  caption: |    
-        bash is your shell which it probably is
-        then '_profile' is a file where you can
+  caption: |
+    bash is your shell which it probably is
+    then profile is a file where you can
 
 - time: "00:14:48"
   speaker: League
-  caption: |    
-        put definitions and configureations 
-        that will get read every time you
+  caption: |
+    put definitions and configurations
+    that will get read every time you
 
 - time: "00:14:52"
   speaker: League
-  caption: |    
-        log-in and then '.bashrc' gets read 
-        every time you start a new terminal
-        
+  caption: |
+    log in and then `.bashrc` gets read
+    every time you start a new terminal
+
 - time: "00:14:57"
   speaker: League
   caption: |
-        or new shell. So you can probably put 
-        it in either one. Lets go with the
-        
+    or new shell. So you can probably put
+    it in either one. Let's go with the
+
 - time: "00:15:03"
   speaker: League
-  index: "saving alias' "
   cmd: |
-        nano .bashrc
+    nano .bashrc
   caption: |
-        '.bashrc'. So im going to run my nano 
-        editor on '.bashrc'. If you dont
+    `.bashrc`. So im going to run my `nano`
+    editor on `.bashrc`. If you don't
 
 - time: "00:15:09"
   speaker: League
-  caption: |    
-        already have your '.bashrc' or 
-        'bash_profile' this command will still
-        
+  caption: |
+    already have your `.bashrc` or
+    `bash_profile` this command will still
+
 - time: "00:15:13"
   speaker: League
   caption: |
-        work fine, you'll just create a brand 
-        new file. Mine will show that that file
-        
+    work fine, you'll just create a brand
+    new file. Mine will show that that file
+
 - time: "00:15:18"
   speaker: League
   caption: |
-        already exists because when I created a
-        new user on this system it gave me a
-        
+    already exists because when I created a
+    new user on this system it gave me a
+
 - time: "00:15:23"
   speaker: League
   caption: |
-        default '.bashrc'. But if this is empty
-        to start out it's no problem. You can
-        
+    default `.bashrc`. But if this is empty
+    to start out it's no problem. You can
+
 - time: "00:15:28"
-  speaker: League       
+  speaker: League
   caption: |
-        see here it's already got an alias for 
-        'ls' this explains why we had the color
-        
+    see here it's already got an alias for
+    `ls` this explains why we had the color
+
 - time: "00:15:33"
   speaker: League
   caption: |
-        output on 'ls'. It was given a '--color'
-        option to 'ls' whenever we type it 
-        
+    output on `ls`. It was giving a `--color`
+    option to `ls` whenever we type it
+
 - time: "00:15:40"
   speaker: League
   caption: |
-        because of that alias. So I'm going to 
-        go just below that somewhere and do my 
-        
+    because of that alias. So I'm going to
+    go just below that somewhere and do my
+
 - time: "00:15:46"
   speaker: League
   cmd: |
-        alias mv='mv -i'
+    alias mv='mv -i'
   caption: |
-        'mv' alias to 'mv -i' and lets also do 
-        it for 'cp' - we havent really talked 
-        
+    `mv` alias to `mv -i` and let's also do
+    it for `cp` -- we havent really talked
+
 - time: "00:15:53"
   speaker: League
   cmd: |
-        alias cp='cp -i'
+    alias cp='cp -i'
   caption: |
-        about 'cp' - but its got the same sort
-        of issues. So I create those alias' 
+    about copy -- but its got the same sort
+    of issues. So I create those aliases
 
 - time: "00:16:00"
   speaker: League
   caption: |
-        and I'm going to save that with 
-        'ctrl + o' and exit with 'ctrl + x'.
+    and I'm going to save that with
+    control-O and exit with control-X.
 
 - time: "00:16:06"
   speaker: League
-  caption: |    
-        And now to get that to take effect in 
-        the current shell without restarting 
+  index: "`source` (execute in current shell)"
+  caption: |
+    And now to get that to take effect in
+    the current shell without restarting
 
 - time: "00:16:12"
   speaker: League
   cmd: |
-        source .bashrc
+    source .bashrc
   caption: |
-        the terminal I can type 'source .bashrc'.
-        So now that 'cp' alias should be available.
-        
+    the terminal I can type `source .bashrc`.
+    So now that `cp` alias should be available.
+
 - time: "00:16:21"
   speaker: League
   cmd: |
-        cd downloads/hello
+    cd downloads/hello
   caption: |
-        If I go down to 'hello' again, I guess
-        it's 'Downloads/hello/' and we're going
-        
-- time: "00:16:27" 
+    If I go down to `hello` again -- I guess
+    it's `Downloads/hello/` -- and we're going
+
+- time: "00:16:27"
   speaker: League
-  index: " 'cp' "
+  index: "`cp` (copy files and dirs)"
   cmd: |
-        cp hello-2.10.tar.gz*
-  caption: | 
-        to do the 'cp' on these files. So this
-        means copy one file to a different
+    cp hello-2.10.tar.gz*
+  caption: |
+    to do the `cp` on these files. So this
+    means copy one file to a different
 
 - time: "00:16:33"
   speaker: League
-  caption: |    
-        filename. It wont remove the original
-        which maybe is an improvement.
+  caption: |
+    filename. It won't remove the original
+    which maybe is an improvement.
 
 - time: "00:16:37"
   speaker: League
-  caption: |    
-        But 'cp' by default will clobber the 
-        destination if it already exists. But 
-        
+  caption: |
+    But `cp` by default will clobber the
+    destination if it already exists. But
+
 - time: "00:16:43"
   speaker: League
   caption: |
-        since I added the alias for '-i' its 
-        asking whether to overwrite. so I've
+    since I added that alias for `-i` its
+    asking whether to overwrite. so I've
 
 - time: "00:16:47"
   speaker: League
-  caption: |    
-        been able to use alias' to make those 
-        commands a little bit safer. 
+  caption: |
+    been able to use aliases to make those
+    commands a little bit safer.
 
 - time: "00:16:54"
   speaker: League
   caption: |
-        Today we learned  to use 'mv' to move and 
-        rename files, and some basics of 'cp' to
-        
+    Today we learned  to use `mv` to move and
+    rename files, and some basics of `cp` to
+
 - time: "00:16:58"
   speaker: League
   caption: |
-        copy files. We also learned how to make a
-        simple alias and to edit our .bashrc to
-        
+    copy files. We also learned how to make a
+    simple alias and to edit our `.bashrc` to
+
 - time: "00:00:00"
   speaker: League
   caption: |
-        customize settings beyond the current 
-        terminal. We'll continue with more file
- 
+    customize settings beyond the current
+    terminal. We'll continue with more file
+
 - time: "00:17:10"
   speaker: League
   caption: |
-        management next time. 
-        Thanks for joining us. 
+    management next time.
+    Thanks for joining us.
+
+- time: "00:17:15"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:17:20"
+  caption: |
+    [Captions by Christian Lopes]
+
+- time: "00:17:37"
+  caption: |
+    [End]

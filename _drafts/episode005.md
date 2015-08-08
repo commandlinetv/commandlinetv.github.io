@@ -8,5 +8,5 @@ size: 74756442
 {% include JB/setup %}
 
 We use `mv` to move and rename files, and create a shell `alias` to improve the
-safety of one of its sharp edges. We also introduce `mkdir` to create
-directories.
+safety of one of its sharp edges. We also introduce the `.bashrc` configuration
+script, and `mkdir` to create directories.
