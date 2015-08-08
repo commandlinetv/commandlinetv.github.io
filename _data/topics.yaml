@@ -1,7 +1,7 @@
 - term: "automation"
   refs:
     - 1#episode001#00:01:55
-- term: "case sensitive"
+- term: "case sensitivity"
   refs:
     - 1#episode001#00:15:38
 - term: "color"
@@ -70,10 +70,10 @@
 - term: "syntax"
   refs:
     - 2#episode002#00:10:11
-- term: "terminal (Mac)"
+- term: "Terminal (Mac)"
   refs:
     - 1#episode001#00:04:31
-- term: "utilities (Mac)"
+- term: "Utilities (Mac)"
   refs:
     - 1#episode001#00:04:26
 - term: "WYSIWYG"
@@ -167,6 +167,6 @@
 - term: "`|` (pipe)"
   refs:
     - 2#episode002#00:11:34
-- term: "`~`"
+- term: "`~` (home directory)"
   refs:
     - 1#episode001#00:09:10
