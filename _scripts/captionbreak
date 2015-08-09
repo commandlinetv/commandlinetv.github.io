@@ -1,0 +1,52 @@
+#!/usr/bin/env ruby
+
+maxLine = 54
+minCaption = 50
+maxCaption = 100
+midPoint = (maxCaption - minCaption) / 2
+captions = []
+
+ARGF.read.split(/\s*?\n\s*\n\s*/).each do |para|
+  para.gsub!(/\s*\n\s*/, " ")
+  while para.length > maxCaption
+    # Must split; look for last period in range
+    frag = para[minCaption..maxCaption]
+    lastDot = frag.rindex(/[\!\?\.]\s+/)
+    if lastDot
+      i = minCaption + lastDot
+      captions << para[0..i]
+      para = para[i+1..-1].lstrip
+    else
+      # No period; look for other puncts near center
+      punct = frag.rindex(/[-;,:]\s+/, midPoint) ||
+              frag.index(/[-;,:]\s+/, midPoint)
+      if punct
+        i = minCaption + punct
+        captions << para[0..i]
+        para = para[i+1..-1].lstrip
+      else
+        # No puncts, just use a word break near center
+        br = frag.rindex(/\s+/, midPoint) || frag.index(/\s+/, midPoint)
+        i = minCaption + br
+        captions << para[0..i]
+        para = para[i+1..-1].lstrip
+      end
+    end
+  end
+  if para.length > 0
+    captions << para
+  end
+end
+
+# Now line-break captions if needed
+captions.each do |capt|
+  if capt.length > maxLine
+    mid = capt.length / 2
+    br = capt.rindex(/\s+/, mid+5) || capt.index(/s+/, mid)
+    puts capt[0..br]
+    puts capt[br+1..-1].lstrip
+  else
+    puts capt
+  end
+  puts
+end
