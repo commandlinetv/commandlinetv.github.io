@@ -88,7 +88,7 @@
 - term: "`--version`"
   refs:
     - 2#episode002#00:02:50
-- term: "`..`"
+- term: "`..` (parent dir)"
   refs:
     - 1#episode001#00:10:55
 - term: "`.gz`"

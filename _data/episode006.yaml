@@ -4,1071 +4,1005 @@
 
 - time: "00:00:20"
   speaker: League
-  index: "recap"
   caption: |
-    Welcome back to Command Line TV.
-    In this episode we'll continue our
+    Welcome back to Command Line TV. In this
+    episode we'll continue our look at
 
 - time: "00:00:24"
   speaker: League
   caption: |
-    look at file management using 'cp',
-    'rm' and the 'mkdir'/'rmdir' commands.
+    file management using `cp`, `rm` and
+    the `mkdir`/`rmdir` commands.
 
 - time: "00:00:31"
   speaker: Lopes
-  index: "'cp'"
+  index: "`cp` (copy files and dirs)"
   caption: |
-    So now that we've finished up on the
-    'mv' command, I know that there's also
+    So now that we've finished up on the `mv` command,
+    I know that there's also the `cp` command.
 
-- time: "00:00:35"
+- time: "00:00:36"
   speaker: Lopes
   caption: |
-    the cp command. Is there much
-    difference between those two?
+    Is there much difference between those two?
 
 - time: "00:00:38"
   speaker: League
   caption: |
-    The main difference is just that 'mv' will
-    take its source files and rename/put them
+    The main difference is just that `mv` will
+    take its source files and rename
 
-- time: "00:00:47"
+- time: "00:00:46"
   speaker: League
   caption: |
-    somewhere else. So then the source files
-    dont exist anymore. 'cp' will recreate the
+    them or put them somewhere else, so then the
+    source files don't exist anymore.
 
-- time: "00:00:53"
+- time: "00:00:51"
   speaker: League
   caption: |
-    files by making a copy of the content,
-    so your source files will continue to
+    `cp` will recreate the files by
+    making a copy of the content,
 
-- time: "00:00:58"
+- time: "00:00:56"
   speaker: League
   caption: |
-    exist when you use 'cp'. Other than that,
-    alot of it is the same. So if I look at
+    so your source files will continue
+    to exist when you use `cp`.
 
-- time: "00:01:05"
+- time: "00:01:00"
   speaker: League
-  index: "'cp' "
-  cmd: |
-    cp --help|less
   caption: |
-    the help for cp, you see the same formats
-    here with either source and destination,
+    Other than that, a lot of it is the same.
+    So if I look at the help for `cp`,
+
+- time: "00:01:07"
+  speaker: League
+  caption: |
+    you see the same formats here with
+    either source and destination,
 
 - time: "00:01:11"
   speaker: League
   caption: |
-    or multiple sources followed by a directory.
-    And then alot of the options are the
+    or multiple sources followed by a directory. And then
+    a lot of the options are the same as well.
 
-- time: "00:01:16"
+- time: "00:01:17"
   speaker: League
   caption: |
-    same as well. I can do interactive and
-    no clobber for the same reasons with
+    I can do interactive and no-clobber for
+    the same reasons with `cp` and
 
-- time: "00:01:21"
+- time: "00:01:23"
   speaker: League
   caption: |
-    'cp' and there are a few other things it
-    supports that 'mv' does not.
+    there are a few other things it
+    supports that `mv` does not.
 
 - time: "00:01:26"
   speaker: League
-  cmd: |
-
   caption: |
-    So lets try out the simplest form of it.
-    I've got a weblog here thats marked as
+    So let's try out the simplest form of it. I've got a
+    web log here that's marked as being July 11th.
 
-- time: "00:01:34"
+- time: "00:01:35"
   speaker: League
   caption: |
-    being July 11th. If I just want to make
-    a copy of that file in place, I can
+    If I just want to make a copy of that file in place,
 
-- time: "00:01:41"
+- time: "00:01:40"
   speaker: League
-  cmd: |
-    cp weblog-2015-07-11.txt weblog-2015-07-12.txt
   caption: |
-    specify 'cp' and then the filename
-    and then give it a different filename.
+    I can specify `cp` and then the filename and
+    then give it a different filename.
 
 - time: "00:01:45"
   speaker: League
   caption: |
-    So maybe I just put the next days date
-    there. And now when I did 'mv' this would
+    So maybe I just put the next day's date
+    there. And now when I did `mv` this
 
-- time: "00:01:53"
+- time: "00:01:52"
   speaker: League
   caption: |
-    be like a rename but now it's a copy so the
-    original still exists. And if we look at
+    would be like a rename but now it's a
+    copy so the original still exists.
 
-- time: "00:02:00"
+- time: "00:01:59"
   speaker: League
-  cmd: |
-    ls -l
   caption: |
-    the detailed listing they have exactly
-    the same size and they have the same
+    And if we look at the detailed listing
+    they have exactly the same size and
 
-- time: "00:02:06"
+- time: "00:02:05"
   speaker: League
-  cmd: |
-    head -3 weblog*
   caption: |
-    contents. So if I look at the first
-    couple of lines in both of those files,
+    they have the same contents. So if I look at the
+    first couple of lines in both of those files,
 
 - time: "00:02:12"
   speaker: League
   caption: |
-    they're exactly the same. So it's just
-    making a copy of the data under a
+    they're exactly the same. So it's just making a
+    copy of the data under a different filename.
 
-- time: "00:02:17"
-  speaker: League
-  index: " 'cp' on multiple files "
-  caption: |
-    different filename. Now another form
-    of 'cp' is to copy multiple files into
-
-- time: "00:02:25"
+- time: "00:02:19"
   speaker: League
   caption: |
-    a new directory or into an existing
-    directory even. So if I go down into
+    Now another form of `cp` is to copy
+    multiple files into a new directory or
 
-- time: "00:02:29"
-  speaker: League
-  cmd: |
-    cd thinkjava/figs
-  caption: |
-    my thingjava/figs where I moved all
-    of my fig and eps files into these
-
-- time: "00:02:37"
+- time: "00:02:26"
   speaker: League
   caption: |
-    separate subdirectories, I could do
-    that. So right now inside of the fig
+    into an existing directory even. So if I
+    go down into my `thinkjava/figs`
 
-- time: "00:02:42"
+- time: "00:02:31"
   speaker: League
   caption: |
-    directory I've got a bunch of files
-    called "something"'.fig' and I can
+    where I moved all of my `.fig` and `.eps` files into
+    these separate subdirectories, I could do that.
 
-- time: "00:02:46"
-  speaker: League
-  cmd: |
-    cp fig/* .
-  caption: |
-    do 'cp' from fig/*, so that means all
-    of the files within that fig directory.
-
-- time: "00:02:55"
+- time: "00:02:40"
   speaker: League
   caption: |
-    I want to move them to the current directory.
+    So right now inside of the `fig` directory
+    I've got a bunch of files called
+
+- time: "00:02:44"
+  speaker: League
+  caption: |
+    "something" `.fig` and I can do `cp` from
+    `fig/*`, so that means all of the
+
+- time: "00:02:52"
+  speaker: League
+  caption: |
+    files within that `fig` directory. I want to
+    move them to the current directory.
+
+- time: "00:02:58"
+  speaker: League
+  index: "`.` (current dir)"
+  caption: |
     The way we specify current directory
+    is just with a single dot,
 
-- time: "00:03:00"
+- time: "00:03:02"
   speaker: League
   caption: |
-    is just with a single dot, which makes
-    it really easy to miss when you see
+    which makes it really easy to miss
+    when you see this command like,
 
-- time: "00:03:04"
+- time: "00:03:06"
   speaker: League
   caption: |
-    this command like, printed on a webpage
-    or something. Alot of times that dot will
+    printed on a web page or something. A lot
+    of times that dot will disappear
 
 - time: "00:03:09"
   speaker: League
   caption: |
-    dissapear or you'll think it's a speck of
-    dust on your screen or something. But
+    or you'll think it's a speck of dust
+    on your screen or something.
 
 - time: "00:03:13"
   speaker: League
   caption: |
-    that dot is important because it
+    But that dot is important because it
     specifies the destination directory.
-
 
 - time: "00:03:18"
   speaker: League
   caption: |
-    So if I do that now all of those .fig
+    So if I do that -- now all of those `.fig`
     files are in the current directory,
 
 - time: "00:03:23"
   speaker: League
-  cmd: |
-    ls fig
   caption: |
-    but they also have copies in fig as well.
-    So it keeps both. So that's both formats
+    but they also have copies in `fig`
+    as well. So it keeps both.
 
-- time: "00:03:30"
-  speaker: League
-  index: "'-v' (verbose)"
-  caption: |
-    of the 'cp' command. One other option
-    that 'cp' and 'mv' both support that
-
-- time: "00:03:38"
-  speaker: League
-  cmd: |
-    cp --help|less
-  caption: |
-    we havent touched on yet is called
-    verbose. So alot of commands have a '-v'
-
-- time: "00:03:45"
+- time: "00:03:29"
   speaker: League
   caption: |
-    option which means verbose. It means it
-    should explain whats going on as it
+    So that's both formats of the `cp` command.
 
-- time: "00:03:50"
+- time: "00:03:33"
+  speaker: League
+  index: "`cp -v` (verbose)"
+  caption: |
+    One other option that `cp` and `mv` both support that
+    we haven't touched on yet is called *verbose*.
+
+- time: "00:03:41"
   speaker: League
   caption: |
-    happens. And this is as opposed to usual,
-    like most UNIX commands will be very
+    So a lot of commands have a `-v`
+    option which means verbose.
+
+- time: "00:03:47"
+  speaker: League
+  caption: |
+    It means it should explain what's
+    going on as it happens.
+
+- time: "00:03:52"
+  speaker: League
+  caption: |
+    And this is as opposed to usual -- like
+    most Unix commands will be very
 
 - time: "00:03:57"
   speaker: League
   caption: |
-    quiet and they will only put out a
-    message when there is something seriously
+    quiet and they will only put out a message
+    when there is something seriously wrong.
 
-- time: "00:04:01"
-  speaker: League
-  cmd: |
-    cp -v eps/*
-  caption: |
-    wrong. So we can do - lets do the same
-    thing with the eps folder - so 'cp eps/*'
-
-- time: "00:04:12"
+- time: "00:04:02"
   speaker: League
   caption: |
-    into the current directory. But this
-    time I'm going to use the '-v' option.
+    So we can do -- let's do the same
+    thing with the `eps` folder --
+
+- time: "00:04:06"
+  speaker: League
+  caption: |
+    so `cp eps/*` into the current directory. But
+    this time I'm going to use the `-v` option.
 
 - time: "00:04:17"
   speaker: League
   caption: |
-    And it will give me a transcript of all
-    of the copies that it had to do in order
+    And it will give me a transcript of all of the copies
+    that it had to do in order to implement that.
 
-- time: "00:04:22"
+- time: "00:04:25"
   speaker: League
-  index: "'cp -r' (recursive) "
+  index: "`cp -r` (recursive)"
   caption: |
-    to implement that. So if you want to
-    copy an entire directory worth of files,
+    So if you want to copy an entire directory worth of
+    files, the `cp` command can do that too.
 
-- time: "00:04:30"
-  speaker: League
-  caption: |
-    the 'cp' command can do that too. Lets
-    say I'm here where I've got this django
-
-- time: "00:04:36"
+- time: "00:04:32"
   speaker: League
   caption: |
-    project and I want to make a copy of that
-    to start new projects out of it. So if I
+    Let's say I'm here where I've got this
+    django project and I want to make a
 
-- time: "00:04:40"
-  speaker: League
-  cmd: |
-    cp django proj1
-  caption: |
-    do 'cp django' and then we're going to
-    call it 'proj1', at first it will refuse
-
-- time: "00:04:47"
+- time: "00:04:38"
   speaker: League
   caption: |
-    to do that - it says "omitting the
-    directory". So there's an option that
+    copy of that to start new projects out of
+    it. So if I do `cp django` and
 
-- time: "00:04:52"
+- time: "00:04:42"
   speaker: League
   caption: |
-    will tell 'cp' it's ok to make copies
-    of entire directories and that's '-r'
+    then we're going to call it `proj1` -- at
+    first it will refuse to do that --
 
-- time: "00:04:58"
+- time: "00:04:48"
   speaker: League
-  cmd: |
-    cp -r django proj1
   caption: |
-    for recursive. So 'cp -r django proj1'
-    means now that I've got a proj1 directory
+    it says "omitting the directory". So
+    there's an option that will tell `cp`
+
+- time: "00:04:53"
+  speaker: League
+  caption: |
+    it's okay to make copies of entire
+    directories and that's `-r` for *recursive*.
+
+- time: "00:05:01"
+  speaker: League
+  caption: |
+    So `cp -r django proj1` means now that
+    I've got a `proj1` directory that
 
 - time: "00:05:08"
   speaker: League
   caption: |
-    that has the same contents as the
-    original django directory. And it's fun
+    has the same contents as the
+    original `django` directory.
 
-- time: "00:05:14"
+- time: "00:05:13"
   speaker: League
   caption: |
-    to combine that with the verbose because
-    then you get to see lots and lots of
+    And it's fun to combine that with the
+    verbose because then you get to see
 
-- time: "00:00:00"
-  speaker: League
-  cmd: |
-    cp -rv django proj2
-  caption: |
-    files being created. So lets just try
-    it again to create proj2. And you can
-
-- time: "00:05:24"
+- time: "00:05:17"
   speaker: League
   caption: |
-    see that even down to the sub-directories,
+    lots and lots of files being created. So let's
+    just try it again to create `proj2`.
+
+- time: "00:05:23"
+  speaker: League
+  caption: |
+    And you can see that even down to
+    the sub-directories --
+
+- time: "00:05:27"
+  speaker: League
+  caption: |
     like it's making a copy of this
+    `django/media/sass.scss` and putting the
 
-- time: "00:05:29"
+- time: "00:05:34"
   speaker: League
   caption: |
-    'django/media/sass.scss' and putting the
-    same structure within the 'proj2' directory.
-
-- time: "00:05:39"
-  speaker: League
-  cmd: |
-    ls -l django
-    ls -l proj2
-  caption: |
-    And so we can see django compared to proj2.
+    same structure within the `proj2` directory. And so
+    we can see `django` compared to `proj2`.
 
 - time: "00:05:46"
   speaker: Lopes
-  index: "'cp -a' option"
   caption: |
     I guess a good thing to point out is that
-    its also copying the date as well
+    its also copying the date as well --
 
-- time: "00:05:52"
+- time: "00:05:50"
   speaker: Lopes
   caption: |
-    - the date and time as well.
+    the date and time as well.
 
 - time: "00:05:53"
   speaker: League
+  index: "`cp -a` (archive)"
   caption: |
-    yeah, this date and time, it's - like,
-    the originals were June 1st and then the
+    Yeah, this date and time, it's -- like,
+    the originals were June 1st and
 
-- time: "00:06:00"
+- time: "00:05:59"
   speaker: League
   caption: |
-    copy actually gets a new time stamp.
-    So it's not preseving the timestamps
+    then the copy actually gets a *new* timestamp. So
+    it's *not* preserving the timestamps currently.
 
-- time: "00:06:04"
+- time: "00:06:05"
   speaker: League
   caption: |
-    currently. There is a way for it to do
-    that, which is the '-a' option. If we
+    There is a way for it to do that,
+    which is the `-a` option.
 
 - time: "00:06:10"
   speaker: League
-  cmd: |
-    cp --help|less
   caption: |
-    go back to the help screen, '-a' stands
-    for archive and that means it preserves
+    If we go back to the help screen, `-a`
+    stands for *archive* and that means
 
 - time: "00:06:17"
   speaker: League
   caption: |
-    all sorts of information. One of them is
-    timestamps but it can also be permissions
+    it preserves all sorts of information. One
+    of them is timestamps but it can
 
-- time: "00:06:22"
+- time: "00:06:21"
   speaker: League
   caption: |
-    and some other stuff. So if I repeat that
-    last 'cp' command, instead of '-rv' I can
+    also be permissions and some other stuff. So
+    if I repeat that last `cp` command,
 
-- time: "00:06:30"
-  speaker: League
-  cmd: |
-    cp -av django proj3
-  caption: |
-    type '-av' and the 'a' for archive
-    includes doing recursive so you can keep
-
-- time: "00:06:38"
+- time: "00:06:28"
   speaker: League
   caption: |
-    the 'r' if you want to but it is not
-    needed anymore because 'a' implies '-r'.
+    instead of `-rv` I can type `-av` and the `a`
+    for archive includes doing recursive --
+
+- time: "00:06:36"
+  speaker: League
+  caption: |
+    so you can keep the `-r` if you want to but it is
+    not needed anymore because `-a` implies `-r`.
 
 - time: "00:06:45"
   speaker: League
   caption: |
-    So I make a copy of django into 'proj3'
-    and now if I compare django to proj3 we
+    So I make a copy of django into `proj3`
+    and now if I compare `django` to
 
-- time: "00:06:52"
+- time: "00:06:51"
   speaker: League
   caption: |
-    see that the timestamps
-    get preserved as well.
+    `proj3` we see that the
+    timestamps get preserved as well.
 
-- time: "00:06:57"
+- time: "00:06:56"
   speaker: Lopes
-  index: " 'mkdir' "
   caption: |
-    So professor, earlier in this episode we
-    actually made a directory to do some
+    So professor, earlier in this episode we actually
+    made a directory to do some work in it.
 
 - time: "00:07:01"
-  speaker: League
+  speaker: Lopes
   caption: |
-    work in it. Can we go more in depth as
-    to what the capabilities are of that?
+    Can we go more in depth as to what
+    the capabilities are of that?
 
-- time: "00:07:06"
+- time: "00:07:05"
   speaker: League
+  index: "`mkdir` (make dirs)"
   caption: |
-    Yeah, so 'mkdir' offers - basically it's
-    one of the very simple commands - you
+    Yeah, so `mkdir` offers -- basically it's
+    one of the very simple commands --
 
 - time: "00:07:12"
   speaker: League
-  cmd: |
-
   caption: |
-    just type 'mkdir' and then the directory
-    name or multiple directory names. But
+    you just type `mkdir` and then the directory
+    name or multiple directory names.
 
-- time: "00:07:17"
+- time: "00:07:16"
   speaker: League
-  index: "'mkdir -p'"
+  index: "`mkdir -p` (parents)"
   caption: |
-    there is one cool thing that it supports
-    that's very useful which is, imagine
+    But there is one cool thing that it
+    supports that's very useful -- which is,
 
 - time: "00:07:21"
   speaker: League
   caption: |
-    that you want to create a tree structure
-    of a directory like, down a couple of
+    imagine that you want to create a tree structure of
+    a directory like, down a couple of levels.
 
-- time: "00:07:28"
+- time: "00:07:29"
   speaker: League
   caption: |
-    levels. So instead of just creating a
-    single directory I might want to, lets
+    So instead of just creating a single
+    directory I might want to -- let's say,
 
 - time: "00:07:35"
   speaker: League
-  cmd: |
-    mkdir proj4/assets/js
   caption: |
-    say, create 'proj4/assets/js' because
-    that's where I want to put my javascript
+    create `proj4/assets/js` because that's
+    where I want to put my javascript
 
 - time: "00:07:46"
   speaker: League
   caption: |
     files for my web project or something.
-    The trouble with this is that 'mkdir'
+    The trouble with this is that
 
-- time: "00:07:52"
+- time: "00:07:51"
   speaker: League
   caption: |
-    will refuse to create that if the proj4
-    itself doesn't exist, right. So this
+    `mkdir` will refuse to create that if the
+    `proj4` itself doesn't exist, right.
 
-- time: "00:08:00"
+- time: "00:07:59"
   speaker: League
   caption: |
-    would mean I want proj4 as a directory,
-    within that I want assets as a directory,
+    So this would mean I want `proj4` as a directory,
+    within that I want `assets` as a directory,
 
 - time: "00:08:05"
   speaker: League
   caption: |
-    within that I want js as a directory.
-    That's three separate directories that
+    within that I want `js` as a directory.
+    That's three separate directories
 
 - time: "00:08:09"
   speaker: League
   caption: |
-    it's supposed to create and it will not
-    do that. So one solution is to do it one
+    that it's supposed to create and it will not do that.
+    So one solution is to do it one at a time.
 
-- time: "00:08:14"
+- time: "00:08:15"
   speaker: League
   caption: |
-    at a time. I could say 'mkdir proj4'
-    press enter, and then once that exists
+    I could say `mkdir proj4` press enter, and
+    then once that exists I can do
 
-- time: "00:08:20"
+- time: "00:08:21"
   speaker: League
   caption: |
-    I can do 'mkdir proj4/assets' press enter,
-    and so on. But the cooler way is 'mkdir'
+    `mkdir proj4/assets` press enter, and so on. But the
+    cooler way is `mkdir` supports an option `-p`.
 
-- time: "00:08:27"
+- time: "00:08:31"
   speaker: League
   caption: |
-    supports an option '-p'. This just means
-    to create all of the parent directories
+    This just means to create all of the
+    *parent* directories necessary to
 
-- time: "00:00:00"
+- time: "00:08:36"
   speaker: League
-  cmd: |
-    mkdir -p proj4/assets/js
   caption: |
-    necessary to create what I said and so
-    just 'mkdir -p' and now within proj4 -
+    create what I said and so just `mkdir
+    -p` and now within `proj4` --
 
 - time: "00:08:44"
   speaker: League
   caption: |
-    let's see the top level first. Within
-    proj4 I've got assets, within that I've
+    let's see the top level first --
+    within `proj4` I've got `assets`,
 
-- time: "00:08:50"
+- time: "00:08:49"
   speaker: League
   caption: |
-    got js, and that is then empty but it
-    created the entire tree.
+    within that I've got `js`, and that is then
+    empty but it created the entire tree.
 
 - time: "00:08:55"
   speaker: Lopes
-  index: "'tree' "
+  index: "`tree` (list dirs in tree-like form)"
   caption: |
-    And if we did the 'tree' command it would
-    show the entire structure as well correct?
+    And if we did the `tree` command it would show
+    the entire structure as well correct?
 
 - time: "00:08:59"
   speaker: League
-  cmd: |
-    tree proj4
   caption: |
-    Yeah, I don't know if we used tree
+    Yeah, I don't know if we used `tree`
     before, it's a great command though.
 
 - time: "00:09:02"
   speaker: League
   caption: |
-    So tree is kind of a way to visualize
-    a directory tree using these kind of
+    So `tree` is kind of a way to visualize a
+    directory tree using these kind
 
 - time: "00:09:08"
   speaker: League
   caption: |
-    line drawing characters. It doesnt
-    exist on every UNIX system and you might
+    of line drawing characters. It doesn't
+    exist on every Unix system and you might
 
 - time: "00:09:12"
   speaker: League
-  cmd: |
-    tree django
   caption: |
     have to install it but it's something
-    definetely worth having. So it looks
+    definitely worth having. So it looks like that.
 
-- time: "00:09:18"
-  speaker: League
-  cmd: |
-    tree proj4
-  caption: |
-    like that. Yeah, so we can see that that
-    tree structure that we created using
-
-- time: "00:00:00"
-  speaker: League
-  index: "'rmdir'"
-  caption: |
-    'mkdir -p'. Now for removing directories
-    there's a command 'rmdir'. So if I decide
-
-- time: "00:09:34"
-  speaker: League
-  cmd: |
-    rmdir proj4/assets/js
-  caption: |
-    I don't want that js folder, I could say
-    'rmdir proj4/assets/js' and it would
-
-- time: "00:09:42"
+- time: "00:09:20"
   speaker: League
   caption: |
-    remove that one folder from assets. The
-    parent directories still exist, it only
+    Yeah, so we can see that that tree structure
+    that we created using `mkdir -p`.
 
-- time: "00:09:48"
+- time: "00:09:27"
+  speaker: League
+  index: "`rmdir` (remove empty dirs)"
+  caption: |
+    Now for removing directories
+    there's a command `rmdir`.
+
+- time: "00:09:33"
   speaker: League
   caption: |
-    removed the bottom most one that I
-    specified. What if I want to remove
+    So if I decide I don't want that `js`
+    folder, I could say `rmdir`
 
-- time: "00:09:53"
+- time: "00:09:38"
   speaker: League
-  index: "'rm'"
-  cmd: |
-    rmdir proj4
   caption: |
-    the whole proj4 directory? So if I tried
-    'rmdir proj4' it will actually complain -
+    `proj4/assets/js` and it would remove
+    that one folder from `assets`.
+
+- time: "00:09:45"
+  speaker: League
+  caption: |
+    The parent directories still exist, it only
+    removed the bottom-most one that I specified.
+
+- time: "00:09:52"
+  speaker: League
+  caption: |
+    What if I want to remove the whole `proj4` directory?
+
+- time: "00:09:55"
+  speaker: League
+  caption: |
+    So if I tried `rmdir proj4` it will
+    actually complain because --
 
 - time: "00:10:01"
   speaker: League
   caption: |
-    this is unusual, most UNIX commands will
-    just do something awful without complaining.
+    this is unusual, most UNIX commands will just
+    do something awful without complaining!
 
 - time: "00:10:07"
   speaker: League
   caption: |
-    But this one actually will prevent you from
-    removing a directory unless it's
+    But this one actually will prevent you from removing
+    a directory unless it's completely empty --
 
-- time: "00:10:12"
+- time: "00:10:14"
   speaker: League
   caption: |
-    completely empty - it cannot have any
-    subdirectores or any files in it, even
+    it cannot have any subdirectories or any
+    files in it, even the hidden dot files.
 
-- time: "00:10:17"
+- time: "00:10:20"
   speaker: League
   caption: |
-    the hidden dot files. So, that doesn't
-    work and I would have to do them one at
+    So, that doesn't work and I would have
+    to do them one at a time, like,
 
-- time: "00:10:26"
-  speaker: League
-  cmd: |
-    rmdir proj4/assets, rmdir proj4
-  caption: |
-    a time, like, 'rmdir proj4/assets' and
-    then 'rmdir proj4'. And 'rmdir' doesn't
-
-- time: "00:10:34"
+- time: "00:10:27"
   speaker: League
   caption: |
-    have an option that lets you shortcut that.
-    However, there's another command which
+    `rmdir proj4/assets` and then `rmdir
+    proj4`. And `rmdir` doesn't have an
 
-- time: "00:10:42"
+- time: "00:10:35"
+  speaker: League
+  index: "`rm` (remove files or dirs)"
+  caption: |
+    option that lets you shortcut that. However,
+    there's another command which is just `rm`.
+
+- time: "00:10:43"
   speaker: League
   caption: |
-    is just 'rm'. So 'rm' has a deserved
-    reputation of being very sharp tooled.
+    So `rm` has a deserved reputation
+    of being a very sharp tool.
 
 - time: "00:10:53"
   speaker: League
   caption: |
     It will delete lots and lots of stuff
-    very quickly and if you misstype a
+    very quickly and if you mistype a
 
 - time: "00:10:57"
   speaker: League
   caption: |
     command a little bit you can really make
-    things difficult on yourself. So by
+    things difficult on yourself.
 
-- time: "00:11:04"
+- time: "00:11:03"
   speaker: League
   caption: |
-    default 'rm' will just delete files, so
-    lets take a look here. I've got these
+    So by default `rm` will just delete files, so let's
+    take a look here. I've got these weblog files.
 
-- time: "00:11:09"
-  speaker: League
-  cmd: |
-    rm weblog*
-  caption: |
-    weblog files. Lets say I want to
-    'rm weblog*' right and press enter. Very quick
-
-- time: "00:11:22"
+- time: "00:11:11"
   speaker: League
   caption: |
-    and quiet, but those two files are gone.
-    So that's 'rm'. Now if you want to remove
+    Let's say I want to `rm weblog*`,
+    right -- and press enter.
 
-- time: "00:11:31"
-  speaker: League
-  cmd: |
-    rm proj2
-  caption: |
-    a directory, 'rm' for example 'proj2',
-    that doesn't work because it's a
-
-- time: "00:11:41"
+- time: "00:11:21"
   speaker: League
   caption: |
-    directory and 'rm' by default only
-    removes files. But it doesnt take much
+    Very quick and quiet, but those two
+    files are gone. So that's `rm`.
 
-- time: "00:11:45"
+- time: "00:11:29"
   speaker: League
   caption: |
-    to convince 'rm' to do more destructive
-    things. So the one option we'll learn is
+    Now if you want to remove a directory,
+    `rm` -- for example `proj2` --
 
-- time: "00:11:52"
+- time: "00:11:38"
   speaker: League
-  index: "'rm -r' (recursive) "
-  cmd: |
-    rm -r proj2
   caption: |
-    '-r' which is of course is for recursive.
+    that doesn't work because it's a directory and
+    `rm` by default only removes files.
+
+- time: "00:11:44"
+  speaker: League
+  caption: |
+    But it doesn't take much to convince `rm`
+    to do more destructive things.
+
+- time: "00:11:49"
+  speaker: League
+  index: "`rm -r` (recursive)"
+  caption: |
+    So the one option we'll learn is `-r`
+    which is of course is for recursive.
+
+- time: "00:11:57"
+  speaker: League
+  caption: |
     And this means it will go into that
+    directory, delete all of the files,
 
-- time: "00:11:58"
+- time: "00:12:02"
   speaker: League
   caption: |
-    directory, delete all of the files, any
-    subdirectories and their files and so on.
-
-- time: "00:12:05"
-  speaker: League
-  caption: |
+    any subdirectories, and their files, and so on.
     The entire tree, it will just blow away.
-    And again it's very fast and now all of
 
-- time: "00:12:11"
+- time: "00:12:08"
   speaker: League
   caption: |
-    those files are gone. So is there a way
-    we can protect ourselves from 'rm -r'?
+    And again it's very fast and now
+    all of those files are gone.
+
+- time: "00:12:13"
+  speaker: League
+  caption: |
+    So is there a way we can protect
+    ourselves from `rm -r`?
 
 - time: "00:12:16"
   speaker: Lopes
-  index: "'alias' on rm"
   caption: |
     Set up another alias on it.
 
-- time: "00:12:17"
+- time: "00:12:18"
   speaker: League
-  cmd: |
-    rm --help|less
+  index: "`rm -i` (interactive)"
   caption: |
-    Yeah, exactly. So 'rm' - let's take a
-    look at the help first. It supports the
+    Yeah, exactly. So `rm` -- let's take
+    a look at the help first.
 
-- time: "00:12:24"
+- time: "00:12:22"
   speaker: League
   caption: |
-    interactive just like 'mv' and 'cp' did
+    It supports the 'interactive' just
+    like `mv` and `cp` did --
+
+- time: "00:12:27"
+  speaker: League
+  caption: |
     which means before every removal it will
+    prompt. Maybe you don't want that
 
-- time: "00:12:29"
+- time: "00:12:32"
   speaker: League
   caption: |
-    prompt. Maybe you don't want that but I
-    think it's not a bad idea to have an
+    but I think it's not a bad idea to have an
+    alias for that. So let's try that.
 
-- time: "00:12:35"
+- time: "00:12:38"
   speaker: League
   caption: |
-    alias for that. So lets try that.
-    Where did I keep my alias' before?
+    Where did I keep my aliases before?
 
-- time: "00:12:42"
+- time: "00:12:41"
   speaker: Lopes
-  index: "~/.bashrc "
-  cmd: |
-    nano ~/.bashrc
   caption: |
-    It was '.bash s h'? Oh, 'r c'.
+    It was `.bash s h`? Oh, `rc`.
 
-- time: "00:12:45"
+- time: "00:12:46"
+  speaker: League
+  index: "`.bashrc`"
+  caption: |
+    `.bashrc`, yep. So I'm going to go in there and
+    let's add an alias for `rm='rm -i'`.
+
+- time: "00:12:58"
   speaker: League
   caption: |
-    'bash rc', yep.
+    And I'll put a little comment
+    above this [laughs] okay.
 
-
-- time: "00:12:48"
-  speaker: League
-  cmd: |
-    alias rm='rm -i'
-  caption: |
-    So I'm going to go in there and lets
-    add an alias for "rm='rm -i'". And I'll
-
-- time: "00:12:59"
+- time: "00:13:03"
   speaker: League
   caption: |
-    put a little comment above this, ok.
-    So now I've got an alias for 'rm' that
+    So now I've got an alias for `rm` that
+    doesn't take effect immediately,
 
-- time: "00:13:05"
+- time: "00:13:07"
   speaker: League
   caption: |
-    doesn't take effect immediately, I
-    would have to close the terminal and
+    I would have to close the terminal and reopen
+    another one, or `source` that file.
 
-- time: "00:13:09"
-  speaker: League
-  cmd: |
-    source ~/.bashrc
-  caption: |
-    reopen another one, or source that file.
-    Now it's there as an alias. And so now
-
-- time: "00:13:20"
-  speaker: League
-  cmd: |
-    rm -r proj1
-  caption: |
-    if I do 'rm -r proj1' it will slow me
-    down quite alot. First of all,
-
-- time: "00:13:27"
+- time: "00:13:14"
   speaker: League
   caption: |
-    "Do you want to descend into this directory"
-    in the first place? Yes.
+    Now it's there as an alias. And so now if I do `rm
+    -r proj1` it will slow me down quite a lot.
+
+- time: "00:13:26"
+  speaker: League
+  caption: |
+    First of all, "Do you want to descend into
+    this directory" in the first place? Yes.
 
 - time: "00:13:32"
   speaker: League
   caption: |
     "Do you want to descend into templates?"
-    Yes. "Do you want to remove this file
+    Yes. "Do you want to remove this
 
-- time: "00:13:37"
+- time: "00:13:36"
   speaker: League
   caption: |
-    which is empty?" ok. So this obviously
-    slows you down if you type something by
+    file which is empty?" Okay. So this obviously slows
+    you down if you type something by accident.
 
-- time: "00:13:46"
+- time: "00:13:47"
   speaker: League
-  index: "backslash"
   caption: |
-    accident. But if you really seriously
-    want to remove a bunch of stuff, one
+    But if you really seriously want to
+    remove a bunch of stuff,
 
 - time: "00:13:51"
   speaker: League
-  cmd: |
-    ctrl+c
+  index: "`^C` (interrupt)"
   caption: |
-    way to get around an alias is - by the
-    way to stop that I just hit 'ctrl c' to
+    one way to get around an alias is -- by
+    the way to stop that I just hit
 
-- time: "00:13:58"
+- time: "00:13:56"
   speaker: League
   caption: |
-    cancel that command. 'ctrl c' wouldn't
+    control-C to cancel that command. Control-C wouldn't
     undo any deletes that have already happened,
 
 - time: "00:14:03"
   speaker: League
   caption: |
-    it just cancels it where it is in the
-    process. So if I want to actually delete
+    it just cancels it where it is in the process. So if I
+    want to actually delete that whole directory,
 
-- time: "00:14:10"
+- time: "00:14:13"
   speaker: League
-  cmd: |
-    \rm -r proj1
+  index: "`\\` (backslash)"
   caption: |
-    that whole directory, one way to bypass
-    an alias is to put a backslash before
+    one way to bypass an alias is to put a
+    backslash before the command.
 
-- time: "00:14:18"
+- time: "00:14:19"
   speaker: League
   caption: |
-    the command. And now if I've got an 'rm'
-    as an alias, this will skip the alias and
+    And now if I've got an `rm` as an alias,
+    this will skip the alias and just
 
 - time: "00:14:25"
   speaker: League
   caption: |
-    just go to the regular command. So that
-    will now delete all of the 'proj1'
+    go to the regular command. So that will now delete
+    all of the `proj1` directory very fast.
 
-- time: "00:14:30"
+- time: "00:14:34"
   speaker: League
   caption: |
-    directory very fast. So it's a little
-    bit of a trade off, right? If 'rm'
+    So it's a little bit of a trade off, right? If `rm`
+    with interactive is asking too many questions,
 
-- time: "00:14:37"
+- time: "00:14:41"
   speaker: League
   caption: |
-    with interactive is asking too many
-    questions, then what you're going to do
+    then what you're going to do when you really need
+    to delete something is just type `\rm`.
 
-- time: "00:14:42"
+- time: "00:14:46"
   speaker: League
   caption: |
-    when you really need to delete something
-    is just type '\rm'. And actually I've
+    And actually I've acquired that habit
+    personally, my own `.bashrc` has `rm`
 
-- time: "00:14:47"
+- time: "00:14:53"
   speaker: League
   caption: |
-    acquired that habbit personally, my own
-    '.bashrc' has 'rm' aliased to 'rm -i'
+    aliased to `rm -i` but I always --
+    I never type just `rm`.
 
-- time: "00:14:45"
+- time: "00:14:58"
   speaker: League
   caption: |
-    but I always, I never just type 'rm'.
-    It's just in my bones now, or in my
+    It's just in my bones now, or in my fingers to type
+    `\rm` whenever I want to delete something,
 
-- time: "00:15:01"
+- time: "00:15:05"
   speaker: League
   caption: |
-    fingers to type '\rm' whenever I want
-    to delete something, so the alias doesn't
+    so the alias doesn't really do me any good.
 
-- time: "00:15:06"
+- time: "00:15:08"
+  speaker: League
+  index: "`rm -f` (force)"
+  caption: |
+    One of the other options of `rm` that can be
+    especially dangerous is the `-f`.
+
+- time: "00:15:13"
   speaker: League
   caption: |
-    really do me any good. One of the other
-    options of 'rm' that can be especially
-
-- time: "00:15:09"
-  speaker: League
-  index: "'rm -f' (force)"
-  cmd: |
-    rm --help|less
-  caption: |
-    dangerous is the '-f'. So we see here
-    '-f' means force. So force basically
+    So we see here `-f` means force. Force
+    basically means if there is
 
 - time: "00:15:21"
   speaker: League
   caption: |
-    means if there is something preventing
-    deletion that can be resolved - so for
+    something preventing deletion that can
+    be resolved -- so for example,
 
-- time: "00:15:27"
+- time: "00:15:28"
   speaker: League
   caption: |
-    example, if I've set up a permission on
-    a file so that I'm not allowed to write
+    if I've set up a permission on a file so
+    that I'm not allowed to write to it,
 
 - time: "00:15:32"
   speaker: League
   caption: |
-    to it, to delete it - it can try to
-    actually modify the permissions in order
+    to delete it -- it can try to actually modify the
+    permissions in order to allow that again.
 
-- time: "00:15:39"
+- time: "00:15:41"
   speaker: League
   caption: |
-    to allow that again. And so if I'm
-    allowed to change the permission to
+    And so if I'm allowed to change the
+    permission to allow me to delete it
 
-- time: "00:15:44"
+- time: "00:15:46"
   speaker: League
   caption: |
-    allow me to delete it then it will still
-    delete it. So that's a pretty serious
+    then it will still delete it. So
+    that's a pretty serious thing.
 
-- time: "00:15:50"
+- time: "00:15:51"
   speaker: League
-  index: "DANGER: 'rm -rf'"
   caption: |
-    thing. So when you combine recursive
-    with forcing that really becomes quite
+    When you combine recursive with forcing
+    that really becomes quite dangerous
 
 - time: "00:15:54"
   speaker: League
-  cmd: |
-    rm -rf
   caption: |
-    dangerous and so 'rm -rf' even in like,
-    nerd culture is known to be like a
+    and so `rm -rf` even in like, nerd culture is known
+    to be like a very dangerous thing to do,
 
-- time: "00:16:00"
+- time: "00:16:01"
   speaker: League
   caption: |
-    very dangerous thing to do, and it
-    actually gives me chills a little bit
+    and it actually gives me chills a
+    little bit even to type it.
 
-- time: "00:16:03"
+- time: "00:16:06"
   speaker: League
   caption: |
-    even to type it. And one thing you
-    never ever want to do probably is -
+    And one thing you never ever want to do probably is --
 
 - time: "00:16:10"
   speaker: League
   caption: |
-    I can't even type this - I've got to
-    separate the 'rm' so it doesn't cause
+    I can't even type this -- I've got to separate the
+    `rm` so it doesn't cause me real problems --
 
-- time: "00:16:15"
+- time: "00:16:17"
   speaker: League
   caption: |
-    me real problems - is if you put a slash
-    here, slash is a way to refer to the top
+    is if you put a slash here, slash is a way to
+    refer to the top level of your file system,
 
-- time: "00:16:21"
+- time: "00:16:24"
   speaker: League
   caption: |
-    level of your file system,
-    the root directory. And so this means
+    the root directory. And so this means start
+    at the top of my entire disk or
 
-- time: "00:16:26"
+- time: "00:16:29"
   speaker: League
   caption: |
-    start at the top of my entire disk or
-    even multiple disks and try to delete
+    even multiple disks and try to
+    delete everything it can.
 
-- time: "00:16:33"
+- time: "00:16:35"
   speaker: League
   caption: |
-    everything it can. So that's a pretty
-    awful command and you should probably
-
-- time: "00:16:39"
-  speaker: League
-  caption: |
-    try never to type it.
+    So that's a pretty awful command and you
+    should probably try never to type it.
 
 - time: "00:16:41"
   speaker: Lopes
-  index: "closing"
   caption: |
-    Alright so today we covered alot of file
-    management using the copy, the remove,
+    Alright so today we covered a lot of
+    file management using the copy,
 
-- time: "00:16:46"
+- time: "00:16:45"
   speaker: Lopes
   caption: |
-    the move, as well as the make and
-    remove directories.
+    the remove, the move, as well as the
+    make and remove directories.
 
-- time: "00:16:49"
+- time: "00:16:50"
   speaker: League
   caption: |
     So next time I think we're going to look
-    at 'image magic' which is a pretty
+    at Image Magick which is a pretty
 
 - time: "00:16:54"
   speaker: League
@@ -1085,39 +1019,46 @@
 - time: "00:17:03"
   speaker: League
   caption: |
-    You can automate things like applying
-    filters to images, shrinking and cropping
+    You can automate things like
+    applying filters to images,
 
-- time: "00:17:09"
+- time: "00:17:08"
   speaker: League
   caption: |
-    them - all sorts of things. So I think
-    thats going to be a pretty exciting one
+    shrinking and cropping them -- all sorts of
+    things. So I think that's going
 
-- time: "00:17:13"
+- time: "00:17:12"
   speaker: League
   caption: |
-    because we're going to move beyond just
-    the simple commands that do things you
+    to be a pretty exciting one because we're
+    going to move beyond just the
 
-- time: "00:17:17"
+- time: "00:17:15"
   speaker: League
   caption: |
-    already know how to do on a maybe
-    desktop file manager. And we're going
+    simple commands that do things you already know
+    how to do on a maybe desktop file manager.
 
 - time: "00:17:22"
   speaker: League
   caption: |
-    to start to see some things that we can
-    do on the command line that
+    And we're going to start to see some
+    things that we can do on the command
 
 - time: "00:17:25"
   speaker: League
   caption: |
-    are pretty different.
+    line that are pretty different. So see you then!
 
-- time: "00:17:28"
-  speaker: League
+- time: "00:17:32"
   caption: |
-    So see you then!
+    [Dark electronic beat]
+
+- time: "00:17:40"
+  caption: |
+    [Captions by Christian Lopes and Christopher League]
+
+- time: "00:18:00"
+  caption: |
+    [End]

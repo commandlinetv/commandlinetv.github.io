@@ -756,7 +756,7 @@
 
 - time: "00:10:55"
   speaker: League
-  index: "`..`"
+  index: "`..` (parent dir)"
   caption: |
     to do first is go back up. Do you remember the
     command to go back up to a parent directory?
