@@ -52,6 +52,8 @@
 
 - time: "00:01:00"
   speaker: League
+  cmd: |
+    cp --help | less
   caption: |
     Other than that, a lot of it is the same.
     So if I look at the help for `cp`,
@@ -93,6 +95,8 @@
 
 - time: "00:01:40"
   speaker: League
+  cmd: |
+    cp weblog-2015-07-11.txt weblog-2015-07-12.txt
   caption: |
     I can specify `cp` and then the filename and
     then give it a different filename.
@@ -111,12 +115,16 @@
 
 - time: "00:01:59"
   speaker: League
+  cmd: |
+    ls -l
   caption: |
     And if we look at the detailed listing
     they have exactly the same size and
 
 - time: "00:02:05"
   speaker: League
+  cmd: |
+    head -3 weblog*
   caption: |
     they have the same contents. So if I look at the
     first couple of lines in both of those files,
@@ -135,6 +143,8 @@
 
 - time: "00:02:26"
   speaker: League
+  cmd: |
+    cd thinkjava/figs
   caption: |
     into an existing directory even. So if I
     go down into my `thinkjava/figs`
@@ -147,6 +157,8 @@
 
 - time: "00:02:40"
   speaker: League
+  cmd: |
+    ls fig
   caption: |
     So right now inside of the `fig` directory
     I've got a bunch of files called
@@ -159,6 +171,8 @@
 
 - time: "00:02:52"
   speaker: League
+  cmd: |
+    cp fig/* .
   caption: |
     files within that `fig` directory. I want to
     move them to the current directory.
@@ -250,6 +264,8 @@
 
 - time: "00:04:06"
   speaker: League
+  cmd: |
+    cp -v eps/* .
   caption: |
     so `cp eps/*` into the current directory. But
     this time I'm going to use the `-v` option.
@@ -281,6 +297,8 @@
 
 - time: "00:04:42"
   speaker: League
+  cmd: |
+    cp django proj1
   caption: |
     then we're going to call it `proj1` -- at
     first it will refuse to do that --
@@ -293,6 +311,8 @@
 
 - time: "00:04:53"
   speaker: League
+  cmd: |
+    cp -r django proj1
   caption: |
     it's okay to make copies of entire
     directories and that's `-r` for *recursive*.
@@ -305,6 +325,9 @@
 
 - time: "00:05:08"
   speaker: League
+  cmd: |
+    ls django
+    ls proj1
   caption: |
     has the same contents as the
     original `django` directory.
@@ -317,6 +340,8 @@
 
 - time: "00:05:17"
   speaker: League
+  cmd: |
+    cp -rv django proj2
   caption: |
     lots and lots of files being created. So let's
     just try it again to create `proj2`.
@@ -335,6 +360,9 @@
 
 - time: "00:05:34"
   speaker: League
+  cmd: |
+    ls -l django
+    ls -l proj2
   caption: |
     same structure within the `proj2` directory. And so
     we can see `django` compared to `proj2`.
@@ -389,6 +417,8 @@
 
 - time: "00:06:28"
   speaker: League
+  cmd: |
+    cp -av django proj3
   caption: |
     instead of `-rv` I can type `-av` and the `a`
     for archive includes doing recursive --
@@ -407,6 +437,9 @@
 
 - time: "00:06:51"
   speaker: League
+  cmd: |
+    ls -l django
+    ls -l proj3
   caption: |
     `proj3` we see that the
     timestamps get preserved as well.
@@ -457,6 +490,8 @@
 
 - time: "00:07:35"
   speaker: League
+  cmd: |
+    mkdir proj4/assets/js
   caption: |
     create `proj4/assets/js` because that's
     where I want to put my javascript
@@ -493,6 +528,9 @@
 
 - time: "00:08:15"
   speaker: League
+  cmd: |
+    mkdir proj4
+    mkdir proj4/assets
   caption: |
     I could say `mkdir proj4` press enter, and
     then once that exists I can do
@@ -511,6 +549,8 @@
 
 - time: "00:08:36"
   speaker: League
+  cmd: |
+    mkdir -p proj4/assets/js
   caption: |
     create what I said and so just `mkdir
     -p` and now within `proj4` --
@@ -523,6 +563,9 @@
 
 - time: "00:08:49"
   speaker: League
+  cmd: |
+    ls proj4
+    ls proj4/assets
   caption: |
     within that I've got `js`, and that is then
     empty but it created the entire tree.
@@ -536,6 +579,8 @@
 
 - time: "00:08:59"
   speaker: League
+  cmd: |
+    tree proj4
   caption: |
     Yeah, I don't know if we used `tree`
     before, it's a great command though.
@@ -554,6 +599,8 @@
 
 - time: "00:09:12"
   speaker: League
+  cmd: |
+    tree django
   caption: |
     have to install it but it's something
     definitely worth having. So it looks like that.
@@ -579,12 +626,16 @@
 
 - time: "00:09:38"
   speaker: League
+  cmd: |
+    rmdir proj4/assets/js
   caption: |
     `proj4/assets/js` and it would remove
     that one folder from `assets`.
 
 - time: "00:09:45"
   speaker: League
+  cmd: |
+    tree proj4
   caption: |
     The parent directories still exist, it only
     removed the bottom-most one that I specified.
@@ -596,6 +647,8 @@
 
 - time: "00:09:55"
   speaker: League
+  cmd: |
+    rmdir proj4
   caption: |
     So if I tried `rmdir proj4` it will
     actually complain because --
@@ -603,7 +656,7 @@
 - time: "00:10:01"
   speaker: League
   caption: |
-    this is unusual, most UNIX commands will just
+    this is unusual, most Unix commands will just
     do something awful without complaining!
 
 - time: "00:10:07"
@@ -626,6 +679,9 @@
 
 - time: "00:10:27"
   speaker: League
+  cmd: |
+    rmdir proj4/assets
+    rmdir proj4
   caption: |
     `rmdir proj4/assets` and then `rmdir
     proj4`. And `rmdir` doesn't have an
@@ -663,6 +719,8 @@
 
 - time: "00:11:11"
   speaker: League
+  cmd: |
+    rm weblog*
   caption: |
     Let's say I want to `rm weblog*`,
     right -- and press enter.
@@ -675,6 +733,8 @@
 
 - time: "00:11:29"
   speaker: League
+  cmd: |
+    rm proj2
   caption: |
     Now if you want to remove a directory,
     `rm` -- for example `proj2` --
@@ -694,6 +754,8 @@
 - time: "00:11:49"
   speaker: League
   index: "`rm -r` (recursive)"
+  cmd: |
+    rm -r proj2
   caption: |
     So the one option we'll learn is `-r`
     which is of course is for recursive.
@@ -730,6 +792,8 @@
 - time: "00:12:18"
   speaker: League
   index: "`rm -i` (interactive)"
+  cmd: |
+    rm --help|less
   caption: |
     Yeah, exactly. So `rm` -- let's take
     a look at the help first.
@@ -765,6 +829,9 @@
 - time: "00:12:46"
   speaker: League
   index: "`.bashrc`"
+  cmd: |
+    nano ~/.bashrc
+    alias rm='rm -i'
   caption: |
     `.bashrc`, yep. So I'm going to go in there and
     let's add an alias for `rm='rm -i'`.
@@ -783,12 +850,16 @@
 
 - time: "00:13:07"
   speaker: League
+  cmd: |
+    source ~/.bashrc
   caption: |
     I would have to close the terminal and reopen
     another one, or `source` that file.
 
 - time: "00:13:14"
   speaker: League
+  cmd: |
+    rm -r proj1
   caption: |
     Now it's there as an alias. And so now if I do `rm
     -r proj1` it will slow me down quite a lot.
@@ -839,6 +910,8 @@
 - time: "00:14:13"
   speaker: League
   index: "`\\` (backslash)"
+  cmd: |
+    \rm -r proj1
   caption: |
     one way to bypass an alias is to put a
     backslash before the command.
@@ -958,6 +1031,8 @@
 
 - time: "00:16:10"
   speaker: League
+  cmd: |
+    r m -rf /
   caption: |
     I can't even type this -- I've got to separate the
     `rm` so it doesn't cause me real problems --
