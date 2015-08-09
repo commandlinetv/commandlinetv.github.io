@@ -106,7 +106,8 @@ task :reindex do
   puts "Writing #{filename}"
   open(filename, 'w') do |topics|
     master.sort{|a,b| a[0].casecmp(b[0])}.each do |item|
-      topics.puts "- term: \"#{item[0]}\""
+      t = item[0].gsub("\\", "\\\\\\")
+      topics.puts "- term: \"#{t}\""
       topics.puts "  refs:"
       item[1].each do |ref|
         topics.puts "    - #{ref}"
