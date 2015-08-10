@@ -4,6 +4,7 @@
 - term: "case sensitivity"
   refs:
     - 1#episode001#00:15:38
+    - 3#episode003#00:15:16
 - term: "color"
   refs:
     - 2#episode002#00:01:50
@@ -31,12 +32,16 @@
 - term: "file type, binary"
   refs:
     - 2#episode002#00:07:02
+    - 3#episode003#00:16:52
 - term: "file type, image"
   refs:
     - 2#episode002#00:07:29
 - term: "file type, PDF"
   refs:
     - 2#episode002#00:07:33
+- term: "filename extension"
+  refs:
+    - 3#episode003#00:00:34
 - term: "folder"
   refs:
     - 1#episode001#00:08:52
@@ -58,6 +63,10 @@
 - term: "pipeline"
   refs:
     - 2#episode002#00:11:51
+    - 3#episode003#00:00:25
+- term: "quoting"
+  refs:
+    - 3#episode003#00:23:04
 - term: "rationale for command line"
   refs:
     - 1#episode001#00:01:36
@@ -67,6 +76,7 @@
 - term: "spaces"
   refs:
     - 1#episode001#00:17:11
+    - 3#episode003#00:22:57
 - term: "syntax"
   refs:
     - 2#episode002#00:10:11
@@ -76,15 +86,20 @@
 - term: "Utilities (Mac)"
   refs:
     - 1#episode001#00:04:26
+- term: "wildcard"
+  refs:
+    - 3#episode003#00:03:54
 - term: "WYSIWYG"
   refs:
     - 1#episode001#00:02:19
 - term: "`*` wildcard"
   refs:
     - 2#episode002#00:08:55
+    - 3#episode003#00:04:00
 - term: "`--help`"
   refs:
     - 2#episode002#00:03:26
+    - 3#episode003#00:22:37
 - term: "`--version`"
   refs:
     - 2#episode002#00:02:50
@@ -94,9 +109,16 @@
 - term: "`.gz`"
   refs:
     - 2#episode002#00:06:10
+    - 3#episode003#00:01:41
 - term: "`.png`"
   refs:
     - 2#episode002#00:07:59
+- term: "`.tar`"
+  refs:
+    - 3#episode003#00:01:17
+- term: "`?` wildcard"
+  refs:
+    - 3#episode003#00:05:46
 - term: "`bash`"
   refs:
     - 1#episode001#00:07:29
@@ -109,15 +131,43 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`file` (show file type)"
+  refs:
+    - 3#episode003#00:03:08
 - term: "`git` (version control)"
   refs:
     - 1#episode001#00:07:22
+- term: "`grep --color`"
+  refs:
+    - 3#episode003#00:14:49
+- term: "`grep -c` (count)"
+  refs:
+    - 3#episode003#00:21:52
+- term: "`grep -i` (ignore-case)"
+  refs:
+    - 3#episode003#00:15:25
+- term: "`grep -l` (files-with-matches)"
+  refs:
+    - 3#episode003#00:20:04
+- term: "`grep -n` (line-number)"
+  refs:
+    - 3#episode003#00:19:03
+- term: "`grep -r` (recursive)"
+  refs:
+    - 3#episode003#00:18:27
+- term: "`grep -s` (no-messages)"
+  refs:
+    - 3#episode003#00:17:48
+- term: "`grep` (show matching lines)"
+  refs:
+    - 3#episode003#00:12:34
 - term: "`head -n` (lines)"
   refs:
     - 2#episode002#00:16:17
 - term: "`head` (first few lines)"
   refs:
     - 2#episode002#00:14:14
+    - 3#episode003#00:11:34
 - term: "`less` (pager)"
   refs:
     - 2#episode002#00:12:34
@@ -140,6 +190,9 @@
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
+- term: "`mv` (move or rename files)"
+  refs:
+    - 3#episode003#00:02:31
 - term: "`open` (Mac desktop)"
   refs:
     - 2#episode002#00:08:43
@@ -158,12 +211,19 @@
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
+    - 3#episode003#00:02:13
 - term: "`xterm`"
   refs:
     - 1#episode001#00:06:46
+- term: "`[]` wildcard"
+  refs:
+    - 3#episode003#00:08:23
 - term: "`^C` (interrupt)"
   refs:
     - 2#episode002#00:06:47
+- term: "`{}` wildcard"
+  refs:
+    - 3#episode003#00:09:15
 - term: "`|` (pipe)"
   refs:
     - 2#episode002#00:11:34
