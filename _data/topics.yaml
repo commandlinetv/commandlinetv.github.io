@@ -39,6 +39,9 @@
 - term: "file type, PDF"
   refs:
     - 2#episode002#00:07:33
+- term: "file type, text"
+  refs:
+    - 4#episode004#00:03:24
 - term: "filename extension"
   refs:
     - 3#episode003#00:00:34
@@ -54,6 +57,9 @@
 - term: "history"
   refs:
     - 1#episode001#00:11:15
+- term: "password"
+  refs:
+    - 4#episode004#00:03:57
 - term: "path, absolute"
   refs:
     - 2#episode002#00:01:02
@@ -83,6 +89,9 @@
 - term: "Terminal (Mac)"
   refs:
     - 1#episode001#00:04:31
+- term: "text editor"
+  refs:
+    - 4#episode004#00:01:09
 - term: "Utilities (Mac)"
   refs:
     - 1#episode001#00:04:26
@@ -116,12 +125,18 @@
 - term: "`.tar`"
   refs:
     - 3#episode003#00:01:17
+- term: "`/etc`"
+  refs:
+    - 4#episode004#00:04:10
 - term: "`?` wildcard"
   refs:
     - 3#episode003#00:05:46
 - term: "`bash`"
   refs:
     - 1#episode001#00:07:29
+- term: "`bash` (default shell)"
+  refs:
+    - 4#episode004#00:06:00
 - term: "`cat` (concatenate files)"
   refs:
     - 2#episode002#00:05:04
@@ -131,9 +146,30 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`cut -c` (characters)"
+  refs:
+    - 4#episode004#00:07:56
+- term: "`cut -d` (delimiter)"
+  refs:
+    - 4#episode004#00:06:35
+- term: "`cut -f` (fields)"
+  refs:
+    - 4#episode004#00:06:48
+- term: "`cut` (select fields)"
+  refs:
+    - 4#episode004#00:06:16
+- term: "`du -s` (summarize)"
+  refs:
+    - 4#episode004#00:11:09
+- term: "`du` (disk usage)"
+  refs:
+    - 4#episode004#00:10:57
 - term: "`file` (show file type)"
   refs:
     - 3#episode003#00:03:08
+- term: "`gedit` (desktop editor)"
+  refs:
+    - 4#episode004#00:02:35
 - term: "`git` (version control)"
   refs:
     - 1#episode001#00:07:22
@@ -193,6 +229,12 @@
 - term: "`mv` (move or rename files)"
   refs:
     - 3#episode003#00:02:31
+- term: "`nano` (editor)"
+  refs:
+    - 4#episode004#00:01:13
+- term: "`open -e` (Mac TextEdit)"
+  refs:
+    - 4#episode004#00:03:07
 - term: "`open` (Mac desktop)"
   refs:
     - 2#episode002#00:08:43
@@ -202,12 +244,27 @@
 - term: "`reset` (initialize terminal)"
   refs:
     - 2#episode002#00:06:55
+- term: "`sort -n` (numeric)"
+  refs:
+    - 4#episode004#00:12:23
+- term: "`sort -r` (reverse)"
+  refs:
+    - 4#episode004#00:12:38
+- term: "`sort` (put lines in order)"
+  refs:
+    - 4#episode004#00:10:18
 - term: "`tail -n` (lines)"
   refs:
     - 2#episode002#00:15:08
 - term: "`tail` (last few lines)"
   refs:
     - 2#episode002#00:14:20
+- term: "`uniq -c` (count)"
+  refs:
+    - 4#episode004#00:15:11
+- term: "`uniq` (omit repeated lines)"
+  refs:
+    - 4#episode004#00:13:58
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
@@ -230,3 +287,4 @@
 - term: "`~` (home directory)"
   refs:
     - 1#episode001#00:09:10
+    - 4#episode004#00:05:50
