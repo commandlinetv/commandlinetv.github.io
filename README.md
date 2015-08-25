@@ -47,7 +47,8 @@ it as a new episode. Replace `N` with the episode number.
 
  1. Upload `Ep-NN.mp4` to YouTube, so it can start converting. Use these tags:
     Command-line interface, Unix (Operating System), Unix-like, Unix Shell,
-    Operating System, Programming Language, Technology.
+    Operating System, Programming Language, Technology, GNU/Linux Operating
+    System.
 
  2. Capture a video snapshot for the poster, using VLC » Video » Take snapshot,
     then rename it:
