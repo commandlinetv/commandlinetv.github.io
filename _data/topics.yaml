@@ -33,6 +33,9 @@
   refs:
     - 2#episode002#00:07:02
     - 3#episode003#00:16:52
+- term: "file type, hidden (dot files)"
+  refs:
+    - 5#episode005#00:14:12
 - term: "file type, image"
   refs:
     - 2#episode002#00:07:29
@@ -66,6 +69,9 @@
 - term: "path, relative"
   refs:
     - 2#episode002#00:00:38
+- term: "philosophy"
+  refs:
+    - 5#episode005#00:11:06
 - term: "pipeline"
   refs:
     - 2#episode002#00:11:51
@@ -98,6 +104,7 @@
 - term: "wildcard"
   refs:
     - 3#episode003#00:03:54
+    - 5#episode005#00:03:19
 - term: "WYSIWYG"
   refs:
     - 1#episode001#00:02:19
@@ -115,6 +122,12 @@
 - term: "`..` (parent dir)"
   refs:
     - 1#episode001#00:10:55
+- term: "`.bashrc`"
+  refs:
+    - 5#episode005#00:14:35
+- term: "`.bash_profile`"
+  refs:
+    - 5#episode005#00:14:29
 - term: "`.gz`"
   refs:
     - 2#episode002#00:06:10
@@ -131,6 +144,9 @@
 - term: "`?` wildcard"
   refs:
     - 3#episode003#00:05:46
+- term: "`alias`"
+  refs:
+    - 5#episode005#00:11:03
 - term: "`bash`"
   refs:
     - 1#episode001#00:07:29
@@ -146,6 +162,9 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`cp` (copy files and dirs)"
+  refs:
+    - 5#episode005#00:16:27
 - term: "`cut -c` (characters)"
   refs:
     - 4#episode004#00:07:56
@@ -207,6 +226,9 @@
 - term: "`less` (pager)"
   refs:
     - 2#episode002#00:12:34
+- term: "`ls -a` (all)"
+  refs:
+    - 5#episode005#00:14:18
 - term: "`ls -F` (classify)"
   refs:
     - 1#episode001#00:13:17
@@ -223,12 +245,25 @@
 - term: "`ls` (list files)"
   refs:
     - 1#episode001#00:08:40
+- term: "`mkdir` (make dirs)"
+  refs:
+    - 5#episode005#00:04:19
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
+- term: "`mv -i` (interactive) "
+  refs:
+    - 5#episode005#00:09:39
+- term: "`mv -n` (no-clobber)"
+  refs:
+    - 5#episode005#00:08:35
+- term: "`mv -t` (target-directory)"
+  refs:
+    - 5#episode005#00:10:10
 - term: "`mv` (move or rename files)"
   refs:
     - 3#episode003#00:02:31
+    - 5#episode005#00:00:40
 - term: "`nano` (editor)"
   refs:
     - 4#episode004#00:01:13
@@ -253,6 +288,9 @@
 - term: "`sort` (put lines in order)"
   refs:
     - 4#episode004#00:10:18
+- term: "`source` (execute in current shell)"
+  refs:
+    - 5#episode005#00:16:06
 - term: "`tail -n` (lines)"
   refs:
     - 2#episode002#00:15:08
