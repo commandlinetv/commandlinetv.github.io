@@ -2,7 +2,7 @@
 layout: post
 title: Episode 7
 slug: episode007
-tagline: 
+tagline: ImageMagick
 size: 124016081
 ---
 {% include JB/setup %}
