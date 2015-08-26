@@ -1,11 +1,25 @@
 #!/usr/bin/env ruby
 
+# This script takes timed captions and formats it in Yaml for use in generating
+# HTML transcripts and caption files in various formats. The input format is:
+#
+#     :League
+#
+#     0:24
+#     Welcome to Command Line TV.
+#     In this episode we will cover
+#
+#     0:30
+#     how to use scripts for the purpose
+#     of reformatting your captions.
+
 $currSpeaker = nil
 $currTime = "00:00:01"
 $currText = []
 
 timeRegex = /^(\d+):(\d\d)$/
 speakerRegex = /^:(.*)$/
+fullTimeRegex = /^00:(\d\d):(\d\d)$/
 
 def dump_entry()
   if $currText.length > 0
@@ -31,7 +45,15 @@ end
 ARGF.read.lines.each do |line|
   t = line.match(timeRegex)
   if t
-    $currTime = sprintf("00:%02d:%02d", t[1].to_i, t[2].to_i)
+    $newTime = sprintf("00:%02d:%02d", t[1].to_i, t[2].to_i)
+    tsec = t[1].to_i * 60 + t[2].to_i
+    ot = $currTime.match(fullTimeRegex)
+    otsec = ot[1].to_i * 60 + ot[2].to_i
+    if otsec > tsec
+      STDERR.puts "Error: out of sequence: #{$currTime} -> #{$newTime}"
+      abort
+    end
+    $currTime = $newTime
   else
     s = line.match(speakerRegex)
     if s

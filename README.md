@@ -45,53 +45,69 @@ and commit also the changes to `_data/topics.yaml`
 Once we have a final cut exported to an MP4 file, here are the steps to publish
 it as a new episode. Replace `N` with the episode number.
 
- 1. Upload `Ep-NN.mp4` to YouTube, so it can start converting. Use these tags:
-    Command-line interface, Unix (Operating System), Unix-like, Unix Shell,
-    Operating System, Programming Language, Technology, GNU/Linux Operating
-    System.
-
- 2. Capture a video snapshot for the poster, using VLC » Video » Take snapshot,
+ 1. Capture a video snapshot for the poster, using VLC » Video » Take snapshot,
     then rename it:
 
     ```
     mv ~/vlcsnap* snapNNN.png
     ```
 
- 3. Run the scripts in Makefile, to transcode and upload:
+ 2. Run the scripts in Makefile, to transcode and upload:
 
     ```
     make -j NUM=N FILE=~/tmp/Ep-NN.mp4
     ```
 
- 4. Write episode transcript in `_data/episodeNNN.yaml`.
+ 3. Write episode transcript in paragraph form, in `_data/episodeNNN.a.txt`. I
+    recommend using playback speed 0.5x. You can include speaker annotation as
+    its own paragraph, prefixed with a colon. Then run
 
- 5. Write episode description in `YYYY-MM-DD-episodeNNN.md`
+    ```
+    _scripts/captionbreak _data/episodeNNN.a.txt > _data/episodeNNN.b.txt
+    ```
 
- 6. Fill in episode `tagline` (same file) and `size` of mp4 file, in bytes.
+    See the comment in `_scripts/captionbreak` for more details.
 
- 7. After adding indices to transcript, reindex:
+ 4. Fill out the description, `tagline`, and `size` in `_drafts/episodeNNN.md`.
+    The `size` should be the exact size, in bytes, of `episodeNNN.mp4`.
+
+ 5. Add timings to `_data/episodeNNN.b.txt` by prefixing each caption couplet
+    with `M:SS` on a line by itself. I can usually do this at 1.0x and just
+    look at the timer in VLC. Then run
+
+    ```
+    _scripts/yamlify _data/episodeNNN.b.txt > _data/episodeNNN.yaml
+    ```
+
+ 6. Add `index` terms and `cmd` lines to `_data/episodeNNN.yaml`. Test them
+    using:
+
+    ```
+    rake reindex drafts=1
+    jekyll serve -D
+    ```
+
+ 7. Spot-check the captions file `_site/episodeNNN/episodeNNN.srt` by loading
+    it in VLC.
+
+ 8. Run `rake reindex` to exclude drafts, and commit changes.
+
+ 9. Once the release date arrives, use `git mv` to move the
+    `_drafts/episodeNNN.md` to `_posts`, and timestamp it. Test it again, using
 
     ```
     rake reindex
-    ```
-
- 8. Test website locally using
-
-    ```
     jekyll serve
     ```
 
- 9. Spot-check episode entry in `_site/rss.xml`.
+    then commit changes and push.
 
- 10. Push new content to GitHub.
+10. [Ping feedburner](http://www.feedburner.com/fb/a/pingSubmit?bloglink=http%3A%2F%2Ffeeds.feedburner.com%2Fcommandlinetv),
+    and it will tweet about the new episode.
 
-    ```
-    git add _posts _data episodeNNN
-    git commit -m "Episode N"
-    git push
-    ```
+11. Upload the *original* MP4 file to YouTube. Copy the description from the
+    web site, and use these tags: Command-line interface, Unix (Operating
+    System), Unix-like, Unix Shell, Operating System, Programming Language,
+    Technology, GNU/Linux Operating System.
 
- 11. Tweet about episode from CLTV account.
-
- 12. Upload captions in `_site/episodeNNN/episodeNNN.srt` to YouTube.
-
+12. Once the YouTube video is ready, upload the captions file.

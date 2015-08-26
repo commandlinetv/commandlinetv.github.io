@@ -1,5 +1,22 @@
 #!/usr/bin/env ruby
 
+# This script takes paragraphs of text and partitions and reformats them into
+# captions of at most two short lines each. Any paragraph break (blank line)
+# forces a caption break. Other breaks are inserted as needed, preferably on
+# punctuation, preferring periods (.?!) and then others (-;,:).
+#
+# I recommend including speaker names whenever the speaker changes. Do this as
+# a paragraph by itself, prefixed by a colon:
+#
+#    :League
+#
+#    Welcome to Command Line TV. In this episode, we will do something.
+#
+# Use `backquotes` to signal that the enclosed is a literal command or filename
+# that should appear in a designated style in the transcript. Use a double-dash
+# -- to indicate a pause or an interruption.
+#
+
 maxLine = 54
 minCaption = 50
 maxCaption = 100
