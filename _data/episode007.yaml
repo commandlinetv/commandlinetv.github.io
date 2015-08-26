@@ -1,7 +1,1791 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:22"
+  speaker: League
+  caption: |
+    Hi, welcome back to Command Line TV.
+    This is episode 7 and today we're
+
+- time: "00:00:26"
+  speaker: League
+  caption: |
+    going to look at a pretty cool suite of tools for doing
+    image manipulation. It's called ImageMagick.
+
+- time: "00:00:33"
+  speaker: League
+  caption: |
+    But first, do we have any follow-up from last time?
+
+- time: "00:00:36"
+  speaker: Lopes
+  caption: |
+    I did have some questions. One of them
+    was the -- you had something that
+
+- time: "00:00:40"
+  speaker: Lopes
+  caption: |
+    showed up in your terminal called reverse-i-search.
+
+- time: "00:00:42"
+  speaker: Lopes
+  caption: |
+    I was curious, what does that do and
+    how can we actually use that?
+
+- time: "00:00:46"
+  speaker: League
+  caption: |
+    Yeah, so I was doing some fancy stuff
+    there. It has to do with the history
+
+- time: "00:00:50"
+  speaker: League
+  caption: |
+    mechanism that bash supports. History is all about
+    getting back to your previous commands.
+
+- time: "00:00:57"
+  speaker: League
+  caption: |
+    And we've talked about using the up and down arrow
+    to navigate through your previous commands.
+
+- time: "00:01:03"
+  speaker: League
+  caption: |
+    But that reverse search is really interesting.
+    What I'm doing there is I hit 'control-R' --
+
+- time: "00:01:09"
+  speaker: League
+  caption: |
+    so as soon as I hit 'control-R', my little
+    prompt changes to say `reverse-i-search`.
+
+- time: "00:01:16"
+  speaker: League
+  caption: |
+    The `i` there is for 'incremental'.
+    So what it means now is,
+
+- time: "00:01:19"
+  speaker: League
+  caption: |
+    as I start to type it will match up what I'm
+    typing with previous commands from my history.
+
+- time: "00:01:25"
+  speaker: League
+  caption: |
+    So maybe if I want to look at a
+    previous `cd` command that I typed --
+
+- time: "00:01:32"
+  speaker: League
+  caption: |
+    I just hit `cd` and you can see that what I typed --
+    the `cd` -- appears between these weird quotes.
+
+- time: "00:01:39"
+  speaker: League
+  caption: |
+    But the command where my cursor is came from
+    the history, and it's `cd Downloads/`.
+
+- time: "00:01:43"
+  speaker: League
+  caption: |
+    Now if I've got another `cd`
+    command that I'm looking for,
+
+- time: "00:01:47"
+  speaker: League
+  caption: |
+    that might be further back in the
+    history, I just hit 'control-R' again,
+
+- time: "00:01:52"
+  speaker: League
+  caption: |
+    and it will go back one but still matching the `cd`.
+
+- time: "00:01:55"
+  speaker: League
+  caption: |
+    So here's 'control-R' again -- there was
+    just a `cd` command by itself.
+
+- time: "00:02:00"
+  speaker: League
+  caption: |
+    'control-R' again -- `Downloads`, `pics`, and so on.
+
+- time: "00:02:03"
+  speaker: League
+  caption: |
+    So I can kind of work my way through the history
+    but matching some particular piece of text.
+
+- time: "00:02:12"
+  speaker: League
+  caption: |
+    I'll try it again with -- let's say, a `cut` command.
+
+- time: "00:02:16"
+  speaker: League
+  caption: |
+    So I know in previous episodes we did some of that
+    survey analysis using `cut` and `sort`.
+
+- time: "00:02:26"
+  speaker: League
+  caption: |
+    So if I look at `cut` you can see some of
+    those commands that we did in
+
+- time: "00:02:29"
+  speaker: League
+  caption: |
+    those previous episodes still come up here. So it's
+    not even just in the current shell session.
+
+- time: "00:02:35"
+  speaker: League
+  caption: |
+    When your shell closes, it saves that
+    history into a file and then reloads
+
+- time: "00:02:40"
+  speaker: League
+  caption: |
+    that when I reopen the shell. And I can
+    always go back and find those commands.
+
+- time: "00:02:46"
+  speaker: League
+  caption: |
+    If I want to execute a command I found
+    this way, I can just press enter.
+
+- time: "00:02:50"
+  speaker: League
+  caption: |
+    If I want to edit it, because maybe I need to
+    change something from the last time I did it,
+
+- time: "00:02:54"
+  speaker: League
+  caption: |
+    I can use the arrow keys and come out here
+    and do my normal command line editing,
+
+- time: "00:02:59"
+  speaker: League
+  caption: |
+    and then hit enter. Or if you
+    don't want to run it at all,
+
+- time: "00:03:03"
+  speaker: League
+  caption: |
+    you can just hit 'control-C' and it'll
+    come back to your regular prompt.
+
+- time: "00:03:07"
+  speaker: League
+  caption: |
+    So that's the reverse search -- it's pretty useful.
+
+- time: "00:03:10"
+  speaker: Lopes
+  caption: |
+    Another thing I saw you do was you cleared the
+    screen without typing `clear` into the terminal.
+
+- time: "00:03:15"
+  speaker: Lopes
+  caption: |
+    What command did you do for that?
+
+- time: "00:03:18"
+  speaker: League
+  caption: |
+    That's just another control command, so
+    'control-L' will get me a clear screen like that.
+
+- time: "00:03:23"
+  speaker: League
+  caption: |
+    It's exactly the same as typing the command `clear`.
+
+- time: "00:03:28"
+  speaker: League
+  caption: |
+    So when things start to get a little messy
+    I might just hit 'control-L' and
+
+- time: "00:03:32"
+  speaker: League
+  caption: |
+    it brings it back up to a clear screen at
+    the top of my terminal window.
+
+- time: "00:03:37"
+  speaker: Lopes
+  caption: |
+    That doesn't reset it though, does it?
+
+- time: "00:03:39"
+  speaker: League
+  caption: |
+    No it's not the same as `reset`. So `reset`, which we
+    learned previously does a lot of other things.
+
+- time: "00:03:45"
+  speaker: League
+  caption: |
+    It also clears the screen but it resets a lot of other
+    settings and 'control-L' doesn't do all that.
+
+- time: "00:03:53"
+  speaker: Lopes
+  caption: |
+    My last follow-up from the previous episode would be
+    in regards to the way you save the dates.
+
+- time: "00:03:58"
+  speaker: Lopes
+  caption: |
+    Is there a specific format you should save things in?
+
+- time: "00:04:01"
+  speaker: League
+  caption: |
+    Yeah, so I saved some log files and I
+    used a date in the filename.
+
+- time: "00:04:06"
+  speaker: League
+  caption: |
+    So what I was doing there was -- like a
+    log file that has as part of its
+
+- time: "00:04:12"
+  speaker: League
+  caption: |
+    filename year-month-day in a format like this.
+    The OS doesn't really care about that --
+
+- time: "00:04:20"
+  speaker: League
+  caption: |
+    it doesn't notice that you named it that
+    way, but what that does is it puts
+
+- time: "00:04:26"
+  speaker: League
+  caption: |
+    them in chronological order when you
+    sort things alphabetically.
+
+- time: "00:04:30"
+  speaker: League
+  caption: |
+    So the normal `ls` output, when I have
+    files which have year-month-day and
+
+- time: "00:04:35"
+  speaker: League
+  caption: |
+    they use leading zeroes and so forth
+    like this -- it has the effect of
+
+- time: "00:04:41"
+  speaker: League
+  caption: |
+    putting them also in chronological order,
+    because the years will come first
+
+- time: "00:04:45"
+  speaker: League
+  caption: |
+    and then it'll look at the month and
+    then the day. So that's why that
+
+- time: "00:04:49"
+  speaker: League
+  caption: |
+    format is very popular among
+    programmers and computer users.
+
+- time: "00:04:53"
+  speaker: League
+  caption: |
+    It's just a useful technique when you name
+    something with the date to put
+
+- time: "00:04:58"
+  speaker: League
+  caption: |
+    it in this year-month-day format.
+
+- time: "00:05:01"
+  speaker: Lopes
+  caption: |
+    So assuming we already have ImageMagick
+    installed, the first command we
+
+- time: "00:05:05"
+  speaker: Lopes
+  caption: |
+    could use would be `display`, correct?
+
+- time: "00:05:07"
+  speaker: League
+  caption: |
+    Yeah, ImageMagick comes with a few different commands.
+    One of the simplest is just called `display`.
+
+- time: "00:05:15"
+  speaker: League
+  caption: |
+    So if I type `display` all by itself, it
+    opens up this little window with
+
+- time: "00:05:19"
+  speaker: League
+  caption: |
+    the ImageMagick logo which is this cute
+    wizard. So I can hit escape or --
+
+- time: "00:05:26"
+  speaker: League
+  caption: |
+    you probably have a little close window
+    icon or something to close that.
+
+- time: "00:05:31"
+  speaker: League
+  caption: |
+    But what this can do is it shows pictures,
+    so I have a couple of pictures
+
+- time: "00:05:35"
+  speaker: League
+  caption: |
+    here that I took at the Computer History Museum
+    (I think it's called) in Silicon Valley.
+
+- time: "00:05:44"
+  speaker: League
+  caption: |
+    And if I want to display these I can say
+    `display` and then a filename,
+
+- time: "00:05:50"
+  speaker: League
+  caption: |
+    or I think I can just put `*.jpg`
+    or something like that.
+
+- time: "00:05:55"
+  speaker: League
+  caption: |
+    It displays other formats, `jpg`, `png`, `tiff` --
+    it supports lots of different image formats.
+
+- time: "00:06:02"
+  speaker: League
+  caption: |
+    And then that will open these up -- there's
+    some way to zoom around in them
+
+- time: "00:06:07"
+  speaker: League
+  caption: |
+    if it doesn't quite fit on the screen. There's
+    some way to move on to the next image,
+
+- time: "00:06:12"
+  speaker: League
+  caption: |
+    which -- I just hit the space bar
+    to move to the next one.
+
+- time: "00:06:17"
+  speaker: League
+  caption: |
+    So this is a simple way to go through
+    and just display some images.
+
+- time: "00:06:20"
+  speaker: League
+  caption: |
+    It has a few other features but `display`
+    is not the most sophisticated
+
+- time: "00:06:25"
+  speaker: League
+  caption: |
+    image viewer that's available. So I
+    actually don't use it that much.
+
+- time: "00:06:30"
+  speaker: League
+  caption: |
+    But it is part of the ImageMagick
+    suite. So we'll close that.
+
+- time: "00:06:34"
+  speaker: League
+  caption: |
+    The next command that's part of
+    ImageMagick is called `identify`.
+
+- time: "00:06:39"
+  speaker: League
+  caption: |
+    So `identify` is basically a way of listing
+    the properties of an image file.
+
+- time: "00:06:48"
+  speaker: League
+  caption: |
+    So if I try to `identify IMAG0*` like
+    this -- it will take all of those
+
+- time: "00:06:54"
+  speaker: League
+  caption: |
+    filenames that match the wildcard
+    and just peer into them,
+
+- time: "00:06:58"
+  speaker: League
+  caption: |
+    and tell me things like the resolution and
+    the color model and stuff like that.
+
+- time: "00:07:04"
+  speaker: League
+  caption: |
+    So basically it's doing one-line for
+    each image. It has the filename,
+
+- time: "00:07:09"
+  speaker: League
+  caption: |
+    and then a sequence number -- which is basically just
+    the ordering of the images it looked at --
+
+- time: "00:07:15"
+  speaker: League
+  caption: |
+    the format, the resolution. This is
+    called the 'geometry' string.
+
+- time: "00:07:22"
+  speaker: League
+  caption: |
+    It's basically -- some image formats allow
+    you to have a certain portion of
+
+- time: "00:07:29"
+  speaker: League
+  caption: |
+    the image that is selected, like a crop of the image.
+
+- time: "00:07:33"
+  speaker: League
+  caption: |
+    And what this format means is that the
+    crop will be this width and height,
+
+- time: "00:07:40"
+  speaker: League
+  caption: |
+    and then the `+0` is the X offset, and
+    the next `+0` is the Y offset.
+
+- time: "00:07:45"
+  speaker: League
+  caption: |
+    So that format allows you to specify a
+    rectangle anywhere within an image.
+
+- time: "00:07:51"
+  speaker: League
+  caption: |
+    For all of these, the rectangle is just
+    the full resolution and `+0+0` but
+
+- time: "00:07:57"
+  speaker: League
+  caption: |
+    there are other image formats where
+    that could be different.
+
+- time: "00:08:00"
+  speaker: League
+  caption: |
+    We're also going to use that when we learn
+    to crop images with ImageMagick.
+
+- time: "00:08:04"
+  speaker: League
+  caption: |
+    It's that same format -- if you want to crop an image,
+
+- time: "00:08:06"
+  speaker: League
+  caption: |
+    you specify the new width and height,
+    and then the X and Y offset.
+
+- time: "00:08:12"
+  speaker: League
+  caption: |
+    We're using 8-bit color and an RGB color model. Here
+    is the size of the file in human terms --
+
+- time: "00:08:18"
+  speaker: League
+  caption: |
+    and whatever all those zeroes are supposed to be.
+
+- time: "00:08:21"
+  speaker: League
+  caption: |
+    So `identify` is a quick way to figure out
+    resolution and other information on images.
+
+- time: "00:08:26"
+  speaker: League
+  caption: |
+    It does have a `-verbose` option. And one
+    thing that's a little different
+
+- time: "00:08:31"
+  speaker: League
+  caption: |
+    about ImageMagick commands -- compared to some of the
+    file management commands that we've learned --
+
+- time: "00:08:37"
+  speaker: League
+  caption: |
+    is that it doesn't really use the
+    short forms of these options.
+
+- time: "00:08:42"
+  speaker: League
+  caption: |
+    So on a lot of GNU commands, you might
+    say `-v` or `--verbose`, right?
+
+- time: "00:08:50"
+  speaker: League
+  caption: |
+    Or `-h` or `--help` -- these are
+    equivalent to each other.
+
+- time: "00:08:56"
+  speaker: League
+  caption: |
+    ImageMagick doesn't really support the
+    short forms and so it uses a full
+
+- time: "00:09:00"
+  speaker: League
+  caption: |
+    word as its option but only a single dash.
+    It doesn't use the double dash.
+
+- time: "00:09:06"
+  speaker: League
+  caption: |
+    So if I `identify -verbose` and I put
+    just one of these names --
+
+- time: "00:09:10"
+  speaker: League
+  caption: |
+    because that will be plenty of info -- so
+    `IMAG0212.jpg` with the verbose --
+
+- time: "00:09:17"
+  speaker: League
+  caption: |
+    this is going to dump out a whole ton of
+    information about this image.
+
+- time: "00:09:23"
+  speaker: League
+  caption: |
+    And you can see there's all sort -- let's
+    pipe that through `less` so that
+
+- time: "00:09:28"
+  speaker: League
+  caption: |
+    we can just get a page at a time. It's
+    showing me the image format,
+
+- time: "00:09:36"
+  speaker: League
+  caption: |
+    that geometry string, resolution means
+    how many dots per inch does this
+
+- time: "00:09:41"
+  speaker: League
+  caption: |
+    image expect to be displayed at -- or pixels
+    per inch. Color model, stuff like that.
+
+- time: "00:09:48"
+  speaker: League
+  caption: |
+    For each of the red, green, and blue channels it
+    gives me like the average colors and such.
+
+- time: "00:09:54"
+  speaker: League
+  caption: |
+    There are all kinds of potentially
+    useful information here.
+
+- time: "00:09:59"
+  speaker: League
+  caption: |
+    And you can see all of that with the verbose flag.
+
+- time: "00:10:04"
+  speaker: Lopes
+  caption: |
+    So a lot of programs and applications nowadays
+    sometimes tend to be very file type specific.
+
+- time: "00:10:09"
+  speaker: Lopes
+  caption: |
+    What if you had an image file that you
+    wanted to convert from a `jpg` to a
+
+- time: "00:10:13"
+  speaker: Lopes
+  caption: |
+    different file type or vice versa?
+
+- time: "00:10:15"
+  speaker: League
+  caption: |
+    Yeah, one of the real big uses of
+    ImageMagick is just this format conversion.
+
+- time: "00:10:20"
+  speaker: League
+  caption: |
+    And it does that very easily. One of the
+    commands for that is called `mogrify`,
+
+- time: "00:10:27"
+  speaker: League
+  caption: |
+    which -- as far as I know is a word they just made
+    up. But it means to process some image.
+
+- time: "00:10:34"
+  speaker: League
+  caption: |
+    And so what you do is you basically say
+    `mogrify` and then some flags or
+
+- time: "00:10:41"
+  speaker: League
+  caption: |
+    options to specify how you want to process it. So one
+    thing we can do is just change the format.
+
+- time: "00:10:48"
+  speaker: League
+  caption: |
+    So I've got JPEGs mostly in this folder -- what if I
+    want to convert one of them to a PNG format,
+
+- time: "00:10:54"
+  speaker: League
+  caption: |
+    right? And then let's take `IMAG0213.jpg`. So my
+    command is `mogrify -format` and then the format --
+
+- time: "00:11:05"
+  speaker: League
+  caption: |
+    and, as I said, ImageMagick supports lots
+    of formats -- but we'll use `png`.
+
+- time: "00:11:13"
+  speaker: League
+  caption: |
+    And here's the original filename. So I do that -- it
+    can take a moment if your image file is big,
+
+- time: "00:11:19"
+  speaker: League
+  caption: |
+    to do this conversion. Then it comes
+    back -- it didn't say anything,
+
+- time: "00:11:23"
+  speaker: League
+  caption: |
+    but I want to see what file it
+    created. So if I do `ls`,
+
+- time: "00:11:28"
+  speaker: League
+  caption: |
+    you see right here it created a `png` file with
+    the same name as the original `jpg`.
+
+- time: "00:11:36"
+  speaker: League
+  caption: |
+    So that is what `mogrify -format` can do for us.
+
+- time: "00:11:41"
+  speaker: League
+  caption: |
+    Let's take a look at the `identify`
+    output of both of those.
+
+- time: "00:11:44"
+  speaker: League
+  caption: |
+    So if I do `IMAG0213*`, I see that both
+    of them have the same resolution
+
+- time: "00:11:53"
+  speaker: League
+  caption: |
+    and the PNG file got a lot bigger,
+    right -- so 7 MB instead of 1 MB.
+
+- time: "00:12:00"
+  speaker: League
+  caption: |
+    So that's one thing that happens
+    when I do that conversion.
+
+- time: "00:12:05"
+  speaker: League
+  caption: |
+    Try a different format -- let's just
+    convert that same image to a `tiff`.
+
+- time: "00:12:10"
+  speaker: League
+  caption: |
+    That went pretty fast, and I've
+    got this `tiff` file --
+
+- time: "00:12:15"
+  speaker: League
+  caption: |
+    so now if I do `identify` on those again, the TIFF is
+    the same resolution but it became even bigger.
+
+- time: "00:12:26"
+  speaker: League
+  caption: |
+    So what we're seeing here is the difference between
+    compression schemes in these different formats.
+
+- time: "00:12:31"
+  speaker: League
+  caption: |
+    JPEG is 'lossy' compression, so it can
+    throw out some information from the
+
+- time: "00:12:36"
+  speaker: League
+  caption: |
+    original sensors that took the image,
+    and it becomes very small.
+
+- time: "00:12:41"
+  speaker: League
+  caption: |
+    PNG is compressed but in a lossless way, and
+    of course since I started with a JPEG,
+
+- time: "00:12:48"
+  speaker: League
+  caption: |
+    I can't get back the information that was lost
+    before I did the JPEG from the camera sensors.
+
+- time: "00:12:56"
+  speaker: League
+  caption: |
+    But the PNG will preserve what information
+    is there -- it becomes bigger --
+
+- time: "00:13:01"
+  speaker: League
+  caption: |
+    and the TIFF becomes bigger yet because it's,
+    generally speaking, not compressed at all.
+
+- time: "00:13:08"
+  speaker: League
+  caption: |
+    Another thing that's cool about `mogrify` is that I
+    can just apply it in batch to tons of files.
+
+- time: "00:13:15"
+  speaker: League
+  caption: |
+    So I've got a whole directory of JPEGs
+    here. And if I want to do that --
+
+- time: "00:13:20"
+  speaker: League
+  caption: |
+    I'm doing reverse-i-search with 'control-R' -- so
+    I'm going to get back my `png` mogrify.
+
+- time: "00:13:27"
+  speaker: League
+  caption: |
+    Let's say I want to apply that to
+    everything that's a `.jpg`, right?
+
+- time: "00:13:32"
+  speaker: League
+  caption: |
+    So what I'm going to end up doing is
+    converting all of these files to `png`.
+
+- time: "00:13:39"
+  speaker: League
+  caption: |
+    And that can take a little while --
+
+- time: "00:13:43"
+  speaker: League
+  caption: |
+    Alright, now that that's finished
+    (through the magic of video editing),
+
+- time: "00:13:48"
+  speaker: League
+  caption: |
+    we have a directory that has the original JPEGs as
+    well as the PNGs that were just created.
+
+- time: "00:13:54"
+  speaker: League
+  caption: |
+    So I've been able to just -- in a batch
+    sense, convert a bunch of files
+
+- time: "00:13:59"
+  speaker: League
+  caption: |
+    without having to individually open them
+    and save as -- that kind of thing.
+
+- time: "00:14:03"
+  speaker: League
+  caption: |
+    So I think that's one of the really
+    great use cases of ImageMagick.
+
+- time: "00:14:10"
+  speaker: Lopes
+  caption: |
+    So if we have an image file, for example
+    we see here `IMAG0223.jpg` --
+
+- time: "00:14:16"
+  speaker: Lopes
+  caption: |
+    it's too large to fit onto the screen, what can
+    we do to convert that to a smaller size?
+
+- time: "00:14:22"
+  speaker: League
+  caption: |
+    Yeah, so `display` is showing it
+    to us a piece at a time,
+
+- time: "00:14:26"
+  speaker: League
+  caption: |
+    and it doesn't really fit on the
+    resolution that I've got here.
+
+- time: "00:14:29"
+  speaker: League
+  caption: |
+    So if I want to shrink it -- what you first want to
+    figure it is how much should I shrink it by,
+
+- time: "00:14:35"
+  speaker: League
+  caption: |
+    or what's my target resolution. So I'm
+    going to close that and of course we
+
+- time: "00:14:40"
+  speaker: League
+  caption: |
+    can run `identify` to figure out -- oh, I
+    just did something a little fancy!
+
+- time: "00:14:45"
+  speaker: League
+  caption: |
+    We'll do more on this later, I just did
+    it automatically [laughs] but uh,
+
+- time: "00:14:51"
+  speaker: League
+  caption: |
+    this exclamation and dollar sign `!$` -- it
+    looks like I'm cursing at the terminal --
+
+- time: "00:14:56"
+  speaker: League
+  caption: |
+    but what this means is take the previous command, but
+    only the last word of the previous command.
+
+- time: "00:15:04"
+  speaker: League
+  caption: |
+    So whenever I want to operate on the same
+    file, but run a different command --
+
+- time: "00:15:10"
+  speaker: League
+  caption: |
+    that's something that I just automatically
+    do. And I call it "bang dollar".
+
+- time: "00:15:15"
+  speaker: League
+  caption: |
+    So previous command, but only the last word, and
+    you see that it expanded just like that.
+
+- time: "00:15:21"
+  speaker: League
+  caption: |
+    At any rate, here is the
+    resolution that I'm starting with.
+
+- time: "00:15:27"
+  speaker: League
+  caption: |
+    And let's say I want to shrink it to like 50% of that.
+
+- time: "00:15:30"
+  speaker: League
+  caption: |
+    So that way, if each number is taken by 50% I know
+    I'll keep the same aspect ratio of the image.
+
+- time: "00:15:39"
+  speaker: League
+  caption: |
+    So a good way to do that is the `convert` command.
+    And you give the input filename first --
+
+- time: "00:15:46"
+  speaker: League
+  caption: |
+    so `IMAG0223.jpg` -- and then you can give a
+    series of image processing options to it.
+
+- time: "00:15:54"
+  speaker: League
+  caption: |
+    The one that will resize an image
+    is called `-geometry`.
+
+- time: "00:16:00"
+  speaker: League
+  caption: |
+    And the simplest type of `-geometry` is just to put a
+    percentage, so `50%` means shrink it in half.
+
+- time: "00:16:10"
+  speaker: League
+  caption: |
+    And then you put an output filename. So we're
+    going to call this like `223-sm.jpg`.
+
+- time: "00:16:18"
+  speaker: League
+  caption: |
+    And that will open that image, shrink
+    it, and then save the new image.
+
+- time: "00:16:23"
+  speaker: League
+  caption: |
+    So I can compare them by putting both of
+    them on the `identify` command line,
+
+- time: "00:16:29"
+  speaker: League
+  caption: |
+    and see -- I'm going to use that (`!$`)
+    again. So the original image is
+
+- time: "00:16:36"
+  speaker: League
+  caption: |
+    1950 by 2289 and the new image is 975
+    by 1145. So that's halfway.
+
+- time: "00:16:46"
+  speaker: League
+  caption: |
+    And I can open it with `display` and now
+    it fits on my screen pretty well
+
+- time: "00:16:51"
+  speaker: League
+  caption: |
+    although it's duplicating for some reason. Yeah, the
+    `display` command is kind of weird sometimes.
+
+- time: "00:16:59"
+  speaker: League
+  caption: |
+    But that's shrinking.
+
+- time: "00:17:01"
+  speaker: Lopes
+  caption: |
+    So just to backtrack, all these
+    commands do support the help option,
+
+- time: "00:17:05"
+  speaker: Lopes
+  caption: |
+    and again it's the `-help` not `-h`.
+
+- time: "00:17:08"
+  speaker: League
+  caption: |
+    Yeah so if I do `convert -help` -- not
+    double-dash help, or `-h`, exactly --
+
+- time: "00:17:17"
+  speaker: League
+  caption: |
+    but this will give me -- let's do that with `less`.
+
+- time: "00:17:21"
+  speaker: League
+  caption: |
+    This will give me a very brief synopsis of some
+    of the things that `convert` can do.
+
+- time: "00:17:28"
+  speaker: League
+  caption: |
+    It's got all sorts of other image processing
+    operations that you can access here.
+
+- time: "00:17:36"
+  speaker: League
+  caption: |
+    So why don't we try a couple of those.
+
+- time: "00:17:39"
+  speaker: League
+  caption: |
+    One that I like to do is -- sometimes you
+    want to add a border to an image.
+
+- time: "00:17:46"
+  speaker: League
+  caption: |
+    And this is a pretty easy thing to do. So
+    let's take my smaller -- well,
+
+- time: "00:17:54"
+  speaker: League
+  caption: |
+    let's combine a shrink with a border.
+    So here's how we'll do that.
+
+- time: "00:17:58"
+  speaker: League
+  caption: |
+    I'm going to pick one of these and do
+    `convert` -- let's say `IMAG0209.jpg`.
+
+- time: "00:18:08"
+  speaker: League
+  caption: |
+    And I'm going to do `-geometry` first to shrink it --
+
+- time: "00:18:11"
+  speaker: League
+  caption: |
+    we're going to shrink it pretty small, so let's say
+    `33%`. And then I can specify `-bordercolor`.
+
+- time: "00:18:21"
+  speaker: League
+  caption: |
+    There are a lot of built-in colors like the
+    standard red, green, yellow, whatever.
+
+- time: "00:18:26"
+  speaker: League
+  caption: |
+    So I'll say `red` -- or you can specify
+    colors more precisely using those
+
+- time: "00:18:33"
+  speaker: League
+  caption: |
+    HTML-like hexadecimal specifications --
+    we can look at that another time.
+
+- time: "00:18:39"
+  speaker: League
+  caption: |
+    And then you specify the thickness
+    of the border in pixels,
+
+- time: "00:18:42"
+  speaker: League
+  caption: |
+    so let's make it very visible at `8` pixels. So
+    I'm stringing all of this together --
+
+- time: "00:18:49"
+  speaker: League
+  caption: |
+    putting these operations together will
+    apply them in that order --
+
+- time: "00:18:52"
+  speaker: League
+  caption: |
+    and then finally I put the output name. So
+    we're going to call this `209border.jpg`.
+
+- time: "00:19:04"
+  speaker: League
+  caption: |
+    And that should work. So I'm going
+    to open that image with --
+
+- time: "00:19:10"
+  speaker: League
+  caption: |
+    instead of `display` I'm going to use this other
+    thing we learned before, called `xdg-open`.
+
+- time: "00:19:16"
+  speaker: League
+  caption: |
+    And you can see the red border that
+    appears around this image.
+
+- time: "00:19:20"
+  speaker: League
+  caption: |
+    So it added that border, it also shrunk it, so
+    it's not nearly as big as the original was.
+
+- time: "00:19:29"
+  speaker: League
+  caption: |
+    Another thing we might like to do is blur or
+    apply other sorts of image filters --
+
+- time: "00:19:37"
+  speaker: League
+  caption: |
+    just like you could in Photoshop
+    or something like that.
+
+- time: "00:19:43"
+  speaker: League
+  caption: |
+    So there's a `-blur` command, and the way
+    blurring works is you give it the geometry --
+
+- time: "00:19:49"
+  speaker: League
+  caption: |
+    in other words, the shape that you're
+    going to apply the blur operator to.
+
+- time: "00:19:53"
+  speaker: League
+  caption: |
+    And if it's a very small rectangle,
+    it just blurs a little bit.
+
+- time: "00:19:58"
+  speaker: League
+  caption: |
+    If it's a big rectangle then it blurs much more.
+    So we're going to try doing some of that.
+
+- time: "00:20:06"
+  speaker: League
+  caption: |
+    Let's try that on `IMAG0205.jpg`. We're
+    going to do `-blur` -- well,
+
+- time: "00:20:15"
+  speaker: League
+  caption: |
+    let me again shrink, because it's easier to
+    deal with if these are a little smaller.
+
+- time: "00:20:24"
+  speaker: League
+  caption: |
+    And then we'll `-blur` using like
+    a `10x10` pixel filter.
+
+- time: "00:20:30"
+  speaker: League
+  caption: |
+    And I'm going to save that as
+    `205blur10.jpg`. And let's open both the
+
+- time: "00:20:43"
+  speaker: League
+  caption: |
+    original and the blurred version,
+    then we can see the difference.
+
+- time: "00:20:48"
+  speaker: League
+  caption: |
+    So I'm going to actually use my
+    image viewer called `eog` --
+
+- time: "00:20:52"
+  speaker: League
+  caption: |
+    this is just a Gnome image viewer, but I
+    could open these separately with
+
+- time: "00:20:59"
+  speaker: League
+  caption: |
+    `display` or `xdg-open` or
+    something.  So here is the -- no,
+
+- time: "00:21:04"
+  speaker: League
+  caption: |
+    that's got to be the blurred image,
+    right. Yeah that's the blurred image.
+
+- time: "00:21:09"
+  speaker: League
+  caption: |
+    There's the original image. So it --
+    this was 1742 pixels across,
+
+- time: "00:21:15"
+  speaker: League
+  caption: |
+    and now it's 575, so that's about a third. And
+    it also blurred it pretty substantially.
+
+- time: "00:21:22"
+  speaker: League
+  caption: |
+    So you can't really even tell that this is
+    text on here -- it just looks like dirt.
+
+- time: "00:21:31"
+  speaker: League
+  caption: |
+    So that's just one of the many other
+    operations that `convert` supports.
+
+- time: "00:21:36"
+  speaker: Lopes
+  caption: |
+    So I guess the next two things we should
+    discuss are cropping images and
+
+- time: "00:21:40"
+  speaker: Lopes
+  caption: |
+    then opening an image in Gimp.
+
+- time: "00:21:43"
+  speaker: League
+  caption: |
+    Yeah, so cropping is a little tricky because you've
+    got to come up with these geometry strings.
+
+- time: "00:21:50"
+  speaker: League
+  caption: |
+    The basic format of the command with `convert` is --
+
+- time: "00:21:53"
+  speaker: League
+  caption: |
+    let's say I want to take
+    `IMAG0207.jpg` and I want to crop that --
+
+- time: "00:22:01"
+  speaker: League
+  caption: |
+    first of all, I'm going to do `identify` to figure out
+    the approximate resolution I'm working with.
+
+- time: "00:22:10"
+  speaker: League
+  caption: |
+    And then I can do `convert` with `-crop`
+    -- let's say I want to cut a
+
+- time: "00:22:17"
+  speaker: League
+  caption: |
+    square image out of the middle of that
+    somewhere. So the first thing you
+
+- time: "00:22:23"
+  speaker: League
+  caption: |
+    put is the dimensions that you're
+    cropping at -- `1200x1200` and then I
+
+- time: "00:22:29"
+  speaker: League
+  caption: |
+    want to put `+` something for the X position, so
+    it's just guesswork really `+500+100`.
+
+- time: "00:22:38"
+  speaker: League
+  caption: |
+    And I could try that -- let's call that `207crop.jpg`.
+
+- time: "00:22:43"
+  speaker: League
+  caption: |
+    So I can open both of these files to see
+    what that geometry string produced.
+
+- time: "00:22:50"
+  speaker: League
+  caption: |
+    Here is the original version. You can see
+    that it cut out a square from
+
+- time: "00:22:57"
+  speaker: League
+  caption: |
+    somewhere around this region. But what if
+    we needed to get it more precise?
+
+- time: "00:23:01"
+  speaker: League
+  caption: |
+    What I would recommend in that case is
+    to open a program where you can
+
+- time: "00:23:06"
+  speaker: League
+  caption: |
+    actually see the pixel values and
+    move your mouse around.
+
+- time: "00:23:08"
+  speaker: League
+  caption: |
+    So that's not a command line program,
+    that's going to be a graphical program.
+
+- time: "00:23:14"
+  speaker: League
+  caption: |
+    The `gimp` is basically a free version of
+    Photoshop. It's available for all Unix systems.
+
+- time: "00:23:23"
+  speaker: League
+  caption: |
+    It also might not be installed so you can
+    try using your package management
+
+- time: "00:23:28"
+  speaker: League
+  caption: |
+    commands to get that installed. And then we're
+    going to run that on the original image --
+
+- time: "00:23:36"
+  speaker: League
+  caption: |
+    217 I think it was.
+
+- time: "00:23:40"
+  speaker: Lopes
+  caption: |
+    207
+
+- time: "00:23:42"
+  speaker: League
+  caption: |
+    207, thank you -- `.jpg`. So it opens that
+    up and this is shrunk a little bit,
+
+- time: "00:23:49"
+  speaker: League
+  caption: |
+    it says 25% down here at the bottom.
+    But what this can do for me --
+
+- time: "00:23:54"
+  speaker: League
+  caption: |
+    well I can just crop it right here, that's fine.
+    But the advantage of ImageMagick is batch,
+
+- time: "00:24:00"
+  speaker: League
+  caption: |
+    right -- so if I want to run the same crop
+    on many images I'm going to have
+
+- time: "00:24:06"
+  speaker: League
+  caption: |
+    an easier time of that using ImageMagick than Gimp.
+
+- time: "00:24:12"
+  speaker: League
+  caption: |
+    But I can get the numbers to make my
+    geometry string from Gimp.
+
+- time: "00:24:16"
+  speaker: League
+  caption: |
+    So I'm going to do the rectangle selector
+    and depending on where I want to be,
+
+- time: "00:24:20"
+  speaker: League
+  caption: |
+    I look in this lower left corner here. You
+    can't see the numbers while my
+
+- time: "00:24:26"
+  speaker: League
+  caption: |
+    mouse is down there [laughs] but that's my current
+    position, so that's the X and Y offset.
+
+- time: "00:24:31"
+  speaker: League
+  caption: |
+    So I remember or write down 288 and 360.
+    And then I'm going to get the --
+
+- time: "00:24:38"
+  speaker: League
+  caption: |
+    let's say I want to crop out this
+    piece here. So that's about --
+
+- time: "00:24:43"
+  speaker: League
+  caption: |
+    I keep moving my finger a little
+    bit. But 2636 by 1044.
+
+- time: "00:24:51"
+  speaker: League
+  caption: |
+    So I can come back to my -- let's just discard that.
+
+- time: "00:24:58"
+  speaker: League
+  caption: |
+    Back to my `convert` command, and
+    substitute that `2636x` ten-something [laughs].
+
+- time: "00:25:04"
+  speaker: League
+  caption: |
+    44
+
+- time: "00:25:06"
+  speaker: League
+  caption: |
+    44. Do you remember the original numbers?
+
+- time: "00:25:08"
+  speaker: Lopes
+  caption: |
+    No [laughs].
+
+- time: "00:25:10"
+  speaker: League
+  caption: |
+    I'm going to make it up, let's say
+    `+300+200`. Alright, that's something close.
+
+- time: "00:25:15"
+  speaker: League
+  caption: |
+    And then I do that `convert` and we'll do
+    the comparison again between them.
+
+- time: "00:25:20"
+  speaker: League
+  caption: |
+    Now I've got a more rectangular, instead of square --
+    and I've cut out a bit of this console here.
+
+- time: "00:25:29"
+  speaker: League
+  caption: |
+    I didn't go low enough so my Y-value should
+    have been another 100 pixels lower.
+
+- time: "00:25:36"
+  speaker: League
+  caption: |
+    But that's how we can figure out
+    these geometry strings.
+
+- time: "00:25:41"
+  speaker: League
+  caption: |
+    Now I said the strength in ImageMagick is
+    applying that in batch to many different files.
+
+- time: "00:25:46"
+  speaker: League
+  caption: |
+    That's also a little tricky if you always
+    have to specify the from-image
+
+- time: "00:25:52"
+  speaker: League
+  caption: |
+    (the original image) as well as the destination image.
+
+- time: "00:25:56"
+  speaker: League
+  caption: |
+    So what's cool about ImageMagick is this
+    `mogrify` command versus `convert`.
+
+- time: "00:26:06"
+  speaker: League
+  caption: |
+    So I used `mogrify` with `-format` to
+    convert an image like this, right?
+
+- time: "00:26:13"
+  speaker: League
+  caption: |
+    I convert `jpg` to `png` -- but I only have
+    to specify the image filename once,
+
+- time: "00:26:18"
+  speaker: League
+  caption: |
+    instead of having a source and a
+    destination. But I can apply lots of other
+
+- time: "00:26:24"
+  speaker: League
+  caption: |
+    image processing stuff with
+    `mogrify`. So I can do crop.
+
+- time: "00:26:28"
+  speaker: League
+  caption: |
+    If I do `-crop` from here -- I only
+    specify the image file once.
+
+- time: "00:26:38"
+  speaker: League
+  caption: |
+    What it's going to do is *overwrite* that
+    image with the cropped version.
+
+- time: "00:26:45"
+  speaker: League
+  caption: |
+    So it's a destructive operation, `mogrify`.
+    Unless you're only doing a format --
+
+- time: "00:26:51"
+  speaker: League
+  caption: |
+    if you do `-format` it gets a new extension, so
+    it doesn't destroy the original image.
+
+- time: "00:26:56"
+  speaker: League
+  caption: |
+    But without the `-format` it's
+    going to destroy the original.
+
+- time: "00:26:59"
+  speaker: League
+  caption: |
+    So maybe I want to make a copy of the
+    whole folder so I still have my
+
+- time: "00:27:03"
+  speaker: League
+  caption: |
+    originals and then I can batch-apply some
+    processing to them in a different folder.
+
+- time: "00:27:08"
+  speaker: League
+  caption: |
+    Or, in this case I already made a copy of
+    each image by creating a `.png`.
+
+- time: "00:27:15"
+  speaker: League
+  caption: |
+    So we can apply the `-crop` to the
+    `.png` files. So I'm going to do
+
+- time: "00:27:19"
+  speaker: League
+  caption: |
+    `mogrify -crop` let's say `1636x1044` plus
+    whatever. And I'm going to apply that to `*.png`.
+
+- time: "00:27:30"
+  speaker: League
+  caption: |
+    And that will crop all of these images exactly the
+    same way. And it can take a little while.
+
+- time: "00:27:36"
+  speaker: League
+  caption: |
+    Alright, so now that it finished, I
+    can take a look at these files.
+
+- time: "00:27:41"
+  speaker: League
+  caption: |
+    All of these PNGs should have been modified.
+    So if I do my `ls -ltr` for example,
+
+- time: "00:27:46"
+  speaker: League
+  caption: |
+    you see that the `.png` appear at the end
+    because those are the ones that
+
+- time: "00:27:50"
+  speaker: League
+  caption: |
+    were just modified by this. And
+    I'm going to run this --
+
+- time: "00:27:57"
+  speaker: League
+  caption: |
+    to view all of my images -- so here's my original
+    JPEG and right next to it is the cropped PNG.
+
+- time: "00:28:06"
+  speaker: League
+  caption: |
+    Here's the original, and then the
+    cropped version. So all of these are
+
+- time: "00:28:11"
+  speaker: League
+  caption: |
+    being cropped to the same dimensions and
+    the same position within the image.
+
+- time: "00:28:16"
+  speaker: League
+  caption: |
+    So I was able to do very simple
+    batch operations like that.
+
+- time: "00:28:23"
+  speaker: League
+  caption: |
+    Yeah, so that's `mogrify` vs. `convert`,
+    and some of the useful things you
+
+- time: "00:28:28"
+  speaker: League
+  caption: |
+    can do with these ImageMagick tools.
+
+- time: "00:28:31"
+  speaker: Lopes
+  caption: |
+    Thanks for watching today's
+    episode on image manipulation.
+
+- time: "00:28:34"
+  speaker: Lopes
+  caption: |
+    Now ImageMagick is probably not
+    native on your Linux system,
+
+- time: "00:28:37"
+  speaker: Lopes
+  caption: |
+    so in the next episode we will learn
+    about package management and how to
+
+- time: "00:28:40"
+  speaker: Lopes
+  caption: |
+    use the command line to search for and
+    install programs. See you then.
+
+- time: "00:28:45"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:28:50"
+  caption: |
+    [Captions by Christian Lopes]
+
+- time: "00:29:00"
+  caption: |
+    [End]
+

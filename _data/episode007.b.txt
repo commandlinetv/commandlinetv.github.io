@@ -1,0 +1,1230 @@
+0:01
+[Rhythmic, dark electronic intro music]
+
+:League
+
+0:22
+Hi, welcome back to Command Line TV.
+This is episode 7 and today we're
+
+0:26
+going to look at a pretty cool suite of tools for doing
+image manipulation. It's called ImageMagick.
+
+0:33
+But first, do we have any follow-up from last time?
+
+:Lopes
+
+0:36
+I did have some questions. One of them
+was the -- you had something that
+
+0:40
+showed up in your terminal called reverse-i-search.
+
+0:42
+I was curious, what does that do and
+how can we actually use that?
+
+:League
+
+0:46
+Yeah, so I was doing some fancy stuff
+there. It has to do with the history
+
+0:50
+mechanism that bash supports. History is all about
+getting back to your previous commands.
+
+0:57
+And we've talked about using the up and down arrow
+to navigate through your previous commands.
+
+1:03
+But that reverse search is really interesting.
+What I'm doing there is I hit 'control-R' --
+
+1:09
+so as soon as I hit 'control-R', my little
+prompt changes to say `reverse-i-search`.
+
+1:16
+The `i` there is for 'incremental'.
+So what it means now is,
+
+1:19
+as I start to type it will match up what I'm
+typing with previous commands from my history.
+
+1:25
+So maybe if I want to look at a
+previous `cd` command that I typed --
+
+1:32
+I just hit `cd` and you can see that what I typed --
+the `cd` -- appears between these weird quotes.
+
+1:39
+But the command where my cursor is came from
+the history, and it's `cd Downloads/`.
+
+1:43
+Now if I've got another `cd`
+command that I'm looking for,
+
+1:47
+that might be further back in the
+history, I just hit 'control-R' again,
+
+1:52
+and it will go back one but still matching the `cd`.
+
+1:55
+So here's 'control-R' again -- there was
+just a `cd` command by itself.
+
+2:00
+'control-R' again -- `Downloads`, `pics`, and so on.
+
+2:03
+So I can kind of work my way through the history
+but matching some particular piece of text.
+
+2:12
+I'll try it again with -- let's say, a `cut` command.
+
+2:16
+So I know in previous episodes we did some of that
+survey analysis using `cut` and `sort`.
+
+2:26
+So if I look at `cut` you can see some of
+those commands that we did in
+
+2:29
+those previous episodes still come up here. So it's
+not even just in the current shell session.
+
+2:35
+When your shell closes, it saves that
+history into a file and then reloads
+
+2:40
+that when I reopen the shell. And I can
+always go back and find those commands.
+
+2:46
+If I want to execute a command I found
+this way, I can just press enter.
+
+2:50
+If I want to edit it, because maybe I need to
+change something from the last time I did it,
+
+2:54
+I can use the arrow keys and come out here
+and do my normal command line editing,
+
+2:59
+and then hit enter. Or if you
+don't want to run it at all,
+
+3:03
+you can just hit 'control-C' and it'll
+come back to your regular prompt.
+
+3:07
+So that's the reverse search -- it's pretty useful.
+
+:Lopes
+
+3:10
+Another thing I saw you do was you cleared the
+screen without typing `clear` into the terminal.
+
+3:15
+What command did you do for that?
+
+:League
+
+3:18
+That's just another control command, so
+'control-L' will get me a clear screen like that.
+
+3:23
+It's exactly the same as typing the command `clear`.
+
+3:28
+So when things start to get a little messy
+I might just hit 'control-L' and
+
+3:32
+it brings it back up to a clear screen at
+the top of my terminal window.
+
+:Lopes
+
+3:37
+That doesn't reset it though, does it?
+
+:League
+
+3:39
+No it's not the same as `reset`. So `reset`, which we
+learned previously does a lot of other things.
+
+3:45
+It also clears the screen but it resets a lot of other
+settings and 'control-L' doesn't do all that.
+
+:Lopes
+
+3:53
+My last follow-up from the previous episode would be
+in regards to the way you save the dates.
+
+3:58
+Is there a specific format you should save things in?
+
+:League
+
+4:01
+Yeah, so I saved some log files and I
+used a date in the filename.
+
+4:06
+So what I was doing there was -- like a
+log file that has as part of its
+
+4:12
+filename year-month-day in a format like this.
+The OS doesn't really care about that --
+
+4:20
+it doesn't notice that you named it that
+way, but what that does is it puts
+
+4:26
+them in chronological order when you
+sort things alphabetically.
+
+4:30
+So the normal `ls` output, when I have
+files which have year-month-day and
+
+4:35
+they use leading zeroes and so forth
+like this -- it has the effect of
+
+4:41
+putting them also in chronological order,
+because the years will come first
+
+4:45
+and then it'll look at the month and
+then the day. So that's why that
+
+4:49
+format is very popular among
+programmers and computer users.
+
+4:53
+It's just a useful technique when you name
+something with the date to put
+
+4:58
+it in this year-month-day format.
+
+:Lopes
+
+5:01
+So assuming we already have ImageMagick
+installed, the first command we
+
+5:05
+could use would be `display`, correct?
+
+:League
+
+5:07
+Yeah, ImageMagick comes with a few different commands.
+One of the simplest is just called `display`.
+
+5:15
+So if I type `display` all by itself, it
+opens up this little window with
+
+5:19
+the ImageMagick logo which is this cute
+wizard. So I can hit escape or --
+
+5:26
+you probably have a little close window
+icon or something to close that.
+
+5:31
+But what this can do is it shows pictures,
+so I have a couple of pictures
+
+5:35
+here that I took at the Computer History Museum
+(I think it's called) in Silicon Valley.
+
+5:44
+And if I want to display these I can say
+`display` and then a filename,
+
+5:50
+or I think I can just put `*.jpg`
+or something like that.
+
+5:55
+It displays other formats, `jpg`, `png`, `tiff` --
+it supports lots of different image formats.
+
+6:02
+And then that will open these up -- there's
+some way to zoom around in them
+
+6:07
+if it doesn't quite fit on the screen. There's
+some way to move on to the next image,
+
+6:12
+which -- I just hit the space bar
+to move to the next one.
+
+6:17
+So this is a simple way to go through
+and just display some images.
+
+6:20
+It has a few other features but `display`
+is not the most sophisticated
+
+6:25
+image viewer that's available. So I
+actually don't use it that much.
+
+6:30
+But it is part of the ImageMagick
+suite. So we'll close that.
+
+6:34
+The next command that's part of
+ImageMagick is called `identify`.
+
+6:39
+So `identify` is basically a way of listing
+the properties of an image file.
+
+6:48
+So if I try to `identify IMAG0*` like
+this -- it will take all of those
+
+6:54
+filenames that match the wildcard
+and just peer into them,
+
+6:58
+and tell me things like the resolution and
+the color model and stuff like that.
+
+7:04
+So basically it's doing one-line for
+each image. It has the filename,
+
+7:09
+and then a sequence number -- which is basically just
+the ordering of the images it looked at --
+
+7:15
+the format, the resolution. This is
+called the 'geometry' string.
+
+7:22
+It's basically -- some image formats allow
+you to have a certain portion of
+
+7:29
+the image that is selected, like a crop of the image.
+
+7:33
+And what this format means is that the
+crop will be this width and height,
+
+7:40
+and then the `+0` is the X offset, and
+the next `+0` is the Y offset.
+
+7:45
+So that format allows you to specify a
+rectangle anywhere within an image.
+
+7:51
+For all of these, the rectangle is just
+the full resolution and `+0+0` but
+
+7:57
+there are other image formats where
+that could be different.
+
+8:00
+We're also going to use that when we learn
+to crop images with ImageMagick.
+
+8:04
+It's that same format -- if you want to crop an image,
+
+8:06
+you specify the new width and height,
+and then the X and Y offset.
+
+8:12
+We're using 8-bit color and an RGB color model. Here
+is the size of the file in human terms --
+
+8:18
+and whatever all those zeroes are supposed to be.
+
+8:21
+So `identify` is a quick way to figure out
+resolution and other information on images.
+
+8:26
+It does have a `-verbose` option. And one
+thing that's a little different
+
+8:31
+about ImageMagick commands -- compared to some of the
+file management commands that we've learned --
+
+8:37
+is that it doesn't really use the
+short forms of these options.
+
+8:42
+So on a lot of GNU commands, you might
+say `-v` or `--verbose`, right?
+
+8:50
+Or `-h` or `--help` -- these are
+equivalent to each other.
+
+8:56
+ImageMagick doesn't really support the
+short forms and so it uses a full
+
+9:00
+word as its option but only a single dash.
+It doesn't use the double dash.
+
+9:06
+So if I `identify -verbose` and I put
+just one of these names --
+
+9:10
+because that will be plenty of info -- so
+`IMAG0212.jpg` with the verbose --
+
+9:17
+this is going to dump out a whole ton of
+information about this image.
+
+9:23
+And you can see there's all sort -- let's
+pipe that through `less` so that
+
+9:28
+we can just get a page at a time. It's
+showing me the image format,
+
+9:36
+that geometry string, resolution means
+how many dots per inch does this
+
+9:41
+image expect to be displayed at -- or pixels
+per inch. Color model, stuff like that.
+
+9:48
+For each of the red, green, and blue channels it
+gives me like the average colors and such.
+
+9:54
+There are all kinds of potentially
+useful information here.
+
+9:59
+And you can see all of that with the verbose flag.
+
+:Lopes
+
+10:04
+So a lot of programs and applications nowadays
+sometimes tend to be very file type specific.
+
+10:09
+What if you had an image file that you
+wanted to convert from a `jpg` to a
+
+10:13
+different file type or vice versa?
+
+:League
+
+10:15
+Yeah, one of the real big uses of
+ImageMagick is just this format conversion.
+
+10:20
+And it does that very easily. One of the
+commands for that is called `mogrify`,
+
+10:27
+which -- as far as I know is a word they just made
+up. But it means to process some image.
+
+10:34
+And so what you do is you basically say
+`mogrify` and then some flags or
+
+10:41
+options to specify how you want to process it. So one
+thing we can do is just change the format.
+
+10:48
+So I've got JPEGs mostly in this folder -- what if I
+want to convert one of them to a PNG format,
+
+10:54
+right? And then let's take `IMAG0213.jpg`. So my
+command is `mogrify -format` and then the format --
+
+11:05
+and, as I said, ImageMagick supports lots
+of formats -- but we'll use `png`.
+
+11:13
+And here's the original filename. So I do that -- it
+can take a moment if your image file is big,
+
+11:19
+to do this conversion. Then it comes
+back -- it didn't say anything,
+
+11:23
+but I want to see what file it
+created. So if I do `ls`,
+
+11:28
+you see right here it created a `png` file with
+the same name as the original `jpg`.
+
+11:36
+So that is what `mogrify -format` can do for us.
+
+11:41
+Let's take a look at the `identify`
+output of both of those.
+
+11:44
+So if I do `IMAG0213*`, I see that both
+of them have the same resolution
+
+11:53
+and the PNG file got a lot bigger,
+right -- so 7 MB instead of 1 MB.
+
+12:00
+So that's one thing that happens
+when I do that conversion.
+
+12:05
+Try a different format -- let's just
+convert that same image to a `tiff`.
+
+12:10
+That went pretty fast, and I've
+got this `tiff` file --
+
+12:15
+so now if I do `identify` on those again, the TIFF is
+the same resolution but it became even bigger.
+
+12:26
+So what we're seeing here is the difference between
+compression schemes in these different formats.
+
+12:31
+JPEG is 'lossy' compression, so it can
+throw out some information from the
+
+12:36
+original sensors that took the image,
+and it becomes very small.
+
+12:41
+PNG is compressed but in a lossless way, and
+of course since I started with a JPEG,
+
+12:48
+I can't get back the information that was lost
+before I did the JPEG from the camera sensors.
+
+12:56
+But the PNG will preserve what information
+is there -- it becomes bigger --
+
+13:01
+and the TIFF becomes bigger yet because it's,
+generally speaking, not compressed at all.
+
+13:08
+Another thing that's cool about `mogrify` is that I
+can just apply it in batch to tons of files.
+
+13:15
+So I've got a whole directory of JPEGs
+here. And if I want to do that --
+
+13:20
+I'm doing reverse-i-search with 'control-R' -- so
+I'm going to get back my `png` mogrify.
+
+13:27
+Let's say I want to apply that to
+everything that's a `.jpg`, right?
+
+13:32
+So what I'm going to end up doing is
+converting all of these files to `png`.
+
+13:39
+And that can take a little while --
+
+13:43
+Alright, now that that's finished
+(through the magic of video editing),
+
+13:48
+we have a directory that has the original JPEGs as
+well as the PNGs that were just created.
+
+13:54
+So I've been able to just -- in a batch
+sense, convert a bunch of files
+
+13:59
+without having to individually open them
+and save as -- that kind of thing.
+
+14:03
+So I think that's one of the really
+great use cases of ImageMagick.
+
+:Lopes
+
+14:10
+So if we have an image file, for example
+we see here `IMAG0223.jpg` --
+
+14:16
+it's too large to fit onto the screen, what can
+we do to convert that to a smaller size?
+
+:League
+
+14:22
+Yeah, so `display` is showing it
+to us a piece at a time,
+
+14:26
+and it doesn't really fit on the
+resolution that I've got here.
+
+14:29
+So if I want to shrink it -- what you first want to
+figure it is how much should I shrink it by,
+
+14:35
+or what's my target resolution. So I'm
+going to close that and of course we
+
+14:40
+can run `identify` to figure out -- oh, I
+just did something a little fancy!
+
+14:45
+We'll do more on this later, I just did
+it automatically [laughs] but uh,
+
+14:51
+this exclamation and dollar sign `!$` -- it
+looks like I'm cursing at the terminal --
+
+14:56
+but what this means is take the previous command, but
+only the last word of the previous command.
+
+15:04
+So whenever I want to operate on the same
+file, but run a different command --
+
+15:10
+that's something that I just automatically
+do. And I call it "bang dollar".
+
+15:15
+So previous command, but only the last word, and
+you see that it expanded just like that.
+
+15:21
+At any rate, here is the
+resolution that I'm starting with.
+
+15:27
+And let's say I want to shrink it to like 50% of that.
+
+15:30
+So that way, if each number is taken by 50% I know
+I'll keep the same aspect ratio of the image.
+
+15:39
+So a good way to do that is the `convert` command.
+And you give the input filename first --
+
+15:46
+so `IMAG0223.jpg` -- and then you can give a
+series of image processing options to it.
+
+15:54
+The one that will resize an image
+is called `-geometry`.
+
+16:00
+And the simplest type of `-geometry` is just to put a
+percentage, so `50%` means shrink it in half.
+
+16:10
+And then you put an output filename. So we're
+going to call this like `223-sm.jpg`.
+
+16:18
+And that will open that image, shrink
+it, and then save the new image.
+
+16:23
+So I can compare them by putting both of
+them on the `identify` command line,
+
+16:29
+and see -- I'm going to use that (`!$`)
+again. So the original image is
+
+16:36
+1950 by 2289 and the new image is 975
+by 1145. So that's halfway.
+
+16:46
+And I can open it with `display` and now
+it fits on my screen pretty well
+
+16:51
+although it's duplicating for some reason. Yeah, the
+`display` command is kind of weird sometimes.
+
+16:59
+But that's shrinking.
+
+:Lopes
+
+17:01
+So just to backtrack, all these
+commands do support the help option,
+
+17:05
+and again it's the `-help` not `-h`.
+
+:League
+
+17:08
+Yeah so if I do `convert -help` -- not
+double-dash help, or `-h`, exactly --
+
+17:17
+but this will give me -- let's do that with `less`.
+
+17:21
+This will give me a very brief synopsis of some
+of the things that `convert` can do.
+
+17:28
+It's got all sorts of other image processing
+operations that you can access here.
+
+17:36
+So why don't we try a couple of those.
+
+17:39
+One that I like to do is -- sometimes you
+want to add a border to an image.
+
+17:46
+And this is a pretty easy thing to do. So
+let's take my smaller -- well,
+
+17:54
+let's combine a shrink with a border.
+So here's how we'll do that.
+
+17:58
+I'm going to pick one of these and do
+`convert` -- let's say `IMAG0209.jpg`.
+
+18:08
+And I'm going to do `-geometry` first to shrink it --
+
+18:11
+we're going to shrink it pretty small, so let's say
+`33%`. And then I can specify `-bordercolor`.
+
+18:21
+There are a lot of built-in colors like the
+standard red, green, yellow, whatever.
+
+18:26
+So I'll say `red` -- or you can specify
+colors more precisely using those
+
+18:33
+HTML-like hexadecimal specifications --
+we can look at that another time.
+
+18:39
+And then you specify the thickness
+of the border in pixels,
+
+18:42
+so let's make it very visible at `8` pixels. So
+I'm stringing all of this together --
+
+18:49
+putting these operations together will
+apply them in that order --
+
+18:52
+and then finally I put the output name. So
+we're going to call this `209border.jpg`.
+
+19:04
+And that should work. So I'm going
+to open that image with --
+
+19:10
+instead of `display` I'm going to use this other
+thing we learned before, called `xdg-open`.
+
+19:16
+And you can see the red border that
+appears around this image.
+
+19:20
+So it added that border, it also shrunk it, so
+it's not nearly as big as the original was.
+
+19:29
+Another thing we might like to do is blur or
+apply other sorts of image filters --
+
+19:37
+just like you could in Photoshop
+or something like that.
+
+19:43
+So there's a `-blur` command, and the way
+blurring works is you give it the geometry --
+
+19:49
+in other words, the shape that you're
+going to apply the blur operator to.
+
+19:53
+And if it's a very small rectangle,
+it just blurs a little bit.
+
+19:58
+If it's a big rectangle then it blurs much more.
+So we're going to try doing some of that.
+
+20:06
+Let's try that on `IMAG0205.jpg`. We're
+going to do `-blur` -- well,
+
+20:15
+let me again shrink, because it's easier to
+deal with if these are a little smaller.
+
+20:24
+And then we'll `-blur` using like
+a `10x10` pixel filter.
+
+20:30
+And I'm going to save that as
+`205blur10.jpg`. And let's open both the
+
+20:43
+original and the blurred version,
+then we can see the difference.
+
+20:48
+So I'm going to actually use my
+image viewer called `eog` --
+
+20:52
+this is just a Gnome image viewer, but I
+could open these separately with
+
+20:59
+`display` or `xdg-open` or
+something.  So here is the -- no,
+
+21:04
+that's got to be the blurred image,
+right. Yeah that's the blurred image.
+
+21:09
+There's the original image. So it --
+this was 1742 pixels across,
+
+21:15
+and now it's 575, so that's about a third. And
+it also blurred it pretty substantially.
+
+21:22
+So you can't really even tell that this is
+text on here -- it just looks like dirt.
+
+21:31
+So that's just one of the many other
+operations that `convert` supports.
+
+:Lopes
+
+21:36
+So I guess the next two things we should
+discuss are cropping images and
+
+21:40
+then opening an image in Gimp.
+
+:League
+
+21:43
+Yeah, so cropping is a little tricky because you've
+got to come up with these geometry strings.
+
+21:50
+The basic format of the command with `convert` is --
+
+21:53
+let's say I want to take
+`IMAG0207.jpg` and I want to crop that --
+
+22:01
+first of all, I'm going to do `identify` to figure out
+the approximate resolution I'm working with.
+
+22:10
+And then I can do `convert` with `-crop`
+-- let's say I want to cut a
+
+22:17
+square image out of the middle of that
+somewhere. So the first thing you
+
+22:23
+put is the dimensions that you're
+cropping at -- `1200x1200` and then I
+
+22:29
+want to put `+` something for the X position, so
+it's just guesswork really `+500+100`.
+
+22:38
+And I could try that -- let's call that `207crop.jpg`.
+
+22:43
+So I can open both of these files to see
+what that geometry string produced.
+
+22:50
+Here is the original version. You can see
+that it cut out a square from
+
+22:57
+somewhere around this region. But what if
+we needed to get it more precise?
+
+23:01
+What I would recommend in that case is
+to open a program where you can
+
+23:06
+actually see the pixel values and
+move your mouse around.
+
+23:08
+So that's not a command line program,
+that's going to be a graphical program.
+
+23:14
+The `gimp` is basically a free version of
+Photoshop. It's available for all Unix systems.
+
+23:23
+It also might not be installed so you can
+try using your package management
+
+23:28
+commands to get that installed. And then we're
+going to run that on the original image --
+
+23:36
+217 I think it was.
+
+:Lopes
+
+23:40
+207
+
+:League
+
+23:42
+207, thank you -- `.jpg`. So it opens that
+up and this is shrunk a little bit,
+
+23:49
+it says 25% down here at the bottom.
+But what this can do for me --
+
+23:54
+well I can just crop it right here, that's fine.
+But the advantage of ImageMagick is batch,
+
+24:00
+right -- so if I want to run the same crop
+on many images I'm going to have
+
+24:06
+an easier time of that using ImageMagick than Gimp.
+
+24:12
+But I can get the numbers to make my
+geometry string from Gimp.
+
+24:16
+So I'm going to do the rectangle selector
+and depending on where I want to be,
+
+24:20
+I look in this lower left corner here. You
+can't see the numbers while my
+
+24:26
+mouse is down there [laughs] but that's my current
+position, so that's the X and Y offset.
+
+24:31
+So I remember or write down 288 and 360.
+And then I'm going to get the --
+
+24:38
+let's say I want to crop out this
+piece here. So that's about --
+
+24:43
+I keep moving my finger a little
+bit. But 2636 by 1044.
+
+24:51
+So I can come back to my -- let's just discard that.
+
+24:58
+Back to my `convert` command, and
+substitute that `2636x` ten-something [laughs].
+
+25:04
+44
+
+25:06
+44. Do you remember the original numbers?
+
+:Lopes
+
+25:08
+No [laughs].
+
+:League
+
+25:10
+I'm going to make it up, let's say
+`+300+200`. Alright, that's something close.
+
+25:15
+And then I do that `convert` and we'll do
+the comparison again between them.
+
+25:20
+Now I've got a more rectangular, instead of square --
+and I've cut out a bit of this console here.
+
+25:29
+I didn't go low enough so my Y-value should
+have been another 100 pixels lower.
+
+25:36
+But that's how we can figure out
+these geometry strings.
+
+25:41
+Now I said the strength in ImageMagick is
+applying that in batch to many different files.
+
+25:46
+That's also a little tricky if you always
+have to specify the from-image
+
+25:52
+(the original image) as well as the destination image.
+
+25:56
+So what's cool about ImageMagick is this
+`mogrify` command versus `convert`.
+
+26:06
+So I used `mogrify` with `-format` to
+convert an image like this, right?
+
+26:13
+I convert `jpg` to `png` -- but I only have
+to specify the image filename once,
+
+26:18
+instead of having a source and a
+destination. But I can apply lots of other
+
+26:24
+image processing stuff with
+`mogrify`. So I can do crop.
+
+26:28
+If I do `-crop` from here -- I only
+specify the image file once.
+
+26:38
+What it's going to do is *overwrite* that
+image with the cropped version.
+
+26:45
+So it's a destructive operation, `mogrify`.
+Unless you're only doing a format --
+
+26:51
+if you do `-format` it gets a new extension, so
+it doesn't destroy the original image.
+
+26:56
+But without the `-format` it's
+going to destroy the original.
+
+26:59
+So maybe I want to make a copy of the
+whole folder so I still have my
+
+27:03
+originals and then I can batch-apply some
+processing to them in a different folder.
+
+27:08
+Or, in this case I already made a copy of
+each image by creating a `.png`.
+
+27:15
+So we can apply the `-crop` to the
+`.png` files. So I'm going to do
+
+27:19
+`mogrify -crop` let's say `1636x1044` plus
+whatever. And I'm going to apply that to `*.png`.
+
+27:30
+And that will crop all of these images exactly the
+same way. And it can take a little while.
+
+27:36
+Alright, so now that it finished, I
+can take a look at these files.
+
+27:41
+All of these PNGs should have been modified.
+So if I do my `ls -ltr` for example,
+
+27:46
+you see that the `.png` appear at the end
+because those are the ones that
+
+27:50
+were just modified by this. And
+I'm going to run this --
+
+27:57
+to view all of my images -- so here's my original
+JPEG and right next to it is the cropped PNG.
+
+28:06
+Here's the original, and then the
+cropped version. So all of these are
+
+28:11
+being cropped to the same dimensions and
+the same position within the image.
+
+28:16
+So I was able to do very simple
+batch operations like that.
+
+28:23
+Yeah, so that's `mogrify` vs. `convert`,
+and some of the useful things you
+
+28:28
+can do with these ImageMagick tools.
+
+:Lopes
+
+28:31
+Thanks for watching today's
+episode on image manipulation.
+
+28:34
+Now ImageMagick is probably not
+native on your Linux system,
+
+28:37
+so in the next episode we will learn
+about package management and how to
+
+28:40
+use the command line to search for and
+install programs. See you then.
+
+28:45
+[Dark electronic beat]
+
+28:50
+[Captions by Christian Lopes]
+
+29:00
+[End]
