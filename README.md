@@ -102,12 +102,12 @@ it as a new episode. Replace `N` with the episode number.
 
     then commit changes and push.
 
-10. [Ping feedburner](http://www.feedburner.com/fb/a/pingSubmit?bloglink=http%3A%2F%2Ffeeds.feedburner.com%2Fcommandlinetv),
+ 10. [Ping feedburner](http://www.feedburner.com/fb/a/pingSubmit?bloglink=http%3A%2F%2Ffeeds.feedburner.com%2Fcommandlinetv),
     and it will tweet about the new episode.
 
-11. Upload the *original* MP4 file to YouTube. Copy the description from the
+ 11. Upload the *original* MP4 file to YouTube. Copy the description from the
     web site, and use these tags: Command-line interface, Unix (Operating
     System), Unix-like, Unix Shell, Operating System, Programming Language,
     Technology, GNU/Linux Operating System.
 
-12. Once the YouTube video is ready, upload the captions file.
+ 12. Once the YouTube video is ready, upload the captions file.
