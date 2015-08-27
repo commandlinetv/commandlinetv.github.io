@@ -21,6 +21,7 @@
 
 - time: "00:00:36"
   speaker: Lopes
+  index: "`^R` (reverse-i-search)"
   caption: |
     I did have some questions. One of them
     was the -- you had something that
@@ -37,6 +38,7 @@
     how can we actually use that?
 
 - time: "00:00:46"
+  index: "history"
   speaker: League
   caption: |
     Yeah, so I was doing some fancy stuff
@@ -185,6 +187,7 @@
 
 - time: "00:02:59"
   speaker: League
+  index: "`^C` (interrupt)"
   caption: |
     and then hit enter. Or if you
     don't want to run it at all,
@@ -202,11 +205,13 @@
 
 - time: "00:03:10"
   speaker: Lopes
+  index: "`^L` (clear)"
   caption: |
     Another thing I saw you do was you cleared the
     screen without typing `clear` into the terminal.
 
 - time: "00:03:15"
+  index: "`clear` (clear screen)"
   speaker: Lopes
   caption: |
     What command did you do for that?
@@ -236,14 +241,15 @@
 
 - time: "00:03:37"
   speaker: Lopes
+  index: "`reset` (initialize terminal)"
   caption: |
     That doesn't reset it though, does it?
 
 - time: "00:03:39"
   speaker: League
   caption: |
-    No it's not the same as `reset`. So `reset`, which we
-    learned previously does a lot of other things.
+    No it's not the same as `reset`. So `reset`, which
+    we learned previously does a lot of other things.
 
 - time: "00:03:45"
   speaker: League
@@ -253,6 +259,7 @@
 
 - time: "00:03:53"
   speaker: Lopes
+  index: YYYYMMDD date format
   caption: |
     My last follow-up from the previous episode would be
     in regards to the way you save the dates.
@@ -335,11 +342,13 @@
 
 - time: "00:05:01"
   speaker: Lopes
+  index: "ImageMagick"
   caption: |
     So assuming we already have ImageMagick
     installed, the first command we
 
 - time: "00:05:05"
+  index: "`display` (show image)"
   speaker: Lopes
   caption: |
     could use would be `display`, correct?
@@ -388,6 +397,8 @@
 
 - time: "00:05:50"
   speaker: League
+  cmd: |
+    display *.jpg
   caption: |
     or I think I can just put `*.jpg`
     or something like that.
@@ -441,6 +452,7 @@
     suite. So we'll close that.
 
 - time: "00:06:34"
+  index: "`identify` (describe image files)"
   speaker: League
   caption: |
     The next command that's part of
@@ -454,6 +466,8 @@
 
 - time: "00:06:48"
   speaker: League
+  cmd: |
+    identify IMAG0*
   caption: |
     So if I try to `identify IMAG0*` like
     this -- it will take all of those
@@ -484,6 +498,7 @@
 
 - time: "00:07:15"
   speaker: League
+  index: geometry
   caption: |
     the format, the resolution. This is
     called the 'geometry' string.
@@ -564,6 +579,7 @@
     resolution and other information on images.
 
 - time: "00:08:26"
+  index: "`identify -verbose`"
   speaker: League
   caption: |
     It does have a `-verbose` option. And one
@@ -613,6 +629,8 @@
 
 - time: "00:09:10"
   speaker: League
+  cmd: |
+    identify -verbose IMAG0212.jpg
   caption: |
     because that will be plenty of info -- so
     `IMAG0212.jpg` with the verbose --
@@ -625,6 +643,8 @@
 
 - time: "00:09:23"
   speaker: League
+  cmd: |
+    identify -verbose IMAG0212.jpg | less
   caption: |
     And you can see there's all sort -- let's
     pipe that through `less` so that
@@ -672,6 +692,7 @@
 
 - time: "00:10:09"
   speaker: Lopes
+  index: "file type, image"
   caption: |
     What if you had an image file that you
     wanted to convert from a `jpg` to a
@@ -689,6 +710,7 @@
 
 - time: "00:10:20"
   speaker: League
+  index: "`mogrify` (process image in-place)"
   caption: |
     And it does that very easily. One of the
     commands for that is called `mogrify`,
@@ -712,6 +734,7 @@
     thing we can do is just change the format.
 
 - time: "00:10:48"
+  index: "`mogrify -format`"
   speaker: League
   caption: |
     So I've got JPEGs mostly in this folder -- what if I
@@ -719,6 +742,8 @@
 
 - time: "00:10:54"
   speaker: League
+  cmd: |
+    mogrify -format png IMAG0213.jpg
   caption: |
     right? And then let's take `IMAG0213.jpg`. So my
     command is `mogrify -format` and then the format --
@@ -766,6 +791,8 @@
 
 - time: "00:11:44"
   speaker: League
+  cmd: |
+    identify IMAG0213*
   caption: |
     So if I do `IMAG0213*`, I see that both
     of them have the same resolution
@@ -784,6 +811,8 @@
 
 - time: "00:12:05"
   speaker: League
+  cmd: |
+    mogrify -format tiff IMAG0213.png
   caption: |
     Try a different format -- let's just
     convert that same image to a `tiff`.
@@ -808,6 +837,7 @@
 
 - time: "00:12:31"
   speaker: League
+  index: "compression, lossy"
   caption: |
     JPEG is 'lossy' compression, so it can
     throw out some information from the
@@ -820,6 +850,7 @@
 
 - time: "00:12:41"
   speaker: League
+  index: "compression, lossless"
   caption: |
     PNG is compressed but in a lossless way, and
     of course since I started with a JPEG,
@@ -862,6 +893,8 @@
 
 - time: "00:13:27"
   speaker: League
+  cmd: |
+    mogrify -format png *.jpg
   caption: |
     Let's say I want to apply that to
     everything that's a `.jpg`, right?
@@ -914,7 +947,10 @@
     we see here `IMAG0223.jpg` --
 
 - time: "00:14:16"
+  index: "image, resize"
   speaker: Lopes
+  cmd: |
+    display IMAG0223.jpg
   caption: |
     it's too large to fit onto the screen, what can
     we do to convert that to a smaller size?
@@ -939,6 +975,9 @@
 
 - time: "00:14:35"
   speaker: League
+  index: "`!$` (last word)"
+  cmd: |
+    identify !$
   caption: |
     or what's my target resolution. So I'm
     going to close that and of course we
@@ -1004,6 +1043,7 @@
 
 - time: "00:15:39"
   speaker: League
+  index: "`convert` (process image)"
   caption: |
     So a good way to do that is the `convert` command.
     And you give the input filename first --
@@ -1016,6 +1056,7 @@
 
 - time: "00:15:54"
   speaker: League
+  index: "`convert -geometry` (resize image)"
   caption: |
     The one that will resize an image
     is called `-geometry`.
@@ -1028,6 +1069,8 @@
 
 - time: "00:16:10"
   speaker: League
+  cmd: |
+    convert IMAG0223.jpg -geometry 50% 223-sm.jpg
   caption: |
     And then you put an output filename. So we're
     going to call this like `223-sm.jpg`.
@@ -1040,6 +1083,8 @@
 
 - time: "00:16:23"
   speaker: League
+  cmd: |
+    identify IMAG0223.jpg !$
   caption: |
     So I can compare them by putting both of
     them on the `identify` command line,
@@ -1058,6 +1103,8 @@
 
 - time: "00:16:46"
   speaker: League
+  cmd: |
+    display 223-sm.jpg
   caption: |
     And I can open it with `display` and now
     it fits on my screen pretty well
@@ -1092,6 +1139,8 @@
 
 - time: "00:17:17"
   speaker: League
+  cmd: |
+    convert -help | less
   caption: |
     but this will give me -- let's do that with `less`.
 
@@ -1143,6 +1192,7 @@
 
 - time: "00:18:11"
   speaker: League
+  index: "`convert -bordercolor`"
   caption: |
     we're going to shrink it pretty small, so let's say
     `33%`. And then I can specify `-bordercolor`.
@@ -1167,12 +1217,15 @@
 
 - time: "00:18:39"
   speaker: League
+  index: "`convert -border`"
   caption: |
     And then you specify the thickness
     of the border in pixels,
 
 - time: "00:18:42"
   speaker: League
+  cmd: |
+    convert IMAG0209.jpg -geometry 33% -bordercolor red -border 8 209border.jpg
   caption: |
     so let's make it very visible at `8` pixels. So
     I'm stringing all of this together --
@@ -1197,6 +1250,8 @@
 
 - time: "00:19:10"
   speaker: League
+  cmd: |
+    xdg-open 209border.jpg
   caption: |
     instead of `display` I'm going to use this other
     thing we learned before, called `xdg-open`.
@@ -1227,6 +1282,7 @@
 
 - time: "00:19:43"
   speaker: League
+  index: "`convert -blur`"
   caption: |
     So there's a `-blur` command, and the way
     blurring works is you give it the geometry --
@@ -1269,6 +1325,8 @@
 
 - time: "00:20:30"
   speaker: League
+  cmd: |
+    convert IMAG0205.jpg -geometry 33% -blur 10x10 205blur10.jpg
   caption: |
     And I'm going to save that as
     `205blur10.jpg`. And let's open both the
@@ -1281,6 +1339,7 @@
 
 - time: "00:20:48"
   speaker: League
+  index: "`eog` (GNOME image viewer)"
   caption: |
     So I'm going to actually use my
     image viewer called `eog` --
@@ -1293,6 +1352,8 @@
 
 - time: "00:20:59"
   speaker: League
+  cmd: |
+    eog IMAG0205.jpg 205blur10.jpg
   caption: |
     `display` or `xdg-open` or
     something.  So here is the -- no,
@@ -1329,6 +1390,7 @@
 
 - time: "00:21:36"
   speaker: Lopes
+  index: "image, crop"
   caption: |
     So I guess the next two things we should
     discuss are cropping images and
@@ -1357,6 +1419,8 @@
 
 - time: "00:22:01"
   speaker: League
+  cmd: |
+    identify IMAG0207.jpg
   caption: |
     first of all, I'm going to do `identify` to figure out
     the approximate resolution I'm working with.
@@ -1387,6 +1451,8 @@
 
 - time: "00:22:38"
   speaker: League
+  cmd: |
+    convert IMAG0207.jpg -crop 1200x1200+500+100 207crop.jpg
   caption: |
     And I could try that -- let's call that `207crop.jpg`.
 
@@ -1428,6 +1494,7 @@
 
 - time: "00:23:14"
   speaker: League
+  index: "`gimp` (photoshop)"
   caption: |
     The `gimp` is basically a free version of
     Photoshop. It's available for all Unix systems.
@@ -1456,6 +1523,8 @@
 
 - time: "00:23:42"
   speaker: League
+  cmd: |
+    gimp IMAG0207.jpg
   caption: |
     207, thank you -- `.jpg`. So it opens that
     up and this is shrunk a little bit,
@@ -1537,14 +1606,14 @@
     substitute that `2636x` ten-something [laughs].
 
 - time: "00:25:04"
-  speaker: League
+  speaker: Lopes
   caption: |
     44
 
 - time: "00:25:06"
   speaker: League
   caption: |
-    44. Do you remember the original numbers?
+    44! Do you remember the original numbers?
 
 - time: "00:25:08"
   speaker: Lopes
@@ -1553,12 +1622,16 @@
 
 - time: "00:25:10"
   speaker: League
+  cmd: |
+    convert IMAG0207.jpg -crop 2636x1044+300+200 207crop.jpg
   caption: |
     I'm going to make it up, let's say
     `+300+200`. Alright, that's something close.
 
 - time: "00:25:15"
   speaker: League
+  cmd: |
+    eog IMAG0207.jpg 207crop.jpg
   caption: |
     And then I do that `convert` and we'll do
     the comparison again between them.
@@ -1630,6 +1703,9 @@
 
 - time: "00:26:28"
   speaker: League
+  index: "`mogrify -crop`"
+  cmd: |
+    mogrify -crop 1636x1044+200+300 IMAG0207.jpg
   caption: |
     If I do `-crop` from here -- I only
     specify the image file once.
@@ -1684,6 +1760,8 @@
 
 - time: "00:27:19"
   speaker: League
+  cmd: |
+    mogrify -crop 1636x1044+300+200 *.png
   caption: |
     `mogrify -crop` let's say `1636x1044` plus
     whatever. And I'm going to apply that to `*.png`.
@@ -1714,6 +1792,8 @@
 
 - time: "00:27:50"
   speaker: League
+  cmd: |
+    eog IMAG0*
   caption: |
     were just modified by this. And
     I'm going to run this --
@@ -1783,9 +1863,8 @@
 
 - time: "00:28:50"
   caption: |
-    [Captions by Christian Lopes]
+    [Captions by Christopher League]
 
 - time: "00:29:00"
   caption: |
     [End]
-

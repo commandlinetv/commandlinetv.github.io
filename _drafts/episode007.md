@@ -7,4 +7,6 @@ size: 124016081
 ---
 {% include JB/setup %}
 
-Episode 7 description goes here.
+We look at ImageMagick, a powerful suite of command-line tools for doing image
+processing. With it, we resize, crop, blur, and do format-conversion on a
+collection of image files.
