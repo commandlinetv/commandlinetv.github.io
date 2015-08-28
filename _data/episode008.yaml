@@ -16,6 +16,7 @@
 
 - time: "00:00:33"
   speaker: Lopes
+  index: package
   caption: |
     I guess today we'll talk about package
     management and how to actually get
@@ -75,6 +76,7 @@
 
 - time: "00:01:27"
   speaker: League
+  index: dependency
   caption: |
     These package managers also figure
     out the dependencies for you.
@@ -187,6 +189,7 @@
 
 - time: "00:03:03"
   speaker: League
+  index: DLL
   caption: |
     But another problem that Windows
     suffered from for many years --
@@ -282,6 +285,7 @@
 
 - time: "00:04:26"
   speaker: Lopes
+  index: "package manager, apt"
   caption: |
     In today's episode we'll be using Ubuntu
     which uses 'apt' package manager
@@ -294,6 +298,7 @@
 
 - time: "00:04:34"
   speaker: League
+  index: "distribution, Debian/Ubuntu"
   caption: |
     It all depends on the system that you're
     running. The Debian and Ubuntu
@@ -305,6 +310,7 @@
     other derivatives of them also use it.
 
 - time: "00:04:46"
+  index: "distribution, RedHat/Fedora"
   speaker: League
   caption: |
     RedHat systems and Fedora use
@@ -312,23 +318,27 @@
 
 - time: "00:04:52"
   speaker: League
+  index: "package manager, `yum`"
   caption: |
     it pretty much provides the same type of facilities,
     the commands are just slightly different.
 
 - time: "00:04:58"
   speaker: League
+  index: "distribution, ArchLinux"
   caption: |
     On my laptop I use ArchLinux, and
     ArchLinux has a command called `pacman`.
 
 - time: "00:05:05"
+  index: "package manager, `pacman`"
   speaker: League
   caption: |
     And then on the Mac, the Mac App Store is fine
     for these self-contained applications,
 
 - time: "00:05:12"
+  index: "package manager, `brew`"
   speaker: League
   caption: |
     more like the Windows style. But if you want to
@@ -393,6 +403,7 @@
 
 - time: "00:06:02"
   speaker: League
+  index: "`apt-cache` (query package cache)"
   caption: |
     Yeah, so the command that is most useful for
     finding stuff is called `apt-cache`.
@@ -405,12 +416,15 @@
 
 - time: "00:06:14"
   speaker: League
+  index: "`apt-cache search`"
   caption: |
     sub-command after that called `search`,
     and then you can put a keyword or
 
 - time: "00:06:19"
   speaker: League
+  cmd: |
+    apt-cache search imagemagick
   caption: |
     the name of a package or something like that. Why
     don't we try searching for `imagemagick`.
@@ -428,6 +442,8 @@
 
 - time: "00:06:34"
   speaker: League
+  cmd: |
+    apt-cache search imagemagick | less
   caption: |
     but maybe we want to -- I don't know --
     scroll up or pipe it through `less`
@@ -474,12 +490,15 @@
 
 - time: "00:07:21"
   speaker: League
+  index: "`apt-cache show`"
   caption: |
     I'm going to quit the `less` output (`q`)
     and let's do `apt-cache show` and
 
 - time: "00:07:30"
   speaker: League
+  cmd: |
+    apt-cache show imagemagick
   caption: |
     then the name of the package. In this case,
     it's got to be the name of a package,
@@ -546,18 +565,22 @@
 
 - time: "00:08:31"
   speaker: League
+  index: "`apt-get` (package manager)"
   caption: |
     So I think we're ready to try and install this. The
     command to install isn't based on `apt-cache`,
 
 - time: "00:08:37"
   speaker: League
+  index: "`apt-get install`"
   caption: |
     but it's called `apt-get` with a hyphen.
     And then you just say `install`
 
 - time: "00:08:42"
   speaker: League
+  cmd: |
+    apt-get install imagemagick
   caption: |
     and the name of the package. Yes, let's try it.
 
@@ -573,6 +596,8 @@
 
 - time: "00:08:53"
   speaker: League
+  cmd: |
+    sudo apt-get install imagemagick
   caption: |
     Yeah, permission denied, so `sudo` is a
     command to get us administrative access,
@@ -603,11 +628,14 @@
 
 - time: "00:09:24"
   speaker: League
+  cmd: |
+    which mogrify
   caption: |
     Just see if they're available.
 
 - time: "00:09:30"
   speaker: League
+  index: "`which` (show path of command)"
   caption: |
     Yeah, so `which` tells us where a command
     is, and those are now installed
@@ -642,6 +670,9 @@
 
 - time: "00:10:01"
   speaker: League
+  index: "`apt-get update`"
+  cmd: |
+    apt-get update
   caption: |
     So what we're going to do is run a command, also on
     `apt-get` but the sub-command is `update`,
@@ -654,6 +685,8 @@
 
 - time: "00:10:13"
   speaker: League
+  cmd: |
+    sudo apt-get update
   caption: |
     repository and see what the latest versions --
     we do have to be admin for that too --
@@ -677,6 +710,7 @@
 
 - time: "00:10:29"
   speaker: League
+  index: security
   caption: |
     And you see some of the hits here that we're
     contacting are `security.ubuntu.com`,
@@ -695,6 +729,9 @@
 
 - time: "00:10:47"
   speaker: League
+  index: "`apt-get upgrade`"
+  cmd: |
+    sudo apt-get upgrade
   caption: |
     And that's `apt-get upgrade` -- also we need `sudo`.
 
@@ -748,12 +785,16 @@
 
 - time: "00:11:28"
   speaker: League
+  index: "`dpkg` (package tool)"
   caption: |
     So there's a lower-level tool that's part
     of the 'apt' system called `dpkg`.
 
 - time: "00:11:35"
   speaker: League
+  index: "`dpkg -l` (list packages)"
+  cmd: |
+    dpkg -l
   caption: |
     And if you run that with a `-l` (lowercase
     `l`), just that by itself will
@@ -795,6 +836,8 @@
 
 - time: "00:12:10"
   speaker: League
+  cmd: |
+    dpkg -l 'image*'
   caption: |
     Yeah, `*` would match anything after `image`.
 
@@ -823,6 +866,8 @@
 
 - time: "00:12:38"
   speaker: League
+  cmd: |
+    sudo apt-get install imagemagick-doc
   caption: |
     Let's go ahead and install that
     `imagemagick-doc` package.
@@ -846,6 +891,9 @@
     part of that package can be listed.
 
 - time: "00:13:03"
+  index: "`dpkg -L` (list files)"
+  cmd: |
+    dpkg -L imagemagick-doc
   speaker: League
   caption: |
     And that's `dpkg -L` (capital `L`) and then you
@@ -865,6 +913,8 @@
 
 - time: "00:13:21"
   speaker: League
+  cmd: |
+    dpkg -L imagemagick-doc | less
   caption: |
     which make up the documentation for
     this `imagemagick` package.
@@ -872,7 +922,7 @@
 - time: "00:13:27"
   speaker: League
   caption: |
-    And a lot of theme are in this folder
+    And a lot of them are in this folder
     `/usr/share/doc/imagemagick/www`, right.
 
 - time: "00:13:32"
@@ -889,6 +939,7 @@
 
 - time: "00:13:42"
   speaker: League
+  index: "`less` search (`/`)"
   caption: |
     other cool thing about `less`,
     which is to search forward --
@@ -954,6 +1005,8 @@
 
 - time: "00:14:58"
   speaker: League
+  cmd: |
+    xdg-open /usr/share/doc/imagemagick-doc/index.html
   caption: |
     yeah sometimes you'll be able to complete it
     and sometimes not -- and `index`.
@@ -1007,6 +1060,7 @@
 
 - time: "00:15:52"
   speaker: League
+  index: "`dpkg -S` (search for filename)"
   caption: |
     Sure, so `dpkg` has another option
     which is the `-S` (capital `S`).
@@ -1019,6 +1073,8 @@
 
 - time: "00:16:09"
   speaker: League
+  cmd: |
+    dpkg -S mogrify
   caption: |
     So let's try one of the
     `imagemagick` commands like `mogrify`.
@@ -1049,6 +1105,7 @@
 
 - time: "00:16:42"
   speaker: League
+  index: completion
   caption: |
     There is one strange one there, the
     package is called `bash-completion`.
@@ -1315,4 +1372,3 @@
 - time: "00:20:44"
   caption: |
     [End]
-
