@@ -1,7 +1,1318 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:23"
+  speaker: League
+  caption: |
+    Hi welcome back to Command Line TV. This is episode
+    8. And what are we going to talk about today?
+
+- time: "00:00:28"
+  speaker: Lopes
+  caption: |
+    Well last time we spoke about ImageMagick.
+    We did a lot of image manipulations.
+
+- time: "00:00:33"
+  speaker: Lopes
+  caption: |
+    I guess today we'll talk about package
+    management and how to actually get
+
+- time: "00:00:37"
+  speaker: Lopes
+  caption: |
+    ImageMagick and other software onto the computer.
+
+- time: "00:00:40"
+  speaker: League
+  caption: |
+    Yeah, it's probably not installed by
+    default on whatever system you're
+
+- time: "00:00:44"
+  speaker: League
+  caption: |
+    using so you definitely will have to
+    install it. And package management is
+
+- time: "00:00:49"
+  speaker: League
+  caption: |
+    an important topic in Linux systems and
+    other Unixes because package
+
+- time: "00:00:58"
+  speaker: League
+  caption: |
+    managers I think are one of the real
+    advantages of Linux systems.
+
+- time: "00:01:04"
+  speaker: League
+  caption: |
+    Basically when you want to install new
+    software, there usually are these
+
+- time: "00:01:09"
+  speaker: League
+  caption: |
+    archives or repositories of software
+    that's already been configured and
+
+- time: "00:01:15"
+  speaker: League
+  caption: |
+    prepared to run on your system. So you just
+    have to know the right commands
+
+- time: "00:01:19"
+  speaker: League
+  caption: |
+    in order to search those and figure out what you
+    need to install, and then get it installed.
+
+- time: "00:01:27"
+  speaker: League
+  caption: |
+    These package managers also figure
+    out the dependencies for you.
+
+- time: "00:01:31"
+  speaker: League
+  caption: |
+    So if you have one piece of software
+    that depends on other pieces of
+
+- time: "00:01:35"
+  speaker: League
+  caption: |
+    software it can go and install all of them
+    together and make sure that all gets managed.
+
+- time: "00:01:41"
+  speaker: Lopes
+  caption: |
+    So I know on Windows you usually have an
+    installation wizard that walks you
+
+- time: "00:01:45"
+  speaker: Lopes
+  caption: |
+    through every single step of
+    installing software onto the system.
+
+- time: "00:01:49"
+  speaker: Lopes
+  caption: |
+    How does that differ using Ubuntu or Linux?
+
+- time: "00:01:53"
+  speaker: League
+  caption: |
+    The way software is installed on
+    Windows is a little different.
+
+- time: "00:01:57"
+  speaker: League
+  caption: |
+    Those wizards might ask you some questions about
+    like, where you'd like to install stuff.
+
+- time: "00:02:02"
+  speaker: League
+  caption: |
+    That's not usually a choice on the
+    package managers on Linux systems --
+
+- time: "00:02:08"
+  speaker: League
+  caption: |
+    they install in standard places. And
+    sometimes the package managers will
+
+- time: "00:02:14"
+  speaker: League
+  caption: |
+    ask other sorts of questions about
+    configuration and so forth.
+
+- time: "00:02:20"
+  speaker: League
+  caption: |
+    But the big difference is that windows packages
+    tend to be either entirely self contained,
+
+- time: "00:02:26"
+  speaker: League
+  caption: |
+    which means that you can install the
+    software and you don't need it to
+
+- time: "00:02:31"
+  speaker: League
+  caption: |
+    install other pieces of software for you.
+    Or in many cases for more complex
+
+- time: "00:02:35"
+  speaker: League
+  caption: |
+    stuff you might have to chase
+    those dependencies manually.
+
+- time: "00:02:39"
+  speaker: League
+  caption: |
+    So I might want to install some IDE that requires the
+    compiler to be installed separately first,
+
+- time: "00:02:47"
+  speaker: League
+  caption: |
+    and then I have to tell the IDE where the
+    compiler is and all sorts of things like that.
+
+- time: "00:02:54"
+  speaker: League
+  caption: |
+    So the story on Windows is a little
+    simpler and a little more complex,
+
+- time: "00:02:59"
+  speaker: League
+  caption: |
+    it all depends on what you're trying to accomplish.
+
+- time: "00:03:03"
+  speaker: League
+  caption: |
+    But another problem that Windows
+    suffered from for many years --
+
+- time: "00:03:07"
+  speaker: League
+  caption: |
+    and it's gotten way better recently --
+    is what we call "DLL hell".
+
+- time: "00:03:14"
+  speaker: League
+  caption: |
+    And DLL is the dynamic libraries that Windows used.
+
+- time: "00:03:20"
+  speaker: League
+  caption: |
+    What would happen is -- there might be a
+    very common library or dependency
+
+- time: "00:03:26"
+  speaker: League
+  caption: |
+    of multiple software packages and that would be
+    represented as a file with the extension `.dll`.
+
+- time: "00:03:33"
+  speaker: League
+  caption: |
+    And then say you install package one which
+    requires it and package two which requires it,
+
+- time: "00:03:38"
+  speaker: League
+  caption: |
+    they will each bring their own but maybe
+    install it in some central place
+
+- time: "00:03:43"
+  speaker: League
+  caption: |
+    where they could conflict with each
+    other. And so if one of them
+
+- time: "00:03:46"
+  speaker: League
+  caption: |
+    over-installs the other one but they
+    might be different versions and the
+
+- time: "00:03:49"
+  speaker: League
+  caption: |
+    other one's not expecting the new version -- there
+    are all kinds of problems that can happen.
+
+- time: "00:03:54"
+  speaker: League
+  caption: |
+    And so a very strict system of package
+    management helps tame this problem.
+
+- time: "00:03:59"
+  speaker: League
+  caption: |
+    Each package specifies explicitly its
+    dependencies and what versions of
+
+- time: "00:04:04"
+  speaker: League
+  caption: |
+    those dependencies and in some cases it
+    has facilities so that multiple
+
+- time: "00:04:09"
+  speaker: League
+  caption: |
+    versions of the same software or same
+    library can also be installed.
+
+- time: "00:04:14"
+  speaker: League
+  caption: |
+    But this takes a lot of effort to put
+    together and it's one of the reasons
+
+- time: "00:04:18"
+  speaker: League
+  caption: |
+    that Linux distributions put a lot of work into
+    making this stuff as simple as possible.
+
+- time: "00:04:26"
+  speaker: Lopes
+  caption: |
+    In today's episode we'll be using Ubuntu
+    which uses 'apt' package manager
+
+- time: "00:04:30"
+  speaker: Lopes
+  caption: |
+    but what other options do we have in
+    terms of package managers?
+
+- time: "00:04:34"
+  speaker: League
+  caption: |
+    It all depends on the system that you're
+    running. The Debian and Ubuntu
+
+- time: "00:04:39"
+  speaker: League
+  caption: |
+    systems use 'apt' as you mentioned, and
+    other derivatives of them also use it.
+
+- time: "00:04:46"
+  speaker: League
+  caption: |
+    RedHat systems and Fedora use
+    something called `yum` --
+
+- time: "00:04:52"
+  speaker: League
+  caption: |
+    it pretty much provides the same type of facilities,
+    the commands are just slightly different.
+
+- time: "00:04:58"
+  speaker: League
+  caption: |
+    On my laptop I use ArchLinux, and
+    ArchLinux has a command called `pacman`.
+
+- time: "00:05:05"
+  speaker: League
+  caption: |
+    And then on the Mac, the Mac App Store is fine
+    for these self-contained applications,
+
+- time: "00:05:12"
+  speaker: League
+  caption: |
+    more like the Windows style. But if you want to
+    install software that's common on Unix,
+
+- time: "00:05:17"
+  speaker: League
+  caption: |
+    including libraries and compilers
+    and things like that --
+
+- time: "00:05:21"
+  speaker: League
+  caption: |
+    you probably want to get a
+    package manager on your Mac.
+
+- time: "00:05:24"
+  speaker: League
+  caption: |
+    The one that seems to be popular new is called `brew`,
+
+- time: "00:05:28"
+  speaker: League
+  caption: |
+    and it does package management a
+    lot like 'apt' or `yum`.
+
+- time: "00:05:33"
+  speaker: League
+  caption: |
+    Historically on the Mac, there have been other ones.
+
+- time: "00:05:36"
+  speaker: League
+  caption: |
+    There was one called MacPorts and
+    'fink' and a couple others --
+
+- time: "00:05:41"
+  speaker: League
+  caption: |
+    but I think `brew` is the best solution.
+
+- time: "00:05:44"
+  speaker: Lopes
+  caption: |
+    So like I said today we'll be using my
+    Ubuntu as opposed to your Linux.
+
+- time: "00:05:52"
+  speaker: Lopes
+  caption: |
+    Here we have my Ubuntu terminal.
+    When we start with 'apt',
+
+- time: "00:05:56"
+  speaker: Lopes
+  caption: |
+    what would be one of the first things we
+    would do in terms of finding downloads?
+
+- time: "00:06:02"
+  speaker: League
+  caption: |
+    Yeah, so the command that is most useful for
+    finding stuff is called `apt-cache`.
+
+- time: "00:06:09"
+  speaker: League
+  caption: |
+    It's all one command, but with a hyphen
+    in it. And then you would do a
+
+- time: "00:06:14"
+  speaker: League
+  caption: |
+    sub-command after that called `search`,
+    and then you can put a keyword or
+
+- time: "00:06:19"
+  speaker: League
+  caption: |
+    the name of a package or something like that. Why
+    don't we try searching for `imagemagick`.
+
+- time: "00:06:26"
+  speaker: League
+  caption: |
+    Try that.
+
+- time: "00:06:28"
+  speaker: League
+  caption: |
+    And we got a lot of stuff out there -- all of it
+    has some relationship to ImageMagick,
+
+- time: "00:06:34"
+  speaker: League
+  caption: |
+    but maybe we want to -- I don't know --
+    scroll up or pipe it through `less`
+
+- time: "00:06:40"
+  speaker: League
+  caption: |
+    so we can look more carefully at those. Right
+
+- time: "00:06:46"
+  speaker: League
+  caption: |
+    So near the top, I see `imagemagick` as
+    a package name all by itself.
+
+- time: "00:06:52"
+  speaker: League
+  caption: |
+    Each line here is a package name followed by the
+    space dash space, and then a description.
+
+- time: "00:07:00"
+  speaker: League
+  caption: |
+    So `imagemagick` all by itself is the name of a
+    package and that might be the one that we want.
+
+- time: "00:07:06"
+  speaker: League
+  caption: |
+    You can see other ones that are
+    interfaces for programming,
+
+- time: "00:07:10"
+  speaker: League
+  caption: |
+    like it says "C++ interface to ImageMagick" and so on.
+
+- time: "00:07:15"
+  speaker: League
+  caption: |
+    So let's see if we can just find more
+    information about one of those packages.
+
+- time: "00:07:21"
+  speaker: League
+  caption: |
+    I'm going to quit the `less` output (`q`)
+    and let's do `apt-cache show` and
+
+- time: "00:07:30"
+  speaker: League
+  caption: |
+    then the name of the package. In this case,
+    it's got to be the name of a package,
+
+- time: "00:07:35"
+  speaker: League
+  caption: |
+    not just a keyword. But this will give us a
+    lot of details about this package,
+
+- time: "00:07:39"
+  speaker: League
+  caption: |
+    including a longer description, and if we look up
+    a little bit it has the version number --
+
+- time: "00:07:46"
+  speaker: League
+  caption: |
+    this is `8:6.7.7` something --
+    and then the dependencies.
+
+- time: "00:07:55"
+  speaker: League
+  caption: |
+    It shows what other packages this depends
+    on, and what versions it requires.
+
+- time: "00:08:00"
+  speaker: League
+  caption: |
+    It's a little bit flexible about -- so
+    `libc6` has to be a version `>= 2.2.5`.
+
+- time: "00:08:08"
+  speaker: League
+  caption: |
+    So if a new `libc6` comes along, it should
+    still play nicely with `imagemagick`.
+
+- time: "00:08:16"
+  speaker: League
+  caption: |
+    And then there's a list of packages
+    that it recommends or suggests.
+
+- time: "00:08:19"
+  speaker: League
+  caption: |
+    These are not installed by default
+    like the dependencies are,
+
+- time: "00:08:23"
+  speaker: League
+  caption: |
+    but they might be other tools that
+    work with it in some way,
+
+- time: "00:08:26"
+  speaker: League
+  caption: |
+    and you might want to look at that list and get
+    other ideas of things you might want to try.
+
+- time: "00:08:31"
+  speaker: League
+  caption: |
+    So I think we're ready to try and install this. The
+    command to install isn't based on `apt-cache`,
+
+- time: "00:08:37"
+  speaker: League
+  caption: |
+    but it's called `apt-get` with a hyphen.
+    And then you just say `install`
+
+- time: "00:08:42"
+  speaker: League
+  caption: |
+    and the name of the package. Yes, let's try it.
+
+- time: "00:08:48"
+  speaker: League
+  caption: |
+    Oh, what happened there?
+
+- time: "00:08:50"
+  speaker: Lopes
+  caption: |
+    I still have to do `sudo`.
+
+- time: "00:08:53"
+  speaker: League
+  caption: |
+    Yeah, permission denied, so `sudo` is a
+    command to get us administrative access,
+
+- time: "00:09:00"
+  speaker: League
+  caption: |
+    assuming that we're allowed to do that. And
+    periodically with that you'll have to type a password.
+
+- time: "00:09:08"
+  speaker: League
+  caption: |
+    Okay, so it's installing several
+    packages, in addition to `imagemagick`.
+
+- time: "00:09:15"
+  speaker: League
+  caption: |
+    It has some stuff here about
+    `update-alternatives` which we can look at.
+
+- time: "00:09:19"
+  speaker: League
+  caption: |
+    But now you should have the commands like
+    `convert` and `mogrify` and all that.
+
+- time: "00:09:24"
+  speaker: League
+  caption: |
+    Just see if they're available.
+
+- time: "00:09:30"
+  speaker: League
+  caption: |
+    Yeah, so `which` tells us where a command
+    is, and those are now installed
+
+- time: "00:09:36"
+  speaker: League
+  caption: |
+    on this system and we can start using them.
+
+- time: "00:09:41"
+  speaker: Lopes
+  caption: |
+    So on Windows, normally once a program is
+    installed it'll update automatically.
+
+- time: "00:09:45"
+  speaker: Lopes
+  caption: |
+    How do we go about making sure all our
+    programs are up to date on an Ubuntu device?
+
+- time: "00:09:50"
+  speaker: League
+  caption: |
+    Some Ubuntu systems are configured to do what I'm
+    about to show you periodically by itself.
+
+- time: "00:09:57"
+  speaker: League
+  caption: |
+    If not though, it's perfectly easy to do it yourself.
+
+- time: "00:10:01"
+  speaker: League
+  caption: |
+    So what we're going to do is run a command, also on
+    `apt-get` but the sub-command is `update`,
+
+- time: "00:10:08"
+  speaker: League
+  caption: |
+    so `apt-get update`. And this will
+    basically contact that package
+
+- time: "00:10:13"
+  speaker: League
+  caption: |
+    repository and see what the latest versions --
+    we do have to be admin for that too --
+
+- time: "00:10:19"
+  speaker: League
+  caption: |
+    it'll see what the latest versions are in
+    these package repositories and
+
+- time: "00:10:23"
+  speaker: League
+  caption: |
+    download the version information, so that
+    we can see if there is new stuff
+
+- time: "00:10:27"
+  speaker: League
+  caption: |
+    that needs to be downloaded.
+
+- time: "00:10:29"
+  speaker: League
+  caption: |
+    And you see some of the hits here that we're
+    contacting are `security.ubuntu.com`,
+
+- time: "00:10:35"
+  speaker: League
+  caption: |
+    so this is the repository where it keeps
+    track specifically of security updates.
+
+- time: "00:10:41"
+  speaker: League
+  caption: |
+    So now we've got the latest package lists and we want
+    to see if there are new things to upgrade.
+
+- time: "00:10:47"
+  speaker: League
+  caption: |
+    And that's `apt-get upgrade` -- also we need `sudo`.
+
+- time: "00:10:52"
+  speaker: League
+  caption: |
+    It will ask us to confirm after showing us
+    the packages that it wants to upgrade.
+
+- time: "00:10:56"
+  speaker: League
+  caption: |
+    So basically it says "the following packages were
+    automatically installed and no longer required" --
+
+- time: "00:11:01"
+  speaker: League
+  caption: |
+    I'll show you how to get rid of those
+    shortly. But the next section,
+
+- time: "00:11:05"
+  speaker: League
+  caption: |
+    "the following packages will be upgraded"
+    -- those are things where there
+
+- time: "00:11:10"
+  speaker: League
+  caption: |
+    are new versions available, so we can just
+    press enter or say yes to let that happen.
+
+- time: "00:11:15"
+  speaker: League
+  caption: |
+    And it'll go and fetch those latest
+    versions and install them.
+
+- time: "00:11:20"
+  speaker: Lopes
+  caption: |
+    So on Windows we could easily access
+    the "Program Files" to see what
+
+- time: "00:11:23"
+  speaker: Lopes
+  caption: |
+    applications we already have installed. How could I
+    do the same thing using the command line?
+
+- time: "00:11:28"
+  speaker: League
+  caption: |
+    So there's a lower-level tool that's part
+    of the 'apt' system called `dpkg`.
+
+- time: "00:11:35"
+  speaker: League
+  caption: |
+    And if you run that with a `-l` (lowercase
+    `l`), just that by itself will
+
+- time: "00:11:41"
+  speaker: League
+  caption: |
+    give you the complete list of all
+    the installed packages.
+
+- time: "00:11:45"
+  speaker: League
+  caption: |
+    Technically the `ii` at the front
+    means that it's installed,
+
+- time: "00:11:49"
+  speaker: League
+  caption: |
+    and then following that is the package
+    name, version, and description.
+
+- time: "00:11:54"
+  speaker: League
+  caption: |
+    That was a lot of output so we could of course
+    use `less` and `grep` and stuff like that.
+
+- time: "00:11:58"
+  speaker: League
+  caption: |
+    But also you can put a pattern right after the `-l`,
+
+- time: "00:12:02"
+  speaker: League
+  caption: |
+    so we could see like what's installed that has
+    something to do with images, or something like that.
+
+- time: "00:12:10"
+  speaker: League
+  caption: |
+    Yeah, `*` would match anything after `image`.
+
+- time: "00:12:15"
+  speaker: League
+  caption: |
+    Yeah, so this shows us that there's a couple
+    of packages related to `imagemagick`.
+
+- time: "00:12:20"
+  speaker: League
+  caption: |
+    And one of them says `un` before it -- that
+    means that it's not installed --
+
+- time: "00:12:29"
+  speaker: League
+  caption: |
+    but it may have been installed at
+    some point previously,
+
+- time: "00:12:33"
+  speaker: League
+  caption: |
+    or else it probably wouldn't show up here at all.
+
+- time: "00:12:38"
+  speaker: League
+  caption: |
+    Let's go ahead and install that
+    `imagemagick-doc` package.
+
+- time: "00:12:42"
+  speaker: League
+  caption: |
+    This is supposed to contain
+    documentation for the system.
+
+- time: "00:12:55"
+  speaker: Lopes
+  caption: |
+    Now that the `imagemagick-doc` has been
+    installed, how do I locate it?
+
+- time: "00:12:59"
+  speaker: League
+  caption: |
+    So the files that are actually installed as
+    part of that package can be listed.
+
+- time: "00:13:03"
+  speaker: League
+  caption: |
+    And that's `dpkg -L` (capital `L`) and then you
+    put the name of the package afterwards.
+
+- time: "00:13:12"
+  speaker: Lopes
+  caption: |
+    And that always has to be with
+    the exact name, correct?
+
+- time: "00:13:15"
+  speaker: League
+  caption: |
+    Right you can't just use a wildcard in this case.
+    So it gave us a whole list of files here,
+
+- time: "00:13:21"
+  speaker: League
+  caption: |
+    which make up the documentation for
+    this `imagemagick` package.
+
+- time: "00:13:27"
+  speaker: League
+  caption: |
+    And a lot of theme are in this folder
+    `/usr/share/doc/imagemagick/www`, right.
+
+- time: "00:13:32"
+  speaker: League
+  caption: |
+    And there's a bunch of `.html` files in there.
+    Probably there's one called `index.html`.
+
+- time: "00:13:39"
+  speaker: League
+  caption: |
+    You're using `less` right now to view
+    this, so I'm going to show you one
+
+- time: "00:13:42"
+  speaker: League
+  caption: |
+    other cool thing about `less`,
+    which is to search forward --
+
+- time: "00:13:46"
+  speaker: League
+  caption: |
+    you do the slash, so just hit `/` and start
+    to type `index` and press enter.
+
+- time: "00:13:53"
+  speaker: League
+  caption: |
+    And it jumped down and highlights an
+    `index.html` but that's part of the API,
+
+- time: "00:13:59"
+  speaker: League
+  caption: |
+    that's not the one I want. So just hit `/` and
+    enter and it will redo the previous search.
+
+- time: "00:14:06"
+  speaker: League
+  caption: |
+    That's part of `MagickWand`, `/` enter -- and
+    eventually we get down at the bottom of the screen,
+
+- time: "00:14:13"
+  speaker: League
+  caption: |
+    to one that's just part of the `www`
+    itself and I want to open up that
+
+- time: "00:14:18"
+  speaker: League
+  caption: |
+    `index.html` so we can start to
+    browse the documentation.
+
+- time: "00:14:29"
+  speaker: League
+  caption: |
+    So we can do that with `nano` but because
+    it is HTML we're going to see all
+
+- time: "00:14:33"
+  speaker: League
+  caption: |
+    of the code and not the rendered web page. So instead,
+
+- time: "00:14:39"
+  speaker: League
+  caption: |
+    remember how we opened images --
+    there was `xdg-open`, I think?
+
+- time: "00:14:45"
+  speaker: League
+  caption: |
+    Let's try that -- there's a dash after the `xdg`.
+    And try that on that `/usr/share/doc/` --
+
+- time: "00:14:58"
+  speaker: League
+  caption: |
+    yeah sometimes you'll be able to complete it
+    and sometimes not -- and `index`.
+
+- time: "00:15:12"
+  speaker: League
+  caption: |
+    Okay.
+
+- time: "00:15:14"
+  speaker: League
+  caption: |
+    That opened up your web browser, and here's a local
+    web page -- this didn't go to the actual web.
+
+- time: "00:15:20"
+  speaker: League
+  caption: |
+    See in your browser it says `file://` so
+    this is just a local HTML file
+
+- time: "00:15:27"
+  speaker: League
+  caption: |
+    you're browsing that has
+    documentation for this entire system.
+
+- time: "00:15:31"
+  speaker: League
+  caption: |
+    And that's pretty cool, I like to have
+    documentation packages installed a
+
+- time: "00:15:36"
+  speaker: League
+  caption: |
+    lot because I might want to browse how to do something
+    when I'm not even connected to the Internet.
+
+- time: "00:15:43"
+  speaker: Lopes
+  caption: |
+    Now that we've learned how to install
+    programs via the package manager,
+
+- time: "00:15:47"
+  speaker: Lopes
+  caption: |
+    how can we find out what commands, or what
+    packages certain commands belong to.
+
+- time: "00:15:52"
+  speaker: League
+  caption: |
+    Sure, so `dpkg` has another option
+    which is the `-S` (capital `S`).
+
+- time: "00:16:02"
+  speaker: League
+  caption: |
+    And here you can put a filename,
+    path name, fragment of a path.
+
+- time: "00:16:09"
+  speaker: League
+  caption: |
+    So let's try one of the
+    `imagemagick` commands like `mogrify`.
+
+- time: "00:16:15"
+  speaker: League
+  caption: |
+    And this will show us a series of lines, each
+    one has a package before the colon,
+
+- time: "00:16:22"
+  speaker: League
+  caption: |
+    and then a filename after the colon. So
+    this is all of the files on your
+
+- time: "00:16:27"
+  speaker: League
+  caption: |
+    system that are installed by the package
+    manager that contain `mogrify`.
+
+- time: "00:16:34"
+  speaker: League
+  caption: |
+    And so most of them of course come from
+    `imagemagick-doc` or `imagemagick` itself.
+
+- time: "00:16:42"
+  speaker: League
+  caption: |
+    There is one strange one there, the
+    package is called `bash-completion`.
+
+- time: "00:16:49"
+  speaker: League
+  caption: |
+    And it's got something called `mogrify` out
+    there and I believe this is because --
+
+- time: "00:16:57"
+  speaker: League
+  caption: |
+    so the completion mechanism in your
+    shell is when you hit Tab,
+
+- time: "00:17:00"
+  speaker: League
+  caption: |
+    and it will complete the command that you're typing.
+
+- time: "00:17:05"
+  speaker: League
+  caption: |
+    The fact that `bash-completion` knows
+    about `mogrify` means that it might
+
+- time: "00:17:10"
+  speaker: League
+  caption: |
+    also be able to complete the options for
+    that command, which is pretty useful.
+
+- time: "00:17:14"
+  speaker: League
+  caption: |
+    So let's try out `mogrify` -- and remember when we
+    were resizing, we did (I think) `-geometry`.
+
+- time: "00:17:22"
+  speaker: League
+  caption: |
+    So let's start to type `-geometry` but you can hit Tab
+    and it will actually complete that for you.
+
+- time: "00:17:28"
+  speaker: League
+  caption: |
+    That's because `bash` knows about this command
+    and it has that completion for `mogrify`.
+
+- time: "00:17:36"
+  speaker: League
+  caption: |
+    You can also do just a dash `-` and hit
+    tab, and it will (I think) list --
+
+- time: "00:17:42"
+  speaker: League
+  caption: |
+    you might have to hit Tab twice or
+    something -- and if there are a lot of
+
+- time: "00:17:47"
+  speaker: League
+  caption: |
+    possibilities for completion it asks if
+    you really want to see them all.
+
+- time: "00:17:51"
+  speaker: League
+  caption: |
+    But now it's showing you all of these
+    options that `mogrify` supports,
+
+- time: "00:17:54"
+  speaker: League
+  caption: |
+    which is a crazy number of them.
+
+- time: "00:17:59"
+  speaker: League
+  caption: |
+    But that's just a useful thing that we
+    learned that `bash` supports this --
+
+- time: "00:18:05"
+  speaker: League
+  caption: |
+    because we went looking for all the
+    files that contain `mogrify`.
+
+- time: "00:18:10"
+  speaker: League
+  caption: |
+    So today we spent a lot of time with
+    Ubuntu's package manager,
+
+- time: "00:18:14"
+  speaker: League
+  caption: |
+    which is called 'apt', and we learned commands
+    like `apt-cache`, `apt-get`, and `dpkg`.
+
+- time: "00:18:19"
+  speaker: League
+  caption: |
+    But there are other package
+    managers for other systems.
+
+- time: "00:18:22"
+  speaker: League
+  caption: |
+    The concepts that we learned will mostly carry over,
+
+- time: "00:18:26"
+  speaker: League
+  caption: |
+    and what you'd have to do is figure out
+    on a different packaging system,
+
+- time: "00:18:30"
+  speaker: League
+  caption: |
+    the commands that are different. And it's pretty
+    easy to find on the web a translation guide --
+
+- time: "00:18:36"
+  speaker: League
+  caption: |
+    if you're used to 'apt', how do you do this in `yum`,
+
+- time: "00:18:39"
+  speaker: League
+  caption: |
+    or if you are used to `brew` how does it work
+    in `pacman` or something like that.
+
+- time: "00:18:43"
+  speaker: League
+  caption: |
+    So maybe in the show notes we'll have some links to
+    some of those translations that are available.
+
+- time: "00:18:51"
+  speaker: Lopes
+  caption: |
+    Another thing that I do, even though since
+    I'm a beginner at Ubuntu still --
+
+- time: "00:18:55"
+  speaker: Lopes
+  caption: |
+    is I'll use a web browser to search
+    different packages and programs I can use.
+
+- time: "00:19:00"
+  speaker: Lopes
+  caption: |
+    And then practice that via the terminal.
+
+- time: "00:19:03"
+  speaker: League
+  caption: |
+    Yeah so that search output, like when
+    you're looking for a package to do
+
+- time: "00:19:08"
+  speaker: League
+  caption: |
+    something and you `apt-cache search` -- it's pretty
+    overwhelming what you get back from that,
+
+- time: "00:19:13"
+  speaker: League
+  caption: |
+    because there might be tons and tons of
+    packages that have to do with your keyword,
+
+- time: "00:19:18"
+  speaker: League
+  caption: |
+    but it's hard to tell what's what. So
+    yeah, just searching the web and
+
+- time: "00:19:22"
+  speaker: League
+  caption: |
+    using Google in general is going to help
+    you hone in on what program you
+
+- time: "00:19:26"
+  speaker: League
+  caption: |
+    might really be looking for.
+
+- time: "00:19:28"
+  speaker: Lopes
+  caption: |
+    So what do we have in store for next episode?
+
+- time: "00:19:30"
+  speaker: League
+  caption: |
+    I think next time we're going to look at some more
+    shell basics that we haven't gotten to yet,
+
+- time: "00:19:36"
+  speaker: League
+  caption: |
+    like redirection -- this means taking the output
+    of a command and saving it to a file,
+
+- time: "00:19:42"
+  speaker: League
+  caption: |
+    or getting the input of a command from a
+    file. We're also going to look at
+
+- time: "00:19:47"
+  speaker: League
+  caption: |
+    the back-quote character -- it's another
+    way to combine different commands,
+
+- time: "00:19:51"
+  speaker: League
+  caption: |
+    like the pipe, but it works in a different
+    way. And the last thing I think
+
+- time: "00:19:56"
+  speaker: League
+  caption: |
+    we'll look at next time is symbolic
+    links, which is kind of a way --
+
+- time: "00:20:01"
+  speaker: League
+  caption: |
+    like we studied aliases -- it's a little like
+    an alias but it works differently.
+
+- time: "00:20:06"
+  speaker: League
+  caption: |
+    It's a way of saving another name for the
+    same content within the file system.
+
+- time: "00:20:11"
+  speaker: League
+  caption: |
+    So we'll get to those things next
+    time, thanks for joining us.
+
+- time: "00:20:16"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:20:26"
+  caption: |
+    [Captions by Christian Lopes and Christopher League]
+
+- time: "00:20:44"
+  caption: |
+    [End]
+
