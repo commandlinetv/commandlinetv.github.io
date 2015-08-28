@@ -516,7 +516,7 @@
 
 - time: "00:07:29"
   speaker: League
-  index: "`bash`"
+  index: "`bash` (default shell)"
   caption: |
     with an app called Git Bash. Bash is one of the
     Unix shells, and what it is doing there is
