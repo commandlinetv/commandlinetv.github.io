@@ -1,0 +1,861 @@
+[Rhythmic, dark electronic intro music]
+
+:League
+
+Welcome back to Command Line TV, this is episode 9.
+
+Today we're going to talk about
+redirection and command substitution.
+
+Do you have any follow-up from last time?
+
+:Lopes
+
+Last time we did installing
+programs and package management.
+
+My one question is we used `apt-get
+upgrade` and `apt-get update` --
+
+can we run `apt-get upgrade` without running `update`
+or will that cause any conflicting issues?
+
+:League
+
+You can run `upgrade` by itself -- normally you
+wuold run `update` and then `upgrade` together.
+
+It's fine to run `upgrade` by itself but
+what it will do is only upgrade
+
+packages that it already knows about. What's happening
+is the 'apt' subsystem keeps a package cache.
+
+So it knows the last time it did an
+update, what were the versions of all
+
+the packages that were available. And
+`upgrade` will look at that package
+
+cache and upgrade anything that can be
+upgraded. But unless you `update`,
+
+you're not getting the freshest stuff, you're just
+getting the stuff from the previous `update`.
+
+So it's fine to do that, it doesn't hurt anything --
+you just might not be getting the very latest.
+
+:Lopes
+
+I guess the last question we have would be
+in terms of uninstalling a package?
+
+What's the proper way of doing that
+so there are no conflicts?
+
+:League
+
+So when you want to uninstall something,
+there are a couple of options.
+
+The simplest is, if you do `apt-get`
+and then the command `remove`.
+
+And then you put the name of a
+package, or multiple packages --
+
+so maybe we want to remove `imagemagick`.
+This will remove that package and
+
+delete the files from the system.
+However, it does leave behind the
+
+configuration files for imagemagick.
+So the thinking is that --
+
+if you install it, and maybe you customized the
+installation of this package in some way,
+
+by editing some of the configuration files -- it
+doesn't want to remove your customization,
+
+because if you install it again later, then maybe
+you want to keep the way it was customized.
+
+So `remove` removes most of the stuff but
+it leaves behind a little bit.
+
+An alternative to that is `purge`. This
+will remove the package as well as
+
+all the configuration files, even if
+you made changes to them.
+
+So if you really want to be sure that
+everything is gone, then `purge` works fine.
+
+And then we saw there are cases
+of dependencies, right.
+
+Sometimes when you install a package, it
+brings along some other packages
+
+that it needs as dependencies. So just
+uninstalling `imagemagick` doesn't
+
+necessarily remove all those dependencies.
+And there's another command you
+
+can run called `autoremove`. You don't
+need to put a package name here,
+
+it's just that whenever you run
+`autoremove`, it'll look for any packages
+
+that are no longer required by other
+packages that you've installed.
+
+So if `imagemagick` needed some library that
+nobody else needs, it can remove that.
+
+If some other package does still need
+that library, then it will keep it.
+
+So it's very smart about managing these kinds of
+shared dependencies and conflicts and so on.
+
+One thing to be careful of -- since
+you mentioned conflicts --
+
+is the `upgrade` and `install` commands
+support an option called `-f` or `--force`.
+
+This is usually a bad idea. What it
+means is that if there's --
+
+it can help in a couple of ways,
+but it can also be harmful.
+
+If the package requires dependencies
+that are not installed properly,
+
+you can use `--force` to try and install it anyway, and
+maybe it'll work or maybe it'll be terrible.
+
+If a package is going to overwrite files that
+another package has already installed,
+
+that's a bad thing that normally 'apt' will try to
+prevent. But `--force` will allow that to happen.
+
+So once in a while, `--force` might be the
+thing you need to solve some problem,
+
+but usually it's just going to cause
+problems, so try to avoid it if possible.
+
+:Lopes
+
+So today we're going to learn about
+redirection, which utilizes the `>`,
+
+the `<` and the `>>` symbols. What
+are the purposes of these?
+
+:League
+
+Redirection is about controlling where the input
+and output of different commands come from.
+
+Every command that you run has basically three
+streams that are associated with it --
+
+three streams of data. They are standard input, the
+standard output, and the standard error.
+
+And so error is also an output stream, but
+it's meant to be used for things
+
+that are not part of the normal output,
+but things that are error messages
+
+or warnings or stuff like that.
+
+The way it works is that when you
+put together a pipeline --
+
+so if I do `ls` help -- whoops,
+can't have a space there --
+
+and then pipe that into `less` -- what
+I'm doing with this pipe is
+
+connecting the output of one command to
+the input of another command.
+
+And then where standerd error comes into
+play is, if this `ls` command has
+
+some warnings or error messages it wants to put out,
+
+they do not get piped into `less` or into
+whatever the rest of that pipeline is.
+
+So we could try out some examples of that.
+One command that generates both
+
+standard output and standard
+error very easily is `grep`.
+
+So we did `grep` to search through files
+before. I'm going to search for
+
+`copyright` in all the files in the current directory.
+
+We saw this before, that it will generate
+some lines where this is the filename,
+
+and then the content of that file which
+contains our keyword out here.
+
+But it also has these error
+messages that come from `grep`,
+
+so whenever it hits a directory -- I
+didn't tell it to go into that
+
+directory or to ignore directories, so it's
+giving me a little error message there.
+
+So that's the standard error that we're
+seeing. Normally when you run `grep`,
+
+the standard output and the standard error are
+both just dumping content onto my terminal.
+
+But I can redirect that in different ways.
+So let's try redirect to a file.
+
+I'm going to put a greater-than
+(`>`) and then a filename.
+
+So we'll -- let's call this `copymatches.txt`.
+
+What this will do is run that
+command, but the standard output --
+
+instead of being attached to
+another command like `less`,
+
+it will take that standard output and write it to this
+filename that I've given here, after the `>`.
+
+And you can have a space here, or
+not -- that doesn't matter.
+
+So if I do that, what happens is all of
+the legitimate output of that
+
+`grep` got directed to that file, so I don't see it.
+
+But I still see all of the error messages,
+because the error messages were
+
+going out on a separate output
+stream called standard error.
+
+And then if I want to redirect both output and error
+to the same place, there's a way to do that.
+
+It is using the ampersand (`&`) --
+there's one way to do it with this
+
+(`&>`) but I think it's a little more
+complicated. If you put the ampersand
+
+after the greater-than (`>&`) -- and in that
+case, you don't want a space there.
+
+This will write both of those -- let's say
+`copyboth.txt` for that file name.
+
+So now I don't see any output from that
+command because both the standard
+
+output and standard error went to the same file.
+
+So let's take a look at those files. The
+`copymatches.txt` contains just the matches that we saw,
+
+and no error messages. And then
+`copyboth.txt` contains the matches and also --
+
+I think I saw one up here -- the error
+messages where I have directories.
+
+So that's redirecting the output.
+
+:Lopes
+
+So besides the `grep` command can redirection
+be used with things such as `cat`?
+
+:League
+
+Yeah, `cat` is often used to just
+directly put some data into a file.
+
+You can use a text editor for that, but
+this a really simple thing and we
+
+can use it to illustrate some of the
+other output redirection operators.
+
+So if I run cat -- `cat` all by itself,
+all it does is it copies its
+
+standard input to its standard output. So if I type
+`hello`, it says `hello` back, and so forth.
+
+And then when I'm done, whenever you've
+got a command that's waiting for
+
+you to type something for its standard
+input, when you're all done you can
+
+type 'control-D' to say that's the end of the input.
+
+So I'm going to hit 'control-D' and it takes
+me back and I'm done running `cat`.
+
+So what if I did `cat` but I redirect the output
+somewhere. So we could call it `output1.txt`.
+
+And this time I'll type `line1 test`,
+`this is line 2`, control-D.
+
+And now we didn't see it echo those lines
+back to me because instead it
+
+echoed them to the file that I specified. And
+then if I look at the content of that file,
+
+also with `cat`, then it shows me
+those lines that got saved there.
+
+And then I could open that with a text editor or
+something and edit it further if it needs it.
+
+Let's try that again -- if I `cat`
+to the same output file --
+
+and we'll do `line 3 hello`, `testing
+line 4`, control-D to stop.
+
+And now my output file just contains the latest stuff.
+It actually overwrote the previous content.
+
+So you have to be really careful with
+this redirection operator.
+
+It will -- if that file already exists --
+it will overwrite what's there,
+
+and so what's there gets lost.
+
+An alternative to that is if I use the
+double greater-than (`>>`).
+
+This means to tak the existing content of that
+ifle and append to it -- add to the end.
+
+So I was up to line 4 I think, or?
+
+:Lopes
+
+Line 4.
+
+:League
+
+Line 4, alright. So `this is line 5`,
+`and now line 6`, and control-D.
+
+And when I output the file now, it has 3
+and 4 from the previous run but I
+
+appended 5 and 6 to teh end. So that's
+one way that we can distinguish
+
+between the single greater-than (`>`) to possibly
+overwrite a file and start from the beginning,
+
+or the double greater-than (`>>`) which
+appends onto the end of the file.
+
+:Lopes
+
+So the double greater-than and the single
+greater-than can both create new
+
+files if they don't exist. What if you just
+want to add a no-clobber option to it.
+
+:League
+
+If you want to make sure it doesn't
+overwrite some file that already exists,
+
+we can set an option in the shell to
+make it a little safer --
+
+just like we made those aliases for
+`mv` and `cp` and so on,
+
+to make sure they don't overwrite files. The
+way to do that is a shell option,
+
+which you set with `set -o` and the name
+of that option is `noclobber`.
+
+And so normally I would want to do that in
+my `.bashrc` or somewhere like that,
+
+so it can be saved and every time I start a
+new shell I'll have that option set.
+
+The way I did it right now, it'll only take place --
+
+it'll only take effect for this particular session.
+
+But now if I do `cat` into my
+`output1.txt`, it will actually prevent me
+
+from overwriting a file that already
+exists. So that's kind of nice.
+
+But if I do double greater-than (`>>`),
+that would not overwrite a file
+
+because that's going to append and that's okay.
+So the `noclobber` doesn't prevent that.
+
+So that's a simple option you might
+want to put in your `.bashrc`,
+
+to make sure that this overwrite doesn't happen.
+
+Alright, so the final type of redirection
+you might want to do is directing
+
+standard input from a file. So you've got
+a file and you want it to become
+
+the input of another command. So for example
+I just created this `output1.txt`,
+
+and if I want that to become the
+input of, let's say -- `grep`.
+
+So if I `grep` for `line`, okay that's
+the keyword I'm grepping for.
+
+Now, `grep` and a lot of commands that
+can work in multiple ways --
+
+so I can just put the filename on my `grep`
+command line and it will do that grep,
+
+so it matched four of those lines but not the
+last one, so that one got omitted.
+
+But I can also specify it using a less-than (`<`)
+operator which is redirecting from that file.
+
+And it does the same thing. So I can think of
+doing that with `grep` or `head` --
+
+let's say I want to see only the
+first two lines of this file.
+
+And in both of these cases, I can either
+use the redirection operator or not,
+
+it doesn't really make a big difference.
+But there are some commands where
+
+you would have to specify it as a
+redirection instead of --
+
+because it just doesn't support reading
+its files from the command line.
+
+Now I can mix input and output redirection
+on the same command line as well.
+
+So if I've got a file `output1.txt` and I
+want to, let's say `grep` for
+
+`append` which I know matches one of
+those lines. And then I can also
+
+output the result of that into `output2.txt`.
+So no output appears on the terminal,
+
+but my `grep` ran -- it took its input from this
+file and it dumped its output to that file.
+
+So the output only contains that one line that
+matched the keyword that I searched for.
+
+:Lopes
+
+So in one of our previous episodes, we ran
+`cat` and then piped it into `less`.
+
+A few commands ago now, you just ran
+`less` and then the text file.
+
+What's the difference between those two?
+
+:League
+
+Yeah, we normally were using `less` like I did
+`--help` pipe `less` or something like that.
+
+And so what `less` is doing is
+giving me a page at a time,
+
+but it's getting its content from the
+pipe. So it's taking its standard
+
+input and showing it to me a page at a time.
+But just like I did up here with `head`,
+
+`head` can take its standard input from a
+redirection *or* it can use a file.
+
+So I can do the same with `less`. If I want to
+-- there must be a `README` here, yeah.
+
+So if I want to see the contents
+of this a page at a time,
+
+I can specify it as a file like that, `less
+README`, and it shows me a page at a time.
+
+Or I can run `less` and redirect the contents
+of `README` into it -- same thing.
+
+*Or* -- this gets even crazier -- you can run `cat` --
+
+`cat of course will just dump out the content, but
+then you can pipe it into `less` -- same thing.
+
+*Or* you can redirect from the `README` file
+into `cat` and then pipe it into `less`.
+
+And these become useless at some point,
+you're just adding some small
+
+layers of complexity to it when really all
+you want to do is `less README`.
+
+But it just gives you a sense of the
+flexibility. Sometimes these --
+
+the way these commands work comes in handy
+when you're building long pipelines.
+
+And we've seen cases of doing like `grep` then `cut`
+and `sort` then `grep` and stuff like that.
+
+The very nature of these commands that
+allows them to be plugged together
+
+to build those big useful pipelines also allows them
+to be plugged together in fairly useless ways.
+
+:Lopes
+
+So now we'll be moving on to command
+substitution. The two main symbols it
+
+uses are the back-tick and the
+dollar parentheses symbol.
+
+But first, what would command
+substitution be used for?
+
+:League
+
+It's a way of combining two different
+commands. And we've seen how to
+
+combine two commands using a pipe, so
+when you do `ls|head` or something,
+
+you're taking the output of one command and
+making it the input of another command.
+
+What the back-quotes do -- or
+command substitution -- is,
+
+let's say I do `ls` -- this doesn't make any
+sense, but -- let`s say I do that.
+
+So I put one command in back-quotes and this is the --
+
+it's not the normal apostrophe character,
+it's the back-quote (```) that
+
+appears usually underneath the tilde.
+So tilde is the shifted one,
+
+and without shift it's usually that.
+
+So this takes the command in back-quotes
+and executes it. It has some output.
+
+And then it takes that output and it pastes it
+in that position on the command line.
+
+So it will then run `ls` where what appears out
+here is the *output* of the previous command.
+
+So let's try to come up with a better example of
+that. I'll start with a `grep` command.
+
+So when I do something like `grep
+copyright *`, we know what that does --
+
+it just finds matching lines. But
+there's an option to `grep -l` which
+
+means only show the filenames that match.
+So if I do `grep -l copyright` I
+
+still get these error messages about directories but
+other than that it's just showing me filenames.
+
+It doesn't show the text of that file where it
+matched, but just the filename itself.
+
+So then what I might want to do is take
+those filenames and pass them to
+
+another command to do something different with them.
+
+For example, I might want to delete them,
+or move them all to a different
+
+folder or something like that.
+
+Let's make a new folder, call it `stuff`.
+And what I want to do is move --
+
+what are the files you want to move?
+Well, I want to move all the files
+
+that match `copyright` out of `*` which is all
+the files in the current directory.
+
+And then where do you want to move them to? The
+new directory I created, called `stuff`.
+
+So there are two cmomands here: `mv` and
+`grep`. The `grep` will run first,
+
+and the output of `grep` -- the standard
+output of `grep` is then pasted
+
+into the command line at this point
+where the quotes are now.
+
+So that will get replaced by the output of `grep` and
+then I can move all those files into `stuff`.
+
+What I'm seeing here is just the
+standard error of the `grep`, right.
+
+So it's only the standard output that gets pasted in,
+
+and then the standard error still
+comes out on the terminal.
+
+But what it did do is it moved all
+of those files into `stuff`.
+
+So if I look in that `stuff` directory I've
+got a bunch of files in there --
+
+every single noe of those files is one that
+had `copyright` appear within it.
+
+And now the files that remain in the current
+directory do not have `copyright` in them.
+
+So if I do `grep copyright *` in the current
+directory, I only get the error messages.
+
+All the files that matched have been moved aside.
+
+So that's a pretty good example of a
+command -- whenever you've got a
+
+command that might return a list of
+files, then you can use that as --
+
+with the back quotes, with the command substitution --
+
+as parameters for things like `mv` and
+`rm` and `cp` and other commands
+
+that expect filenames on their command line.
+
+:Lopes
+
+Now does command substitution only work on text
+files, or can we use it for images as well?
+
+:League
+
+Oh we can use it for lots of things. So a pretty neat
+way that we could use it for images is like --
+
+to select some image files according to some criteria,
+
+and then apply maybe a `mogrify` to crop or
+shrink those images or something like that.
+
+So let's go look at the -- I think
+that was in `Downloads/pics` --
+
+these are the images I was working with
+in our episode on ImageMagick.
+
+And so if I do `identify` on all of these
+images, I get a line for each
+
+image that tells me the resolution and so
+forth. And to keep this relatively simple,
+
+let's just say that I `grep` and I'm going to
+look for images that have a width of 3264,
+
+so it'll have like the `3264` and then an `x`.
+That's a subset of the images, right?
+
+Most of them are by 1952, but this one
+actually is a little different.
+
+But now I've been able to use `identify` and `grep`
+to select a particular set of image files.
+
+And then I want to strip this down so that
+it's just the filename that I'm seeing,
+
+not the rest of this information. So I'm
+going to use `cut` and what I'm
+
+going to pretend is the delimiter here is
+this left bracket symbol (`[`), right?
+
+So if that's the delimiter then the first
+field would be the filename and
+
+the second field would be all the rest of this. So
+I can say the delimiter is left bracket,
+
+and I want field 1. And now I just
+have a list of filenames.
+
+So that's a perfect type of command that
+I could put in my substitution.
+
+And when commands get a little more complex like this,
+
+and especially when you use nested substitution,
+these back-quotes don't always behave very well.
+
+They can't be nested within each
+other the way parentheses can.
+
+So what I'm going to do is use this
+alternative syntax for command substitution,
+
+which is dollar and then parentheses `$()`
+around the part that gets substituted.
+
+Reminder that this outputs a list of
+filenames. So if I put it in
+
+back-quotes it's going to expand
+to that list of filenames.
+
+And then I can use that within
+another command like `mogrify`.
+
+And let's say I want to shrink these by -- I
+don't know, 10% or something like that.
+
+So first we're going to use this
+pipeline to select the files,
+
+and then we're going to apply
+`mogrify` to all of them.
+
+That can take a moment because I'm shrinking a
+bunch of files, but it came out pretty fast.
+
+If I list these files in reverse
+order by modification time,
+
+then I see that all of the ones that
+appeared in this list are at the end.
+
+So starting with `201`, `202`, `207` -- these
+files were the most recently modified.
+
+And if I look at some of them -- let's
+just take 201, 2, and 7 `.jpg` --
+
+do you remember this bracket
+wildcard? So this will substitute --
+
+another way to do this is a qusetion mark. The
+question mark just substitutes a single character,
+
+so that's going to match all the
+images that have `020`-something.
+
+But I want to only select ones that end with
+1,2,7,9 because they were in my initial list.
+
+So I'm going to look at those files that I just
+shrunk -- at least the first four of them.
+
+And you can see that they're very tiny images
+now -- only 10% of what they were.
+
+And the way I selected those was using
+the `$()` and this sub-command.
+
+:Lopes
+
+Well today we covered the basics on redirection
+using the `>`, `<`, and `>>` symbols.
+
+We also touched on command substitution using the
+back-tick as well as the dollar-parentheses sign.
+
+:League
+
+So thanks for joining us today and
+we'll see you next time.
+
+[Dark electronic beat]
+
+[Captions by Christopher League]
+
+[End]
