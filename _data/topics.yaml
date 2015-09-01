@@ -125,6 +125,7 @@
 - term: "`.bashrc`"
   refs:
     - 5#episode005#00:14:35
+    - 6#episode006#00:12:46
 - term: "`.bash_profile`"
   refs:
     - 5#episode005#00:14:29
@@ -138,6 +139,9 @@
 - term: "`.tar`"
   refs:
     - 3#episode003#00:01:17
+- term: "`.` (current dir)"
+  refs:
+    - 6#episode006#00:02:58
 - term: "`/etc`"
   refs:
     - 4#episode004#00:04:10
@@ -160,9 +164,19 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`cp -a` (archive)"
+  refs:
+    - 6#episode006#00:05:53
+- term: "`cp -r` (recursive)"
+  refs:
+    - 6#episode006#00:04:25
+- term: "`cp -v` (verbose)"
+  refs:
+    - 6#episode006#00:03:33
 - term: "`cp` (copy files and dirs)"
   refs:
     - 5#episode005#00:16:27
+    - 6#episode006#00:00:31
 - term: "`cut -c` (characters)"
   refs:
     - 4#episode004#00:07:56
@@ -243,9 +257,13 @@
 - term: "`ls` (list files)"
   refs:
     - 1#episode001#00:08:40
+- term: "`mkdir -p` (parents)"
+  refs:
+    - 6#episode006#00:07:16
 - term: "`mkdir` (make dirs)"
   refs:
     - 5#episode005#00:04:19
+    - 6#episode006#00:07:05
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
@@ -277,6 +295,21 @@
 - term: "`reset` (initialize terminal)"
   refs:
     - 2#episode002#00:06:55
+- term: "`rm -f` (force)"
+  refs:
+    - 6#episode006#00:15:08
+- term: "`rm -i` (interactive)"
+  refs:
+    - 6#episode006#00:12:18
+- term: "`rm -r` (recursive)"
+  refs:
+    - 6#episode006#00:11:49
+- term: "`rmdir` (remove empty dirs)"
+  refs:
+    - 6#episode006#00:09:27
+- term: "`rm` (remove files or dirs)"
+  refs:
+    - 6#episode006#00:10:35
 - term: "`sort -n` (numeric)"
   refs:
     - 4#episode004#00:12:23
@@ -295,6 +328,9 @@
 - term: "`tail` (last few lines)"
   refs:
     - 2#episode002#00:14:20
+- term: "`tree` (list dirs in tree-like form)"
+  refs:
+    - 6#episode006#00:08:55
 - term: "`uniq -c` (count)"
   refs:
     - 4#episode004#00:15:11
@@ -311,9 +347,13 @@
 - term: "`[]` wildcard"
   refs:
     - 3#episode003#00:08:23
+- term: "`\\` (backslash)"
+  refs:
+    - 6#episode006#00:14:13
 - term: "`^C` (interrupt)"
   refs:
     - 2#episode002#00:06:47
+    - 6#episode006#00:13:51
 - term: "`{}` wildcard"
   refs:
     - 3#episode003#00:09:15
