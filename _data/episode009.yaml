@@ -1,7 +1,1668 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:19"
+  speaker: League
+  caption: |
+    Welcome back to Command Line TV, this is episode 9.
+
+- time: "00:00:23"
+  speaker: League
+  caption: |
+    Today we're going to talk about
+    redirection and command substitution.
+
+- time: "00:00:27"
+  speaker: League
+  caption: |
+    Do you have any follow-up from last time?
+
+- time: "00:00:30"
+  speaker: Lopes
+  caption: |
+    Last time we did installing
+    programs and package management.
+
+- time: "00:00:33"
+  speaker: Lopes
+  caption: |
+    My one question is we used `apt-get
+    upgrade` and `apt-get update` --
+
+- time: "00:00:39"
+  speaker: Lopes
+  caption: |
+    can we run `apt-get upgrade` without running `update`
+    or will that cause any conflicting issues?
+
+- time: "00:00:44"
+  speaker: League
+  caption: |
+    You can run `upgrade` by itself -- normally you
+    would run `update` and then `upgrade` together.
+
+- time: "00:00:51"
+  speaker: League
+  caption: |
+    It's fine to run `upgrade` by itself but
+    what it will do is only upgrade
+
+- time: "00:00:56"
+  speaker: League
+  caption: |
+    packages that it already knows about. What's happening
+    is the 'apt' subsystem keeps a package cache.
+
+- time: "00:01:05"
+  speaker: League
+  caption: |
+    So it knows the last time it did an
+    update, what were the versions of all
+
+- time: "00:01:09"
+  speaker: League
+  caption: |
+    the packages that were available. And
+    `upgrade` will look at that package
+
+- time: "00:01:14"
+  speaker: League
+  caption: |
+    cache and upgrade anything that can be
+    upgraded. But unless you `update`,
+
+- time: "00:01:21"
+  speaker: League
+  caption: |
+    you're not getting the freshest stuff, you're just
+    getting the stuff from the previous `update`.
+
+- time: "00:01:25"
+  speaker: League
+  caption: |
+    So it's fine to do that, it doesn't hurt anything --
+    you just might not be getting the very latest.
+
+- time: "00:01:31"
+  speaker: Lopes
+  caption: |
+    I guess the last question we have would be
+    in terms of uninstalling a package?
+
+- time: "00:01:35"
+  speaker: Lopes
+  caption: |
+    What's the proper way of doing that
+    so there are no conflicts?
+
+- time: "00:01:38"
+  speaker: League
+  caption: |
+    So when you want to uninstall something,
+    there are a couple of options.
+
+- time: "00:01:41"
+  speaker: League
+  caption: |
+    The simplest is, if you do `apt-get`
+    and then the command `remove`.
+
+- time: "00:01:48"
+  speaker: League
+  caption: |
+    And then you put the name of a
+    package, or multiple packages --
+
+- time: "00:01:52"
+  speaker: League
+  caption: |
+    so maybe we want to remove `imagemagick`.
+    This will remove that package and
+
+- time: "00:01:57"
+  speaker: League
+  caption: |
+    delete the files from the system.
+    However, it does leave behind the
+
+- time: "00:02:03"
+  speaker: League
+  caption: |
+    configuration files for imagemagick.
+    So the thinking is that --
+
+- time: "00:02:08"
+  speaker: League
+  caption: |
+    if you install it, and maybe you customized the
+    installation of this package in some way,
+
+- time: "00:02:12"
+  speaker: League
+  caption: |
+    by editing some of the configuration files -- it
+    doesn't want to remove your customization,
+
+- time: "00:02:19"
+  speaker: League
+  caption: |
+    because if you install it again later, then maybe
+    you want to keep the way it was customized.
+
+- time: "00:02:25"
+  speaker: League
+  caption: |
+    So `remove` removes most of the stuff but
+    it leaves behind a little bit.
+
+- time: "00:02:30"
+  speaker: League
+  caption: |
+    An alternative to that is `purge`. This
+    will remove the package as well as
+
+- time: "00:02:35"
+  speaker: League
+  caption: |
+    all the configuration files, even if
+    you made changes to them.
+
+- time: "00:02:39"
+  speaker: League
+  caption: |
+    So if you really want to be sure that
+    everything is gone, then `purge` works fine.
+
+- time: "00:02:44"
+  speaker: League
+  caption: |
+    And then we saw there are cases
+    of dependencies, right.
+
+- time: "00:02:49"
+  speaker: League
+  caption: |
+    Sometimes when you install a package, it
+    brings along some other packages
+
+- time: "00:02:53"
+  speaker: League
+  caption: |
+    that it needs as dependencies. So just
+    uninstalling `imagemagick` doesn't
+
+- time: "00:03:01"
+  speaker: League
+  caption: |
+    necessarily remove all those dependencies.
+    And there's another command you
+
+- time: "00:03:05"
+  speaker: League
+  caption: |
+    can run called `autoremove`. You don't
+    need to put a package name here,
+
+- time: "00:03:10"
+  speaker: League
+  caption: |
+    it's just that whenever you run
+    `autoremove`, it'll look for any packages
+
+- time: "00:03:14"
+  speaker: League
+  caption: |
+    that are no longer required by other
+    packages that you've installed.
+
+- time: "00:03:19"
+  speaker: League
+  caption: |
+    So if `imagemagick` needed some library that
+    nobody else needs, it can remove that.
+
+- time: "00:03:24"
+  speaker: League
+  caption: |
+    If some other package does still need
+    that library, then it will keep it.
+
+- time: "00:03:29"
+  speaker: League
+  caption: |
+    So it's very smart about managing these kinds of
+    shared dependencies and conflicts and so on.
+
+- time: "00:03:35"
+  speaker: League
+  caption: |
+    One thing to be careful of -- since
+    you mentioned conflicts --
+
+- time: "00:03:39"
+  speaker: League
+  caption: |
+    is the `upgrade` and `install` commands
+    support an option called `-f` or `--force`.
+
+- time: "00:03:48"
+  speaker: League
+  caption: |
+    This is usually a bad idea. What it
+    means is that if there's --
+
+- time: "00:03:54"
+  speaker: League
+  caption: |
+    it can help in a couple of ways,
+    but it can also be harmful.
+
+- time: "00:03:59"
+  speaker: League
+  caption: |
+    If the package requires dependencies
+    that are not installed properly,
+
+- time: "00:04:04"
+  speaker: League
+  caption: |
+    you can use `--force` to try and install it anyway, and
+    maybe it'll work or maybe it'll be terrible.
+
+- time: "00:04:09"
+  speaker: League
+  caption: |
+    If a package is going to overwrite files that
+    another package has already installed,
+
+- time: "00:04:16"
+  speaker: League
+  caption: |
+    that's a bad thing that normally 'apt' will try to
+    prevent. But `--force` will allow that to happen.
+
+- time: "00:04:21"
+  speaker: League
+  caption: |
+    So once in a while, `--force` might be the
+    thing you need to solve some problem,
+
+- time: "00:04:28"
+  speaker: League
+  caption: |
+    but usually it's just going to cause
+    problems, so try to avoid it if possible.
+
+- time: "00:04:33"
+  speaker: Lopes
+  caption: |
+    So today we're going to learn about
+    redirection, which utilizes the `>`,
+
+- time: "00:04:37"
+  speaker: Lopes
+  caption: |
+    the `<` and the `>>` symbols. What
+    are the purposes of these?
+
+- time: "00:04:42"
+  speaker: League
+  caption: |
+    Redirection is about controlling where the input
+    and output of different commands come from.
+
+- time: "00:04:51"
+  speaker: League
+  caption: |
+    Every command that you run has basically three
+    streams that are associated with it --
+
+- time: "00:04:57"
+  speaker: League
+  caption: |
+    three streams of data. They are standard input, the
+    standard output, and the standard error.
+
+- time: "00:05:06"
+  speaker: League
+  caption: |
+    And so error is also an output stream, but
+    it's meant to be used for things
+
+- time: "00:05:12"
+  speaker: League
+  caption: |
+    that are not part of the normal output,
+    but things that are error messages
+
+- time: "00:05:15"
+  speaker: League
+  caption: |
+    or warnings or stuff like that.
+
+- time: "00:05:20"
+  speaker: League
+  caption: |
+    The way it works is that when you
+    put together a pipeline --
+
+- time: "00:05:23"
+  speaker: League
+  caption: |
+    so if I do `ls` help -- whoops,
+    can't have a space there --
+
+- time: "00:05:31"
+  speaker: League
+  caption: |
+    and then pipe that into `less` -- what
+    I'm doing with this pipe is
+
+- time: "00:05:37"
+  speaker: League
+  caption: |
+    connecting the output of one command to
+    the input of another command.
+
+- time: "00:05:42"
+  speaker: League
+  caption: |
+    And then where standard error comes into
+    play is, if this `ls` command has
+
+- time: "00:05:46"
+  speaker: League
+  caption: |
+    some warnings or error messages it wants to put out,
+
+- time: "00:05:49"
+  speaker: League
+  caption: |
+    they do not get piped into `less` or into
+    whatever the rest of that pipeline is.
+
+- time: "00:05:55"
+  speaker: League
+  caption: |
+    So we could try out some examples of that.
+    One command that generates both
+
+- time: "00:06:01"
+  speaker: League
+  caption: |
+    standard output and standard
+    error very easily is `grep`.
+
+- time: "00:06:05"
+  speaker: League
+  caption: |
+    So we did `grep` to search through files
+    before. I'm going to search for
+
+- time: "00:06:10"
+  speaker: League
+  caption: |
+    `copyright` in all the files in the current directory.
+
+- time: "00:06:16"
+  speaker: League
+  caption: |
+    We saw this before, that it will generate
+    some lines where this is the filename,
+
+- time: "00:06:21"
+  speaker: League
+  caption: |
+    and then the content of that file which
+    contains our keyword out here.
+
+- time: "00:06:27"
+  speaker: League
+  caption: |
+    But it also has these error
+    messages that come from `grep`,
+
+- time: "00:06:30"
+  speaker: League
+  caption: |
+    so whenever it hits a directory -- I
+    didn't tell it to go into that
+
+- time: "00:06:36"
+  speaker: League
+  caption: |
+    directory or to ignore directories, so it's
+    giving me a little error message there.
+
+- time: "00:06:41"
+  speaker: League
+  caption: |
+    So that's the standard error that we're
+    seeing. Normally when you run `grep`,
+
+- time: "00:06:47"
+  speaker: League
+  caption: |
+    the standard output and the standard error are
+    both just dumping content onto my terminal.
+
+- time: "00:06:54"
+  speaker: League
+  caption: |
+    But I can redirect that in different ways.
+    So let's try redirect to a file.
+
+- time: "00:07:00"
+  speaker: League
+  caption: |
+    I'm going to put a greater-than
+    (`>`) and then a filename.
+
+- time: "00:07:04"
+  speaker: League
+  caption: |
+    So we'll -- let's call this `copymatches.txt`.
+
+- time: "00:07:11"
+  speaker: League
+  caption: |
+    What this will do is run that
+    command, but the standard output --
+
+- time: "00:07:16"
+  speaker: League
+  caption: |
+    instead of being attached to
+    another command like `less`,
+
+- time: "00:07:19"
+  speaker: League
+  caption: |
+    it will take that standard output and write it to this
+    filename that I've given here, after the `>`.
+
+- time: "00:07:24"
+  speaker: League
+  caption: |
+    And you can have a space here, or
+    not -- that doesn't matter.
+
+- time: "00:07:30"
+  speaker: League
+  caption: |
+    So if I do that, what happens is all of
+    the legitimate output of that
+
+- time: "00:07:34"
+  speaker: League
+  caption: |
+    `grep` got directed to that file, so I don't see it.
+
+- time: "00:07:38"
+  speaker: League
+  caption: |
+    But I still see all of the error messages,
+    because the error messages were
+
+- time: "00:07:41"
+  speaker: League
+  caption: |
+    going out on a separate output
+    stream called standard error.
+
+- time: "00:07:47"
+  speaker: League
+  caption: |
+    And then if I want to redirect both output and error
+    to the same place, there's a way to do that.
+
+- time: "00:07:55"
+  speaker: League
+  caption: |
+    It is using the ampersand (`&`) --
+    there's one way to do it with this
+
+- time: "00:08:01"
+  speaker: League
+  caption: |
+    (`&>`) but I think it's a little more
+    complicated. If you put the ampersand
+
+- time: "00:08:04"
+  speaker: League
+  caption: |
+    after the greater-than (`>&`) -- and in that
+    case, you don't want a space there.
+
+- time: "00:08:12"
+  speaker: League
+  caption: |
+    This will write both of those -- let's say
+    `copyboth.txt` for that file name.
+
+- time: "00:08:19"
+  speaker: League
+  caption: |
+    So now I don't see any output from that
+    command because both the standard
+
+- time: "00:08:23"
+  speaker: League
+  caption: |
+    output and standard error went to the same file.
+
+- time: "00:08:26"
+  speaker: League
+  caption: |
+    So let's take a look at those files. The
+    `copymatches.txt` contains just the matches that we saw,
+
+- time: "00:08:32"
+  speaker: League
+  caption: |
+    and no error messages. And then
+    `copyboth.txt` contains the matches and also --
+
+- time: "00:08:41"
+  speaker: League
+  caption: |
+    I think I saw one up here -- the error
+    messages where I have directories.
+
+- time: "00:08:46"
+  speaker: League
+  caption: |
+    So that's redirecting the output.
+
+- time: "00:08:51"
+  speaker: Lopes
+  caption: |
+    So besides the `grep` command can redirection
+    be used with things such as `cat`?
+
+- time: "00:08:55"
+  speaker: League
+  caption: |
+    Yeah, `cat` is often used to just
+    directly put some data into a file.
+
+- time: "00:09:00"
+  speaker: League
+  caption: |
+    You can use a text editor for that, but
+    this a really simple thing and we
+
+- time: "00:09:04"
+  speaker: League
+  caption: |
+    can use it to illustrate some of the
+    other output redirection operators.
+
+- time: "00:09:10"
+  speaker: League
+  caption: |
+    So if I run cat -- `cat` all by itself,
+    all it does is it copies its
+
+- time: "00:09:18"
+  speaker: League
+  caption: |
+    standard input to its standard output. So if I type
+    `hello`, it says `hello` back, and so forth.
+
+- time: "00:09:28"
+  speaker: League
+  caption: |
+    And then when I'm done, whenever you've
+    got a command that's waiting for
+
+- time: "00:09:31"
+  speaker: League
+  caption: |
+    you to type something for its standard
+    input, when you're all done you can
+
+- time: "00:09:34"
+  speaker: League
+  caption: |
+    type 'control-D' to say that's the end of the input.
+
+- time: "00:09:38"
+  speaker: League
+  caption: |
+    So I'm going to hit 'control-D' and it takes
+    me back and I'm done running `cat`.
+
+- time: "00:09:43"
+  speaker: League
+  caption: |
+    So what if I did `cat` but I redirect the output
+    somewhere. So we could call it `output1.txt`.
+
+- time: "00:09:51"
+  speaker: League
+  caption: |
+    And this time I'll type `line1 test`,
+    `this is line 2`, control-D.
+
+- time: "00:09:58"
+  speaker: League
+  caption: |
+    And now we didn't see it echo those lines
+    back to me because instead it
+
+- time: "00:10:03"
+  speaker: League
+  caption: |
+    echoed them to the file that I specified. And
+    then if I look at the content of that file,
+
+- time: "00:10:11"
+  speaker: League
+  caption: |
+    also with `cat`, then it shows me
+    those lines that got saved there.
+
+- time: "00:10:17"
+  speaker: League
+  caption: |
+    And then I could open that with a text editor or
+    something and edit it further if it needs it.
+
+- time: "00:10:23"
+  speaker: League
+  caption: |
+    Let's try that again -- if I `cat`
+    to the same output file --
+
+- time: "00:10:30"
+  speaker: League
+  caption: |
+    and we'll do `line 3 hello`, `testing
+    line 4`, control-D to stop.
+
+- time: "00:10:37"
+  speaker: League
+  caption: |
+    And now my output file just contains the latest stuff.
+    It actually overwrote the previous content.
+
+- time: "00:10:46"
+  speaker: League
+  caption: |
+    So you have to be really careful with
+    this redirection operator.
+
+- time: "00:10:51"
+  speaker: League
+  caption: |
+    It will -- if that file already exists --
+    it will overwrite what's there,
+
+- time: "00:10:56"
+  speaker: League
+  caption: |
+    and so what's there gets lost.
+
+- time: "00:10:59"
+  speaker: League
+  caption: |
+    An alternative to that is if I use the
+    double greater-than (`>>`).
+
+- time: "00:11:03"
+  speaker: League
+  caption: |
+    This means to take the existing content of that
+    file and append to it -- add to the end.
+
+- time: "00:11:10"
+  speaker: League
+  caption: |
+    So I was up to line 4 I think, or?
+
+- time: "00:11:13"
+  speaker: Lopes
+  caption: |
+    Line 4.
+
+- time: "00:11:15"
+  speaker: League
+  caption: |
+    Line 4, alright. So `this is line 5`,
+    `and now line 6`, and control-D.
+
+- time: "00:11:23"
+  speaker: League
+  caption: |
+    And when I output the file now, it has 3
+    and 4 from the previous run but I
+
+- time: "00:11:30"
+  speaker: League
+  caption: |
+    appended 5 and 6 to the end. So that's
+    one way that we can distinguish
+
+- time: "00:11:36"
+  speaker: League
+  caption: |
+    between the single greater-than (`>`) to possibly
+    overwrite a file and start from the beginning,
+
+- time: "00:11:43"
+  speaker: League
+  caption: |
+    or the double greater-than (`>>`) which
+    appends onto the end of the file.
+
+- time: "00:11:48"
+  speaker: Lopes
+  caption: |
+    So the double greater-than and the single
+    greater-than can both create new
+
+- time: "00:11:52"
+  speaker: Lopes
+  caption: |
+    files if they don't exist. What if you just
+    want to add a no-clobber option to it.
+
+- time: "00:11:57"
+  speaker: League
+  caption: |
+    If you want to make sure it doesn't
+    overwrite some file that already exists,
+
+- time: "00:12:02"
+  speaker: League
+  caption: |
+    we can set an option in the shell to
+    make it a little safer --
+
+- time: "00:12:05"
+  speaker: League
+  caption: |
+    just like we made those aliases for
+    `mv` and `cp` and so on,
+
+- time: "00:12:10"
+  speaker: League
+  caption: |
+    to make sure they don't overwrite files. The
+    way to do that is a shell option,
+
+- time: "00:12:19"
+  speaker: League
+  caption: |
+    which you set with `set -o` and the name
+    of that option is `noclobber`.
+
+- time: "00:12:27"
+  speaker: League
+  caption: |
+    And so normally I would want to do that in
+    my `.bashrc` or somewhere like that,
+
+- time: "00:12:33"
+  speaker: League
+  caption: |
+    so it can be saved and every time I start a
+    new shell I'll have that option set.
+
+- time: "00:12:38"
+  speaker: League
+  caption: |
+    The way I did it right now, it'll only take place --
+
+- time: "00:12:41"
+  speaker: League
+  caption: |
+    it'll only take effect for this particular session.
+
+- time: "00:12:44"
+  speaker: League
+  caption: |
+    But now if I do `cat` into my
+    `output1.txt`, it will actually prevent me
+
+- time: "00:12:52"
+  speaker: League
+  caption: |
+    from overwriting a file that already
+    exists. So that's kind of nice.
+
+- time: "00:12:57"
+  speaker: League
+  caption: |
+    But if I do double greater-than (`>>`),
+    that would not overwrite a file
+
+- time: "00:13:02"
+  speaker: League
+  caption: |
+    because that's going to append and that's okay.
+    So the `noclobber` doesn't prevent that.
+
+- time: "00:13:10"
+  speaker: League
+  caption: |
+    So that's a simple option you might
+    want to put in your `.bashrc`,
+
+- time: "00:13:13"
+  speaker: League
+  caption: |
+    to make sure that this overwrite doesn't happen.
+
+- time: "00:13:18"
+  speaker: League
+  caption: |
+    Alright, so the final type of redirection
+    you might want to do is directing
+
+- time: "00:13:23"
+  speaker: League
+  caption: |
+    standard input from a file. So you've got
+    a file and you want it to become
+
+- time: "00:13:28"
+  speaker: League
+  caption: |
+    the input of another command. So for example
+    I just created this `output1.txt`,
+
+- time: "00:13:35"
+  speaker: League
+  caption: |
+    and if I want that to become the
+    input of, let's say -- `grep`.
+
+- time: "00:13:43"
+  speaker: League
+  caption: |
+    So if I `grep` for `line`, okay that's
+    the keyword I'm grepping for.
+
+- time: "00:13:50"
+  speaker: League
+  caption: |
+    Now, `grep` and a lot of commands that
+    can work in multiple ways --
+
+- time: "00:13:56"
+  speaker: League
+  caption: |
+    so I can just put the filename on my `grep`
+    command line and it will do that grep,
+
+- time: "00:14:02"
+  speaker: League
+  caption: |
+    so it matched four of those lines but not the
+    last one, so that one got omitted.
+
+- time: "00:14:09"
+  speaker: League
+  caption: |
+    But I can also specify it using a less-than (`<`)
+    operator which is redirecting from that file.
+
+- time: "00:14:17"
+  speaker: League
+  caption: |
+    And it does the same thing. So I can think of
+    doing that with `grep` or `head` --
+
+- time: "00:14:23"
+  speaker: League
+  caption: |
+    let's say I want to see only the
+    first two lines of this file.
+
+- time: "00:14:26"
+  speaker: League
+  caption: |
+    And in both of these cases, I can either
+    use the redirection operator or not,
+
+- time: "00:14:33"
+  speaker: League
+  caption: |
+    it doesn't really make a big difference.
+    But there are some commands where
+
+- time: "00:14:37"
+  speaker: League
+  caption: |
+    you would have to specify it as a
+    redirection instead of --
+
+- time: "00:14:41"
+  speaker: League
+  caption: |
+    because it just doesn't support reading
+    its files from the command line.
+
+- time: "00:14:50"
+  speaker: League
+  caption: |
+    Now I can mix input and output redirection
+    on the same command line as well.
+
+- time: "00:14:54"
+  speaker: League
+  caption: |
+    So if I've got a file `output1.txt` and I
+    want to, let's say `grep` for
+
+- time: "00:15:01"
+  speaker: League
+  caption: |
+    `append` which I know matches one of
+    those lines. And then I can also
+
+- time: "00:15:06"
+  speaker: League
+  caption: |
+    output the result of that into `output2.txt`.
+    So no output appears on the terminal,
+
+- time: "00:15:13"
+  speaker: League
+  caption: |
+    but my `grep` ran -- it took its input from this
+    file and it dumped its output to that file.
+
+- time: "00:15:19"
+  speaker: League
+  caption: |
+    So the output only contains that one line that
+    matched the keyword that I searched for.
+
+- time: "00:15:25"
+  speaker: Lopes
+  caption: |
+    So in one of our previous episodes, we ran
+    `cat` and then piped it into `less`.
+
+- time: "00:15:30"
+  speaker: Lopes
+  caption: |
+    A few commands ago now, you just ran
+    `less` and then the text file.
+
+- time: "00:15:34"
+  speaker: Lopes
+  caption: |
+    What's the difference between those two?
+
+- time: "00:15:36"
+  speaker: League
+  caption: |
+    Yeah, we normally were using `less` like I did
+    `--help` pipe `less` or something like that.
+
+- time: "00:15:42"
+  speaker: League
+  caption: |
+    And so what `less` is doing is
+    giving me a page at a time,
+
+- time: "00:15:45"
+  speaker: League
+  caption: |
+    but it's getting its content from the
+    pipe. So it's taking its standard
+
+- time: "00:15:50"
+  speaker: League
+  caption: |
+    input and showing it to me a page at a time.
+    But just like I did up here with `head`,
+
+- time: "00:15:57"
+  speaker: League
+  caption: |
+    `head` can take its standard input from a
+    redirection *or* it can use a file.
+
+- time: "00:16:03"
+  speaker: League
+  caption: |
+    So I can do the same with `less`. If I want to
+    -- there must be a `README` here, yeah.
+
+- time: "00:16:09"
+  speaker: League
+  caption: |
+    So if I want to see the contents
+    of this a page at a time,
+
+- time: "00:16:14"
+  speaker: League
+  caption: |
+    I can specify it as a file like that, `less
+    README`, and it shows me a page at a time.
+
+- time: "00:16:20"
+  speaker: League
+  caption: |
+    Or I can run `less` and redirect the contents
+    of `README` into it -- same thing.
+
+- time: "00:16:29"
+  speaker: League
+  caption: |
+    *Or* -- [laughs] this gets even crazier --
+    you can run `cat` --
+
+- time: "00:16:34"
+  speaker: League
+  caption: |
+    `cat of course will just dump out the content, but
+    then you can pipe it into `less` -- same thing.
+
+- time: "00:16:41"
+  speaker: League
+  caption: |
+    *Or* you can redirect from the `README` file
+    into `cat` and then pipe it into `less`.
+
+- time: "00:16:47"
+  speaker: League
+  caption: |
+    And these become useless at some point,
+    you're just adding some small
+
+- time: "00:16:52"
+  speaker: League
+  caption: |
+    layers of complexity to it when really all
+    you want to do is `less README`.
+
+- time: "00:16:57"
+  speaker: League
+  caption: |
+    But it just gives you a sense of the
+    flexibility. Sometimes these --
+
+- time: "00:17:02"
+  speaker: League
+  caption: |
+    the way these commands work comes in handy
+    when you're building long pipelines.
+
+- time: "00:17:07"
+  speaker: League
+  caption: |
+    And we've seen cases of doing like `grep` then `cut`
+    and `sort` then `grep` and stuff like that.
+
+- time: "00:17:14"
+  speaker: League
+  caption: |
+    The very nature of these commands that
+    allows them to be plugged together
+
+- time: "00:17:19"
+  speaker: League
+  caption: |
+    to build those big useful pipelines also allows them
+    to be plugged together in fairly useless ways.
+
+- time: "00:17:26"
+  speaker: Lopes
+  caption: |
+    So now we'll be moving on to command
+    substitution. The two main symbols it
+
+- time: "00:17:30"
+  speaker: Lopes
+  caption: |
+    uses are the back-tick and the
+    dollar parentheses symbol.
+
+- time: "00:17:34"
+  speaker: Lopes
+  caption: |
+    But first, what would command
+    substitution be used for?
+
+- time: "00:17:37"
+  speaker: League
+  caption: |
+    It's a way of combining two different
+    commands. And we've seen how to
+
+- time: "00:17:43"
+  speaker: League
+  caption: |
+    combine two commands using a pipe, so
+    when you do `ls|head` or something,
+
+- time: "00:17:49"
+  speaker: League
+  caption: |
+    you're taking the output of one command and
+    making it the input of another command.
+
+- time: "00:17:56"
+  speaker: League
+  caption: |
+    What the back-quotes do -- or
+    command substitution -- is,
+
+- time: "00:17:59"
+  speaker: League
+  caption: |
+    let's say I do `ls` -- this doesn't make any
+    sense, but -- let`s say I do that.
+
+- time: "00:18:07"
+  speaker: League
+  caption: |
+    So I put one command in back-quotes and this is the --
+
+- time: "00:18:13"
+  speaker: League
+  caption: |
+    it's not the normal apostrophe character,
+    it's the back-quote (`` ` ``) that
+
+- time: "00:18:17"
+  speaker: League
+  caption: |
+    appears usually underneath the tilde.
+    So tilde is the shifted one,
+
+- time: "00:18:23"
+  speaker: League
+  caption: |
+    and without shift it's usually that.
+
+- time: "00:18:26"
+  speaker: League
+  caption: |
+    So this takes the command in back-quotes
+    and executes it. It has some output.
+
+- time: "00:18:31"
+  speaker: League
+  caption: |
+    And then it takes that output and it pastes it
+    in that position on the command line.
+
+- time: "00:18:37"
+  speaker: League
+  caption: |
+    So it will then run `ls` where what appears out
+    here is the *output* of the previous command.
+
+- time: "00:18:45"
+  speaker: League
+  caption: |
+    So let's try to come up with a better example of
+    that. I'll start with a `grep` command.
+
+- time: "00:18:54"
+  speaker: League
+  caption: |
+    So when I do something like `grep
+    copyright *`, we know what that does --
+
+- time: "00:18:59"
+  speaker: League
+  caption: |
+    it just finds matching lines. But
+    there's an option to `grep -l` which
+
+- time: "00:19:03"
+  speaker: League
+  caption: |
+    means only show the filenames that match.
+    So if I do `grep -l copyright` I
+
+- time: "00:19:12"
+  speaker: League
+  caption: |
+    still get these error messages about directories but
+    other than that it's just showing me filenames.
+
+- time: "00:19:18"
+  speaker: League
+  caption: |
+    It doesn't show the text of that file where it
+    matched, but just the filename itself.
+
+- time: "00:19:24"
+  speaker: League
+  caption: |
+    So then what I might want to do is take
+    those filenames and pass them to
+
+- time: "00:19:28"
+  speaker: League
+  caption: |
+    another command to do something different with them.
+
+- time: "00:19:31"
+  speaker: League
+  caption: |
+    For example, I might want to delete them,
+    or move them all to a different
+
+- time: "00:19:35"
+  speaker: League
+  caption: |
+    folder or something like that.
+
+- time: "00:19:37"
+  speaker: League
+  caption: |
+    Let's make a new folder, call it `stuff`.
+    And what I want to do is move --
+
+- time: "00:19:45"
+  speaker: League
+  caption: |
+    what are the files you want to move?
+    Well, I want to move all the files
+
+- time: "00:19:49"
+  speaker: League
+  caption: |
+    that match `copyright` out of `*` which is all
+    the files in the current directory.
+
+- time: "00:19:56"
+  speaker: League
+  caption: |
+    And then where do you want to move them to? The
+    new directory I created, called `stuff`.
+
+- time: "00:20:01"
+  speaker: League
+  caption: |
+    So there are two commands here: `mv` and
+    `grep`. The `grep` will run first,
+
+- time: "00:20:07"
+  speaker: League
+  caption: |
+    and the output of `grep` -- the standard
+    output of `grep` is then pasted
+
+- time: "00:20:11"
+  speaker: League
+  caption: |
+    into the command line at this point
+    where the quotes are now.
+
+- time: "00:20:16"
+  speaker: League
+  caption: |
+    So that will get replaced by the output of `grep` and
+    then I can move all those files into `stuff`.
+
+- time: "00:20:23"
+  speaker: League
+  caption: |
+    What I'm seeing here is just the
+    standard error of the `grep`, right.
+
+- time: "00:20:28"
+  speaker: League
+  caption: |
+    So it's only the standard output that gets pasted in,
+
+- time: "00:20:33"
+  speaker: League
+  caption: |
+    and then the standard error still
+    comes out on the terminal.
+
+- time: "00:20:36"
+  speaker: League
+  caption: |
+    But what it did do is it moved all
+    of those files into `stuff`.
+
+- time: "00:20:40"
+  speaker: League
+  caption: |
+    So if I look in that `stuff` directory I've
+    got a bunch of files in there --
+
+- time: "00:20:43"
+  speaker: League
+  caption: |
+    every single one of those files is one that
+    had `copyright` appear within it.
+
+- time: "00:20:49"
+  speaker: League
+  caption: |
+    And now the files that remain in the current
+    directory do not have `copyright` in them.
+
+- time: "00:20:53"
+  speaker: League
+  caption: |
+    So if I do `grep copyright *` in the current
+    directory, I only get the error messages.
+
+- time: "00:20:59"
+  speaker: League
+  caption: |
+    All the files that matched have been moved aside.
+
+- time: "00:21:02"
+  speaker: League
+  caption: |
+    So that's a pretty good example of a
+    command -- whenever you've got a
+
+- time: "00:21:06"
+  speaker: League
+  caption: |
+    command that might return a list of
+    files, then you can use that as --
+
+- time: "00:21:13"
+  speaker: League
+  caption: |
+    with the back quotes, with the command substitution --
+
+- time: "00:21:17"
+  speaker: League
+  caption: |
+    as parameters for things like `mv` and
+    `rm` and `cp` and other commands
+
+- time: "00:21:22"
+  speaker: League
+  caption: |
+    that expect filenames on their command line.
+
+- time: "00:21:25"
+  speaker: Lopes
+  caption: |
+    Now does command substitution only work on text
+    files, or can we use it for images as well?
+
+- time: "00:21:30"
+  speaker: League
+  caption: |
+    Oh we can use it for lots of things. So a pretty neat
+    way that we could use it for images is like --
+
+- time: "00:21:38"
+  speaker: League
+  caption: |
+    to select some image files according to some criteria,
+
+- time: "00:21:41"
+  speaker: League
+  caption: |
+    and then apply maybe a `mogrify` to crop or
+    shrink those images or something like that.
+
+- time: "00:21:49"
+  speaker: League
+  caption: |
+    So let's go look at the -- I think
+    that was in `Downloads/pics` --
+
+- time: "00:21:54"
+  speaker: League
+  caption: |
+    these are the images I was working with
+    in our episode on ImageMagick.
+
+- time: "00:22:00"
+  speaker: League
+  caption: |
+    And so if I do `identify` on all of these
+    images, I get a line for each
+
+- time: "00:22:07"
+  speaker: League
+  caption: |
+    image that tells me the resolution and so
+    forth. And to keep this relatively simple,
+
+- time: "00:22:12"
+  speaker: League
+  caption: |
+    let's just say that I `grep` and I'm going to
+    look for images that have a width of 3264,
+
+- time: "00:22:21"
+  speaker: League
+  caption: |
+    so it'll have like the `3264` and then an `x`.
+    That's a subset of the images, right?
+
+- time: "00:22:31"
+  speaker: League
+  caption: |
+    Most of them are by 1952, but this one
+    actually is a little different.
+
+- time: "00:22:35"
+  speaker: League
+  caption: |
+    But now I've been able to use `identify` and `grep`
+    to select a particular set of image files.
+
+- time: "00:22:42"
+  speaker: League
+  caption: |
+    And then I want to strip this down so that
+    it's just the filename that I'm seeing,
+
+- time: "00:22:48"
+  speaker: League
+  caption: |
+    not the rest of this information. So I'm
+    going to use `cut` and what I'm
+
+- time: "00:22:55"
+  speaker: League
+  caption: |
+    going to pretend is the delimiter here is
+    this left bracket symbol (`[`), right?
+
+- time: "00:23:00"
+  speaker: League
+  caption: |
+    So if that's the delimiter then the first
+    field would be the filename and
+
+- time: "00:23:05"
+  speaker: League
+  caption: |
+    the second field would be all the rest of this. So
+    I can say the delimiter is left bracket,
+
+- time: "00:23:10"
+  speaker: League
+  caption: |
+    and I want field 1. And now I just
+    have a list of filenames.
+
+- time: "00:23:14"
+  speaker: League
+  caption: |
+    So that's a perfect type of command that
+    I could put in my substitution.
+
+- time: "00:23:21"
+  speaker: League
+  caption: |
+    And when commands get a little more complex like this,
+
+- time: "00:23:24"
+  speaker: League
+  caption: |
+    and especially when you use nested substitution,
+    these back-quotes don't always behave very well.
+
+- time: "00:23:29"
+  speaker: League
+  caption: |
+    They can't be nested within each
+    other the way parentheses can.
+
+- time: "00:23:35"
+  speaker: League
+  caption: |
+    So what I'm going to do is use this
+    alternative syntax for command substitution,
+
+- time: "00:23:42"
+  speaker: League
+  caption: |
+    which is dollar and then parentheses `$()`
+    around the part that gets substituted.
+
+- time: "00:23:50"
+  speaker: League
+  caption: |
+    Reminder that this outputs a list of
+    filenames. So if I put it in
+
+- time: "00:23:56"
+  speaker: League
+  caption: |
+    back-quotes it's going to expand
+    to that list of filenames.
+
+- time: "00:24:00"
+  speaker: League
+  caption: |
+    And then I can use that within
+    another command like `mogrify`.
+
+- time: "00:24:05"
+  speaker: League
+  caption: |
+    And let's say I want to shrink these by -- I
+    don't know, 10% or something like that.
+
+- time: "00:24:14"
+  speaker: League
+  caption: |
+    So first we're going to use this
+    pipeline to select the files,
+
+- time: "00:24:19"
+  speaker: League
+  caption: |
+    and then we're going to apply
+    `mogrify` to all of them.
+
+- time: "00:24:22"
+  speaker: League
+  caption: |
+    That can take a moment because I'm shrinking a
+    bunch of files, but it came out pretty fast.
+
+- time: "00:24:27"
+  speaker: League
+  caption: |
+    If I list these files in reverse
+    order by modification time,
+
+- time: "00:24:34"
+  speaker: League
+  caption: |
+    then I see that all of the ones that
+    appeared in this list are at the end.
+
+- time: "00:24:39"
+  speaker: League
+  caption: |
+    So starting with `201`, `202`, `207` -- these
+    files were the most recently modified.
+
+- time: "00:24:45"
+  speaker: League
+  caption: |
+    And if I look at some of them -- let's
+    just take 201, 2, and 7 `.jpg` --
+
+- time: "00:24:53"
+  speaker: League
+  caption: |
+    do you remember this bracket
+    wildcard? So this will substitute --
+
+- time: "00:24:58"
+  speaker: League
+  caption: |
+    another way to do this is a question mark. The
+    question mark just substitutes a single character,
+
+- time: "00:25:04"
+  speaker: League
+  caption: |
+    so that's going to match all the
+    images that have `020`-something.
+
+- time: "00:25:10"
+  speaker: League
+  caption: |
+    But I want to only select ones that end with
+    1,2,7,9 because they were in my initial list.
+
+- time: "00:25:17"
+  speaker: League
+  caption: |
+    So I'm going to look at those files that I just
+    shrunk -- at least the first four of them.
+
+- time: "00:25:22"
+  speaker: League
+  caption: |
+    And you can see that they're very tiny images
+    now -- only 10% of what they were.
+
+- time: "00:25:29"
+  speaker: League
+  caption: |
+    And the way I selected those was using
+    the `$()` and this sub-command.
+
+- time: "00:25:38"
+  speaker: Lopes
+  caption: |
+    Well today we covered the basics on redirection
+    using the `>`, `<`, and `>>` symbols.
+
+- time: "00:25:45"
+  speaker: Lopes
+  caption: |
+    We also touched on command substitution using the
+    back-tick as well as the dollar-parentheses sign.
+
+- time: "00:25:53"
+  speaker: League
+  caption: |
+    So thanks for joining us today and
+    we'll see you next time.
+
+- time: "00:25:58"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:26:08"
+  caption: |
+    [Captions by Christopher League]
+
+- time: "00:26:26"
+  caption: |
+    [End]
