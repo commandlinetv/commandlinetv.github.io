@@ -14,6 +14,12 @@
 - term: "completion"
   refs:
     - 1#episode001#00:16:23
+- term: "compression, lossless"
+  refs:
+    - 7#episode007#00:12:41
+- term: "compression, lossy"
+  refs:
+    - 7#episode007#00:12:31
 - term: "contacting us"
   refs:
     - 2#episode002#00:04:17
@@ -39,6 +45,7 @@
 - term: "file type, image"
   refs:
     - 2#episode002#00:07:29
+    - 7#episode007#00:10:09
 - term: "file type, PDF"
   refs:
     - 2#episode002#00:07:33
@@ -54,12 +61,25 @@
 - term: "free software"
   refs:
     - 1#episode001#00:03:42
+- term: "geometry"
+  refs:
+    - 7#episode007#00:07:15
 - term: "GNU"
   refs:
     - 2#episode002#00:03:05
 - term: "history"
   refs:
     - 1#episode001#00:11:15
+    - 7#episode007#00:00:46
+- term: "image, crop"
+  refs:
+    - 7#episode007#00:21:36
+- term: "image, resize"
+  refs:
+    - 7#episode007#00:14:16
+- term: "ImageMagick"
+  refs:
+    - 7#episode007#00:05:01
 - term: "password"
   refs:
     - 4#episode004#00:03:57
@@ -108,6 +128,12 @@
 - term: "WYSIWYG"
   refs:
     - 1#episode001#00:02:19
+- term: "YYYYMMDD date format"
+  refs:
+    - 7#episode007#00:03:53
+- term: "`!$` (last word)"
+  refs:
+    - 7#episode007#00:14:35
 - term: "`*` wildcard"
   refs:
     - 2#episode002#00:08:55
@@ -164,6 +190,24 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`clear` (clear screen)"
+  refs:
+    - 7#episode007#00:03:15
+- term: "`convert -blur`"
+  refs:
+    - 7#episode007#00:19:43
+- term: "`convert -bordercolor`"
+  refs:
+    - 7#episode007#00:18:11
+- term: "`convert -border`"
+  refs:
+    - 7#episode007#00:18:39
+- term: "`convert -geometry` (resize image)"
+  refs:
+    - 7#episode007#00:15:54
+- term: "`convert` (process image)"
+  refs:
+    - 7#episode007#00:15:39
 - term: "`cp -a` (archive)"
   refs:
     - 6#episode006#00:05:53
@@ -189,18 +233,27 @@
 - term: "`cut` (select fields)"
   refs:
     - 4#episode004#00:06:16
+- term: "`display` (show image)"
+  refs:
+    - 7#episode007#00:05:05
 - term: "`du -s` (summarize)"
   refs:
     - 4#episode004#00:11:09
 - term: "`du` (disk usage)"
   refs:
     - 4#episode004#00:10:57
+- term: "`eog` (GNOME image viewer)"
+  refs:
+    - 7#episode007#00:20:48
 - term: "`file` (show file type)"
   refs:
     - 3#episode003#00:03:08
 - term: "`gedit` (desktop editor)"
   refs:
     - 4#episode004#00:02:35
+- term: "`gimp` (photoshop)"
+  refs:
+    - 7#episode007#00:23:14
 - term: "`git` (version control)"
   refs:
     - 1#episode001#00:07:22
@@ -235,6 +288,12 @@
   refs:
     - 2#episode002#00:14:14
     - 3#episode003#00:11:34
+- term: "`identify -verbose`"
+  refs:
+    - 7#episode007#00:08:26
+- term: "`identify` (describe image files)"
+  refs:
+    - 7#episode007#00:06:34
 - term: "`less` (pager)"
   refs:
     - 2#episode002#00:12:34
@@ -264,6 +323,15 @@
   refs:
     - 5#episode005#00:04:19
     - 6#episode006#00:07:05
+- term: "`mogrify -crop`"
+  refs:
+    - 7#episode007#00:26:28
+- term: "`mogrify -format`"
+  refs:
+    - 7#episode007#00:10:48
+- term: "`mogrify` (process image in-place)"
+  refs:
+    - 7#episode007#00:10:20
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
@@ -295,6 +363,7 @@
 - term: "`reset` (initialize terminal)"
   refs:
     - 2#episode002#00:06:55
+    - 7#episode007#00:03:37
 - term: "`rm -f` (force)"
   refs:
     - 6#episode006#00:15:08
@@ -354,6 +423,13 @@
   refs:
     - 2#episode002#00:06:47
     - 6#episode006#00:13:51
+    - 7#episode007#00:02:59
+- term: "`^L` (clear)"
+  refs:
+    - 7#episode007#00:03:10
+- term: "`^R` (reverse-i-search)"
+  refs:
+    - 7#episode007#00:00:36
 - term: "`{}` wildcard"
   refs:
     - 3#episode003#00:09:15
