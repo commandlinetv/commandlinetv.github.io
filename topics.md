@@ -19,22 +19,23 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - (Episode 7) ImageMagick
   - (Episode 8) Installing software from package manager
   - (Episode 9) Redirection
+  - (Episode 10) Shell scripts, `#!` notation, `for` loops
+  - (Episode 10) Environment variables
+  - (Episode 10) Permissions and `chmod`
   - Text transformation with `sed`
   - Count stuff with `wc`
   - Full capabilities of 'readline' for editing, history, search
   - Links and symbolic links (`ln -s`)
   - Transferring files: `scp`, `rsync`
   - Web stuff: `curl`, `wget`
-  - `for` loops
-  - Environment variables
   - More detail on wildcards and quoting rules
   - Other shells: `zsh`, `tcsh`, `fish`
   - Colors, custom prompts, other bells & whistles
   - Filesystem management: `mount`, `umount`, `mkfs`
   - The filesystem hierarchy (difference between `/usr`, `/etc`, `/dev`)
   - Crypto: `gpg`, `openssl`
-  - Shell scripts
   - Editors: `vi`, `emacs`
+  - `find` command
   - Installing Linux -- native and VM
   - Different distributions of Linux, + GNU vs BSD
   - Software freedom
