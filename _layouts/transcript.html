@@ -32,7 +32,7 @@ layout: default
     <a class="cl-transcript-anchor" title="{{e.time}}" name="{{e.time}}">&bullet;</a>
     {{ e.caption | markdownify }}
     {% if e.cmd %}
-      <pre>{{e.cmd}}</pre>
+      <pre>{{e.cmd|escape}}</pre>
     {% endif %}
   {% endfor %}
   </td></tr>

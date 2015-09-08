@@ -20,12 +20,14 @@
 
 - time: "00:00:30"
   speaker: Lopes
+  index: "`apt-get update`"
   caption: |
     Last time we did installing
     programs and package management.
 
 - time: "00:00:33"
   speaker: Lopes
+  index: "`apt-get upgrade`"
   caption: |
     My one question is we used `apt-get
     upgrade` and `apt-get update` --
@@ -86,6 +88,7 @@
 
 - time: "00:01:31"
   speaker: Lopes
+  index: package
   caption: |
     I guess the last question we have would be
     in terms of uninstalling a package?
@@ -104,12 +107,15 @@
 
 - time: "00:01:41"
   speaker: League
+  index: "`apt-get remove`"
   caption: |
     The simplest is, if you do `apt-get`
     and then the command `remove`.
 
 - time: "00:01:48"
   speaker: League
+  cmd: |
+    apt-get remove imagemagick
   caption: |
     And then you put the name of a
     package, or multiple packages --
@@ -158,12 +164,15 @@
 
 - time: "00:02:30"
   speaker: League
+  index: "`apt-get purge`"
   caption: |
     An alternative to that is `purge`. This
     will remove the package as well as
 
 - time: "00:02:35"
   speaker: League
+  cmd: |
+    apt-get purge imagemagick
   caption: |
     all the configuration files, even if
     you made changes to them.
@@ -200,6 +209,9 @@
 
 - time: "00:03:05"
   speaker: League
+  index: "`apt-get autoremove`"
+  cmd: |
+    apt-get autoremove
   caption: |
     can run called `autoremove`. You don't
     need to put a package name here,
@@ -236,6 +248,7 @@
 
 - time: "00:03:35"
   speaker: League
+  index: "`apt-get install -f` (force)"
   caption: |
     One thing to be careful of -- since
     you mentioned conflicts --
@@ -296,6 +309,7 @@
 
 - time: "00:04:33"
   speaker: Lopes
+  index: redirection
   caption: |
     So today we're going to learn about
     redirection, which utilizes the `>`,
@@ -314,18 +328,21 @@
 
 - time: "00:04:51"
   speaker: League
+  index: standard input
   caption: |
     Every command that you run has basically three
     streams that are associated with it --
 
 - time: "00:04:57"
   speaker: League
+  index: standard output
   caption: |
     three streams of data. They are standard input, the
     standard output, and the standard error.
 
 - time: "00:05:06"
   speaker: League
+  index: standard error
   caption: |
     And so error is also an output stream, but
     it's meant to be used for things
@@ -355,6 +372,8 @@
 
 - time: "00:05:31"
   speaker: League
+  cmd: |
+    ls --help | less
   caption: |
     and then pipe that into `less` -- what
     I'm doing with this pipe is
@@ -402,6 +421,8 @@
 
 - time: "00:06:10"
   speaker: League
+  cmd: |
+    grep copyright *
   caption: |
     `copyright` in all the files in the current directory.
 
@@ -455,12 +476,15 @@
 
 - time: "00:07:00"
   speaker: League
+  index: "`>` (redirect stdout)"
   caption: |
     I'm going to put a greater-than
     (`>`) and then a filename.
 
 - time: "00:07:04"
   speaker: League
+  cmd: |
+    grep copyright * >copymatches.txt
   caption: |
     So we'll -- let's call this `copymatches.txt`.
 
@@ -513,6 +537,7 @@
 
 - time: "00:07:47"
   speaker: League
+  index: "`>&` (redirect stdout and stderr)"
   caption: |
     And then if I want to redirect both output and error
     to the same place, there's a way to do that.
@@ -537,6 +562,8 @@
 
 - time: "00:08:12"
   speaker: League
+  cmd: |
+    grep copyright * >& copyboth.txt
   caption: |
     This will write both of those -- let's say
     `copyboth.txt` for that file name.
@@ -554,12 +581,16 @@
 
 - time: "00:08:26"
   speaker: League
+  cmd: |
+    less copymatches.txt
   caption: |
     So let's take a look at those files. The
     `copymatches.txt` contains just the matches that we saw,
 
 - time: "00:08:32"
   speaker: League
+  cmd: |
+    less copyboth.txt
   caption: |
     and no error messages. And then
     `copyboth.txt` contains the matches and also --
@@ -577,6 +608,7 @@
 
 - time: "00:08:51"
   speaker: Lopes
+  index: "`cat` (concatenate files)"
   caption: |
     So besides the `grep` command can redirection
     be used with things such as `cat`?
@@ -601,6 +633,8 @@
 
 - time: "00:09:10"
   speaker: League
+  cmd: |
+    cat
   caption: |
     So if I run cat -- `cat` all by itself,
     all it does is it copies its
@@ -613,6 +647,7 @@
 
 - time: "00:09:28"
   speaker: League
+  index: "`^D` (end of input)"
   caption: |
     And then when I'm done, whenever you've
     got a command that's waiting for
@@ -636,6 +671,8 @@
 
 - time: "00:09:43"
   speaker: League
+  cmd: |
+    cat >output1.txt
   caption: |
     So what if I did `cat` but I redirect the output
     somewhere. So we could call it `output1.txt`.
@@ -660,6 +697,8 @@
 
 - time: "00:10:11"
   speaker: League
+  cmd: |
+    cat output1.txt
   caption: |
     also with `cat`, then it shows me
     those lines that got saved there.
@@ -672,12 +711,16 @@
 
 - time: "00:10:23"
   speaker: League
+  cmd: |
+    cat >output1.txt
   caption: |
     Let's try that again -- if I `cat`
     to the same output file --
 
 - time: "00:10:30"
   speaker: League
+  cmd: |
+    cat output1.txt
   caption: |
     and we'll do `line 3 hello`, `testing
     line 4`, control-D to stop.
@@ -707,12 +750,15 @@
 
 - time: "00:10:59"
   speaker: League
+  index: "`>>` (append stdout)"
   caption: |
     An alternative to that is if I use the
     double greater-than (`>>`).
 
 - time: "00:11:03"
   speaker: League
+  cmd: |
+    cat >>output1.txt
   caption: |
     This means to take the existing content of that
     file and append to it -- add to the end.
@@ -735,6 +781,8 @@
 
 - time: "00:11:23"
   speaker: League
+  cmd: |
+    cat output1.txt
   caption: |
     And when I output the file now, it has 3
     and 4 from the previous run but I
@@ -771,6 +819,7 @@
 
 - time: "00:11:57"
   speaker: League
+  index: "`set -o noclobber`"
   caption: |
     If you want to make sure it doesn't
     overwrite some file that already exists,
@@ -795,12 +844,15 @@
 
 - time: "00:12:19"
   speaker: League
+  cmd: |
+    set -o noclobber
   caption: |
     which you set with `set -o` and the name
     of that option is `noclobber`.
 
 - time: "00:12:27"
   speaker: League
+  index: "`.bashrc`"
   caption: |
     And so normally I would want to do that in
     my `.bashrc` or somewhere like that,
@@ -823,6 +875,8 @@
 
 - time: "00:12:44"
   speaker: League
+  cmd: |
+    cat >output1.txt
   caption: |
     But now if I do `cat` into my
     `output1.txt`, it will actually prevent me
@@ -835,6 +889,8 @@
 
 - time: "00:12:57"
   speaker: League
+  cmd: |
+    cat >>output1.txt
   caption: |
     But if I do double greater-than (`>>`),
     that would not overwrite a file
@@ -858,6 +914,7 @@
 
 - time: "00:13:18"
   speaker: League
+  index: "`<` (redirect stdin)"
   caption: |
     Alright, so the final type of redirection
     you might want to do is directing
@@ -870,6 +927,8 @@
 
 - time: "00:13:28"
   speaker: League
+  cmd: |
+    cat output1.txt
   caption: |
     the input of another command. So for example
     I just created this `output1.txt`,
@@ -894,6 +953,8 @@
 
 - time: "00:13:56"
   speaker: League
+  cmd: |
+    grep line output1.txt
   caption: |
     so I can just put the filename on my `grep`
     command line and it will do that grep,
@@ -906,6 +967,8 @@
 
 - time: "00:14:09"
   speaker: League
+  cmd: |
+    grep line <output1.txt
   caption: |
     But I can also specify it using a less-than (`<`)
     operator which is redirecting from that file.
@@ -918,12 +981,16 @@
 
 - time: "00:14:23"
   speaker: League
+  cmd: |
+    head -2 <output1.txt
   caption: |
     let's say I want to see only the
     first two lines of this file.
 
 - time: "00:14:26"
   speaker: League
+  cmd: |
+    head -2 output1.txt
   caption: |
     And in both of these cases, I can either
     use the redirection operator or not,
@@ -966,6 +1033,8 @@
 
 - time: "00:15:06"
   speaker: League
+  cmd: |
+    grep append <output1.txt >output2.txt
   caption: |
     output the result of that into `output2.txt`.
     So no output appears on the terminal,
@@ -1001,6 +1070,8 @@
 
 - time: "00:15:36"
   speaker: League
+  cmd: |
+    ls --help | less
   caption: |
     Yeah, we normally were using `less` like I did
     `--help` pipe `less` or something like that.
@@ -1043,12 +1114,16 @@
 
 - time: "00:16:14"
   speaker: League
+  cmd: |
+    less README
   caption: |
     I can specify it as a file like that, `less
     README`, and it shows me a page at a time.
 
 - time: "00:16:20"
   speaker: League
+  cmd: |
+    less <README
   caption: |
     Or I can run `less` and redirect the contents
     of `README` into it -- same thing.
@@ -1061,12 +1136,16 @@
 
 - time: "00:16:34"
   speaker: League
+  cmd: |
+    cat README |less
   caption: |
-    `cat of course will just dump out the content, but
+    `cat` of course will just dump out the content, but
     then you can pipe it into `less` -- same thing.
 
 - time: "00:16:41"
   speaker: League
+  cmd: |
+    cat <README |less
   caption: |
     *Or* you can redirect from the `README` file
     into `cat` and then pipe it into `less`.
@@ -1115,12 +1194,14 @@
 
 - time: "00:17:26"
   speaker: Lopes
+  index: command substitution
   caption: |
     So now we'll be moving on to command
     substitution. The two main symbols it
 
 - time: "00:17:30"
   speaker: Lopes
+  index: "`` ` `` (command substitution)"
   caption: |
     uses are the back-tick and the
     dollar parentheses symbol.
@@ -1139,6 +1220,8 @@
 
 - time: "00:17:43"
   speaker: League
+  cmd:
+    ls|head
   caption: |
     combine two commands using a pipe, so
     when you do `ls|head` or something,
@@ -1157,6 +1240,8 @@
 
 - time: "00:17:59"
   speaker: League
+  cmd: |
+    ls `head`
   caption: |
     let's say I do `ls` -- this doesn't make any
     sense, but -- let`s say I do that.
@@ -1209,18 +1294,23 @@
 
 - time: "00:18:54"
   speaker: League
+  cmd: |
+    grep copyright *
   caption: |
     So when I do something like `grep
     copyright *`, we know what that does --
 
 - time: "00:18:59"
   speaker: League
+  index: "`grep -l` (files-with-matches)"
   caption: |
     it just finds matching lines. But
     there's an option to `grep -l` which
 
 - time: "00:19:03"
   speaker: League
+  cmd: |
+    grep -l copyright *
   caption: |
     means only show the filenames that match.
     So if I do `grep -l copyright` I
@@ -1261,6 +1351,8 @@
 
 - time: "00:19:37"
   speaker: League
+  cmd: |
+    mkdir stuff
   caption: |
     Let's make a new folder, call it `stuff`.
     And what I want to do is move --
@@ -1279,6 +1371,8 @@
 
 - time: "00:19:56"
   speaker: League
+  cmd: |
+    mv `grep -l copyright *` stuff
   caption: |
     And then where do you want to move them to? The
     new directory I created, called `stuff`.
@@ -1332,6 +1426,8 @@
 
 - time: "00:20:40"
   speaker: League
+  cmd: |
+    ls stuff
   caption: |
     So if I look in that `stuff` directory I've
     got a bunch of files in there --
@@ -1350,6 +1446,8 @@
 
 - time: "00:20:53"
   speaker: League
+  cmd: |
+    grep copyright *
   caption: |
     So if I do `grep copyright *` in the current
     directory, I only get the error messages.
@@ -1406,12 +1504,15 @@
 
 - time: "00:21:41"
   speaker: League
+  index: "`mogrify` (process image in-place)"
   caption: |
     and then apply maybe a `mogrify` to crop or
     shrink those images or something like that.
 
 - time: "00:21:49"
   speaker: League
+  cmd: |
+    cd ~/Downloads/pics/
   caption: |
     So let's go look at the -- I think
     that was in `Downloads/pics` --
@@ -1424,6 +1525,8 @@
 
 - time: "00:22:00"
   speaker: League
+  cmd: |
+    identify *
   caption: |
     And so if I do `identify` on all of these
     images, I get a line for each
@@ -1436,6 +1539,8 @@
 
 - time: "00:22:12"
   speaker: League
+  cmd: |
+    identify * | grep 3264x
   caption: |
     let's just say that I `grep` and I'm going to
     look for images that have a width of 3264,
@@ -1490,6 +1595,8 @@
 
 - time: "00:23:10"
   speaker: League
+  cmd: |
+    identify * | grep 3264x | cut -d'[' -f1
   caption: |
     and I want field 1. And now I just
     have a list of filenames.
@@ -1519,6 +1626,7 @@
 
 - time: "00:23:35"
   speaker: League
+  index: "`$()` (command substitution)"
   caption: |
     So what I'm going to do is use this
     alternative syntax for command substitution,
@@ -1549,6 +1657,8 @@
 
 - time: "00:24:05"
   speaker: League
+  cmd: |
+    mogrify -geometry 10% $(identify * | grep 3264x | cut -d'[' -f1)
   caption: |
     And let's say I want to shrink these by -- I
     don't know, 10% or something like that.
@@ -1573,6 +1683,8 @@
 
 - time: "00:24:27"
   speaker: League
+  cmd: |
+    ls -tr
   caption: |
     If I list these files in reverse
     order by modification time,
@@ -1591,6 +1703,8 @@
 
 - time: "00:24:45"
   speaker: League
+  cmd: |
+    eog IMAG020[127].jpg
   caption: |
     And if I look at some of them -- let's
     just take 201, 2, and 7 `.jpg` --
