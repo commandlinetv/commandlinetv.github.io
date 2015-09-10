@@ -1,0 +1,58 @@
+#!/usr/bin/python
+import sys
+import os.path
+
+lines = 0
+
+summary = {}                    # obj -> date -> IP addr -> [#DLs, #streams]
+ips_per_date = {}               # date -> #
+dates = set()
+
+# Gather info for summary
+for fn in sys.argv[1:]:
+    with open(fn, 'r') as inp:
+        for ln in inp:
+            if ln[0] != '#':
+                fs = ln.split('\t')
+                date = fs[0]
+                ip = fs[4]
+                uri = fs[7]
+                status = fs[8]
+                dates.add(date)
+                if not uri.endswith('.jpg') and status in ['200', '206']:
+                    (obj, ext) = os.path.splitext(uri)
+                    #print(date,ip,uri,status)
+                    if obj not in summary:
+                        summary[obj] = {}
+                    if date not in summary[obj]:
+                        summary[obj][date] = {}
+                        ips_per_date[date] = 0
+                    if ip not in summary[obj][date]:
+                        summary[obj][date][ip] = [0,0]
+                        ips_per_date[date] += 1
+                    summary[obj][date][ip][0 if status == '200' else 1] += 1
+
+max_ips = 0
+for n in ips_per_date.values():
+    if n > max_ips:
+        max_ips = n
+
+scale = 1 if max_ips < 70 else max_ips / 70
+
+objs = sorted(summary.keys())
+accum = {}
+
+for d in sorted(dates):
+    sys.stdout.write(d + ': ')
+    for o in objs:
+        if o not in accum:
+            accum[o] = 0
+        n = len(summary[o][d]) if d in summary[o] else 0
+        accum[o] += n
+        sys.stdout.write(o[-1] * accum[o])
+    sys.stdout.write('\n')
+
+#print(sorted(dates))
+#print(ips_per_date)
+#print(max_ips)
+#print(scale)
