@@ -24,6 +24,7 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - (Episode 10) Permissions and `chmod`
   - (Episode 11?) Filesystem management: `mount`, `umount`, `mkfs`
   - (Episode 11?) The filesystem hierarchy (difference between `/usr`, `/etc`, `/dev`)
+  - (Episode 12) `find` command, `locate`, and `xargs`
   - Text transformation with `sed`
   - Count stuff with `wc`
   - Full capabilities of 'readline' for editing, history, search
@@ -35,7 +36,6 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - Colors, custom prompts, other bells & whistles
   - Crypto: `gpg`, `openssl`
   - Editors: `vi`, `emacs`
-  - `find` command, and `xargs`
   - Installing Linux -- native and VM
   - Different distributions of Linux, + GNU vs BSD
   - Software freedom
