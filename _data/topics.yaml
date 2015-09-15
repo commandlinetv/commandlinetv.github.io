@@ -14,6 +14,7 @@
 - term: "completion"
   refs:
     - 1#episode001#00:16:23
+    - 8#episode008#00:16:42
 - term: "compression, lossless"
   refs:
     - 7#episode007#00:12:41
@@ -26,6 +27,9 @@
 - term: "cygwin"
   refs:
     - 1#episode001#00:07:42
+- term: "dependency"
+  refs:
+    - 8#episode008#00:01:27
 - term: "desktop environment"
   refs:
     - 1#episode001#00:03:20
@@ -35,6 +39,18 @@
 - term: "distribution"
   refs:
     - 1#episode001#00:06:24
+- term: "distribution, ArchLinux"
+  refs:
+    - 8#episode008#00:04:58
+- term: "distribution, Debian/Ubuntu"
+  refs:
+    - 8#episode008#00:04:34
+- term: "distribution, RedHat/Fedora"
+  refs:
+    - 8#episode008#00:04:46
+- term: "DLL"
+  refs:
+    - 8#episode008#00:03:03
 - term: "file type, binary"
   refs:
     - 2#episode002#00:07:02
@@ -80,6 +96,21 @@
 - term: "ImageMagick"
   refs:
     - 7#episode007#00:05:01
+- term: "package"
+  refs:
+    - 8#episode008#00:00:33
+- term: "package manager, apt"
+  refs:
+    - 8#episode008#00:04:26
+- term: "package manager, `brew`"
+  refs:
+    - 8#episode008#00:05:12
+- term: "package manager, `pacman`"
+  refs:
+    - 8#episode008#00:05:05
+- term: "package manager, `yum`"
+  refs:
+    - 8#episode008#00:04:52
 - term: "password"
   refs:
     - 4#episode004#00:03:57
@@ -102,6 +133,9 @@
 - term: "rationale for command line"
   refs:
     - 1#episode001#00:01:36
+- term: "security"
+  refs:
+    - 8#episode008#00:10:29
 - term: "server"
   refs:
     - 1#episode001#00:03:13
@@ -177,6 +211,27 @@
 - term: "`alias`"
   refs:
     - 5#episode005#00:11:03
+- term: "`apt-cache search`"
+  refs:
+    - 8#episode008#00:06:14
+- term: "`apt-cache show`"
+  refs:
+    - 8#episode008#00:07:21
+- term: "`apt-cache` (query package cache)"
+  refs:
+    - 8#episode008#00:06:02
+- term: "`apt-get install`"
+  refs:
+    - 8#episode008#00:08:37
+- term: "`apt-get update`"
+  refs:
+    - 8#episode008#00:10:01
+- term: "`apt-get upgrade`"
+  refs:
+    - 8#episode008#00:10:47
+- term: "`apt-get` (package manager)"
+  refs:
+    - 8#episode008#00:08:31
 - term: "`bash` (default shell)"
   refs:
     - 1#episode001#00:07:29
@@ -236,6 +291,18 @@
 - term: "`display` (show image)"
   refs:
     - 7#episode007#00:05:05
+- term: "`dpkg -L` (list files)"
+  refs:
+    - 8#episode008#00:13:03
+- term: "`dpkg -l` (list packages)"
+  refs:
+    - 8#episode008#00:11:35
+- term: "`dpkg -S` (search for filename)"
+  refs:
+    - 8#episode008#00:15:52
+- term: "`dpkg` (package tool)"
+  refs:
+    - 8#episode008#00:11:28
 - term: "`du -s` (summarize)"
   refs:
     - 4#episode004#00:11:09
@@ -297,6 +364,9 @@
 - term: "`less` (pager)"
   refs:
     - 2#episode002#00:12:34
+- term: "`less` search (`/`)"
+  refs:
+    - 8#episode008#00:13:42
 - term: "`ls -a` (all)"
   refs:
     - 5#episode005#00:14:18
@@ -406,6 +476,9 @@
 - term: "`uniq` (omit repeated lines)"
   refs:
     - 4#episode004#00:13:58
+- term: "`which` (show path of command)"
+  refs:
+    - 8#episode008#00:09:30
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
