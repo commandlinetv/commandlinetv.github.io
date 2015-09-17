@@ -25,6 +25,8 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - (Episode 11?) Filesystem management: `mount`, `umount`, `mkfs`
   - (Episode 11?) The filesystem hierarchy (difference between `/usr`, `/etc`, `/dev`)
   - (Episode 12) `find` command, `locate`, and `xargs`
+  - Job control: `fg`, `bg`, `jobs`, `&`
+  - `chgrp`, `usermod`, `umask` (revisit permissions)
   - Text transformation with `sed`
   - Count stuff with `wc`
   - Full capabilities of 'readline' for editing, history, search
