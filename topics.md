@@ -32,7 +32,9 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - Full capabilities of 'readline' for editing, history, search
   - Links and symbolic links (`ln -s`)
   - Transferring files: `scp`, `rsync`
+  - `tar` and backup tools
   - Web stuff: `curl`, `wget`
+  - `ffmpeg` and `ffprobe` for video stuff
   - More detail on wildcards and quoting rules
   - Other shells: `zsh`, `tcsh`, `fish`
   - Colors, custom prompts, other bells & whistles
