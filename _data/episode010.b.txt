@@ -1,0 +1,1327 @@
+0:01
+[Rhythmic, dark electronic intro music]
+
+:League
+
+0:19
+Welcome back to Command Line TV, this is episode 10.
+
+0:22
+Today we're going to talk about
+shell scripts and permissions.
+
+0:26
+But first do we have any follow-up from last time?
+
+:Lopes
+
+0:29
+We have one follow-up question. We did
+redirection in the last episode,
+
+0:33
+and the one issue we had was that -- when we did the
+single `>` it would always overwrite the files.
+
+0:40
+We had one workaround which we
+used, `set -o noclobber`.
+
+0:44
+The question we had was, can it be turned off or
+do we just have to create a new terminal.
+
+:League
+
+0:50
+Ah, right. So if you `set -o noclobber` already in
+your terminal but then you want to undo that.
+
+0:56
+Generally i think you would have
+to restart the terminal.
+
+1:01
+As long as you haven't set it in your
+`.bashrc` where it would read it
+
+1:06
+again and apply that again then that would take us
+back to a default where it will clobber things.
+
+1:14
+But another useful trick is that
+you can temporarily --
+
+1:18
+like just for one command -- say I really do
+mean to overwrite this file as I redirect.
+
+1:24
+And the way you would do that is --
+let's work here on an output file.
+
+1:29
+So I'll just `cat` into `output.txt` and I
+can say some message and then --
+
+1:35
+what was it to stop the input?
+
+:Lopes
+
+1:38
+Control-D?
+
+:League
+
+1:40
+Control-D, yup. So now I've got that output
+file, `output.txt` and if I try
+
+1:46
+to do that again it can't overwrite the
+existing file because I have
+
+1:52
+`noclobber` set already in this terminal.
+But what I can do to override
+
+1:57
+that temporarily is just use `>` followed
+immediately by the pipe character,
+
+2:02
+no space in there: `>|`. That is
+not a pipe actually --
+
+2:07
+I mean the character is pipe, but it's not
+the feature of the shell called pipe.
+
+2:11
+It's redirection but the pipe says yes I
+really mean to overwrite this file.
+
+2:18
+So now it will let you do that. `This
+is another line`. Control-D.
+
+2:23
+And if I look at the content of that
+file it only has the second one.
+
+2:27
+The first content got overwritten.
+
+:Lopes
+
+2:30
+Today we'll be doing shell scripts. To start off, what
+exactly is a shell script? What does it do?
+
+:League
+
+2:36
+So a script is just a way of automating
+something. Whenever you have a
+
+2:42
+series of commands that you might want to
+execute, instead of remembering
+
+2:47
+to do each one independently and getting
+all the options right and syntax,
+
+2:52
+you can write down those commands into a
+file and then execute that file.
+
+2:57
+And that's what we call a script.
+
+3:01
+So the basic way to do that is
+first we create a text file.
+
+3:05
+And we've learned a couple ways to do that with
+whatever text editor you want to use.
+
+3:10
+One of them that we did before was `nano`
+so I'm going to type `nano` and
+
+3:15
+let's call this just `hello` -- it does
+not necessarily need an extension
+
+3:24
+so just because it's a text file
+doesn't mean you have to put `.txt`.
+
+3:29
+But when it's a shell script sometimes
+people will put a `.sh` at the end,
+
+3:34
+to say that this is meant to be
+executed with the shell.
+
+3:39
+But it's really up to you what the file
+name is, or what extension it has.
+
+3:45
+So I'll do that. And now the first line
+of your script is very special.
+
+3:50
+It always starts with what we call hash-bang, or
+sometimes it's called sh-bang for short, I guess.
+
+3:57
+But hash-bang is pound sign and the exclamation point.
+
+4:01
+And this is a special signal to the
+operating system that this text file
+
+4:06
+can be executed using some command
+interpreter. And then you put the
+
+4:11
+location of the command
+interpreter after the hash-bang.
+
+4:14
+So if it's a shell script, that means that
+the command interpreter is your shell.
+
+4:19
+It's usually `/bin/sh` or `/bin/bash` or
+you could even write scripts that
+
+4:25
+are particular about using some other
+shell, like `zsh` or whatever.
+
+4:31
+We still haven't looked at other shells besides
+`bash` but we'll eventually do that.
+
+4:35
+Let's keep this as `/bin/sh` -- a very generic shell.
+
+4:40
+And now any commands that I type
+after this will not execute now,
+
+4:44
+but they'll execute when I run the entire
+script. So I can say something like --
+
+4:49
+`echo` is just a very simple command that allows
+you to put out a message on the screen --
+
+4:55
+so I can say `echo` and put a message
+there. And then let's just for
+
+5:00
+example say "Your files are" and then
+I'll run a command like `ls`.
+
+5:08
+So it's just sequencing together these two
+`echo` commands and then the `ls`.
+
+5:13
+So I'll save that -- control-O, filename
+to write -- oh it should've --
+
+5:19
+I thought it would get that from the
+command line. So I'll say hello there.
+
+5:24
+[laughs] Oh -- that's fine, overwrite I
+guess. Oh it's a directory, interesting.
+
+5:31
+So that's why that didn't work. I already
+have a directory called `hello`,
+
+5:35
+so I can't also have a file called `hello`. So
+we'll go ahead and use the `hello.sh`.
+
+5:41
+And then we can exit.
+
+5:45
+So if I `ls` from here, there is my
+`hello.sh` file that got created.
+
+5:51
+I'm almost ready to execute that as a script, but
+we have to now look at these permissions.
+
+6:00
+The `x` permission means that you're
+allowed to execute something.
+
+6:04
+Directories will already have executable
+permission because when you `cd`
+
+6:09
+into a directory that is thought
+to be like executing it.
+
+6:13
+So the executable permission is what
+allows you to `cd` into directories.
+
+6:20
+But these other files that are not
+directories do not have executable permission.
+
+6:24
+I need this to be executable in
+order to run the script.
+
+6:28
+So there's a command we're going to do called `chmod`.
+
+6:31
+And we'll talk about all the options
+of this command in a moment.
+
+6:35
+But `chmod` just means to change the
+permissions which are also called 'modes'.
+
+6:40
+So `mod` comes from modes. The `+x` means turn on
+execute permissions, and then the filename.
+
+6:47
+So after doing that if I get my `ls`
+listing, you see that this `hello.sh` --
+
+6:54
+first of all it turned green, which means it's
+executable. And it has the `x` permission out there.
+
+7:02
+So now I can run that and to run it,
+because it's in the current directory
+
+7:07
+I use `.` for the current directory -- `./hello.sh`.
+
+7:13
+And there it is, so it says "Hello world"
+and "Your files are" and then it
+
+7:17
+runs `ls` so it gives you a listing of the files.
+
+:Lopes
+
+7:22
+So when we first made this file you did
+hash-bang and then you had to
+
+7:26
+specify which shell is going to run it.
+Can you specify multiple shells or
+
+7:30
+is there something particular about that?
+
+:League
+
+7:34
+There has to be just one shell
+that's expected to execute this.
+
+7:38
+So I can't -- let's bring up
+`nano` again -- `hello.sh` --
+
+7:43
+I can't put multiple shells here, or have
+multiple hash-bang lines or whatever.
+
+7:50
+But what this means is that this -- it's
+telling the system that this *is*
+
+7:55
+the shell that should run the script.
+That doesn't mean that you have to
+
+7:59
+run it from that shell to begin with.
+So I could be in any shell,
+
+8:04
+and if I specify `./hello.sh` it will then
+*invoke* the correct shell to run it.
+
+8:14
+So in other words if I'm currently
+using `bash` it will invoke `sh`.
+
+8:18
+If I'm currently using `zsh` it will invoke `sh` --
+because that's what the header said to do.
+
+8:23
+It's equivalent to -- like if I do `head` on that --
+
+8:28
+it's equivalent to taking this line
+without the hash-bang and then putting
+
+8:35
+the name of the file you specified after that.
+So this is just another way to run it --
+
+8:42
+it's more verbose, but it takes that shell
+that we specified and then the
+
+8:47
+file containing the script and it
+does exactly the same thing.
+
+8:51
+So that's what that hash-bang
+notation is doing for us.
+
+8:55
+Also we call it shell scripts if the command
+interpreter you specify after the hash-bang is a shell,
+
+9:01
+like `sh` or `bash` or `zsh`. But it actually could
+be any programming language interpreter.
+
+9:08
+So if you're familiar with Python or
+Ruby or some other interpreted
+
+9:12
+programming language you can do
+exactly the same thing.
+
+9:16
+Let's just do a quick one like -- I'll
+say `hello.py` as an example.
+
+9:21
+And in this case I want to put the path
+to the Python interpreter So
+
+9:30
+instead of `/bin/sh` my command
+interpreter is `/usr/bin/python`.
+
+9:34
+And now instead of using `echo` I'm going to
+use commands that Python supports.
+
+9:38
+So I can say like `print` "Hello
+from Python" or whatever.
+
+9:45
+So I can write that to `hello.py`, exit, and
+then same thing -- `chmod +x hello.py`.
+
+9:53
+And then I can run `./hello.py` and
+this time -- it's still a script,
+
+9:58
+I just wouldn't call it a shell
+script. It's a Python script,
+
+10:01
+but it's the same hash-bang notation to do it.
+
+:Lopes
+
+10:06
+So do the scripts we write automatically
+have error-checking built in to it,
+
+10:09
+or is that something we have to set as an option.
+
+:League
+
+10:13
+It's not very -- I mean there is error-checking but
+it doesn't necessarily do what you want.
+
+10:20
+So for example if you make an error in a
+script, it might then continue
+
+10:25
+trying all the rest of the commands anyway. And
+maybe it would be safer to just stop.
+
+10:31
+So let's try that out -- if I open up
+this `hello` script in `nano`,
+
+10:36
+and let's say I make a mistake on this first
+command. I mistyped `echo` or something.
+
+10:43
+So I'm going to write and exit, and
+then try to run that script.
+
+10:48
+What we see happen is -- it does detect the
+error right when it gets to line 3,
+
+10:55
+but then it goes on with the rest of the
+script. Maybe you would rather quit.
+
+11:01
+So let's come in here -- an option you can
+set in a shell script that says
+
+11:09
+basically "quit on error" is you just say `set
+-e` at the top of your script like that.
+
+11:18
+Save that and exit. And now when I run it, it
+encounters that error and tells me about it,
+
+11:23
+but it does not continue with
+the rest of the commands.
+
+11:26
+So that's probably a little safer to
+do that kind of detection.
+
+11:30
+There are some fancier things that you can do once you
+learn a little more about the shell syntax.
+
+11:39
+For example, if a certain command fails you
+can then provide an alternative.
+
+11:45
+So if this fails then do this instead. And
+maybe the alternative command is
+
+11:51
+just to issue an error message and quit,
+but it allows your script to be a
+
+11:56
+little bit more adaptable and friendlier.
+But that takes a little bit of
+
+12:03
+knowledge of programming and of
+the syntax of the shell.
+
+12:07
+We'll start to get into that, but I don't
+want to get that complex just yet.
+
+:Lopes
+
+12:11
+So we used `chmod` to change the
+permission on that `.sh` file that we had.
+
+12:16
+We always see all these different letters
+-- `rwxd`, maybe some dashes --
+
+12:22
+what are they all representing and
+what else can we do with them?
+
+:League
+
+12:25
+Right so this permission string, I'll call
+it, that comes in the `ls -l` output.
+
+12:33
+I'm going to leave out the `d` part, that's
+just whether it's a directory or not.
+
+12:37
+But the rest of it are these 9
+characters, right. So to demonstrate this
+
+12:41
+I'm going to open up an editor so I
+can just do some typing for us.
+
+12:47
+So `rwxrwxrwx` -- that appears 3 times
+-- those are the 9 characters.
+
+12:53
+And of course `r` is read, `w` is write, and `x` is
+execute. But why do they appear 3 times?
+
+13:00
+Well these apply to different
+classes of people on the system.
+
+13:07
+The first set of permissions is about the
+user, so the owner of that file
+
+13:15
+or the current user or whatever. The second set
+is about the group that owns that file.
+
+13:25
+The third set is everyone else, which we
+call "others" -- anyone else.
+
+13:31
+So anyone that's on this system but is not the
+owner or the group that owns the file.
+
+13:38
+We saw here -- I guess I'll save this as
+`permissions.txt` or something so I can come back to it.
+
+13:52
+We saw here also in the `ls -l` output
+that this is the owner of the file
+
+13:59
+and the group that owns the file. You
+can set up groups and stuff --
+
+14:02
+that's a little beyond the scope of
+what we're going to do right now.
+
+14:06
+But a user on the system can be a
+member of multiple groups,
+
+14:11
+so you might have different work groups
+that you coordinate with or whatever.
+
+14:19
+If I open that up again -- the way
+that we specify those --
+
+14:25
+so when I did `chmod` I just did `chmod
++x` and that means turn on all of
+
+14:31
+the execute permissions for everybody
+-- for user, group, and others.
+
+14:37
+But you can also specify it in
+different ways. So I could say --
+
+14:43
+let's say for user and other, turn on read and
+execute. And then you give your filename out here.
+
+14:53
+You could say something like, for group turn off
+write and execute and then you put the filename.
+
+15:00
+So it's just this little syntax of specifying
+which permissions to turn on and off.
+
+15:07
+And the first half of it, which is
+optional, is you can put `u`, `g`,
+
+15:11
+or `o` for user, group, or others. And then you
+have `+` or `-` to turn it on or off.
+
+15:17
+And then you can have `r`, `w`, or
+`x` for read, write, execute.
+
+15:23
+But there's yet another notation that can be
+used for these permission strings.
+
+15:31
+And it comes up sometimes -- it's actually a
+numeric notation using the base 8, or octal.
+
+15:39
+So this is a little weird but what you do is
+you treat each of these as a bit.
+
+15:46
+So the bit is on or off, right. If it's on we
+put the `w`, if it's off we put the dash.
+
+15:51
+So something like that. And then
+maybe these three are all off.
+
+15:56
+Then underneath that you mentally put a 4, 2, 1
+which are the first three powers of two.
+
+16:04
+So in binary notation you would use the
+first three powers of two here and
+
+16:10
+then just repeat them over and over
+again. Then you end up with an octal
+
+16:16
+number by just taking the sum in each
+group. So I'm going to split up the
+
+16:24
+three groups here to make it a little clearer.
+For this permission string that's `rx`,
+
+16:29
+`rw`, and then blank -- I would then add the 4 and
+the 1 because those are both on, to make 5.
+
+16:38
+Then in the next group I would add the 4 and
+2 because those are on, to make 6.
+
+16:44
+Then none of these are on so that would be 0.
+
+16:49
+So that's a numeric representation of
+exactly that permission string.
+
+16:55
+Let's say I did `chmod 560 filename` and --
+let's try that, I'll save this first.
+
+17:04
+And we'll do `chmod 560 hello.sh`. And now when I do
+`ls -l` I see exactly that set of permissions,
+
+17:14
+right? `r-x` and then `rw-` and then nothing.
+So that's 5 and then 6 and then 0.
+
+17:23
+So you eventually kind of learn this numeric notation.
+
+17:28
+The ones that are most common are -- let's say --
+644 and 755. So why are they the most common?
+
+17:45
+Well 644 means you're turning on
+read and write for user,
+
+17:51
+and then you're turning on read-only for
+group and read-only for others.
+
+17:56
+So this is kind of a file that can be read by
+anybody but only the user can write to it.
+
+18:04
+This is similar except you're just turning on
+the execute bit for each of these.
+
+18:10
+So the 7 gets you `rwx`, 5 is 4+1 so that's `r-x` and
+then `r-x`. So 644 and 755 are very common.
+
+18:23
+For files where you want to be a
+little more private --
+
+18:26
+if you want to make sure that only I can
+read this file and nobody else --
+
+18:32
+then you use zeroes for the rest. So maybe 600 would
+be `rw-` for me and nothing for anybody else.
+
+18:40
+Or if it's executable then 700 so
+that's `rwx`, blank, and blank.
+
+18:47
+Those octal notations are there and a lot of Unix
+people know and understand them very well.
+
+18:53
+But they are optional. If you're
+more comfortable with it,
+
+18:57
+you can always just use the `+` and `-` with this
+other notation and that works just fine.
+
+:Lopes
+
+19:04
+So that shell script we wrote at the
+beginning of the episode seemed very
+
+19:07
+similar to writing a program in C++ or
+any other programming language.
+
+19:13
+Does it support features such as variables and
+loops, just like these programming languages do?
+
+:League
+
+19:17
+Yeah, the shell is a full-blown programming
+language, it's just kind of a weird one.
+
+19:24
+But it's useful the way it's designed. So
+it does support variables and
+
+19:28
+loops and if-then-else and all those sorts of things.
+
+19:32
+To do variables is fairly simple and I can just
+demonstrate it here on the command line,
+
+19:38
+as well as in a script. Let's say that I want a
+variable called `x` -- and I'll give it a value.
+
+19:49
+If you want to use text with spaces in it, then as
+usual the spaces should be quoted somehow.
+
+19:57
+So I can go like this -- `x` becomes that string.
+
+20:03
+That just takes whatever value was on the
+right and stores it into that
+
+20:07
+variable called `x` and then to refer to that
+later on, I have to use `$x`, okay.
+
+20:14
+So you can't just say `x` like if I
+were to `echo x`, it says `x`.
+
+20:18
+But if I `echo $x` that means go look up
+the variable by that name and it
+
+20:24
+will give me the message that I stored into `x`.
+
+20:29
+So that's a very simple example of a shell variable.
+
+20:33
+There are other kinds of variables that are
+used in the shell pretty commonly.
+
+20:39
+They're called environment variables.
+An environment variable --
+
+20:43
+the only difference is that the value of
+an environment variable is passed
+
+20:49
+in to programs that you execute. So it can
+be used for example to control
+
+20:55
+different programs in different ways. For
+example, if you want to see all
+
+21:01
+the environment variables your
+shell is currently holding,
+
+21:04
+there's a builtin that does that called
+`env`. When I type this it's going
+
+21:11
+to give me a list of all the environment
+variables along with their values.
+
+21:16
+You see it's got things here like
+what terminal I'm using,
+
+21:21
+so `TERM` is the environment variable and on
+the right side of the `=` is its value.
+
+21:28
+Or what `SHELL` am I currently using. Who
+is the `USER` that's logged in.
+
+21:32
+Where is that user's `HOME` directory.
+And then the `PATH` is a set of
+
+21:36
+directories it uses to find programs. So all of
+these are variables that are set in the shell.
+
+21:43
+By convention they are upper-case names, but
+they don't have to be upper-case names --
+
+21:50
+that's just usually the way it's done. If
+I want to set a new variable --
+
+21:55
+you notice that for example my `$x`
+which I set to "hello world" --
+
+21:59
+that doesn't appear in this list because
+that's just a shell variable and
+
+22:03
+not an environment variable.
+
+22:05
+So one way to set an environment variable
+is -- go back to that way that I
+
+22:11
+set `x` to "hello world" and all I do
+is I type `export` before it.
+
+22:18
+So this means I'm setting a variable in my shell and
+I can still do `echo $x` like I did before.
+
+22:25
+But now that variable will get passed into
+programs that I run subsequently
+
+22:31
+and they can access that. So sometimes you'll use
+environment variables to configure those programs.
+
+22:37
+If I do `env` now, you see that `x` shows up
+here as one of the environment variables.
+
+22:45
+So that's just like having two different
+classes of variables that are used
+
+22:49
+in slightly different ways.
+
+22:53
+As for loops, I sometimes use loops directly on the
+command line as well as in shell scripts.
+
+22:59
+The simplest type of loop you can do is a `for` loop
+where you are iterating over a set of names,
+
+23:08
+a set of things. They could be filenames or they
+could just be any type of text at all.
+
+23:15
+So let's say I put `for x in hello there world;` --
+
+23:23
+what's going to happen is that any words
+that appear after `in` but before
+
+23:29
+the `;` will then be used to
+construct a list of values for `x`.
+
+23:37
+So `x` will take on each of those
+values, one at a time.
+
+23:43
+If I just do that, it's waiting for me to
+continue the rest of my `for` loop.
+
+23:50
+Oh, I actually have to type `do` -- forgot about that.
+
+23:55
+That `do` could've gone on the
+previous line after the `;`.
+
+24:00
+Now I can type certain commands in here like
+-- `"The word is $x"` for example.
+
+24:13
+And then let's just repeat that word a bunch
+of times. And then I type `done`.
+
+24:20
+The `done` matches with the `do`, that
+creates the body of my loop and it
+
+24:25
+will execute those two `echo` commands three times --
+
+24:29
+each time `x` will take on a
+different word from that list.
+
+24:34
+So the first time `x` is "hello" and it gives us those
+two lines. And then the next word and so on.
+
+24:40
+So that's just a little `for` loop and you
+can type that in a shell script
+
+24:45
+or just on the command line like I did. A
+common way to use it is with files.
+
+24:51
+If I want to do like `*; do` -- now `x`
+is going to take on the value of
+
+25:01
+every filename in the current directory,
+because that's what the wildcard will do.
+
+25:06
+So I can do like `echo "file is $x"`, then
+`done`. And it's just showing me
+
+25:18
+all of those files by executing that
+`echo` command one file at a time.
+
+:Lopes
+
+25:24
+That only happens in your path, correct? Sorry not in
+your path -- the current directory you're in?
+
+:League
+
+25:29
+Just in the current directory. And some of
+these are directories themselves,
+
+25:34
+so `django` and `hello` are directories and I
+can't really distinguish that here.
+
+25:40
+Some shells have a way to use a wildcard
+that only matches regular files
+
+25:46
+and not directories and that sort of thing.
+But that's one way to use a `for` loop.
+
+:Lopes
+
+25:52
+So now that we've gone over the
+basics of shell scripts,
+
+25:55
+what are some more advanced things we can do with it?
+
+25:58
+Something that could actually be
+put to use on a daily basis?
+
+:League
+
+26:02
+Let's do a practical example like that. I
+keep going back to image processing --
+
+26:10
+we did ImageMagick as a theme of an episode -- and
+it's something I have to do pretty often.
+
+26:17
+So for example let's say that you're
+creating a little game application,
+
+26:20
+either a web app or on a mobile phone or something.
+
+26:24
+And you find or create a set of playing
+cards, like the faces of cards.
+
+26:33
+You need to use them at different sizes
+depending on whether this is on a
+
+26:37
+tablet or a phone device or something.
+
+26:42
+The first thing is I have this `.zip` file
+here and I'm going to `unzip` that.
+
+26:47
+So probably you have a command called
+`unzip` to deal with that.
+
+26:51
+if not, you know how to look for it in the
+package manager and install it.
+
+26:57
+So I'm going to `unzip` and it's asking
+me if I want to overwrite some
+
+27:03
+files that I forgot to delete from the last
+time I did this [laughs] so I'll say yes,
+
+27:08
+it's okay to overwrite all of those.
+What's a little weird here is it
+
+27:13
+created a sub-folder called "Playing
+Cards" where it put a bunch of stuff,
+
+27:18
+but it also created this folder
+`__MACOSX` and we don't need that,
+
+27:24
+it's just when you zip something on a Mac
+you often get these extra files
+
+27:29
+which can hold some Mac-specific settings in them,
+but we don't care about any of them right now.
+
+27:35
+So I'm going into my playing cards
+folder and in there I see two
+
+27:39
+sub-folders for `.png` format or
+`.svg`. so we'll go into `PNG`.
+
+27:44
+And here's just a big pile of `.png` files for
+the faces of all these different cards.
+
+27:50
+So if I go and look at those, using my `eog` viewer
+for example, that's what they look like.
+
+27:58
+And these are 500 by 7-something
+pixels. So that's the size.
+
+28:04
+Now if I want to use them at different sizes -- let's
+say I want to resize them at like 50% and 33%,
+
+28:11
+25%. And I want to just batch-create all of
+those assets of those different sizes.
+
+28:19
+Let's create a script called
+`resize.sh`. And we'll start with the
+
+28:26
+hash-bang and `set -e` so it stops on
+error. And then I'm going to create a
+
+28:30
+little loop for the sizes that I
+want -- so 50, 33, and 25.
+
+28:40
+That size will get put into the `z` variable
+and then I can do stuff with that.
+
+28:46
+So I'll say "creating $z" so I have
+a little status message,
+
+28:52
+because a lot of the other commands I'm
+going to do don't really output
+
+28:56
+anything if they're successful. So at least
+I'll be able to see those messages.
+
+29:00
+Next let's do a `mkdir` and I want to
+`mkdir cards$z` so it'll say
+
+29:08
+`cards50` or `cards33` or whatever. And in
+case that directory already exists,
+
+29:14
+I'd like it to keep going, so the `-p`
+option -- I think we learned this,
+
+29:20
+having to do with creating parent directories
+-- that will also have the effect of,
+
+29:27
+if the directory already exists it just moves on.
+
+29:32
+Then I want to make a copy of all of the
+`.png` files from the current
+
+29:36
+directory and move them into `cards$z`.
+Finally I'm going to use `mogrify`
+
+29:45
+at geometry specified by `$z%`, so
+`50%`, `33%`, whatever --
+
+29:53
+and apply that to all of the `.png`
+files in the sub-directory.
+
+29:59
+So this way it'll leave the `.png`
+files in the current directory --
+
+30:03
+they'll stay at full size and I'm
+creating copies of them to shrink them.
+
+30:09
+One thing I forgot up here on my
+`for` loop is a `do` --
+
+30:12
+and then down here I have the matching
+`done`. So I think that looks alright.
+
+30:17
+We're going to try it out. So write to file
+and exit. Let's try `./resize.sh`.
+
+30:28
+Oh -- forgot one thing!
+
+:Lopes
+
+30:30
+The `chmod`.
+
+:League
+
+30:32
+That `chmod +x` yeah. So there we go. Now it
+should be able to execute that script.
+
+30:43
+And it'll go through the 50, the 33,
+and the 25. And as it did that,
+
+30:50
+it created these sub-folders here in blue.
+And we can browse those the same way.
+
+30:58
+So here are the small images -- they ended up at
+125x182. And let's do 33 -- they're at 165x240.
+
+31:09
+So we have our assets now resized in
+a couple of different ways.
+
+31:14
+And that's just a very practical example of
+using a script and a `for` loop
+
+31:18
+and ImageMagick and `cp` and a lot of
+the things we've learned so far.
+
+:Lopes
+
+31:23
+So today we learned about shell
+scripts as well as permissions.
+
+31:26
+We also touched base on environment
+variables. We also learned about `for`
+
+31:32
+loops and how to incorporate them into our
+scripts. Thanks for joining us.
+
+:League
+
+31:37
+See you next time!
+
+31:41
+[Dark electronic beat]
+
+31:51
+[Captions by Christopher League]
+
+32:09
+[End]
