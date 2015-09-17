@@ -973,6 +973,7 @@
 
 - time: "00:14:09"
   speaker: League
+  index: "group"
   caption: |
     number. We've got a user and a group name, so
     that's the owner of this file. The file size, and then

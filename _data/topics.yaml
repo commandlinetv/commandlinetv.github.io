@@ -83,6 +83,9 @@
 - term: "GNU"
   refs:
     - 2#episode002#00:03:05
+- term: "group"
+  refs:
+    - 1#episode001#00:14:09
 - term: "history"
   refs:
     - 1#episode001#00:11:15

@@ -32,6 +32,7 @@
 
 - time: "00:00:40"
   speaker: Lopes
+  index: "`set -o noclobber`"
   caption: |
     We had one workaround which we
     used, `set -o noclobber`.
@@ -45,8 +46,8 @@
 - time: "00:00:50"
   speaker: League
   caption: |
-    Ah, right. So if you `set -o noclobber` already in
-    your terminal but then you want to undo that.
+    Ah, right. So if you `set -o noclobber` already
+    in your terminal but then you want to undo that.
 
 - time: "00:00:56"
   speaker: League
@@ -56,6 +57,7 @@
 
 - time: "00:01:01"
   speaker: League
+  index: "`.bashrc`"
   caption: |
     As long as you haven't set it in your
     `.bashrc` where it would read it
@@ -68,6 +70,7 @@
 
 - time: "00:01:14"
   speaker: League
+  index: "`>|` (redirect and clobber)"
   caption: |
     But another useful trick is that
     you can temporarily --
@@ -86,6 +89,8 @@
 
 - time: "00:01:29"
   speaker: League
+  cmd: |
+    cat > output.txt
   caption: |
     So I'll just `cat` into `output.txt` and I
     can say some message and then --
@@ -108,6 +113,8 @@
 
 - time: "00:01:46"
   speaker: League
+  cmd: |
+    cat > output.txt
   caption: |
     to do that again it can't overwrite the
     existing file because I have
@@ -126,6 +133,8 @@
 
 - time: "00:02:02"
   speaker: League
+  cmd: |
+    cat >| output.txt
   caption: |
     no space in there: `>|`. That is
     not a pipe actually --
@@ -161,9 +170,10 @@
 
 - time: "00:02:30"
   speaker: Lopes
+  index: "script, shell"
   caption: |
-    Today we'll be doing shell scripts. To start off, what
-    exactly is a shell script? What does it do?
+    Today we'll be doing shell scripts. To start off,
+    what exactly is a shell script? What does it do?
 
 - time: "00:02:36"
   speaker: League
@@ -196,6 +206,7 @@
 
 - time: "00:03:01"
   speaker: League
+  index: "file type, text"
   caption: |
     So the basic way to do that is
     first we create a text file.
@@ -214,6 +225,8 @@
 
 - time: "00:03:15"
   speaker: League
+  cmd: |
+    nano hello
   caption: |
     let's call this just `hello` -- it does
     not necessarily need an extension
@@ -250,6 +263,7 @@
 
 - time: "00:03:50"
   speaker: League
+  index: "`#!` (hash-bang)"
   caption: |
     It always starts with what we call hash-bang, or
     sometimes it's called sh-bang for short, I guess.
@@ -273,6 +287,8 @@
 
 - time: "00:04:11"
   speaker: League
+  cmd: |
+    #!/bin/sh
   caption: |
     location of the command
     interpreter after the hash-bang.
@@ -320,6 +336,9 @@
 
 - time: "00:04:49"
   speaker: League
+  index: "`echo` (display text)"
+  cmd: |
+    echo "Hello, world!"
   caption: |
     `echo` is just a very simple command that allows
     you to put out a message on the screen --
@@ -332,6 +351,9 @@
 
 - time: "00:05:00"
   speaker: League
+  cmd: |
+    echo "Your files are:"
+    ls
   caption: |
     example say "Your files are" and then
     I'll run a command like `ls`.
@@ -427,6 +449,7 @@
 
 - time: "00:06:28"
   speaker: League
+  index: "`chmod` (change permissions)"
   caption: |
     So there's a command we're going to do called `chmod`.
 
@@ -444,6 +467,8 @@
 
 - time: "00:06:40"
   speaker: League
+  cmd: |
+    chmod +x hello.sh
   caption: |
     So `mod` comes from modes. The `+x` means turn on
     execute permissions, and then the filename.
@@ -468,6 +493,8 @@
 
 - time: "00:07:07"
   speaker: League
+  cmd: |
+    ./hello.sh
   caption: |
     I use `.` for the current directory -- `./hello.sh`.
 
@@ -507,6 +534,8 @@
 
 - time: "00:07:38"
   speaker: League
+  cmd: |
+    nano hello.sh
   caption: |
     So I can't -- let's bring up
     `nano` again -- `hello.sh` --
@@ -555,6 +584,8 @@
 
 - time: "00:08:23"
   speaker: League
+  cmd: |
+    head hello.sh
   caption: |
     It's equivalent to -- like if I do `head` on that --
 
@@ -566,6 +597,8 @@
 
 - time: "00:08:35"
   speaker: League
+  cmd: |
+    /bin/sh ./hello.sh
   caption: |
     the name of the file you specified after that.
     So this is just another way to run it --
@@ -590,6 +623,7 @@
 
 - time: "00:08:55"
   speaker: League
+  index: "script, Python"
   caption: |
     Also we call it shell scripts if the command
     interpreter you specify after the hash-bang is a shell,
@@ -614,6 +648,8 @@
 
 - time: "00:09:16"
   speaker: League
+  cmd: |
+    nano hello.py
   caption: |
     Let's just do a quick one like -- I'll
     say `hello.py` as an example.
@@ -638,18 +674,25 @@
 
 - time: "00:09:38"
   speaker: League
+  cmd: |
+    #!/usr/bin/python
+    print("Hello from Python.")
   caption: |
     So I can say like `print` "Hello
     from Python" or whatever.
 
 - time: "00:09:45"
   speaker: League
+  cmd: |
+    chmod +x hello.py
   caption: |
     So I can write that to `hello.py`, exit, and
     then same thing -- `chmod +x hello.py`.
 
 - time: "00:09:53"
   speaker: League
+  cmd: |
+    ./hello.py
   caption: |
     And then I can run `./hello.py` and
     this time -- it's still a script,
@@ -667,6 +710,7 @@
 
 - time: "00:10:06"
   speaker: Lopes
+  index: "`set -e` (stop on error)"
   caption: |
     So do the scripts we write automatically
     have error-checking built in to it,
@@ -696,18 +740,24 @@
 
 - time: "00:10:31"
   speaker: League
+  cmd: |
+    nano hello.sh
   caption: |
     So let's try that out -- if I open up
     this `hello` script in `nano`,
 
 - time: "00:10:36"
   speaker: League
+  cmd: |
+    eco "Hello, world!"
   caption: |
     and let's say I make a mistake on this first
     command. I mistyped `echo` or something.
 
 - time: "00:10:43"
   speaker: League
+  cmd: |
+    ./hello.sh
   caption: |
     So I'm going to write and exit, and
     then try to run that script.
@@ -732,12 +782,16 @@
 
 - time: "00:11:09"
   speaker: League
+  cmd: |
+    set -e
   caption: |
     basically "quit on error" is you just say `set
     -e` at the top of your script like that.
 
 - time: "00:11:18"
   speaker: League
+  cmd: |
+    ./hello.sh
   caption: |
     Save that and exit. And now when I run it, it
     encounters that error and tells me about it,
@@ -798,12 +852,14 @@
 
 - time: "00:12:11"
   speaker: Lopes
+  index: "`chmod` (change permissions)"
   caption: |
     So we used `chmod` to change the
     permission on that `.sh` file that we had.
 
 - time: "00:12:16"
   speaker: Lopes
+  index: "`rwx` (permissions)"
   caption: |
     We always see all these different letters
     -- `rwxd`, maybe some dashes --
@@ -840,6 +896,7 @@
 
 - time: "00:12:47"
   speaker: League
+  index: "permissions"
   caption: |
     So `rwxrwxrwx` -- that appears 3 times
     -- those are the 9 characters.
@@ -864,6 +921,7 @@
 
 - time: "00:13:15"
   speaker: League
+  index: "group"
   caption: |
     or the current user or whatever. The second set
     is about the group that owns that file.
@@ -942,12 +1000,16 @@
 
 - time: "00:14:43"
   speaker: League
+  cmd: |
+    chmod uo+rx FILENAME
   caption: |
     let's say for user and other, turn on read and
     execute. And then you give your filename out here.
 
 - time: "00:14:53"
   speaker: League
+  cmd: |
+    chmod g-wx FILENAME
   caption: |
     You could say something like, for group turn off
     write and execute and then you put the filename.
@@ -978,6 +1040,7 @@
 
 - time: "00:15:23"
   speaker: League
+  index: octal
   caption: |
     But there's yet another notation that can be
     used for these permission strings.
@@ -1061,6 +1124,8 @@
 
 - time: "00:16:55"
   speaker: League
+  cmd: |
+    chmod 560 hello.sh
   caption: |
     Let's say I did `chmod 560 filename` and --
     let's try that, I'll save this first.
@@ -1174,6 +1239,7 @@
 
 - time: "00:19:13"
   speaker: Lopes
+  index: variable
   caption: |
     Does it support features such as variables and
     loops, just like these programming languages do?
@@ -1209,6 +1275,8 @@
 
 - time: "00:19:49"
   speaker: League
+  cmd: |
+    x="hello world"
   caption: |
     If you want to use text with spaces in it, then as
     usual the spaces should be quoted somehow.
@@ -1232,12 +1300,16 @@
 
 - time: "00:20:14"
   speaker: League
+  cmd: |
+    echo x
   caption: |
     So you can't just say `x` like if I
     were to `echo x`, it says `x`.
 
 - time: "00:20:18"
   speaker: League
+  cmd: |
+    echo $x
   caption: |
     But if I `echo $x` that means go look up
     the variable by that name and it
@@ -1260,6 +1332,7 @@
 
 - time: "00:20:39"
   speaker: League
+  index: "environment variable"
   caption: |
     They're called environment variables.
     An environment variable --
@@ -1278,6 +1351,7 @@
 
 - time: "00:20:55"
   speaker: League
+  index: "`env` (show environment)"
   caption: |
     different programs in different ways. For
     example, if you want to see all
@@ -1290,6 +1364,8 @@
 
 - time: "00:21:04"
   speaker: League
+  cmd: |
+    env
   caption: |
     there's a builtin that does that called
     `env`. When I type this it's going
@@ -1320,6 +1396,7 @@
 
 - time: "00:21:32"
   speaker: League
+  index: "`PATH` variable"
   caption: |
     Where is that user's `HOME` directory.
     And then the `PATH` is a set of
@@ -1361,18 +1438,23 @@
 
 - time: "00:22:05"
   speaker: League
+  index: "`export` (designate environment variable)"
   caption: |
     So one way to set an environment variable
     is -- go back to that way that I
 
 - time: "00:22:11"
   speaker: League
+  cmd: |
+    export x="hello world"
   caption: |
     set `x` to "hello world" and all I do
     is I type `export` before it.
 
 - time: "00:22:18"
   speaker: League
+  cmd: |
+    echo $x
   caption: |
     So this means I'm setting a variable in my shell and
     I can still do `echo $x` like I did before.
@@ -1391,6 +1473,8 @@
 
 - time: "00:22:37"
   speaker: League
+  cmd: |
+    env
   caption: |
     If I do `env` now, you see that `x` shows up
     here as one of the environment variables.
@@ -1408,6 +1492,7 @@
 
 - time: "00:22:53"
   speaker: League
+  index: "`for` loop"
   caption: |
     As for loops, I sometimes use loops directly on the
     command line as well as in shell scripts.
@@ -1466,6 +1551,12 @@
 
 - time: "00:24:00"
   speaker: League
+  cmd: |
+    for x in hello there world;
+    do
+      echo "The word is $x"
+      echo "$x $x $x"
+    done
   caption: |
     Now I can type certain commands in here like
     -- `"The word is $x"` for example.
@@ -1485,7 +1576,7 @@
 - time: "00:24:25"
   speaker: League
   caption: |
-    will execute those two `echo` commands three times --
+    will execute those two `echo` commands 3 times --
 
 - time: "00:24:29"
   speaker: League
@@ -1525,6 +1616,10 @@
 
 - time: "00:25:06"
   speaker: League
+  cmd: |
+    for x in *; do
+      echo "File is $x"
+    done
   caption: |
     So I can do like `echo "file is $x"`, then
     `done`. And it's just showing me
@@ -1584,6 +1679,7 @@
 
 - time: "00:26:02"
   speaker: League
+  index: ImageMagick
   caption: |
     Let's do a practical example like that. I
     keep going back to image processing --
@@ -1624,18 +1720,22 @@
 
 - time: "00:26:42"
   speaker: League
+  index: "`.zip`"
   caption: |
     The first thing is I have this `.zip` file
     here and I'm going to `unzip` that.
 
 - time: "00:26:47"
   speaker: League
+  index: "`unzip` (extract compressed files)"
   caption: |
     So probably you have a command called
     `unzip` to deal with that.
 
 - time: "00:26:51"
   speaker: League
+  cmd: |
+    unzip Playing\ Cards.zip
   caption: |
     if not, you know how to look for it in the
     package manager and install it.
@@ -1684,12 +1784,16 @@
 
 - time: "00:27:35"
   speaker: League
+  cmd: |
+    cd Playing\ Cards
   caption: |
     So I'm going into my playing cards
     folder and in there I see two
 
 - time: "00:27:39"
   speaker: League
+  cmd: |
+    cd PNG-cards-1.3
   caption: |
     sub-folders for `.png` format or
     `.svg`. so we'll go into `PNG`.
@@ -1702,6 +1806,8 @@
 
 - time: "00:27:50"
   speaker: League
+  cmd: |
+    eog *.png
   caption: |
     So if I go and look at those, using my `eog` viewer
     for example, that's what they look like.
@@ -1726,6 +1832,8 @@
 
 - time: "00:28:19"
   speaker: League
+  cmd: |
+    nano resize.sh
   caption: |
     Let's create a script called
     `resize.sh`. And we'll start with the
@@ -1738,6 +1846,15 @@
 
 - time: "00:28:30"
   speaker: League
+  cmd: |
+    #!/bin/sh
+    set -e
+    for z in 50 33 25; do
+      echo "Creating $z..."
+      mkdir -p cards$z
+      cp *.png cards$z
+      mogrify -geometry $z% cards$z/*.png
+    done
   caption: |
     little loop for the sizes that I
     want -- so 50, 33, and 25.
@@ -1780,6 +1897,7 @@
 
 - time: "00:29:14"
   speaker: League
+  index: "`mkdir -p` (parents)"
   caption: |
     I'd like it to keep going, so the `-p`
     option -- I think we learned this,
@@ -1803,6 +1921,7 @@
 
 - time: "00:29:36"
   speaker: League
+  index: "`mogrify -geometry` (resize)"
   caption: |
     directory and move them into `cards$z`.
     Finally I'm going to use `mogrify`
@@ -1845,6 +1964,8 @@
 
 - time: "00:30:17"
   speaker: League
+  cmd: |
+    ./resize.sh
   caption: |
     We're going to try it out. So write to file
     and exit. Let's try `./resize.sh`.
@@ -1861,6 +1982,9 @@
 
 - time: "00:30:32"
   speaker: League
+  cmd: |
+    chmod +x resize.sh
+    ./resize.sh
   caption: |
     That `chmod +x` yeah. So there we go. Now it
     should be able to execute that script.
@@ -1873,12 +1997,16 @@
 
 - time: "00:30:50"
   speaker: League
+  cmd: |
+    eog cards25
   caption: |
     it created these sub-folders here in blue.
     And we can browse those the same way.
 
 - time: "00:30:58"
   speaker: League
+  cmd: |
+    eog cards33
   caption: |
     So here are the small images -- they ended up at
     125x182. And let's do 33 -- they're at 165x240.
@@ -1935,4 +2063,3 @@
 - time: "00:32:09"
   caption: |
     [End]
-
