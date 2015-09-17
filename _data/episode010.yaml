@@ -1,7 +1,1938 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:19"
+  speaker: League
+  caption: |
+    Welcome back to Command Line TV, this is episode 10.
+
+- time: "00:00:22"
+  speaker: League
+  caption: |
+    Today we're going to talk about
+    shell scripts and permissions.
+
+- time: "00:00:26"
+  speaker: League
+  caption: |
+    But first do we have any follow-up from last time?
+
+- time: "00:00:29"
+  speaker: Lopes
+  caption: |
+    We have one follow-up question. We did
+    redirection in the last episode,
+
+- time: "00:00:33"
+  speaker: Lopes
+  caption: |
+    and the one issue we had was that -- when we did the
+    single `>` it would always overwrite the files.
+
+- time: "00:00:40"
+  speaker: Lopes
+  caption: |
+    We had one workaround which we
+    used, `set -o noclobber`.
+
+- time: "00:00:44"
+  speaker: Lopes
+  caption: |
+    The question we had was, can it be turned off or
+    do we just have to create a new terminal.
+
+- time: "00:00:50"
+  speaker: League
+  caption: |
+    Ah, right. So if you `set -o noclobber` already in
+    your terminal but then you want to undo that.
+
+- time: "00:00:56"
+  speaker: League
+  caption: |
+    Generally i think you would have
+    to restart the terminal.
+
+- time: "00:01:01"
+  speaker: League
+  caption: |
+    As long as you haven't set it in your
+    `.bashrc` where it would read it
+
+- time: "00:01:06"
+  speaker: League
+  caption: |
+    again and apply that again then that would take us
+    back to a default where it will clobber things.
+
+- time: "00:01:14"
+  speaker: League
+  caption: |
+    But another useful trick is that
+    you can temporarily --
+
+- time: "00:01:18"
+  speaker: League
+  caption: |
+    like just for one command -- say I really do
+    mean to overwrite this file as I redirect.
+
+- time: "00:01:24"
+  speaker: League
+  caption: |
+    And the way you would do that is --
+    let's work here on an output file.
+
+- time: "00:01:29"
+  speaker: League
+  caption: |
+    So I'll just `cat` into `output.txt` and I
+    can say some message and then --
+
+- time: "00:01:35"
+  speaker: League
+  caption: |
+    what was it to stop the input?
+
+- time: "00:01:38"
+  speaker: Lopes
+  caption: |
+    Control-D?
+
+- time: "00:01:40"
+  speaker: League
+  caption: |
+    Control-D, yup. So now I've got that output
+    file, `output.txt` and if I try
+
+- time: "00:01:46"
+  speaker: League
+  caption: |
+    to do that again it can't overwrite the
+    existing file because I have
+
+- time: "00:01:52"
+  speaker: League
+  caption: |
+    `noclobber` set already in this terminal.
+    But what I can do to override
+
+- time: "00:01:57"
+  speaker: League
+  caption: |
+    that temporarily is just use `>` followed
+    immediately by the pipe character,
+
+- time: "00:02:02"
+  speaker: League
+  caption: |
+    no space in there: `>|`. That is
+    not a pipe actually --
+
+- time: "00:02:07"
+  speaker: League
+  caption: |
+    I mean the character is pipe, but it's not
+    the feature of the shell called pipe.
+
+- time: "00:02:11"
+  speaker: League
+  caption: |
+    It's redirection but the pipe says yes I
+    really mean to overwrite this file.
+
+- time: "00:02:18"
+  speaker: League
+  caption: |
+    So now it will let you do that. `This
+    is another line`. Control-D.
+
+- time: "00:02:23"
+  speaker: League
+  caption: |
+    And if I look at the content of that
+    file it only has the second one.
+
+- time: "00:02:27"
+  speaker: League
+  caption: |
+    The first content got overwritten.
+
+- time: "00:02:30"
+  speaker: Lopes
+  caption: |
+    Today we'll be doing shell scripts. To start off, what
+    exactly is a shell script? What does it do?
+
+- time: "00:02:36"
+  speaker: League
+  caption: |
+    So a script is just a way of automating
+    something. Whenever you have a
+
+- time: "00:02:42"
+  speaker: League
+  caption: |
+    series of commands that you might want to
+    execute, instead of remembering
+
+- time: "00:02:47"
+  speaker: League
+  caption: |
+    to do each one independently and getting
+    all the options right and syntax,
+
+- time: "00:02:52"
+  speaker: League
+  caption: |
+    you can write down those commands into a
+    file and then execute that file.
+
+- time: "00:02:57"
+  speaker: League
+  caption: |
+    And that's what we call a script.
+
+- time: "00:03:01"
+  speaker: League
+  caption: |
+    So the basic way to do that is
+    first we create a text file.
+
+- time: "00:03:05"
+  speaker: League
+  caption: |
+    And we've learned a couple ways to do that with
+    whatever text editor you want to use.
+
+- time: "00:03:10"
+  speaker: League
+  caption: |
+    One of them that we did before was `nano`
+    so I'm going to type `nano` and
+
+- time: "00:03:15"
+  speaker: League
+  caption: |
+    let's call this just `hello` -- it does
+    not necessarily need an extension
+
+- time: "00:03:24"
+  speaker: League
+  caption: |
+    so just because it's a text file
+    doesn't mean you have to put `.txt`.
+
+- time: "00:03:29"
+  speaker: League
+  caption: |
+    But when it's a shell script sometimes
+    people will put a `.sh` at the end,
+
+- time: "00:03:34"
+  speaker: League
+  caption: |
+    to say that this is meant to be
+    executed with the shell.
+
+- time: "00:03:39"
+  speaker: League
+  caption: |
+    But it's really up to you what the file
+    name is, or what extension it has.
+
+- time: "00:03:45"
+  speaker: League
+  caption: |
+    So I'll do that. And now the first line
+    of your script is very special.
+
+- time: "00:03:50"
+  speaker: League
+  caption: |
+    It always starts with what we call hash-bang, or
+    sometimes it's called sh-bang for short, I guess.
+
+- time: "00:03:57"
+  speaker: League
+  caption: |
+    But hash-bang is pound sign and the exclamation point.
+
+- time: "00:04:01"
+  speaker: League
+  caption: |
+    And this is a special signal to the
+    operating system that this text file
+
+- time: "00:04:06"
+  speaker: League
+  caption: |
+    can be executed using some command
+    interpreter. And then you put the
+
+- time: "00:04:11"
+  speaker: League
+  caption: |
+    location of the command
+    interpreter after the hash-bang.
+
+- time: "00:04:14"
+  speaker: League
+  caption: |
+    So if it's a shell script, that means that
+    the command interpreter is your shell.
+
+- time: "00:04:19"
+  speaker: League
+  caption: |
+    It's usually `/bin/sh` or `/bin/bash` or
+    you could even write scripts that
+
+- time: "00:04:25"
+  speaker: League
+  caption: |
+    are particular about using some other
+    shell, like `zsh` or whatever.
+
+- time: "00:04:31"
+  speaker: League
+  caption: |
+    We still haven't looked at other shells besides
+    `bash` but we'll eventually do that.
+
+- time: "00:04:35"
+  speaker: League
+  caption: |
+    Let's keep this as `/bin/sh` -- a very generic shell.
+
+- time: "00:04:40"
+  speaker: League
+  caption: |
+    And now any commands that I type
+    after this will not execute now,
+
+- time: "00:04:44"
+  speaker: League
+  caption: |
+    but they'll execute when I run the entire
+    script. So I can say something like --
+
+- time: "00:04:49"
+  speaker: League
+  caption: |
+    `echo` is just a very simple command that allows
+    you to put out a message on the screen --
+
+- time: "00:04:55"
+  speaker: League
+  caption: |
+    so I can say `echo` and put a message
+    there. And then let's just for
+
+- time: "00:05:00"
+  speaker: League
+  caption: |
+    example say "Your files are" and then
+    I'll run a command like `ls`.
+
+- time: "00:05:08"
+  speaker: League
+  caption: |
+    So it's just sequencing together these two
+    `echo` commands and then the `ls`.
+
+- time: "00:05:13"
+  speaker: League
+  caption: |
+    So I'll save that -- control-O, filename
+    to write -- oh it should've --
+
+- time: "00:05:19"
+  speaker: League
+  caption: |
+    I thought it would get that from the
+    command line. So I'll say hello there.
+
+- time: "00:05:24"
+  speaker: League
+  caption: |
+    [laughs] Oh -- that's fine, overwrite I
+    guess. Oh it's a directory, interesting.
+
+- time: "00:05:31"
+  speaker: League
+  caption: |
+    So that's why that didn't work. I already
+    have a directory called `hello`,
+
+- time: "00:05:35"
+  speaker: League
+  caption: |
+    so I can't also have a file called `hello`. So
+    we'll go ahead and use the `hello.sh`.
+
+- time: "00:05:41"
+  speaker: League
+  caption: |
+    And then we can exit.
+
+- time: "00:05:45"
+  speaker: League
+  caption: |
+    So if I `ls` from here, there is my
+    `hello.sh` file that got created.
+
+- time: "00:05:51"
+  speaker: League
+  caption: |
+    I'm almost ready to execute that as a script, but
+    we have to now look at these permissions.
+
+- time: "00:06:00"
+  speaker: League
+  caption: |
+    The `x` permission means that you're
+    allowed to execute something.
+
+- time: "00:06:04"
+  speaker: League
+  caption: |
+    Directories will already have executable
+    permission because when you `cd`
+
+- time: "00:06:09"
+  speaker: League
+  caption: |
+    into a directory that is thought
+    to be like executing it.
+
+- time: "00:06:13"
+  speaker: League
+  caption: |
+    So the executable permission is what
+    allows you to `cd` into directories.
+
+- time: "00:06:20"
+  speaker: League
+  caption: |
+    But these other files that are not
+    directories do not have executable permission.
+
+- time: "00:06:24"
+  speaker: League
+  caption: |
+    I need this to be executable in
+    order to run the script.
+
+- time: "00:06:28"
+  speaker: League
+  caption: |
+    So there's a command we're going to do called `chmod`.
+
+- time: "00:06:31"
+  speaker: League
+  caption: |
+    And we'll talk about all the options
+    of this command in a moment.
+
+- time: "00:06:35"
+  speaker: League
+  caption: |
+    But `chmod` just means to change the
+    permissions which are also called 'modes'.
+
+- time: "00:06:40"
+  speaker: League
+  caption: |
+    So `mod` comes from modes. The `+x` means turn on
+    execute permissions, and then the filename.
+
+- time: "00:06:47"
+  speaker: League
+  caption: |
+    So after doing that if I get my `ls`
+    listing, you see that this `hello.sh` --
+
+- time: "00:06:54"
+  speaker: League
+  caption: |
+    first of all it turned green, which means it's
+    executable. And it has the `x` permission out there.
+
+- time: "00:07:02"
+  speaker: League
+  caption: |
+    So now I can run that and to run it,
+    because it's in the current directory
+
+- time: "00:07:07"
+  speaker: League
+  caption: |
+    I use `.` for the current directory -- `./hello.sh`.
+
+- time: "00:07:13"
+  speaker: League
+  caption: |
+    And there it is, so it says "Hello world"
+    and "Your files are" and then it
+
+- time: "00:07:17"
+  speaker: League
+  caption: |
+    runs `ls` so it gives you a listing of the files.
+
+- time: "00:07:22"
+  speaker: Lopes
+  caption: |
+    So when we first made this file you did
+    hash-bang and then you had to
+
+- time: "00:07:26"
+  speaker: Lopes
+  caption: |
+    specify which shell is going to run it.
+    Can you specify multiple shells or
+
+- time: "00:07:30"
+  speaker: Lopes
+  caption: |
+    is there something particular about that?
+
+- time: "00:07:34"
+  speaker: League
+  caption: |
+    There has to be just one shell
+    that's expected to execute this.
+
+- time: "00:07:38"
+  speaker: League
+  caption: |
+    So I can't -- let's bring up
+    `nano` again -- `hello.sh` --
+
+- time: "00:07:43"
+  speaker: League
+  caption: |
+    I can't put multiple shells here, or have
+    multiple hash-bang lines or whatever.
+
+- time: "00:07:50"
+  speaker: League
+  caption: |
+    But what this means is that this -- it's
+    telling the system that this *is*
+
+- time: "00:07:55"
+  speaker: League
+  caption: |
+    the shell that should run the script.
+    That doesn't mean that you have to
+
+- time: "00:07:59"
+  speaker: League
+  caption: |
+    run it from that shell to begin with.
+    So I could be in any shell,
+
+- time: "00:08:04"
+  speaker: League
+  caption: |
+    and if I specify `./hello.sh` it will then
+    *invoke* the correct shell to run it.
+
+- time: "00:08:14"
+  speaker: League
+  caption: |
+    So in other words if I'm currently
+    using `bash` it will invoke `sh`.
+
+- time: "00:08:18"
+  speaker: League
+  caption: |
+    If I'm currently using `zsh` it will invoke `sh` --
+    because that's what the header said to do.
+
+- time: "00:08:23"
+  speaker: League
+  caption: |
+    It's equivalent to -- like if I do `head` on that --
+
+- time: "00:08:28"
+  speaker: League
+  caption: |
+    it's equivalent to taking this line
+    without the hash-bang and then putting
+
+- time: "00:08:35"
+  speaker: League
+  caption: |
+    the name of the file you specified after that.
+    So this is just another way to run it --
+
+- time: "00:08:42"
+  speaker: League
+  caption: |
+    it's more verbose, but it takes that shell
+    that we specified and then the
+
+- time: "00:08:47"
+  speaker: League
+  caption: |
+    file containing the script and it
+    does exactly the same thing.
+
+- time: "00:08:51"
+  speaker: League
+  caption: |
+    So that's what that hash-bang
+    notation is doing for us.
+
+- time: "00:08:55"
+  speaker: League
+  caption: |
+    Also we call it shell scripts if the command
+    interpreter you specify after the hash-bang is a shell,
+
+- time: "00:09:01"
+  speaker: League
+  caption: |
+    like `sh` or `bash` or `zsh`. But it actually could
+    be any programming language interpreter.
+
+- time: "00:09:08"
+  speaker: League
+  caption: |
+    So if you're familiar with Python or
+    Ruby or some other interpreted
+
+- time: "00:09:12"
+  speaker: League
+  caption: |
+    programming language you can do
+    exactly the same thing.
+
+- time: "00:09:16"
+  speaker: League
+  caption: |
+    Let's just do a quick one like -- I'll
+    say `hello.py` as an example.
+
+- time: "00:09:21"
+  speaker: League
+  caption: |
+    And in this case I want to put the path
+    to the Python interpreter So
+
+- time: "00:09:30"
+  speaker: League
+  caption: |
+    instead of `/bin/sh` my command
+    interpreter is `/usr/bin/python`.
+
+- time: "00:09:34"
+  speaker: League
+  caption: |
+    And now instead of using `echo` I'm going to
+    use commands that Python supports.
+
+- time: "00:09:38"
+  speaker: League
+  caption: |
+    So I can say like `print` "Hello
+    from Python" or whatever.
+
+- time: "00:09:45"
+  speaker: League
+  caption: |
+    So I can write that to `hello.py`, exit, and
+    then same thing -- `chmod +x hello.py`.
+
+- time: "00:09:53"
+  speaker: League
+  caption: |
+    And then I can run `./hello.py` and
+    this time -- it's still a script,
+
+- time: "00:09:58"
+  speaker: League
+  caption: |
+    I just wouldn't call it a shell
+    script. It's a Python script,
+
+- time: "00:10:01"
+  speaker: League
+  caption: |
+    but it's the same hash-bang notation to do it.
+
+- time: "00:10:06"
+  speaker: Lopes
+  caption: |
+    So do the scripts we write automatically
+    have error-checking built in to it,
+
+- time: "00:10:09"
+  speaker: Lopes
+  caption: |
+    or is that something we have to set as an option.
+
+- time: "00:10:13"
+  speaker: League
+  caption: |
+    It's not very -- I mean there is error-checking but
+    it doesn't necessarily do what you want.
+
+- time: "00:10:20"
+  speaker: League
+  caption: |
+    So for example if you make an error in a
+    script, it might then continue
+
+- time: "00:10:25"
+  speaker: League
+  caption: |
+    trying all the rest of the commands anyway. And
+    maybe it would be safer to just stop.
+
+- time: "00:10:31"
+  speaker: League
+  caption: |
+    So let's try that out -- if I open up
+    this `hello` script in `nano`,
+
+- time: "00:10:36"
+  speaker: League
+  caption: |
+    and let's say I make a mistake on this first
+    command. I mistyped `echo` or something.
+
+- time: "00:10:43"
+  speaker: League
+  caption: |
+    So I'm going to write and exit, and
+    then try to run that script.
+
+- time: "00:10:48"
+  speaker: League
+  caption: |
+    What we see happen is -- it does detect the
+    error right when it gets to line 3,
+
+- time: "00:10:55"
+  speaker: League
+  caption: |
+    but then it goes on with the rest of the
+    script. Maybe you would rather quit.
+
+- time: "00:11:01"
+  speaker: League
+  caption: |
+    So let's come in here -- an option you can
+    set in a shell script that says
+
+- time: "00:11:09"
+  speaker: League
+  caption: |
+    basically "quit on error" is you just say `set
+    -e` at the top of your script like that.
+
+- time: "00:11:18"
+  speaker: League
+  caption: |
+    Save that and exit. And now when I run it, it
+    encounters that error and tells me about it,
+
+- time: "00:11:23"
+  speaker: League
+  caption: |
+    but it does not continue with
+    the rest of the commands.
+
+- time: "00:11:26"
+  speaker: League
+  caption: |
+    So that's probably a little safer to
+    do that kind of detection.
+
+- time: "00:11:30"
+  speaker: League
+  caption: |
+    There are some fancier things that you can do once you
+    learn a little more about the shell syntax.
+
+- time: "00:11:39"
+  speaker: League
+  caption: |
+    For example, if a certain command fails you
+    can then provide an alternative.
+
+- time: "00:11:45"
+  speaker: League
+  caption: |
+    So if this fails then do this instead. And
+    maybe the alternative command is
+
+- time: "00:11:51"
+  speaker: League
+  caption: |
+    just to issue an error message and quit,
+    but it allows your script to be a
+
+- time: "00:11:56"
+  speaker: League
+  caption: |
+    little bit more adaptable and friendlier.
+    But that takes a little bit of
+
+- time: "00:12:03"
+  speaker: League
+  caption: |
+    knowledge of programming and of
+    the syntax of the shell.
+
+- time: "00:12:07"
+  speaker: League
+  caption: |
+    We'll start to get into that, but I don't
+    want to get that complex just yet.
+
+- time: "00:12:11"
+  speaker: Lopes
+  caption: |
+    So we used `chmod` to change the
+    permission on that `.sh` file that we had.
+
+- time: "00:12:16"
+  speaker: Lopes
+  caption: |
+    We always see all these different letters
+    -- `rwxd`, maybe some dashes --
+
+- time: "00:12:22"
+  speaker: Lopes
+  caption: |
+    what are they all representing and
+    what else can we do with them?
+
+- time: "00:12:25"
+  speaker: League
+  caption: |
+    Right so this permission string, I'll call
+    it, that comes in the `ls -l` output.
+
+- time: "00:12:33"
+  speaker: League
+  caption: |
+    I'm going to leave out the `d` part, that's
+    just whether it's a directory or not.
+
+- time: "00:12:37"
+  speaker: League
+  caption: |
+    But the rest of it are these 9
+    characters, right. So to demonstrate this
+
+- time: "00:12:41"
+  speaker: League
+  caption: |
+    I'm going to open up an editor so I
+    can just do some typing for us.
+
+- time: "00:12:47"
+  speaker: League
+  caption: |
+    So `rwxrwxrwx` -- that appears 3 times
+    -- those are the 9 characters.
+
+- time: "00:12:53"
+  speaker: League
+  caption: |
+    And of course `r` is read, `w` is write, and `x` is
+    execute. But why do they appear 3 times?
+
+- time: "00:13:00"
+  speaker: League
+  caption: |
+    Well these apply to different
+    classes of people on the system.
+
+- time: "00:13:07"
+  speaker: League
+  caption: |
+    The first set of permissions is about the
+    user, so the owner of that file
+
+- time: "00:13:15"
+  speaker: League
+  caption: |
+    or the current user or whatever. The second set
+    is about the group that owns that file.
+
+- time: "00:13:25"
+  speaker: League
+  caption: |
+    The third set is everyone else, which we
+    call "others" -- anyone else.
+
+- time: "00:13:31"
+  speaker: League
+  caption: |
+    So anyone that's on this system but is not the
+    owner or the group that owns the file.
+
+- time: "00:13:38"
+  speaker: League
+  caption: |
+    We saw here -- I guess I'll save this as
+    `permissions.txt` or something so I can come back to it.
+
+- time: "00:13:52"
+  speaker: League
+  caption: |
+    We saw here also in the `ls -l` output
+    that this is the owner of the file
+
+- time: "00:13:59"
+  speaker: League
+  caption: |
+    and the group that owns the file. You
+    can set up groups and stuff --
+
+- time: "00:14:02"
+  speaker: League
+  caption: |
+    that's a little beyond the scope of
+    what we're going to do right now.
+
+- time: "00:14:06"
+  speaker: League
+  caption: |
+    But a user on the system can be a
+    member of multiple groups,
+
+- time: "00:14:11"
+  speaker: League
+  caption: |
+    so you might have different work groups
+    that you coordinate with or whatever.
+
+- time: "00:14:19"
+  speaker: League
+  caption: |
+    If I open that up again -- the way
+    that we specify those --
+
+- time: "00:14:25"
+  speaker: League
+  caption: |
+    so when I did `chmod` I just did `chmod
+    +x` and that means turn on all of
+
+- time: "00:14:31"
+  speaker: League
+  caption: |
+    the execute permissions for everybody
+    -- for user, group, and others.
+
+- time: "00:14:37"
+  speaker: League
+  caption: |
+    But you can also specify it in
+    different ways. So I could say --
+
+- time: "00:14:43"
+  speaker: League
+  caption: |
+    let's say for user and other, turn on read and
+    execute. And then you give your filename out here.
+
+- time: "00:14:53"
+  speaker: League
+  caption: |
+    You could say something like, for group turn off
+    write and execute and then you put the filename.
+
+- time: "00:15:00"
+  speaker: League
+  caption: |
+    So it's just this little syntax of specifying
+    which permissions to turn on and off.
+
+- time: "00:15:07"
+  speaker: League
+  caption: |
+    And the first half of it, which is
+    optional, is you can put `u`, `g`,
+
+- time: "00:15:11"
+  speaker: League
+  caption: |
+    or `o` for user, group, or others. And then you
+    have `+` or `-` to turn it on or off.
+
+- time: "00:15:17"
+  speaker: League
+  caption: |
+    And then you can have `r`, `w`, or
+    `x` for read, write, execute.
+
+- time: "00:15:23"
+  speaker: League
+  caption: |
+    But there's yet another notation that can be
+    used for these permission strings.
+
+- time: "00:15:31"
+  speaker: League
+  caption: |
+    And it comes up sometimes -- it's actually a
+    numeric notation using the base 8, or octal.
+
+- time: "00:15:39"
+  speaker: League
+  caption: |
+    So this is a little weird but what you do is
+    you treat each of these as a bit.
+
+- time: "00:15:46"
+  speaker: League
+  caption: |
+    So the bit is on or off, right. If it's on we
+    put the `w`, if it's off we put the dash.
+
+- time: "00:15:51"
+  speaker: League
+  caption: |
+    So something like that. And then
+    maybe these three are all off.
+
+- time: "00:15:56"
+  speaker: League
+  caption: |
+    Then underneath that you mentally put a 4, 2, 1
+    which are the first three powers of two.
+
+- time: "00:16:04"
+  speaker: League
+  caption: |
+    So in binary notation you would use the
+    first three powers of two here and
+
+- time: "00:16:10"
+  speaker: League
+  caption: |
+    then just repeat them over and over
+    again. Then you end up with an octal
+
+- time: "00:16:16"
+  speaker: League
+  caption: |
+    number by just taking the sum in each
+    group. So I'm going to split up the
+
+- time: "00:16:24"
+  speaker: League
+  caption: |
+    three groups here to make it a little clearer.
+    For this permission string that's `rx`,
+
+- time: "00:16:29"
+  speaker: League
+  caption: |
+    `rw`, and then blank -- I would then add the 4 and
+    the 1 because those are both on, to make 5.
+
+- time: "00:16:38"
+  speaker: League
+  caption: |
+    Then in the next group I would add the 4 and
+    2 because those are on, to make 6.
+
+- time: "00:16:44"
+  speaker: League
+  caption: |
+    Then none of these are on so that would be 0.
+
+- time: "00:16:49"
+  speaker: League
+  caption: |
+    So that's a numeric representation of
+    exactly that permission string.
+
+- time: "00:16:55"
+  speaker: League
+  caption: |
+    Let's say I did `chmod 560 filename` and --
+    let's try that, I'll save this first.
+
+- time: "00:17:04"
+  speaker: League
+  caption: |
+    And we'll do `chmod 560 hello.sh`. And now when I do
+    `ls -l` I see exactly that set of permissions,
+
+- time: "00:17:14"
+  speaker: League
+  caption: |
+    right? `r-x` and then `rw-` and then nothing.
+    So that's 5 and then 6 and then 0.
+
+- time: "00:17:23"
+  speaker: League
+  caption: |
+    So you eventually kind of learn this numeric notation.
+
+- time: "00:17:28"
+  speaker: League
+  caption: |
+    The ones that are most common are -- let's say --
+    644 and 755. So why are they the most common?
+
+- time: "00:17:45"
+  speaker: League
+  caption: |
+    Well 644 means you're turning on
+    read and write for user,
+
+- time: "00:17:51"
+  speaker: League
+  caption: |
+    and then you're turning on read-only for
+    group and read-only for others.
+
+- time: "00:17:56"
+  speaker: League
+  caption: |
+    So this is kind of a file that can be read by
+    anybody but only the user can write to it.
+
+- time: "00:18:04"
+  speaker: League
+  caption: |
+    This is similar except you're just turning on
+    the execute bit for each of these.
+
+- time: "00:18:10"
+  speaker: League
+  caption: |
+    So the 7 gets you `rwx`, 5 is 4+1 so that's `r-x` and
+    then `r-x`. So 644 and 755 are very common.
+
+- time: "00:18:23"
+  speaker: League
+  caption: |
+    For files where you want to be a
+    little more private --
+
+- time: "00:18:26"
+  speaker: League
+  caption: |
+    if you want to make sure that only I can
+    read this file and nobody else --
+
+- time: "00:18:32"
+  speaker: League
+  caption: |
+    then you use zeroes for the rest. So maybe 600 would
+    be `rw-` for me and nothing for anybody else.
+
+- time: "00:18:40"
+  speaker: League
+  caption: |
+    Or if it's executable then 700 so
+    that's `rwx`, blank, and blank.
+
+- time: "00:18:47"
+  speaker: League
+  caption: |
+    Those octal notations are there and a lot of Unix
+    people know and understand them very well.
+
+- time: "00:18:53"
+  speaker: League
+  caption: |
+    But they are optional. If you're
+    more comfortable with it,
+
+- time: "00:18:57"
+  speaker: League
+  caption: |
+    you can always just use the `+` and `-` with this
+    other notation and that works just fine.
+
+- time: "00:19:04"
+  speaker: Lopes
+  caption: |
+    So that shell script we wrote at the
+    beginning of the episode seemed very
+
+- time: "00:19:07"
+  speaker: Lopes
+  caption: |
+    similar to writing a program in C++ or
+    any other programming language.
+
+- time: "00:19:13"
+  speaker: Lopes
+  caption: |
+    Does it support features such as variables and
+    loops, just like these programming languages do?
+
+- time: "00:19:17"
+  speaker: League
+  caption: |
+    Yeah, the shell is a full-blown programming
+    language, it's just kind of a weird one.
+
+- time: "00:19:24"
+  speaker: League
+  caption: |
+    But it's useful the way it's designed. So
+    it does support variables and
+
+- time: "00:19:28"
+  speaker: League
+  caption: |
+    loops and if-then-else and all those sorts of things.
+
+- time: "00:19:32"
+  speaker: League
+  caption: |
+    To do variables is fairly simple and I can just
+    demonstrate it here on the command line,
+
+- time: "00:19:38"
+  speaker: League
+  caption: |
+    as well as in a script. Let's say that I want a
+    variable called `x` -- and I'll give it a value.
+
+- time: "00:19:49"
+  speaker: League
+  caption: |
+    If you want to use text with spaces in it, then as
+    usual the spaces should be quoted somehow.
+
+- time: "00:19:57"
+  speaker: League
+  caption: |
+    So I can go like this -- `x` becomes that string.
+
+- time: "00:20:03"
+  speaker: League
+  caption: |
+    That just takes whatever value was on the
+    right and stores it into that
+
+- time: "00:20:07"
+  speaker: League
+  caption: |
+    variable called `x` and then to refer to that
+    later on, I have to use `$x`, okay.
+
+- time: "00:20:14"
+  speaker: League
+  caption: |
+    So you can't just say `x` like if I
+    were to `echo x`, it says `x`.
+
+- time: "00:20:18"
+  speaker: League
+  caption: |
+    But if I `echo $x` that means go look up
+    the variable by that name and it
+
+- time: "00:20:24"
+  speaker: League
+  caption: |
+    will give me the message that I stored into `x`.
+
+- time: "00:20:29"
+  speaker: League
+  caption: |
+    So that's a very simple example of a shell variable.
+
+- time: "00:20:33"
+  speaker: League
+  caption: |
+    There are other kinds of variables that are
+    used in the shell pretty commonly.
+
+- time: "00:20:39"
+  speaker: League
+  caption: |
+    They're called environment variables.
+    An environment variable --
+
+- time: "00:20:43"
+  speaker: League
+  caption: |
+    the only difference is that the value of
+    an environment variable is passed
+
+- time: "00:20:49"
+  speaker: League
+  caption: |
+    in to programs that you execute. So it can
+    be used for example to control
+
+- time: "00:20:55"
+  speaker: League
+  caption: |
+    different programs in different ways. For
+    example, if you want to see all
+
+- time: "00:21:01"
+  speaker: League
+  caption: |
+    the environment variables your
+    shell is currently holding,
+
+- time: "00:21:04"
+  speaker: League
+  caption: |
+    there's a builtin that does that called
+    `env`. When I type this it's going
+
+- time: "00:21:11"
+  speaker: League
+  caption: |
+    to give me a list of all the environment
+    variables along with their values.
+
+- time: "00:21:16"
+  speaker: League
+  caption: |
+    You see it's got things here like
+    what terminal I'm using,
+
+- time: "00:21:21"
+  speaker: League
+  caption: |
+    so `TERM` is the environment variable and on
+    the right side of the `=` is its value.
+
+- time: "00:21:28"
+  speaker: League
+  caption: |
+    Or what `SHELL` am I currently using. Who
+    is the `USER` that's logged in.
+
+- time: "00:21:32"
+  speaker: League
+  caption: |
+    Where is that user's `HOME` directory.
+    And then the `PATH` is a set of
+
+- time: "00:21:36"
+  speaker: League
+  caption: |
+    directories it uses to find programs. So all of
+    these are variables that are set in the shell.
+
+- time: "00:21:43"
+  speaker: League
+  caption: |
+    By convention they are upper-case names, but
+    they don't have to be upper-case names --
+
+- time: "00:21:50"
+  speaker: League
+  caption: |
+    that's just usually the way it's done. If
+    I want to set a new variable --
+
+- time: "00:21:55"
+  speaker: League
+  caption: |
+    you notice that for example my `$x`
+    which I set to "hello world" --
+
+- time: "00:21:59"
+  speaker: League
+  caption: |
+    that doesn't appear in this list because
+    that's just a shell variable and
+
+- time: "00:22:03"
+  speaker: League
+  caption: |
+    not an environment variable.
+
+- time: "00:22:05"
+  speaker: League
+  caption: |
+    So one way to set an environment variable
+    is -- go back to that way that I
+
+- time: "00:22:11"
+  speaker: League
+  caption: |
+    set `x` to "hello world" and all I do
+    is I type `export` before it.
+
+- time: "00:22:18"
+  speaker: League
+  caption: |
+    So this means I'm setting a variable in my shell and
+    I can still do `echo $x` like I did before.
+
+- time: "00:22:25"
+  speaker: League
+  caption: |
+    But now that variable will get passed into
+    programs that I run subsequently
+
+- time: "00:22:31"
+  speaker: League
+  caption: |
+    and they can access that. So sometimes you'll use
+    environment variables to configure those programs.
+
+- time: "00:22:37"
+  speaker: League
+  caption: |
+    If I do `env` now, you see that `x` shows up
+    here as one of the environment variables.
+
+- time: "00:22:45"
+  speaker: League
+  caption: |
+    So that's just like having two different
+    classes of variables that are used
+
+- time: "00:22:49"
+  speaker: League
+  caption: |
+    in slightly different ways.
+
+- time: "00:22:53"
+  speaker: League
+  caption: |
+    As for loops, I sometimes use loops directly on the
+    command line as well as in shell scripts.
+
+- time: "00:22:59"
+  speaker: League
+  caption: |
+    The simplest type of loop you can do is a `for` loop
+    where you are iterating over a set of names,
+
+- time: "00:23:08"
+  speaker: League
+  caption: |
+    a set of things. They could be filenames or they
+    could just be any type of text at all.
+
+- time: "00:23:15"
+  speaker: League
+  caption: |
+    So let's say I put `for x in hello there world;` --
+
+- time: "00:23:23"
+  speaker: League
+  caption: |
+    what's going to happen is that any words
+    that appear after `in` but before
+
+- time: "00:23:29"
+  speaker: League
+  caption: |
+    the `;` will then be used to
+    construct a list of values for `x`.
+
+- time: "00:23:37"
+  speaker: League
+  caption: |
+    So `x` will take on each of those
+    values, one at a time.
+
+- time: "00:23:43"
+  speaker: League
+  caption: |
+    If I just do that, it's waiting for me to
+    continue the rest of my `for` loop.
+
+- time: "00:23:50"
+  speaker: League
+  caption: |
+    Oh, I actually have to type `do` -- forgot about that.
+
+- time: "00:23:55"
+  speaker: League
+  caption: |
+    That `do` could've gone on the
+    previous line after the `;`.
+
+- time: "00:24:00"
+  speaker: League
+  caption: |
+    Now I can type certain commands in here like
+    -- `"The word is $x"` for example.
+
+- time: "00:24:13"
+  speaker: League
+  caption: |
+    And then let's just repeat that word a bunch
+    of times. And then I type `done`.
+
+- time: "00:24:20"
+  speaker: League
+  caption: |
+    The `done` matches with the `do`, that
+    creates the body of my loop and it
+
+- time: "00:24:25"
+  speaker: League
+  caption: |
+    will execute those two `echo` commands three times --
+
+- time: "00:24:29"
+  speaker: League
+  caption: |
+    each time `x` will take on a
+    different word from that list.
+
+- time: "00:24:34"
+  speaker: League
+  caption: |
+    So the first time `x` is "hello" and it gives us those
+    two lines. And then the next word and so on.
+
+- time: "00:24:40"
+  speaker: League
+  caption: |
+    So that's just a little `for` loop and you
+    can type that in a shell script
+
+- time: "00:24:45"
+  speaker: League
+  caption: |
+    or just on the command line like I did. A
+    common way to use it is with files.
+
+- time: "00:24:51"
+  speaker: League
+  caption: |
+    If I want to do like `*; do` -- now `x`
+    is going to take on the value of
+
+- time: "00:25:01"
+  speaker: League
+  caption: |
+    every filename in the current directory,
+    because that's what the wildcard will do.
+
+- time: "00:25:06"
+  speaker: League
+  caption: |
+    So I can do like `echo "file is $x"`, then
+    `done`. And it's just showing me
+
+- time: "00:25:18"
+  speaker: League
+  caption: |
+    all of those files by executing that
+    `echo` command one file at a time.
+
+- time: "00:25:24"
+  speaker: Lopes
+  caption: |
+    That only happens in your path, correct? Sorry not in
+    your path -- the current directory you're in?
+
+- time: "00:25:29"
+  speaker: League
+  caption: |
+    Just in the current directory. And some of
+    these are directories themselves,
+
+- time: "00:25:34"
+  speaker: League
+  caption: |
+    so `django` and `hello` are directories and I
+    can't really distinguish that here.
+
+- time: "00:25:40"
+  speaker: League
+  caption: |
+    Some shells have a way to use a wildcard
+    that only matches regular files
+
+- time: "00:25:46"
+  speaker: League
+  caption: |
+    and not directories and that sort of thing.
+    But that's one way to use a `for` loop.
+
+- time: "00:25:52"
+  speaker: Lopes
+  caption: |
+    So now that we've gone over the
+    basics of shell scripts,
+
+- time: "00:25:55"
+  speaker: Lopes
+  caption: |
+    what are some more advanced things we can do with it?
+
+- time: "00:25:58"
+  speaker: Lopes
+  caption: |
+    Something that could actually be
+    put to use on a daily basis?
+
+- time: "00:26:02"
+  speaker: League
+  caption: |
+    Let's do a practical example like that. I
+    keep going back to image processing --
+
+- time: "00:26:10"
+  speaker: League
+  caption: |
+    we did ImageMagick as a theme of an episode -- and
+    it's something I have to do pretty often.
+
+- time: "00:26:17"
+  speaker: League
+  caption: |
+    So for example let's say that you're
+    creating a little game application,
+
+- time: "00:26:20"
+  speaker: League
+  caption: |
+    either a web app or on a mobile phone or something.
+
+- time: "00:26:24"
+  speaker: League
+  caption: |
+    And you find or create a set of playing
+    cards, like the faces of cards.
+
+- time: "00:26:33"
+  speaker: League
+  caption: |
+    You need to use them at different sizes
+    depending on whether this is on a
+
+- time: "00:26:37"
+  speaker: League
+  caption: |
+    tablet or a phone device or something.
+
+- time: "00:26:42"
+  speaker: League
+  caption: |
+    The first thing is I have this `.zip` file
+    here and I'm going to `unzip` that.
+
+- time: "00:26:47"
+  speaker: League
+  caption: |
+    So probably you have a command called
+    `unzip` to deal with that.
+
+- time: "00:26:51"
+  speaker: League
+  caption: |
+    if not, you know how to look for it in the
+    package manager and install it.
+
+- time: "00:26:57"
+  speaker: League
+  caption: |
+    So I'm going to `unzip` and it's asking
+    me if I want to overwrite some
+
+- time: "00:27:03"
+  speaker: League
+  caption: |
+    files that I forgot to delete from the last
+    time I did this [laughs] so I'll say yes,
+
+- time: "00:27:08"
+  speaker: League
+  caption: |
+    it's okay to overwrite all of those.
+    What's a little weird here is it
+
+- time: "00:27:13"
+  speaker: League
+  caption: |
+    created a sub-folder called "Playing
+    Cards" where it put a bunch of stuff,
+
+- time: "00:27:18"
+  speaker: League
+  caption: |
+    but it also created this folder
+    `__MACOSX` and we don't need that,
+
+- time: "00:27:24"
+  speaker: League
+  caption: |
+    it's just when you zip something on a Mac
+    you often get these extra files
+
+- time: "00:27:29"
+  speaker: League
+  caption: |
+    which can hold some Mac-specific settings in them,
+    but we don't care about any of them right now.
+
+- time: "00:27:35"
+  speaker: League
+  caption: |
+    So I'm going into my playing cards
+    folder and in there I see two
+
+- time: "00:27:39"
+  speaker: League
+  caption: |
+    sub-folders for `.png` format or
+    `.svg`. so we'll go into `PNG`.
+
+- time: "00:27:44"
+  speaker: League
+  caption: |
+    And here's just a big pile of `.png` files for
+    the faces of all these different cards.
+
+- time: "00:27:50"
+  speaker: League
+  caption: |
+    So if I go and look at those, using my `eog` viewer
+    for example, that's what they look like.
+
+- time: "00:27:58"
+  speaker: League
+  caption: |
+    And these are 500 by 7-something
+    pixels. So that's the size.
+
+- time: "00:28:04"
+  speaker: League
+  caption: |
+    Now if I want to use them at different sizes -- let's
+    say I want to resize them at like 50% and 33%,
+
+- time: "00:28:11"
+  speaker: League
+  caption: |
+    25%. And I want to just batch-create all of
+    those assets of those different sizes.
+
+- time: "00:28:19"
+  speaker: League
+  caption: |
+    Let's create a script called
+    `resize.sh`. And we'll start with the
+
+- time: "00:28:26"
+  speaker: League
+  caption: |
+    hash-bang and `set -e` so it stops on
+    error. And then I'm going to create a
+
+- time: "00:28:30"
+  speaker: League
+  caption: |
+    little loop for the sizes that I
+    want -- so 50, 33, and 25.
+
+- time: "00:28:40"
+  speaker: League
+  caption: |
+    That size will get put into the `z` variable
+    and then I can do stuff with that.
+
+- time: "00:28:46"
+  speaker: League
+  caption: |
+    So I'll say "creating $z" so I have
+    a little status message,
+
+- time: "00:28:52"
+  speaker: League
+  caption: |
+    because a lot of the other commands I'm
+    going to do don't really output
+
+- time: "00:28:56"
+  speaker: League
+  caption: |
+    anything if they're successful. So at least
+    I'll be able to see those messages.
+
+- time: "00:29:00"
+  speaker: League
+  caption: |
+    Next let's do a `mkdir` and I want to
+    `mkdir cards$z` so it'll say
+
+- time: "00:29:08"
+  speaker: League
+  caption: |
+    `cards50` or `cards33` or whatever. And in
+    case that directory already exists,
+
+- time: "00:29:14"
+  speaker: League
+  caption: |
+    I'd like it to keep going, so the `-p`
+    option -- I think we learned this,
+
+- time: "00:29:20"
+  speaker: League
+  caption: |
+    having to do with creating parent directories
+    -- that will also have the effect of,
+
+- time: "00:29:27"
+  speaker: League
+  caption: |
+    if the directory already exists it just moves on.
+
+- time: "00:29:32"
+  speaker: League
+  caption: |
+    Then I want to make a copy of all of the
+    `.png` files from the current
+
+- time: "00:29:36"
+  speaker: League
+  caption: |
+    directory and move them into `cards$z`.
+    Finally I'm going to use `mogrify`
+
+- time: "00:29:45"
+  speaker: League
+  caption: |
+    at geometry specified by `$z%`, so
+    `50%`, `33%`, whatever --
+
+- time: "00:29:53"
+  speaker: League
+  caption: |
+    and apply that to all of the `.png`
+    files in the sub-directory.
+
+- time: "00:29:59"
+  speaker: League
+  caption: |
+    So this way it'll leave the `.png`
+    files in the current directory --
+
+- time: "00:30:03"
+  speaker: League
+  caption: |
+    they'll stay at full size and I'm
+    creating copies of them to shrink them.
+
+- time: "00:30:09"
+  speaker: League
+  caption: |
+    One thing I forgot up here on my
+    `for` loop is a `do` --
+
+- time: "00:30:12"
+  speaker: League
+  caption: |
+    and then down here I have the matching
+    `done`. So I think that looks alright.
+
+- time: "00:30:17"
+  speaker: League
+  caption: |
+    We're going to try it out. So write to file
+    and exit. Let's try `./resize.sh`.
+
+- time: "00:30:28"
+  speaker: League
+  caption: |
+    Oh -- forgot one thing!
+
+- time: "00:30:30"
+  speaker: Lopes
+  caption: |
+    The `chmod`.
+
+- time: "00:30:32"
+  speaker: League
+  caption: |
+    That `chmod +x` yeah. So there we go. Now it
+    should be able to execute that script.
+
+- time: "00:30:43"
+  speaker: League
+  caption: |
+    And it'll go through the 50, the 33,
+    and the 25. And as it did that,
+
+- time: "00:30:50"
+  speaker: League
+  caption: |
+    it created these sub-folders here in blue.
+    And we can browse those the same way.
+
+- time: "00:30:58"
+  speaker: League
+  caption: |
+    So here are the small images -- they ended up at
+    125x182. And let's do 33 -- they're at 165x240.
+
+- time: "00:31:09"
+  speaker: League
+  caption: |
+    So we have our assets now resized in
+    a couple of different ways.
+
+- time: "00:31:14"
+  speaker: League
+  caption: |
+    And that's just a very practical example of
+    using a script and a `for` loop
+
+- time: "00:31:18"
+  speaker: League
+  caption: |
+    and ImageMagick and `cp` and a lot of
+    the things we've learned so far.
+
+- time: "00:31:23"
+  speaker: Lopes
+  caption: |
+    So today we learned about shell
+    scripts as well as permissions.
+
+- time: "00:31:26"
+  speaker: Lopes
+  caption: |
+    We also touched base on environment
+    variables. We also learned about `for`
+
+- time: "00:31:32"
+  speaker: Lopes
+  caption: |
+    loops and how to incorporate them into our
+    scripts. Thanks for joining us.
+
+- time: "00:31:37"
+  speaker: League
+  caption: |
+    See you next time!
+
+- time: "00:31:41"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:31:51"
+  caption: |
+    [Captions by Christopher League]
+
+- time: "00:32:09"
+  caption: |
+    [End]
+
