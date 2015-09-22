@@ -11,6 +11,9 @@
 - term: "command prompt (Windows)"
   refs:
     - 1#episode001#00:07:00
+- term: "command substitution"
+  refs:
+    - 9#episode009#00:17:26
 - term: "completion"
   refs:
     - 1#episode001#00:16:23
@@ -102,6 +105,7 @@
 - term: "package"
   refs:
     - 8#episode008#00:00:33
+    - 9#episode009#00:01:31
 - term: "package manager, apt"
   refs:
     - 8#episode008#00:04:26
@@ -136,6 +140,9 @@
 - term: "rationale for command line"
   refs:
     - 1#episode001#00:01:36
+- term: "redirection"
+  refs:
+    - 9#episode009#00:04:33
 - term: "security"
   refs:
     - 8#episode008#00:10:29
@@ -146,6 +153,15 @@
   refs:
     - 1#episode001#00:17:11
     - 3#episode003#00:22:57
+- term: "standard error"
+  refs:
+    - 9#episode009#00:05:06
+- term: "standard input"
+  refs:
+    - 9#episode009#00:04:51
+- term: "standard output"
+  refs:
+    - 9#episode009#00:04:57
 - term: "syntax"
   refs:
     - 2#episode002#00:10:11
@@ -171,6 +187,9 @@
 - term: "`!$` (last word)"
   refs:
     - 7#episode007#00:14:35
+- term: "`$()` (command substitution)"
+  refs:
+    - 9#episode009#00:23:35
 - term: "`*` wildcard"
   refs:
     - 2#episode002#00:08:55
@@ -189,6 +208,7 @@
   refs:
     - 5#episode005#00:14:35
     - 6#episode006#00:12:46
+    - 9#episode009#00:12:27
 - term: "`.bash_profile`"
   refs:
     - 5#episode005#00:14:29
@@ -208,6 +228,18 @@
 - term: "`/etc`"
   refs:
     - 4#episode004#00:04:10
+- term: "`<` (redirect stdin)"
+  refs:
+    - 9#episode009#00:13:18
+- term: "`>&` (redirect stdout and stderr)"
+  refs:
+    - 9#episode009#00:07:47
+- term: "`>>` (append stdout)"
+  refs:
+    - 9#episode009#00:10:59
+- term: "`>` (redirect stdout)"
+  refs:
+    - 9#episode009#00:07:00
 - term: "`?` wildcard"
   refs:
     - 3#episode003#00:05:46
@@ -223,15 +255,29 @@
 - term: "`apt-cache` (query package cache)"
   refs:
     - 8#episode008#00:06:02
+- term: "`apt-get autoremove`"
+  refs:
+    - 9#episode009#00:03:05
+- term: "`apt-get install -f` (force)"
+  refs:
+    - 9#episode009#00:03:35
 - term: "`apt-get install`"
   refs:
     - 8#episode008#00:08:37
+- term: "`apt-get purge`"
+  refs:
+    - 9#episode009#00:02:30
+- term: "`apt-get remove`"
+  refs:
+    - 9#episode009#00:01:41
 - term: "`apt-get update`"
   refs:
     - 8#episode008#00:10:01
+    - 9#episode009#00:00:30
 - term: "`apt-get upgrade`"
   refs:
     - 8#episode008#00:10:47
+    - 9#episode009#00:00:33
 - term: "`apt-get` (package manager)"
   refs:
     - 8#episode008#00:08:31
@@ -242,6 +288,7 @@
 - term: "`cat` (concatenate files)"
   refs:
     - 2#episode002#00:05:04
+    - 9#episode009#00:08:51
 - term: "`cd -` (previous dir)"
   refs:
     - 1#episode001#00:12:32
@@ -339,6 +386,7 @@
 - term: "`grep -l` (files-with-matches)"
   refs:
     - 3#episode003#00:20:04
+    - 9#episode009#00:18:59
 - term: "`grep -n` (line-number)"
   refs:
     - 3#episode003#00:19:03
@@ -405,6 +453,7 @@
 - term: "`mogrify` (process image in-place)"
   refs:
     - 7#episode007#00:10:20
+    - 9#episode009#00:21:41
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
@@ -452,6 +501,9 @@
 - term: "`rm` (remove files or dirs)"
   refs:
     - 6#episode006#00:10:35
+- term: "`set -o noclobber`"
+  refs:
+    - 9#episode009#00:11:57
 - term: "`sort -n` (numeric)"
   refs:
     - 4#episode004#00:12:23
@@ -500,12 +552,18 @@
     - 2#episode002#00:06:47
     - 6#episode006#00:13:51
     - 7#episode007#00:02:59
+- term: "`^D` (end of input)"
+  refs:
+    - 9#episode009#00:09:28
 - term: "`^L` (clear)"
   refs:
     - 7#episode007#00:03:10
 - term: "`^R` (reverse-i-search)"
   refs:
     - 7#episode007#00:00:36
+- term: "`` ` `` (command substitution)"
+  refs:
+    - 9#episode009#00:17:30
 - term: "`{}` wildcard"
   refs:
     - 3#episode003#00:09:15
