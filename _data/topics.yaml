@@ -54,6 +54,9 @@
 - term: "DLL"
   refs:
     - 8#episode008#00:03:03
+- term: "environment variable"
+  refs:
+    - 10#episode010#00:20:39
 - term: "file type, binary"
   refs:
     - 2#episode002#00:07:02
@@ -71,6 +74,7 @@
 - term: "file type, text"
   refs:
     - 4#episode004#00:03:24
+    - 10#episode010#00:03:01
 - term: "filename extension"
   refs:
     - 3#episode003#00:00:34
@@ -89,6 +93,7 @@
 - term: "group"
   refs:
     - 1#episode001#00:14:09
+    - 10#episode010#00:13:15
 - term: "history"
   refs:
     - 1#episode001#00:11:15
@@ -102,6 +107,10 @@
 - term: "ImageMagick"
   refs:
     - 7#episode007#00:05:01
+    - 10#episode010#00:26:02
+- term: "octal"
+  refs:
+    - 10#episode010#00:15:23
 - term: "package"
   refs:
     - 8#episode008#00:00:33
@@ -127,6 +136,9 @@
 - term: "path, relative"
   refs:
     - 2#episode002#00:00:38
+- term: "permissions"
+  refs:
+    - 10#episode010#00:12:47
 - term: "philosophy"
   refs:
     - 5#episode005#00:11:06
@@ -143,6 +155,12 @@
 - term: "redirection"
   refs:
     - 9#episode009#00:04:33
+- term: "script, Python"
+  refs:
+    - 10#episode010#00:08:55
+- term: "script, shell"
+  refs:
+    - 10#episode010#00:02:30
 - term: "security"
   refs:
     - 8#episode008#00:10:29
@@ -174,6 +192,9 @@
 - term: "Utilities (Mac)"
   refs:
     - 1#episode001#00:04:26
+- term: "variable"
+  refs:
+    - 10#episode010#00:19:13
 - term: "wildcard"
   refs:
     - 3#episode003#00:03:54
@@ -187,6 +208,9 @@
 - term: "`!$` (last word)"
   refs:
     - 7#episode007#00:14:35
+- term: "`#!` (hash-bang)"
+  refs:
+    - 10#episode010#00:03:50
 - term: "`$()` (command substitution)"
   refs:
     - 9#episode009#00:23:35
@@ -209,6 +233,7 @@
     - 5#episode005#00:14:35
     - 6#episode006#00:12:46
     - 9#episode009#00:12:27
+    - 10#episode010#00:01:01
 - term: "`.bash_profile`"
   refs:
     - 5#episode005#00:14:29
@@ -222,6 +247,9 @@
 - term: "`.tar`"
   refs:
     - 3#episode003#00:01:17
+- term: "`.zip`"
+  refs:
+    - 10#episode010#00:26:42
 - term: "`.` (current dir)"
   refs:
     - 6#episode006#00:02:58
@@ -240,6 +268,9 @@
 - term: "`>` (redirect stdout)"
   refs:
     - 9#episode009#00:07:00
+- term: "`>|` (redirect and clobber)"
+  refs:
+    - 10#episode010#00:01:14
 - term: "`?` wildcard"
   refs:
     - 3#episode003#00:05:46
@@ -295,6 +326,10 @@
 - term: "`cd` (change working dir)"
   refs:
     - 1#episode001#00:08:46
+- term: "`chmod` (change permissions)"
+  refs:
+    - 10#episode010#00:06:28
+    - 10#episode010#00:12:11
 - term: "`clear` (clear screen)"
   refs:
     - 7#episode007#00:03:15
@@ -359,12 +394,24 @@
 - term: "`du` (disk usage)"
   refs:
     - 4#episode004#00:10:57
+- term: "`echo` (display text)"
+  refs:
+    - 10#episode010#00:04:49
+- term: "`env` (show environment)"
+  refs:
+    - 10#episode010#00:20:55
 - term: "`eog` (GNOME image viewer)"
   refs:
     - 7#episode007#00:20:48
+- term: "`export` (designate environment variable)"
+  refs:
+    - 10#episode010#00:22:05
 - term: "`file` (show file type)"
   refs:
     - 3#episode003#00:03:08
+- term: "`for` loop"
+  refs:
+    - 10#episode010#00:22:53
 - term: "`gedit` (desktop editor)"
   refs:
     - 4#episode004#00:02:35
@@ -440,6 +487,7 @@
 - term: "`mkdir -p` (parents)"
   refs:
     - 6#episode006#00:07:16
+    - 10#episode010#00:29:14
 - term: "`mkdir` (make dirs)"
   refs:
     - 5#episode005#00:04:19
@@ -450,6 +498,9 @@
 - term: "`mogrify -format`"
   refs:
     - 7#episode007#00:10:48
+- term: "`mogrify -geometry` (resize)"
+  refs:
+    - 10#episode010#00:29:36
 - term: "`mogrify` (process image in-place)"
   refs:
     - 7#episode007#00:10:20
@@ -479,6 +530,9 @@
 - term: "`open` (Mac desktop)"
   refs:
     - 2#episode002#00:08:43
+- term: "`PATH` variable"
+  refs:
+    - 10#episode010#00:21:32
 - term: "`pwd` (print working dir)"
   refs:
     - 1#episode001#00:10:03
@@ -501,9 +555,16 @@
 - term: "`rm` (remove files or dirs)"
   refs:
     - 6#episode006#00:10:35
+- term: "`rwx` (permissions)"
+  refs:
+    - 10#episode010#00:12:16
+- term: "`set -e` (stop on error)"
+  refs:
+    - 10#episode010#00:10:06
 - term: "`set -o noclobber`"
   refs:
     - 9#episode009#00:11:57
+    - 10#episode010#00:00:40
 - term: "`sort -n` (numeric)"
   refs:
     - 4#episode004#00:12:23
@@ -531,6 +592,9 @@
 - term: "`uniq` (omit repeated lines)"
   refs:
     - 4#episode004#00:13:58
+- term: "`unzip` (extract compressed files)"
+  refs:
+    - 10#episode010#00:26:47
 - term: "`which` (show path of command)"
   refs:
     - 8#episode008#00:09:30
