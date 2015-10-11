@@ -1,0 +1,1294 @@
+0:01
+[Rhythmic, dark electronic intro music]
+
+:League
+
+0:18
+Welcome back to Command Line TV, this is episode 11.
+Today we're going to talk about file systems.
+
+0:24
+But first, do we have any follow-up from last time?
+
+:Lopes
+
+0:27
+We did have a follow-up question regarding
+shell scripts, or just scripts in general.
+
+0:31
+After writing a script can they be saved
+anywhere or is there some general
+
+0:35
+practice as to where to store these files?
+
+:League
+
+0:38
+Uh, yes to both -- they can be saved anywhere
+and there is also sort of a practice.
+
+0:44
+What determines it is whether the script
+you're writing pertains to a
+
+0:49
+particular set of files in one
+directory. So if it's something that is
+
+0:54
+always run from the same place, then I
+like to just keep it in that place.
+
+0:59
+Then you can run the script using `./` like
+we did in the example last time.
+
+1:05
+However, if it's a script that you might want to run
+on files in a bunch of different directories,
+
+1:11
+the simplest thing to do is to make that
+script -- is to put it into a
+
+1:16
+directory that's on your path. So the
+path is something that's used to
+
+1:21
+determine where to find executable files,
+right? So I'm going to do `echo $PATH` --
+
+1:28
+`PATH` has to be all caps like that.
+
+1:31
+And this is a bunch of directories
+separated by the colon `:` character,
+
+1:37
+where the shell will look for
+programs when you type them.
+
+1:42
+When I type `ls`, it is finding the `ls`
+executable in one of these directories,
+
+1:49
+and we can tell that it's actually in
+`/usr/bin` which is the first one.
+
+1:56
+So what we could do is write our custom
+scripts and then move them into one
+
+2:00
+of these directories so that the shell will
+automatically find it when we want to run it.
+
+2:07
+But all of these directories are protected -- they're
+only accessible for writing by the super-user,
+
+2:14
+by the administrator. So you could if you
+have administrative privileges
+
+2:20
+copy your script into there. But what's
+more typical practice is to create
+
+2:24
+a corresponding directory within your own
+account for your own personal scripts.
+
+2:30
+For example, you might want to name it after these,
+
+2:34
+which are all called `bin` --
+that's just traditional --
+
+2:37
+it stands for binaries, which is
+like executable files.
+
+2:41
+But traditionally that's the name of a
+directory that goes into your `PATH`.
+
+2:47
+So I'm going to make my own `bin` but put it
+underneath my home directory, like that.
+
+2:54
+And then I could put my scripts into there. I wrote
+these scripts last time, like `hello.sh`.
+
+3:02
+So if I move `hello.sh` into `~/bin`,
+then I'll be able to find it there,
+
+3:12
+but that's not on my `PATH` yet. My
+`PATH` doesn't contain `~/bin`.
+
+3:17
+So what I would have to do is -- in my `.bashrc`,
+set up that my `PATH` should contain --
+
+3:27
+in some cases writing `~` doesn't expand
+properly to your home directory,
+
+3:33
+so you can use `$HOME` instead -- I just out of
+habit think that's a safer way to do this.
+
+3:40
+What this does is, I'm just taking the existing `PATH`
+and adding my `~/bin` onto the front of it.
+
+3:47
+So when I save that and then if you log in
+again or just reload that `.bashrc`,
+
+3:55
+now you see `/home/cltv/bin` on
+the front of my `PATH`,
+
+4:00
+and that means that the `hello.sh` can be
+found there no matter where I am.
+
+4:05
+So I'm in `Downloads` now, but if I just
+type `hello.sh` on the command
+
+4:10
+line then it's going to run that script. And
+remember, we left an error in that script.
+
+4:13
+So let's maybe go fix that
+
+4:18
+So this should say `echo` -- save, uh-huh,
+oops -- permission denied, interesting.
+
+4:30
+What did I do there?
+
+4:34
+Okay, so this is from when I was
+playing with the permissions, yeah.
+
+4:40
+So I wanted to illustrate some of those
+octal codes for permissions and I
+
+4:45
+made it so it's not writable by me,
+which is kind of annoying.
+
+4:50
+Let's review that -- I can do user `u+w` to say I
+should be able to write that. Okay, that's better.
+
+5:04
+Now I can retry the `nano` -- `echo`,
+save, exit. And now `hello.sh` will
+
+5:13
+give me those messages and then run
+the command I told it to run.
+
+5:18
+I can run that from anywhere
+because it's on my `PATH`.
+
+5:21
+So if I go into `pics` then I can do `hello.sh`
+and see what's in the `pics` folder.
+
+:Lopes
+
+5:27
+So the term *filesystem* can refer
+to many different things.
+
+5:31
+I guess where we should start off is, what
+exactly does filesystem mean to us as a user?
+
+:League
+
+5:37
+Sure, just like a lot of other terms on Unix systems,
+
+5:43
+'filesystem' gets overloaded to mean multiple things.
+
+5:47
+The simplest thing that it's used for is just the
+files that are accessible to you on your system.
+
+5:55
+So if you start at the top of your
+filesystem, which we call the root
+
+6:00
+directory (another term that's
+overloaded a lot is 'root' --
+
+6:04
+so the root directory is just called slash '/',
+it's the very top of our filesystem.
+
+6:09
+And within there are a bunch of directories that go
+deeper into other subdirectories and so forth.
+
+6:15
+And we can use 'filesystem' to refer
+to this entire tree structure.
+
+6:21
+So you could say like "Are there any files
+on your filesystem that have the
+
+6:25
+extension `.bak`" or something like that. There are
+commands you could use to figure that out.
+
+6:35
+But that's referring to filesystem as the
+set of files that are available.
+
+6:41
+There are other ways to use 'filesystem' as a term.
+
+6:46
+One way is that it refers
+specifically to the format of --
+
+6:51
+the way the files and directories are
+actually represented on the device.
+
+6:56
+So how are they represented as bits, how
+do we represent things like the
+
+7:07
+filename and permissions and other
+attributes, like modification time.
+
+7:13
+Different filesystem formats could have
+different capabilities so there
+
+7:18
+might be a format that supports very long
+filenames and another format that
+
+7:25
+has a limitation on the filenames.
+
+7:29
+There could be file formats that support a journal,
+
+7:32
+which means that when your system goes
+down or loses power or something,
+
+7:39
+you can recover what was going on from
+the journal and it helps prevent
+
+7:43
+corruption and things like that. So lots
+of different features that can be
+
+7:47
+built in to the way that files and directories
+are represented as bits on the device.
+
+7:54
+There are also virtual filesystems
+which we'll take a look at.
+
+7:57
+One kind of virtual filesystem is that it
+can give you access to some kind
+
+8:03
+of database or data structure that's
+part of the operating system.
+
+8:07
+But it shows it to you by exposing it as
+if it were directories and files.
+
+8:12
+So you can use the regular tools like `cd`
+and `cat` and `head` and `grep`
+
+8:20
+to search through and browse these data structures.
+
+8:25
+Another type of virtual filesystem is
+when you've got a disk image --
+
+8:30
+and this is something that's a little
+familiar to other computer users too.
+
+8:34
+You can download an image file that
+represents a filesystem as it might
+
+8:39
+appear on a CD or something like that.
+Then you can actually take that and
+
+8:44
+mount it as if it were a CD. So if you've
+used things like virtualbox or
+
+8:48
+other virtual machines you probably
+interacted with those disk images.
+
+:Lopes
+
+8:53
+So in regards to filesystems like we just
+mentioned working from root in the terminal,
+
+8:59
+we've done things in this directory
+before -- we've accessed the `/etc`
+
+9:03
+folder to change our `.bashrc` configurations.
+We've also accessed the `/usr` directory.
+
+9:10
+What are the other files and
+directories within the root?
+
+:League
+
+9:13
+Yeah these are some cryptic
+looking directories up here.
+
+9:20
+They're all kind of somewhat loosely
+standardized by a thing called the
+
+9:24
+Filesystem Hierarchy Standard, or FHS.
+This is a document that different
+
+9:31
+Linux distributions use to manage where
+things should go on a system.
+
+9:38
+A lot of it is just common practice that gets
+standardized over decades, really.
+
+9:47
+But I can describe some of these
+high-level directories.
+
+9:51
+Yeah, we've looked at `/etc` this is a
+lot of configuration files.
+
+9:55
+So one thing that we got out of
+there was the `passwd` file,
+
+10:00
+so the users that are on your system are
+defined -- oh that's interesting --
+
+10:05
+what did I do wrong there? I'm in my home directory
+so there's no `etc/` subdirectory from home.
+
+10:14
+I had to put the full, absolute path, like that.
+And then I could see the `passwd` file.
+
+10:20
+So there's lots of other stuff like that
+in `/etc` that has to do with
+
+10:24
+different configurations of the
+software on the system.
+
+10:31
+The `/home' folder is where your user
+accounts go. So we have `/home/cltv`
+
+10:36
+or `/home/USERNAME` in general. The `/boot`
+is where we've got the kernel images,
+
+10:47
+so when your OS first boots it's going to look into
+that directory and find these image files --
+
+10:55
+that's what it loads into memory and starts
+executing in order to boot the system.
+
+11:03
+Let's see -- `/root` is just the home
+directory of the administrative user,
+
+11:09
+just like regular users have like
+`/home/cltv`, root has `/root` which
+
+11:15
+we're not allowed to access unless we
+*are* root. But that's another way
+
+11:20
+that 'root' is confusing because I just told
+you that `/` is the root directory,
+
+11:25
+but then there's also `/root` which is -- I
+don't know -- 'root root' or something.
+
+11:32
+Okay, '/usr' is a big one. A lot of the installed
+software goes into these different trees,
+
+11:43
+these different hierarchies. Within each
+tree you've got a standardized set
+
+11:48
+of directories like 'bin', 'lib', 'share', and a
+couple of others depending on the situation.
+
+11:55
+So I've got a few of those here
+at the very top level --
+
+11:58
+so '/' (root) itself is one of those
+hierarchies -- I've got `bin` and `lib` here.
+
+12:03
+And the programs that are in `/bin` are
+considered to be the really,
+
+12:10
+really essential programs that you
+need to boot up the system,
+
+12:18
+to get things running, to explore the
+system if maybe something goes wrong.
+
+12:25
+So they're generally considered like the most
+important applications that are available.
+
+12:33
+Now, `/usr/bin` -- I'm seeing something
+interesting here on this system,
+
+12:36
+which is -- yeah, so [laughs] -- this is
+going to contradict what I just said.
+
+12:43
+On this particular system, with ArchLinux, they've
+decided that `/bin` should just be an alias --
+
+12:50
+this is a symbolic link, which is a
+filesystem alias -- to `/usr/bin`.
+
+12:57
+So in other words, those are the
+same directory on this system.
+
+13:01
+Some systems, `/bin` will be just the
+essential stuff and then `/usr/bin`
+
+13:08
+can get mounted later and it contains many many
+more programs. But here they're the same.
+
+13:13
+So I'm not going to get into
+that distinction any more.
+
+13:18
+Within `/usr` you've got the `bin` and a
+separate `etc`, `lib`, `share` and so forth.
+
+13:28
+And the idea with this sub-hierarchy is
+that your executable stuff goes in
+
+13:32
+`bin` and that's what people put in their
+`$PATH`. So traditionally those
+
+13:36
+were compiled machine code but they also
+can be scripts of various kinds.
+
+13:42
+`lib` is for libraries that get
+linked in to other programs.
+
+13:46
+So when you're doing programming you might link
+to some library and include those --
+
+13:54
+you import that stuff, and then -- I could
+show you some examples in there.
+
+14:00
+So `*.so` -- the `.so` is one of the
+extensions for libraries.
+
+14:07
+So for example if you have a program that uses the
+`Magick++` -- this is the ImageMagick library.
+
+14:17
+And then maybe you use `jpegutils` or `libz`
+is for compression or stuff like that.
+
+14:22
+So your executables can refer to
+libraries in the `lib` folder.
+
+14:28
+But they're not themselves directly executable.
+
+14:32
+And then `share` is for stuff that is not
+binary, so it's like data files,
+
+14:42
+could be documentation files,
+licenses, things like that.
+
+14:47
+So there's usually a `usr/share/doc` which contains --
+
+14:51
+for just about everything that's
+installed, it contains the documentation.
+
+14:55
+So I think we looked previously at
+ImageMagick documentation in there.
+
+15:03
+So that kind of gets to the hierarchy
+underneath `usr` but then that same
+
+15:08
+structure gets repeated in other places.
+Like, a lot of systems will have
+
+15:13
+`usr/local` and the idea of `usr/local`
+is stuff that you personally,
+
+15:19
+as the administrator of this machine would install.
+
+15:24
+So I might have a few things there
+-- not very much usually.
+
+15:28
+But these are things that I have installed
+without using the package manager.
+
+15:34
+So the package manager takes care of the
+`/usr` hierarchy, like `/usr/bin`,
+
+15:39
+but if I want to install something
+manually it can go in `/usr/local/bin`
+
+15:43
+and then it won't conflict with the packages
+that the package manager installs.
+
+15:50
+So the couple of remaining directories at this top,
+
+15:54
+root level that I want to focus on are:
+`var` -- this is where things like
+
+16:01
+log files and temporary files, caches go. We
+can look into the first level of that --
+
+16:08
+so it could be, there's `cache` and `log`, and
+email you send and stuff like that.
+
+16:16
+So occasionally you might have to go in there, if
+you're debugging a serious system problem,
+
+16:22
+to take a look at log files. But it's going to
+depend on exactly what you're trying to do,
+
+16:26
+so there's not much use in exploring
+that in great detail right now.
+
+16:31
+Let's look at `/proc` though -- this
+is a pretty interesting one.
+
+16:35
+`/proc` is one of those virtual
+filesystems, so it's giving us access to
+
+16:40
+data structures inside the operating
+system. These numbers here are
+
+16:45
+directories which correspond to information about
+each process that's running on the system.
+
+16:51
+So it's got a process ID and within there you can
+see some information about that process.
+
+16:57
+But there are some other things here -- one
+I like to look at is `filesystems`.
+
+17:01
+So if I `cat filesystems` virtual file,
+the operating system is going to
+
+17:09
+report to me what filesystem formats it understands.
+
+17:13
+And a lot of these that start with
+`nodev` are the virtual ones --
+
+17:17
+including `/proc` itself is in
+that list -- just up here.
+
+17:24
+But then the ones without `nodev` arc the actual
+physical formats for disks that it can use.
+
+17:31
+So `vfat` is a somewhat older
+format used by Windows systems.
+
+17:37
+It's still used today on lots of
+USB drives and so forth.
+
+17:43
+The native system for most Linux devices
+is called `ext` and the current
+
+17:49
+one is `ext4` but there are older
+versions of that available.
+
+17:53
+So this tells us what formats the
+operating system can understand.
+
+17:58
+Another interesting file in here that I've
+had to set on multiple occasions --
+
+18:04
+let's go down to `/proc/sys/fs/inotify` --
+okay. So `inotify` is a service
+
+18:13
+that allows a program to get notifications from
+the operating system when files change.
+
+18:20
+So for example if you have a backup
+program that may be making backups of
+
+18:29
+all of your files and shipping them off to a server
+somewhere, encrypting them and so forth.
+
+18:36
+That backup program will want to know
+when files change because then it
+
+18:40
+should make a new backup of that file. So
+there is a limitation to how many
+
+18:49
+files one of those programs can be watching
+-- so that's in `max_user_watches`.
+
+18:55
+This appears to be a file that just
+contains this one number.
+
+19:01
+But actually that is a setting within the
+operating system and I am just
+
+19:08
+reading that setting by using `cat`, but if I want to
+change that setting I can also redirect to it.
+
+19:14
+So I can do something like `echo` -- let's say
+`1048700` so I'll add a couple of extra watches.
+
+19:24
+And then I would redirect into that file. So that's how
+I could set a new setting for that variable.
+
+19:34
+Now the problem with that is that you need to be
+the administrator to write to that file.
+
+19:42
+So if we take a look at its permissions,
+it's owned by `root` and writable
+
+19:46
+by `root` but not writable by anyone
+else. So that explains that.
+
+19:50
+You would think that you could just do
+`sudo` to fix that, but you can't.
+
+19:57
+The reason that doesn't work is a little
+subtle, but when you do `sudo`
+
+20:02
+it's running the `echo` as the administrator, but
+redirections don't become part of the `sudo` --
+
+20:10
+the redirection is still done by your local user
+-- the current user. So that's not enough.
+
+20:17
+What we actually would have to do is get
+a shell owned by the superuser,
+
+20:23
+so `sudo` supports `-s` and I've
+got to type a password here.
+
+20:31
+And now I can tell by this pound sign
+`#` that I the administrator,
+
+20:37
+so I'm going to do this same
+`echo` with the redirection.
+
+20:43
+And now if I `cat` that file, it
+took on the new value.
+
+20:48
+So I'm actually using filesystem tools
+like `cd` and `cat` and redirection
+
+20:54
+to tweak parameters within the
+operating system itself.
+
+21:00
+Now my backup program will be able to watch
+even more files at the same time.
+
+:Lopes
+
+21:05
+So now that we've looked at some of the
+filesystem hierarchy in terms of
+
+21:08
+the different directories it contains, what if we
+want to do something with a USB thumb drive.
+
+21:15
+How can we do things with this? How do we add it to
+the system, locate it, format it if necessary?
+
+:League
+
+21:22
+Good example, so I'm going to take this
+and plug it right into my laptop
+
+21:29
+and what will happen on many Linux systems
+that are preconfigured to be friendly,
+
+21:37
+so Ubuntu and those sort that have a
+desktop environment on them --
+
+21:41
+a lot of times that will just pop up a
+folder just like on windows,
+
+21:45
+so it has been mounted automatically and
+you can start using it right away.
+
+21:49
+But we want to learn about what happens underneath,
+
+21:53
+so I don't have my system
+configured to do any of that.
+
+21:56
+What we've got to figure out is, what is
+the device name on the system that
+
+22:00
+corresponds to this drive that we just
+plugged in. So there's another
+
+22:06
+directory from that top level hierarchy that I
+didn't introduce yet, called `/dev`.
+
+22:12
+Inside `/dev` you've got a bunch of stuff that
+represents different sorts of devices on the system.
+
+22:17
+So they could be some kind of
+input/output device, storage device,
+
+22:23
+sound cards, all sorts of things in there.
+But the ones that we're mostly
+
+22:28
+interested in are the ones that start with
+`sd`. On some systems it could
+
+22:33
+be `hd` but these are like hard
+drives of various kinds.
+
+22:37
+So if I look for `sd*` and this yellow --
+I'm sorry -- is a little hard to see!
+
+22:43
+[Laughs] I could tell `ls` not to
+color that. So I've got --
+
+22:49
+`sda` is my main disk, and then `sda1`, `sda2`
+-- these are partitions of that disk.
+
+23:00
+I'm not going to play with `sda`
+because that's my real actual disk
+
+23:05
+[laughs] and I don't want to mess anything
+up. But now we've got `sdb` and
+
+23:08
+this only showed up when I plugged in that
+drive. There wasn't an `sdb` here before.
+
+23:14
+And `sdb1` is a partition on that. So generally
+speaking you can just use `sdb` directly,
+
+23:23
+but a lot of times what you'll do is create like a
+single partition that takes up the entire drive,
+
+23:29
+and that would be called `sdb1`.
+
+23:32
+In a way it's not really a partition
+because it's still the whole drive,
+
+23:35
+right -- partition you think of as
+breaking it into pieces.
+
+23:39
+But you're using the partition table on that
+drive to still have one partition.
+
+23:47
+Okay, I just want to prove that when
+I unplug this device now,
+
+23:52
+and I do that `ls` again -- the `sdb` has disappeared.
+
+23:55
+So the `/dev` filesystem is one of
+those virtual filesystems that
+
+24:00
+automatically updates based on which
+devices are accessible or not.
+
+24:07
+So that device is `sdb`. Another thing that
+I can do to kind of investigate
+
+24:14
+the size of the disk or the partition
+structure is a simple command called
+
+24:20
+`fdisk` and `-l` will give me detailed
+listing of partitions, just like `ls -l`.
+
+24:27
+Then I give `/dev/sdb`. But to
+open a disk in this way,
+
+24:32
+to be able to look at the partition information you
+need to be the administrator. So I'll do that.
+
+24:38
+And now we see that this drive is
+about 960 MB and here is the one
+
+24:45
+partition that starts and ends at particular places.
+
+24:48
+This partition is formatted as FAT16, so one of
+the old Windows or even DOS formats.
+
+24:58
+That makes it readable on lots of
+different machines, which is good,
+
+25:02
+but it doesn't have a lot of the features that we
+might expect of a modern Linux filesystem.
+
+25:08
+So first I'm going to mount that filesystem so
+that I can see the files that are there.
+
+25:15
+To do that we do a command called `mount`
+and first you give the device name,
+
+25:22
+so that's `sdb1` and then you give a
+directory on the system where those
+
+25:28
+files will appear and basically it
+could be any directory --
+
+25:34
+usually it's empty -- but there is a built-in
+directory I've got here called `/mnt` or 'mount',
+
+25:41
+which is specifically for these types of
+temporary mounts. So I'll put it there.
+
+25:48
+Now if I look into `/mnt` I've got
+files here that correspond to --
+
+25:54
+or that are the files on that drive. Then
+unmount is actually spelled `umount` --
+
+26:01
+for some reason they thought saving that one
+character would be helpful [laughs].
+
+26:07
+When I unmount I can either give the device name
+or the directory name, either one works.
+
+26:12
+Now if I look back in that directory, it's
+empty again -- there's nothing there.
+
+26:19
+So it's unmounted and now it's
+safe to remove the device.
+
+26:25
+Let's say I want to reformat that. I'm not
+going to repartition at this stage,
+
+26:29
+but I just want to reformat using a Linux filesystem.
+
+26:33
+There's a command called `mkfs` --
+this is the format command.
+
+26:38
+And there are a lot of variants of it, so I'm hitting
+'tab' here to see the different variations.
+
+26:45
+You can just do `mkfs` and it'll use some
+default format, I think it'll be `ext2`.
+
+26:50
+But if I want one of these other ones I can
+specify that, so `mkfs.ext4` for example.
+
+26:59
+And then there are different options you
+can specify here about how to
+
+27:03
+layout the system or how much space you
+want to reserve for different things.
+
+27:07
+But generally you don't have to say anything else,
+you just give the device name, so `sdb1`.
+
+27:14
+And you know, reformatting a disk is
+dangerous -- you're going to lose all
+
+27:17
+the files on it currently. So you want to
+make especially sure I didn't
+
+27:21
+type `a` here because that's my real
+disk! So `sdb1` -- `mkfs`.
+
+27:28
+Oh, permission denied of course, so
+`sudo` that. And it's got a little
+
+27:33
+protection here that it already seems to contain a
+filesystem so are you sure you want to reformat?
+
+27:40
+Yeah, let's go ahead.
+
+27:43
+It goes through and creates the format on that disk,
+
+27:47
+and now if I try to mount it again, let's say
+`mount /dev/sdb1` into `/mnt` -- that worked.
+
+27:57
+And now the files that were there before are gone.
+There's this directory called `lost+found` --
+
+28:02
+this is a feature of `ext` filesystems where
+basically if there are fragments of --
+
+28:08
+like if the filesystem gets corrupted,
+which is pretty rare these days --
+
+28:12
+but if it gets corrupted and there are
+some fragments of files that it
+
+28:16
+doesn't know where they belong, it puts
+them in the `lost+found` folder and
+
+28:21
+maybe you can make sense of them at a later
+time. But it's not usually useful,
+
+28:26
+it's just always there.
+
+28:28
+So I've got this new filesystem mounted and I
+can go there, I can create directories.
+
+28:34
+I can create a file -- "this is on my new
+drive", okay. Write that, exit.
+
+28:44
+Oh I'm still in `~` I didn't mean
+that. Okay, `/mnt` -- oh yeah,
+
+28:49
+so [laughs] -- I did all of that in
+`~`, that wasn't the right thing.
+
+28:52
+So I'm going to just `mv readme.txt` let's say into
+`/mnt` -- permission denied, interesting.
+
+29:01
+So the way it mounted this, because I
+mounted it as root and I didn't give
+
+29:10
+permission to other users to access it,
+then my regular user can't do that.
+
+29:18
+What I could do there is do a `chmod`, and
+say that everyone is allowed to read,
+
+29:29
+write, and execute that folder, okay. And if I
+do that -- did we do `ls -a` before?
+
+29:40
+This is what shows the dot files
+
+:Lopes
+
+29:42
+hidden files?
+
+:League
+
+29:43
+hidden files, yeah. And one of those is
+`.` so this is a representation of
+
+29:48
+that mounted directory itself. And it did not add
+write permission for group and others,
+
+29:57
+so I'm going to be more explicit about
+that. Let's see if that works.
+
+30:04
+Okay, so now everybody is allowed to
+write to that mounted disk.
+
+30:09
+Which means that I should be able to repeat this
+command to move `readme` over to `/mnt`.
+
+30:16
+And now that exists and is owned by this
+user -- so one thing that having
+
+30:23
+this `ext` filesystem on the USB drive
+means is that I can have file
+
+30:28
+ownerships that make sense to this
+system. I can do things like symbolic
+
+30:35
+links and other filesystem features that Linux
+filesystems support but FAT systems do not.
+
+30:43
+Okay, so I've got the `readme` file there --
+let's unmount that. So now it's empty.
+
+30:49
+And then we want to remount -- just lost it --
+that appears exactly as it did before,
+
+30:59
+with the same permissions here and with
+the owner kept track of there.
+
+31:07
+So one thing it does mean, having that
+drive formatted with `ext4` is that
+
+31:14
+now this will be pretty useless on
+Windows and Mac systems.
+
+31:18
+The `ext` system really only works on
+Linux, so if you want a drive that
+
+31:24
+can be transferred between
+different operating systems,
+
+31:27
+you need to format it with a
+filesystem that works on all of them.
+
+31:32
+Thanks for joining us today. Next time I
+think we'll cover more about
+
+31:36
+searching through filesystems using commands
+like `find` and `locate` and then `xargs`,
+
+31:42
+which also gets used quite a lot
+with `find`. So see you then.
+
+31:47
+[Dark electronic beat]
+
+31:57
+[Captions by Christopher League]
+
+32:16
+[End]
