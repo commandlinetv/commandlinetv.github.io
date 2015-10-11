@@ -1,7 +1,1921 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:18"
+  speaker: League
+  caption: |
+    Welcome back to Command Line TV, this is episode 11.
+    Today we're going to talk about file systems.
+
+- time: "00:00:24"
+  speaker: League
+  caption: |
+    But first, do we have any follow-up from last time?
+
+- time: "00:00:27"
+  speaker: Lopes
+  caption: |
+    We did have a follow-up question regarding
+    shell scripts, or just scripts in general.
+
+- time: "00:00:31"
+  speaker: Lopes
+  caption: |
+    After writing a script can they be saved
+    anywhere or is there some general
+
+- time: "00:00:35"
+  speaker: Lopes
+  caption: |
+    practice as to where to store these files?
+
+- time: "00:00:38"
+  speaker: League
+  caption: |
+    Uh, yes to both -- they can be saved anywhere
+    and there is also sort of a practice.
+
+- time: "00:00:44"
+  speaker: League
+  caption: |
+    What determines it is whether the script
+    you're writing pertains to a
+
+- time: "00:00:49"
+  speaker: League
+  caption: |
+    particular set of files in one
+    directory. So if it's something that is
+
+- time: "00:00:54"
+  speaker: League
+  caption: |
+    always run from the same place, then I
+    like to just keep it in that place.
+
+- time: "00:00:59"
+  speaker: League
+  caption: |
+    Then you can run the script using `./` like
+    we did in the example last time.
+
+- time: "00:01:05"
+  speaker: League
+  caption: |
+    However, if it's a script that you might want to run
+    on files in a bunch of different directories,
+
+- time: "00:01:11"
+  speaker: League
+  caption: |
+    the simplest thing to do is to make that
+    script -- is to put it into a
+
+- time: "00:01:16"
+  speaker: League
+  caption: |
+    directory that's on your path. So the
+    path is something that's used to
+
+- time: "00:01:21"
+  speaker: League
+  caption: |
+    determine where to find executable files,
+    right? So I'm going to do `echo $PATH` --
+
+- time: "00:01:28"
+  speaker: League
+  caption: |
+    `PATH` has to be all caps like that.
+
+- time: "00:01:31"
+  speaker: League
+  caption: |
+    And this is a bunch of directories
+    separated by the colon `:` character,
+
+- time: "00:01:37"
+  speaker: League
+  caption: |
+    where the shell will look for
+    programs when you type them.
+
+- time: "00:01:42"
+  speaker: League
+  caption: |
+    When I type `ls`, it is finding the `ls`
+    executable in one of these directories,
+
+- time: "00:01:49"
+  speaker: League
+  caption: |
+    and we can tell that it's actually in
+    `/usr/bin` which is the first one.
+
+- time: "00:01:56"
+  speaker: League
+  caption: |
+    So what we could do is write our custom
+    scripts and then move them into one
+
+- time: "00:02:00"
+  speaker: League
+  caption: |
+    of these directories so that the shell will
+    automatically find it when we want to run it.
+
+- time: "00:02:07"
+  speaker: League
+  caption: |
+    But all of these directories are protected -- they're
+    only accessible for writing by the super-user,
+
+- time: "00:02:14"
+  speaker: League
+  caption: |
+    by the administrator. So you could if you
+    have administrative privileges
+
+- time: "00:02:20"
+  speaker: League
+  caption: |
+    copy your script into there. But what's
+    more typical practice is to create
+
+- time: "00:02:24"
+  speaker: League
+  caption: |
+    a corresponding directory within your own
+    account for your own personal scripts.
+
+- time: "00:02:30"
+  speaker: League
+  caption: |
+    For example, you might want to name it after these,
+
+- time: "00:02:34"
+  speaker: League
+  caption: |
+    which are all called `bin` --
+    that's just traditional --
+
+- time: "00:02:37"
+  speaker: League
+  caption: |
+    it stands for binaries, which is
+    like executable files.
+
+- time: "00:02:41"
+  speaker: League
+  caption: |
+    But traditionally that's the name of a
+    directory that goes into your `PATH`.
+
+- time: "00:02:47"
+  speaker: League
+  caption: |
+    So I'm going to make my own `bin` but put it
+    underneath my home directory, like that.
+
+- time: "00:02:54"
+  speaker: League
+  caption: |
+    And then I could put my scripts into there. I wrote
+    these scripts last time, like `hello.sh`.
+
+- time: "00:03:02"
+  speaker: League
+  caption: |
+    So if I move `hello.sh` into `~/bin`,
+    then I'll be able to find it there,
+
+- time: "00:03:12"
+  speaker: League
+  caption: |
+    but that's not on my `PATH` yet. My
+    `PATH` doesn't contain `~/bin`.
+
+- time: "00:03:17"
+  speaker: League
+  caption: |
+    So what I would have to do is -- in my `.bashrc`,
+    set up that my `PATH` should contain --
+
+- time: "00:03:27"
+  speaker: League
+  caption: |
+    in some cases writing `~` doesn't expand
+    properly to your home directory,
+
+- time: "00:03:33"
+  speaker: League
+  caption: |
+    so you can use `$HOME` instead -- I just out of
+    habit think that's a safer way to do this.
+
+- time: "00:03:40"
+  speaker: League
+  caption: |
+    What this does is, I'm just taking the existing `PATH`
+    and adding my `~/bin` onto the front of it.
+
+- time: "00:03:47"
+  speaker: League
+  caption: |
+    So when I save that and then if you log in
+    again or just reload that `.bashrc`,
+
+- time: "00:03:55"
+  speaker: League
+  caption: |
+    now you see `/home/cltv/bin` on
+    the front of my `PATH`,
+
+- time: "00:04:00"
+  speaker: League
+  caption: |
+    and that means that the `hello.sh` can be
+    found there no matter where I am.
+
+- time: "00:04:05"
+  speaker: League
+  caption: |
+    So I'm in `Downloads` now, but if I just
+    type `hello.sh` on the command
+
+- time: "00:04:10"
+  speaker: League
+  caption: |
+    line then it's going to run that script. And
+    remember, we left an error in that script.
+
+- time: "00:04:13"
+  speaker: League
+  caption: |
+    So let's maybe go fix that
+
+- time: "00:04:18"
+  speaker: League
+  caption: |
+    So this should say `echo` -- save, uh-huh,
+    oops -- permission denied, interesting.
+
+- time: "00:04:30"
+  speaker: League
+  caption: |
+    What did I do there?
+
+- time: "00:04:34"
+  speaker: League
+  caption: |
+    Okay, so this is from when I was
+    playing with the permissions, yeah.
+
+- time: "00:04:40"
+  speaker: League
+  caption: |
+    So I wanted to illustrate some of those
+    octal codes for permissions and I
+
+- time: "00:04:45"
+  speaker: League
+  caption: |
+    made it so it's not writable by me,
+    which is kind of annoying.
+
+- time: "00:04:50"
+  speaker: League
+  caption: |
+    Let's review that -- I can do user `u+w` to say I
+    should be able to write that. Okay, that's better.
+
+- time: "00:05:04"
+  speaker: League
+  caption: |
+    Now I can retry the `nano` -- `echo`,
+    save, exit. And now `hello.sh` will
+
+- time: "00:05:13"
+  speaker: League
+  caption: |
+    give me those messages and then run
+    the command I told it to run.
+
+- time: "00:05:18"
+  speaker: League
+  caption: |
+    I can run that from anywhere
+    because it's on my `PATH`.
+
+- time: "00:05:21"
+  speaker: League
+  caption: |
+    So if I go into `pics` then I can do `hello.sh`
+    and see what's in the `pics` folder.
+
+- time: "00:05:27"
+  speaker: Lopes
+  caption: |
+    So the term *filesystem* can refer
+    to many different things.
+
+- time: "00:05:31"
+  speaker: Lopes
+  caption: |
+    I guess where we should start off is, what
+    exactly does filesystem mean to us as a user?
+
+- time: "00:05:37"
+  speaker: League
+  caption: |
+    Sure, just like a lot of other terms on Unix systems,
+
+- time: "00:05:43"
+  speaker: League
+  caption: |
+    'filesystem' gets overloaded to mean multiple things.
+
+- time: "00:05:47"
+  speaker: League
+  caption: |
+    The simplest thing that it's used for is just the
+    files that are accessible to you on your system.
+
+- time: "00:05:55"
+  speaker: League
+  caption: |
+    So if you start at the top of your
+    filesystem, which we call the root
+
+- time: "00:06:00"
+  speaker: League
+  caption: |
+    directory (another term that's
+    overloaded a lot is 'root' --
+
+- time: "00:06:04"
+  speaker: League
+  caption: |
+    so the root directory is just called slash '/',
+    it's the very top of our filesystem.
+
+- time: "00:06:09"
+  speaker: League
+  caption: |
+    And within there are a bunch of directories that go
+    deeper into other subdirectories and so forth.
+
+- time: "00:06:15"
+  speaker: League
+  caption: |
+    And we can use 'filesystem' to refer
+    to this entire tree structure.
+
+- time: "00:06:21"
+  speaker: League
+  caption: |
+    So you could say like "Are there any files
+    on your filesystem that have the
+
+- time: "00:06:25"
+  speaker: League
+  caption: |
+    extension `.bak`" or something like that. There are
+    commands you could use to figure that out.
+
+- time: "00:06:35"
+  speaker: League
+  caption: |
+    But that's referring to filesystem as the
+    set of files that are available.
+
+- time: "00:06:41"
+  speaker: League
+  caption: |
+    There are other ways to use 'filesystem' as a term.
+
+- time: "00:06:46"
+  speaker: League
+  caption: |
+    One way is that it refers
+    specifically to the format of --
+
+- time: "00:06:51"
+  speaker: League
+  caption: |
+    the way the files and directories are
+    actually represented on the device.
+
+- time: "00:06:56"
+  speaker: League
+  caption: |
+    So how are they represented as bits, how
+    do we represent things like the
+
+- time: "00:07:07"
+  speaker: League
+  caption: |
+    filename and permissions and other
+    attributes, like modification time.
+
+- time: "00:07:13"
+  speaker: League
+  caption: |
+    Different filesystem formats could have
+    different capabilities so there
+
+- time: "00:07:18"
+  speaker: League
+  caption: |
+    might be a format that supports very long
+    filenames and another format that
+
+- time: "00:07:25"
+  speaker: League
+  caption: |
+    has a limitation on the filenames.
+
+- time: "00:07:29"
+  speaker: League
+  caption: |
+    There could be file formats that support a journal,
+
+- time: "00:07:32"
+  speaker: League
+  caption: |
+    which means that when your system goes
+    down or loses power or something,
+
+- time: "00:07:39"
+  speaker: League
+  caption: |
+    you can recover what was going on from
+    the journal and it helps prevent
+
+- time: "00:07:43"
+  speaker: League
+  caption: |
+    corruption and things like that. So lots
+    of different features that can be
+
+- time: "00:07:47"
+  speaker: League
+  caption: |
+    built in to the way that files and directories
+    are represented as bits on the device.
+
+- time: "00:07:54"
+  speaker: League
+  caption: |
+    There are also virtual filesystems
+    which we'll take a look at.
+
+- time: "00:07:57"
+  speaker: League
+  caption: |
+    One kind of virtual filesystem is that it
+    can give you access to some kind
+
+- time: "00:08:03"
+  speaker: League
+  caption: |
+    of database or data structure that's
+    part of the operating system.
+
+- time: "00:08:07"
+  speaker: League
+  caption: |
+    But it shows it to you by exposing it as
+    if it were directories and files.
+
+- time: "00:08:12"
+  speaker: League
+  caption: |
+    So you can use the regular tools like `cd`
+    and `cat` and `head` and `grep`
+
+- time: "00:08:20"
+  speaker: League
+  caption: |
+    to search through and browse these data structures.
+
+- time: "00:08:25"
+  speaker: League
+  caption: |
+    Another type of virtual filesystem is
+    when you've got a disk image --
+
+- time: "00:08:30"
+  speaker: League
+  caption: |
+    and this is something that's a little
+    familiar to other computer users too.
+
+- time: "00:08:34"
+  speaker: League
+  caption: |
+    You can download an image file that
+    represents a filesystem as it might
+
+- time: "00:08:39"
+  speaker: League
+  caption: |
+    appear on a CD or something like that.
+    Then you can actually take that and
+
+- time: "00:08:44"
+  speaker: League
+  caption: |
+    mount it as if it were a CD. So if you've
+    used things like virtualbox or
+
+- time: "00:08:48"
+  speaker: League
+  caption: |
+    other virtual machines you probably
+    interacted with those disk images.
+
+- time: "00:08:53"
+  speaker: Lopes
+  caption: |
+    So in regards to filesystems like we just
+    mentioned working from root in the terminal,
+
+- time: "00:08:59"
+  speaker: Lopes
+  caption: |
+    we've done things in this directory
+    before -- we've accessed the `/etc`
+
+- time: "00:09:03"
+  speaker: Lopes
+  caption: |
+    folder to change our `.bashrc` configurations.
+    We've also accessed the `/usr` directory.
+
+- time: "00:09:10"
+  speaker: Lopes
+  caption: |
+    What are the other files and
+    directories within the root?
+
+- time: "00:09:13"
+  speaker: League
+  caption: |
+    Yeah these are some cryptic
+    looking directories up here.
+
+- time: "00:09:20"
+  speaker: League
+  caption: |
+    They're all kind of somewhat loosely
+    standardized by a thing called the
+
+- time: "00:09:24"
+  speaker: League
+  caption: |
+    Filesystem Hierarchy Standard, or FHS.
+    This is a document that different
+
+- time: "00:09:31"
+  speaker: League
+  caption: |
+    Linux distributions use to manage where
+    things should go on a system.
+
+- time: "00:09:38"
+  speaker: League
+  caption: |
+    A lot of it is just common practice that gets
+    standardized over decades, really.
+
+- time: "00:09:47"
+  speaker: League
+  caption: |
+    But I can describe some of these
+    high-level directories.
+
+- time: "00:09:51"
+  speaker: League
+  caption: |
+    Yeah, we've looked at `/etc` this is a
+    lot of configuration files.
+
+- time: "00:09:55"
+  speaker: League
+  caption: |
+    So one thing that we got out of
+    there was the `passwd` file,
+
+- time: "00:10:00"
+  speaker: League
+  caption: |
+    so the users that are on your system are
+    defined -- oh that's interesting --
+
+- time: "00:10:05"
+  speaker: League
+  caption: |
+    what did I do wrong there? I'm in my home directory
+    so there's no `etc/` subdirectory from home.
+
+- time: "00:10:14"
+  speaker: League
+  caption: |
+    I had to put the full, absolute path, like that.
+    And then I could see the `passwd` file.
+
+- time: "00:10:20"
+  speaker: League
+  caption: |
+    So there's lots of other stuff like that
+    in `/etc` that has to do with
+
+- time: "00:10:24"
+  speaker: League
+  caption: |
+    different configurations of the
+    software on the system.
+
+- time: "00:10:31"
+  speaker: League
+  caption: |
+    The `/home' folder is where your user
+    accounts go. So we have `/home/cltv`
+
+- time: "00:10:36"
+  speaker: League
+  caption: |
+    or `/home/USERNAME` in general. The `/boot`
+    is where we've got the kernel images,
+
+- time: "00:10:47"
+  speaker: League
+  caption: |
+    so when your OS first boots it's going to look into
+    that directory and find these image files --
+
+- time: "00:10:55"
+  speaker: League
+  caption: |
+    that's what it loads into memory and starts
+    executing in order to boot the system.
+
+- time: "00:11:03"
+  speaker: League
+  caption: |
+    Let's see -- `/root` is just the home
+    directory of the administrative user,
+
+- time: "00:11:09"
+  speaker: League
+  caption: |
+    just like regular users have like
+    `/home/cltv`, root has `/root` which
+
+- time: "00:11:15"
+  speaker: League
+  caption: |
+    we're not allowed to access unless we
+    *are* root. But that's another way
+
+- time: "00:11:20"
+  speaker: League
+  caption: |
+    that 'root' is confusing because I just told
+    you that `/` is the root directory,
+
+- time: "00:11:25"
+  speaker: League
+  caption: |
+    but then there's also `/root` which is -- I
+    don't know -- 'root root' or something.
+
+- time: "00:11:32"
+  speaker: League
+  caption: |
+    Okay, '/usr' is a big one. A lot of the installed
+    software goes into these different trees,
+
+- time: "00:11:43"
+  speaker: League
+  caption: |
+    these different hierarchies. Within each
+    tree you've got a standardized set
+
+- time: "00:11:48"
+  speaker: League
+  caption: |
+    of directories like 'bin', 'lib', 'share', and a
+    couple of others depending on the situation.
+
+- time: "00:11:55"
+  speaker: League
+  caption: |
+    So I've got a few of those here
+    at the very top level --
+
+- time: "00:11:58"
+  speaker: League
+  caption: |
+    so '/' (root) itself is one of those
+    hierarchies -- I've got `bin` and `lib` here.
+
+- time: "00:12:03"
+  speaker: League
+  caption: |
+    And the programs that are in `/bin` are
+    considered to be the really,
+
+- time: "00:12:10"
+  speaker: League
+  caption: |
+    really essential programs that you
+    need to boot up the system,
+
+- time: "00:12:18"
+  speaker: League
+  caption: |
+    to get things running, to explore the
+    system if maybe something goes wrong.
+
+- time: "00:12:25"
+  speaker: League
+  caption: |
+    So they're generally considered like the most
+    important applications that are available.
+
+- time: "00:12:33"
+  speaker: League
+  caption: |
+    Now, `/usr/bin` -- I'm seeing something
+    interesting here on this system,
+
+- time: "00:12:36"
+  speaker: League
+  caption: |
+    which is -- yeah, so [laughs] -- this is
+    going to contradict what I just said.
+
+- time: "00:12:43"
+  speaker: League
+  caption: |
+    On this particular system, with ArchLinux, they've
+    decided that `/bin` should just be an alias --
+
+- time: "00:12:50"
+  speaker: League
+  caption: |
+    this is a symbolic link, which is a
+    filesystem alias -- to `/usr/bin`.
+
+- time: "00:12:57"
+  speaker: League
+  caption: |
+    So in other words, those are the
+    same directory on this system.
+
+- time: "00:13:01"
+  speaker: League
+  caption: |
+    Some systems, `/bin` will be just the
+    essential stuff and then `/usr/bin`
+
+- time: "00:13:08"
+  speaker: League
+  caption: |
+    can get mounted later and it contains many many
+    more programs. But here they're the same.
+
+- time: "00:13:13"
+  speaker: League
+  caption: |
+    So I'm not going to get into
+    that distinction any more.
+
+- time: "00:13:18"
+  speaker: League
+  caption: |
+    Within `/usr` you've got the `bin` and a
+    separate `etc`, `lib`, `share` and so forth.
+
+- time: "00:13:28"
+  speaker: League
+  caption: |
+    And the idea with this sub-hierarchy is
+    that your executable stuff goes in
+
+- time: "00:13:32"
+  speaker: League
+  caption: |
+    `bin` and that's what people put in their
+    `$PATH`. So traditionally those
+
+- time: "00:13:36"
+  speaker: League
+  caption: |
+    were compiled machine code but they also
+    can be scripts of various kinds.
+
+- time: "00:13:42"
+  speaker: League
+  caption: |
+    `lib` is for libraries that get
+    linked in to other programs.
+
+- time: "00:13:46"
+  speaker: League
+  caption: |
+    So when you're doing programming you might link
+    to some library and include those --
+
+- time: "00:13:54"
+  speaker: League
+  caption: |
+    you import that stuff, and then -- I could
+    show you some examples in there.
+
+- time: "00:14:00"
+  speaker: League
+  caption: |
+    So `*.so` -- the `.so` is one of the
+    extensions for libraries.
+
+- time: "00:14:07"
+  speaker: League
+  caption: |
+    So for example if you have a program that uses the
+    `Magick++` -- this is the ImageMagick library.
+
+- time: "00:14:17"
+  speaker: League
+  caption: |
+    And then maybe you use `jpegutils` or `libz`
+    is for compression or stuff like that.
+
+- time: "00:14:22"
+  speaker: League
+  caption: |
+    So your executables can refer to
+    libraries in the `lib` folder.
+
+- time: "00:14:28"
+  speaker: League
+  caption: |
+    But they're not themselves directly executable.
+
+- time: "00:14:32"
+  speaker: League
+  caption: |
+    And then `share` is for stuff that is not
+    binary, so it's like data files,
+
+- time: "00:14:42"
+  speaker: League
+  caption: |
+    could be documentation files,
+    licenses, things like that.
+
+- time: "00:14:47"
+  speaker: League
+  caption: |
+    So there's usually a `usr/share/doc` which contains --
+
+- time: "00:14:51"
+  speaker: League
+  caption: |
+    for just about everything that's
+    installed, it contains the documentation.
+
+- time: "00:14:55"
+  speaker: League
+  caption: |
+    So I think we looked previously at
+    ImageMagick documentation in there.
+
+- time: "00:15:03"
+  speaker: League
+  caption: |
+    So that kind of gets to the hierarchy
+    underneath `usr` but then that same
+
+- time: "00:15:08"
+  speaker: League
+  caption: |
+    structure gets repeated in other places.
+    Like, a lot of systems will have
+
+- time: "00:15:13"
+  speaker: League
+  caption: |
+    `usr/local` and the idea of `usr/local`
+    is stuff that you personally,
+
+- time: "00:15:19"
+  speaker: League
+  caption: |
+    as the administrator of this machine would install.
+
+- time: "00:15:24"
+  speaker: League
+  caption: |
+    So I might have a few things there
+    -- not very much usually.
+
+- time: "00:15:28"
+  speaker: League
+  caption: |
+    But these are things that I have installed
+    without using the package manager.
+
+- time: "00:15:34"
+  speaker: League
+  caption: |
+    So the package manager takes care of the
+    `/usr` hierarchy, like `/usr/bin`,
+
+- time: "00:15:39"
+  speaker: League
+  caption: |
+    but if I want to install something
+    manually it can go in `/usr/local/bin`
+
+- time: "00:15:43"
+  speaker: League
+  caption: |
+    and then it won't conflict with the packages
+    that the package manager installs.
+
+- time: "00:15:50"
+  speaker: League
+  caption: |
+    So the couple of remaining directories at this top,
+
+- time: "00:15:54"
+  speaker: League
+  caption: |
+    root level that I want to focus on are:
+    `var` -- this is where things like
+
+- time: "00:16:01"
+  speaker: League
+  caption: |
+    log files and temporary files, caches go. We
+    can look into the first level of that --
+
+- time: "00:16:08"
+  speaker: League
+  caption: |
+    so it could be, there's `cache` and `log`, and
+    email you send and stuff like that.
+
+- time: "00:16:16"
+  speaker: League
+  caption: |
+    So occasionally you might have to go in there, if
+    you're debugging a serious system problem,
+
+- time: "00:16:22"
+  speaker: League
+  caption: |
+    to take a look at log files. But it's going to
+    depend on exactly what you're trying to do,
+
+- time: "00:16:26"
+  speaker: League
+  caption: |
+    so there's not much use in exploring
+    that in great detail right now.
+
+- time: "00:16:31"
+  speaker: League
+  caption: |
+    Let's look at `/proc` though -- this
+    is a pretty interesting one.
+
+- time: "00:16:35"
+  speaker: League
+  caption: |
+    `/proc` is one of those virtual
+    filesystems, so it's giving us access to
+
+- time: "00:16:40"
+  speaker: League
+  caption: |
+    data structures inside the operating
+    system. These numbers here are
+
+- time: "00:16:45"
+  speaker: League
+  caption: |
+    directories which correspond to information about
+    each process that's running on the system.
+
+- time: "00:16:51"
+  speaker: League
+  caption: |
+    So it's got a process ID and within there you can
+    see some information about that process.
+
+- time: "00:16:57"
+  speaker: League
+  caption: |
+    But there are some other things here -- one
+    I like to look at is `filesystems`.
+
+- time: "00:17:01"
+  speaker: League
+  caption: |
+    So if I `cat filesystems` virtual file,
+    the operating system is going to
+
+- time: "00:17:09"
+  speaker: League
+  caption: |
+    report to me what filesystem formats it understands.
+
+- time: "00:17:13"
+  speaker: League
+  caption: |
+    And a lot of these that start with
+    `nodev` are the virtual ones --
+
+- time: "00:17:17"
+  speaker: League
+  caption: |
+    including `/proc` itself is in
+    that list -- just up here.
+
+- time: "00:17:24"
+  speaker: League
+  caption: |
+    But then the ones without `nodev` arc the actual
+    physical formats for disks that it can use.
+
+- time: "00:17:31"
+  speaker: League
+  caption: |
+    So `vfat` is a somewhat older
+    format used by Windows systems.
+
+- time: "00:17:37"
+  speaker: League
+  caption: |
+    It's still used today on lots of
+    USB drives and so forth.
+
+- time: "00:17:43"
+  speaker: League
+  caption: |
+    The native system for most Linux devices
+    is called `ext` and the current
+
+- time: "00:17:49"
+  speaker: League
+  caption: |
+    one is `ext4` but there are older
+    versions of that available.
+
+- time: "00:17:53"
+  speaker: League
+  caption: |
+    So this tells us what formats the
+    operating system can understand.
+
+- time: "00:17:58"
+  speaker: League
+  caption: |
+    Another interesting file in here that I've
+    had to set on multiple occasions --
+
+- time: "00:18:04"
+  speaker: League
+  caption: |
+    let's go down to `/proc/sys/fs/inotify` --
+    okay. So `inotify` is a service
+
+- time: "00:18:13"
+  speaker: League
+  caption: |
+    that allows a program to get notifications from
+    the operating system when files change.
+
+- time: "00:18:20"
+  speaker: League
+  caption: |
+    So for example if you have a backup
+    program that may be making backups of
+
+- time: "00:18:29"
+  speaker: League
+  caption: |
+    all of your files and shipping them off to a server
+    somewhere, encrypting them and so forth.
+
+- time: "00:18:36"
+  speaker: League
+  caption: |
+    That backup program will want to know
+    when files change because then it
+
+- time: "00:18:40"
+  speaker: League
+  caption: |
+    should make a new backup of that file. So
+    there is a limitation to how many
+
+- time: "00:18:49"
+  speaker: League
+  caption: |
+    files one of those programs can be watching
+    -- so that's in `max_user_watches`.
+
+- time: "00:18:55"
+  speaker: League
+  caption: |
+    This appears to be a file that just
+    contains this one number.
+
+- time: "00:19:01"
+  speaker: League
+  caption: |
+    But actually that is a setting within the
+    operating system and I am just
+
+- time: "00:19:08"
+  speaker: League
+  caption: |
+    reading that setting by using `cat`, but if I want to
+    change that setting I can also redirect to it.
+
+- time: "00:19:14"
+  speaker: League
+  caption: |
+    So I can do something like `echo` -- let's say
+    `1048700` so I'll add a couple of extra watches.
+
+- time: "00:19:24"
+  speaker: League
+  caption: |
+    And then I would redirect into that file. So that's how
+    I could set a new setting for that variable.
+
+- time: "00:19:34"
+  speaker: League
+  caption: |
+    Now the problem with that is that you need to be
+    the administrator to write to that file.
+
+- time: "00:19:42"
+  speaker: League
+  caption: |
+    So if we take a look at its permissions,
+    it's owned by `root` and writable
+
+- time: "00:19:46"
+  speaker: League
+  caption: |
+    by `root` but not writable by anyone
+    else. So that explains that.
+
+- time: "00:19:50"
+  speaker: League
+  caption: |
+    You would think that you could just do
+    `sudo` to fix that, but you can't.
+
+- time: "00:19:57"
+  speaker: League
+  caption: |
+    The reason that doesn't work is a little
+    subtle, but when you do `sudo`
+
+- time: "00:20:02"
+  speaker: League
+  caption: |
+    it's running the `echo` as the administrator, but
+    redirections don't become part of the `sudo` --
+
+- time: "00:20:10"
+  speaker: League
+  caption: |
+    the redirection is still done by your local user
+    -- the current user. So that's not enough.
+
+- time: "00:20:17"
+  speaker: League
+  caption: |
+    What we actually would have to do is get
+    a shell owned by the superuser,
+
+- time: "00:20:23"
+  speaker: League
+  caption: |
+    so `sudo` supports `-s` and I've
+    got to type a password here.
+
+- time: "00:20:31"
+  speaker: League
+  caption: |
+    And now I can tell by this pound sign
+    `#` that I the administrator,
+
+- time: "00:20:37"
+  speaker: League
+  caption: |
+    so I'm going to do this same
+    `echo` with the redirection.
+
+- time: "00:20:43"
+  speaker: League
+  caption: |
+    And now if I `cat` that file, it
+    took on the new value.
+
+- time: "00:20:48"
+  speaker: League
+  caption: |
+    So I'm actually using filesystem tools
+    like `cd` and `cat` and redirection
+
+- time: "00:20:54"
+  speaker: League
+  caption: |
+    to tweak parameters within the
+    operating system itself.
+
+- time: "00:21:00"
+  speaker: League
+  caption: |
+    Now my backup program will be able to watch
+    even more files at the same time.
+
+- time: "00:21:05"
+  speaker: Lopes
+  caption: |
+    So now that we've looked at some of the
+    filesystem hierarchy in terms of
+
+- time: "00:21:08"
+  speaker: Lopes
+  caption: |
+    the different directories it contains, what if we
+    want to do something with a USB thumb drive.
+
+- time: "00:21:15"
+  speaker: Lopes
+  caption: |
+    How can we do things with this? How do we add it to
+    the system, locate it, format it if necessary?
+
+- time: "00:21:22"
+  speaker: League
+  caption: |
+    Good example, so I'm going to take this
+    and plug it right into my laptop
+
+- time: "00:21:29"
+  speaker: League
+  caption: |
+    and what will happen on many Linux systems
+    that are preconfigured to be friendly,
+
+- time: "00:21:37"
+  speaker: League
+  caption: |
+    so Ubuntu and those sort that have a
+    desktop environment on them --
+
+- time: "00:21:41"
+  speaker: League
+  caption: |
+    a lot of times that will just pop up a
+    folder just like on windows,
+
+- time: "00:21:45"
+  speaker: League
+  caption: |
+    so it has been mounted automatically and
+    you can start using it right away.
+
+- time: "00:21:49"
+  speaker: League
+  caption: |
+    But we want to learn about what happens underneath,
+
+- time: "00:21:53"
+  speaker: League
+  caption: |
+    so I don't have my system
+    configured to do any of that.
+
+- time: "00:21:56"
+  speaker: League
+  caption: |
+    What we've got to figure out is, what is
+    the device name on the system that
+
+- time: "00:22:00"
+  speaker: League
+  caption: |
+    corresponds to this drive that we just
+    plugged in. So there's another
+
+- time: "00:22:06"
+  speaker: League
+  caption: |
+    directory from that top level hierarchy that I
+    didn't introduce yet, called `/dev`.
+
+- time: "00:22:12"
+  speaker: League
+  caption: |
+    Inside `/dev` you've got a bunch of stuff that
+    represents different sorts of devices on the system.
+
+- time: "00:22:17"
+  speaker: League
+  caption: |
+    So they could be some kind of
+    input/output device, storage device,
+
+- time: "00:22:23"
+  speaker: League
+  caption: |
+    sound cards, all sorts of things in there.
+    But the ones that we're mostly
+
+- time: "00:22:28"
+  speaker: League
+  caption: |
+    interested in are the ones that start with
+    `sd`. On some systems it could
+
+- time: "00:22:33"
+  speaker: League
+  caption: |
+    be `hd` but these are like hard
+    drives of various kinds.
+
+- time: "00:22:37"
+  speaker: League
+  caption: |
+    So if I look for `sd*` and this yellow --
+    I'm sorry -- is a little hard to see!
+
+- time: "00:22:43"
+  speaker: League
+  caption: |
+    [Laughs] I could tell `ls` not to
+    color that. So I've got --
+
+- time: "00:22:49"
+  speaker: League
+  caption: |
+    `sda` is my main disk, and then `sda1`, `sda2`
+    -- these are partitions of that disk.
+
+- time: "00:23:00"
+  speaker: League
+  caption: |
+    I'm not going to play with `sda`
+    because that's my real actual disk
+
+- time: "00:23:05"
+  speaker: League
+  caption: |
+    [laughs] and I don't want to mess anything
+    up. But now we've got `sdb` and
+
+- time: "00:23:08"
+  speaker: League
+  caption: |
+    this only showed up when I plugged in that
+    drive. There wasn't an `sdb` here before.
+
+- time: "00:23:14"
+  speaker: League
+  caption: |
+    And `sdb1` is a partition on that. So generally
+    speaking you can just use `sdb` directly,
+
+- time: "00:23:23"
+  speaker: League
+  caption: |
+    but a lot of times what you'll do is create like a
+    single partition that takes up the entire drive,
+
+- time: "00:23:29"
+  speaker: League
+  caption: |
+    and that would be called `sdb1`.
+
+- time: "00:23:32"
+  speaker: League
+  caption: |
+    In a way it's not really a partition
+    because it's still the whole drive,
+
+- time: "00:23:35"
+  speaker: League
+  caption: |
+    right -- partition you think of as
+    breaking it into pieces.
+
+- time: "00:23:39"
+  speaker: League
+  caption: |
+    But you're using the partition table on that
+    drive to still have one partition.
+
+- time: "00:23:47"
+  speaker: League
+  caption: |
+    Okay, I just want to prove that when
+    I unplug this device now,
+
+- time: "00:23:52"
+  speaker: League
+  caption: |
+    and I do that `ls` again -- the `sdb` has disappeared.
+
+- time: "00:23:55"
+  speaker: League
+  caption: |
+    So the `/dev` filesystem is one of
+    those virtual filesystems that
+
+- time: "00:24:00"
+  speaker: League
+  caption: |
+    automatically updates based on which
+    devices are accessible or not.
+
+- time: "00:24:07"
+  speaker: League
+  caption: |
+    So that device is `sdb`. Another thing that
+    I can do to kind of investigate
+
+- time: "00:24:14"
+  speaker: League
+  caption: |
+    the size of the disk or the partition
+    structure is a simple command called
+
+- time: "00:24:20"
+  speaker: League
+  caption: |
+    `fdisk` and `-l` will give me detailed
+    listing of partitions, just like `ls -l`.
+
+- time: "00:24:27"
+  speaker: League
+  caption: |
+    Then I give `/dev/sdb`. But to
+    open a disk in this way,
+
+- time: "00:24:32"
+  speaker: League
+  caption: |
+    to be able to look at the partition information you
+    need to be the administrator. So I'll do that.
+
+- time: "00:24:38"
+  speaker: League
+  caption: |
+    And now we see that this drive is
+    about 960 MB and here is the one
+
+- time: "00:24:45"
+  speaker: League
+  caption: |
+    partition that starts and ends at particular places.
+
+- time: "00:24:48"
+  speaker: League
+  caption: |
+    This partition is formatted as FAT16, so one of
+    the old Windows or even DOS formats.
+
+- time: "00:24:58"
+  speaker: League
+  caption: |
+    That makes it readable on lots of
+    different machines, which is good,
+
+- time: "00:25:02"
+  speaker: League
+  caption: |
+    but it doesn't have a lot of the features that we
+    might expect of a modern Linux filesystem.
+
+- time: "00:25:08"
+  speaker: League
+  caption: |
+    So first I'm going to mount that filesystem so
+    that I can see the files that are there.
+
+- time: "00:25:15"
+  speaker: League
+  caption: |
+    To do that we do a command called `mount`
+    and first you give the device name,
+
+- time: "00:25:22"
+  speaker: League
+  caption: |
+    so that's `sdb1` and then you give a
+    directory on the system where those
+
+- time: "00:25:28"
+  speaker: League
+  caption: |
+    files will appear and basically it
+    could be any directory --
+
+- time: "00:25:34"
+  speaker: League
+  caption: |
+    usually it's empty -- but there is a built-in
+    directory I've got here called `/mnt` or 'mount',
+
+- time: "00:25:41"
+  speaker: League
+  caption: |
+    which is specifically for these types of
+    temporary mounts. So I'll put it there.
+
+- time: "00:25:48"
+  speaker: League
+  caption: |
+    Now if I look into `/mnt` I've got
+    files here that correspond to --
+
+- time: "00:25:54"
+  speaker: League
+  caption: |
+    or that are the files on that drive. Then
+    unmount is actually spelled `umount` --
+
+- time: "00:26:01"
+  speaker: League
+  caption: |
+    for some reason they thought saving that one
+    character would be helpful [laughs].
+
+- time: "00:26:07"
+  speaker: League
+  caption: |
+    When I unmount I can either give the device name
+    or the directory name, either one works.
+
+- time: "00:26:12"
+  speaker: League
+  caption: |
+    Now if I look back in that directory, it's
+    empty again -- there's nothing there.
+
+- time: "00:26:19"
+  speaker: League
+  caption: |
+    So it's unmounted and now it's
+    safe to remove the device.
+
+- time: "00:26:25"
+  speaker: League
+  caption: |
+    Let's say I want to reformat that. I'm not
+    going to repartition at this stage,
+
+- time: "00:26:29"
+  speaker: League
+  caption: |
+    but I just want to reformat using a Linux filesystem.
+
+- time: "00:26:33"
+  speaker: League
+  caption: |
+    There's a command called `mkfs` --
+    this is the format command.
+
+- time: "00:26:38"
+  speaker: League
+  caption: |
+    And there are a lot of variants of it, so I'm hitting
+    'tab' here to see the different variations.
+
+- time: "00:26:45"
+  speaker: League
+  caption: |
+    You can just do `mkfs` and it'll use some
+    default format, I think it'll be `ext2`.
+
+- time: "00:26:50"
+  speaker: League
+  caption: |
+    But if I want one of these other ones I can
+    specify that, so `mkfs.ext4` for example.
+
+- time: "00:26:59"
+  speaker: League
+  caption: |
+    And then there are different options you
+    can specify here about how to
+
+- time: "00:27:03"
+  speaker: League
+  caption: |
+    layout the system or how much space you
+    want to reserve for different things.
+
+- time: "00:27:07"
+  speaker: League
+  caption: |
+    But generally you don't have to say anything else,
+    you just give the device name, so `sdb1`.
+
+- time: "00:27:14"
+  speaker: League
+  caption: |
+    And you know, reformatting a disk is
+    dangerous -- you're going to lose all
+
+- time: "00:27:17"
+  speaker: League
+  caption: |
+    the files on it currently. So you want to
+    make especially sure I didn't
+
+- time: "00:27:21"
+  speaker: League
+  caption: |
+    type `a` here because that's my real
+    disk! So `sdb1` -- `mkfs`.
+
+- time: "00:27:28"
+  speaker: League
+  caption: |
+    Oh, permission denied of course, so
+    `sudo` that. And it's got a little
+
+- time: "00:27:33"
+  speaker: League
+  caption: |
+    protection here that it already seems to contain a
+    filesystem so are you sure you want to reformat?
+
+- time: "00:27:40"
+  speaker: League
+  caption: |
+    Yeah, let's go ahead.
+
+- time: "00:27:43"
+  speaker: League
+  caption: |
+    It goes through and creates the format on that disk,
+
+- time: "00:27:47"
+  speaker: League
+  caption: |
+    and now if I try to mount it again, let's say
+    `mount /dev/sdb1` into `/mnt` -- that worked.
+
+- time: "00:27:57"
+  speaker: League
+  caption: |
+    And now the files that were there before are gone.
+    There's this directory called `lost+found` --
+
+- time: "00:28:02"
+  speaker: League
+  caption: |
+    this is a feature of `ext` filesystems where
+    basically if there are fragments of --
+
+- time: "00:28:08"
+  speaker: League
+  caption: |
+    like if the filesystem gets corrupted,
+    which is pretty rare these days --
+
+- time: "00:28:12"
+  speaker: League
+  caption: |
+    but if it gets corrupted and there are
+    some fragments of files that it
+
+- time: "00:28:16"
+  speaker: League
+  caption: |
+    doesn't know where they belong, it puts
+    them in the `lost+found` folder and
+
+- time: "00:28:21"
+  speaker: League
+  caption: |
+    maybe you can make sense of them at a later
+    time. But it's not usually useful,
+
+- time: "00:28:26"
+  speaker: League
+  caption: |
+    it's just always there.
+
+- time: "00:28:28"
+  speaker: League
+  caption: |
+    So I've got this new filesystem mounted and I
+    can go there, I can create directories.
+
+- time: "00:28:34"
+  speaker: League
+  caption: |
+    I can create a file -- "this is on my new
+    drive", okay. Write that, exit.
+
+- time: "00:28:44"
+  speaker: League
+  caption: |
+    Oh I'm still in `~` I didn't mean
+    that. Okay, `/mnt` -- oh yeah,
+
+- time: "00:28:49"
+  speaker: League
+  caption: |
+    so [laughs] -- I did all of that in
+    `~`, that wasn't the right thing.
+
+- time: "00:28:52"
+  speaker: League
+  caption: |
+    So I'm going to just `mv readme.txt` let's say into
+    `/mnt` -- permission denied, interesting.
+
+- time: "00:29:01"
+  speaker: League
+  caption: |
+    So the way it mounted this, because I
+    mounted it as root and I didn't give
+
+- time: "00:29:10"
+  speaker: League
+  caption: |
+    permission to other users to access it,
+    then my regular user can't do that.
+
+- time: "00:29:18"
+  speaker: League
+  caption: |
+    What I could do there is do a `chmod`, and
+    say that everyone is allowed to read,
+
+- time: "00:29:29"
+  speaker: League
+  caption: |
+    write, and execute that folder, okay. And if I
+    do that -- did we do `ls -a` before?
+
+- time: "00:29:40"
+  speaker: League
+  caption: |
+    This is what shows the dot files
+
+- time: "00:29:42"
+  speaker: Lopes
+  caption: |
+    hidden files?
+
+- time: "00:29:43"
+  speaker: League
+  caption: |
+    hidden files, yeah. And one of those is
+    `.` so this is a representation of
+
+- time: "00:29:48"
+  speaker: League
+  caption: |
+    that mounted directory itself. And it did not add
+    write permission for group and others,
+
+- time: "00:29:57"
+  speaker: League
+  caption: |
+    so I'm going to be more explicit about
+    that. Let's see if that works.
+
+- time: "00:30:04"
+  speaker: League
+  caption: |
+    Okay, so now everybody is allowed to
+    write to that mounted disk.
+
+- time: "00:30:09"
+  speaker: League
+  caption: |
+    Which means that I should be able to repeat this
+    command to move `readme` over to `/mnt`.
+
+- time: "00:30:16"
+  speaker: League
+  caption: |
+    And now that exists and is owned by this
+    user -- so one thing that having
+
+- time: "00:30:23"
+  speaker: League
+  caption: |
+    this `ext` filesystem on the USB drive
+    means is that I can have file
+
+- time: "00:30:28"
+  speaker: League
+  caption: |
+    ownerships that make sense to this
+    system. I can do things like symbolic
+
+- time: "00:30:35"
+  speaker: League
+  caption: |
+    links and other filesystem features that Linux
+    filesystems support but FAT systems do not.
+
+- time: "00:30:43"
+  speaker: League
+  caption: |
+    Okay, so I've got the `readme` file there --
+    let's unmount that. So now it's empty.
+
+- time: "00:30:49"
+  speaker: League
+  caption: |
+    And then we want to remount -- just lost it --
+    that appears exactly as it did before,
+
+- time: "00:30:59"
+  speaker: League
+  caption: |
+    with the same permissions here and with
+    the owner kept track of there.
+
+- time: "00:31:07"
+  speaker: League
+  caption: |
+    So one thing it does mean, having that
+    drive formatted with `ext4` is that
+
+- time: "00:31:14"
+  speaker: League
+  caption: |
+    now this will be pretty useless on
+    Windows and Mac systems.
+
+- time: "00:31:18"
+  speaker: League
+  caption: |
+    The `ext` system really only works on
+    Linux, so if you want a drive that
+
+- time: "00:31:24"
+  speaker: League
+  caption: |
+    can be transferred between
+    different operating systems,
+
+- time: "00:31:27"
+  speaker: League
+  caption: |
+    you need to format it with a
+    filesystem that works on all of them.
+
+- time: "00:31:32"
+  speaker: League
+  caption: |
+    Thanks for joining us today. Next time I
+    think we'll cover more about
+
+- time: "00:31:36"
+  speaker: League
+  caption: |
+    searching through filesystems using commands
+    like `find` and `locate` and then `xargs`,
+
+- time: "00:31:42"
+  speaker: League
+  caption: |
+    which also gets used quite a lot
+    with `find`. So see you then.
+
+- time: "00:31:47"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:31:57"
+  caption: |
+    [Captions by Christopher League]
+
+- time: "00:32:16"
+  caption: |
+    [End]
+
