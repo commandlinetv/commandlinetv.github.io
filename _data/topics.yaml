@@ -39,9 +39,22 @@
 - term: "directory"
   refs:
     - 1#episode001#00:08:53
+- term: "disk format"
+  refs:
+    - 11#episode011#00:06:46
+- term: "disk format, `ext4`"
+  refs:
+    - 11#episode011#00:17:43
+- term: "disk format, `vfat`"
+  refs:
+    - 11#episode011#00:17:31
+- term: "disk partition"
+  refs:
+    - 11#episode011#00:22:49
 - term: "distribution"
   refs:
     - 1#episode001#00:06:24
+    - 11#episode011#00:09:31
 - term: "distribution, ArchLinux"
   refs:
     - 8#episode008#00:04:58
@@ -57,10 +70,15 @@
 - term: "environment variable"
   refs:
     - 10#episode010#00:20:39
+    - 11#episode011#00:01:16
 - term: "file type, binary"
   refs:
     - 2#episode002#00:07:02
     - 3#episode003#00:16:52
+    - 11#episode011#00:02:37
+- term: "file type, disk image"
+  refs:
+    - 11#episode011#00:08:25
 - term: "file type, hidden (dot files)"
   refs:
     - 5#episode005#00:14:12
@@ -78,6 +96,15 @@
 - term: "filename extension"
   refs:
     - 3#episode003#00:00:34
+- term: "filesystem"
+  refs:
+    - 11#episode011#00:05:27
+- term: "filesystem hierarchy standard"
+  refs:
+    - 11#episode011#00:09:20
+- term: "filesystem, virtual"
+  refs:
+    - 11#episode011#00:07:54
 - term: "folder"
   refs:
     - 1#episode001#00:08:52
@@ -108,9 +135,17 @@
   refs:
     - 7#episode007#00:05:01
     - 10#episode010#00:26:02
+    - 11#episode011#00:14:07
+- term: "journal"
+  refs:
+    - 11#episode011#00:07:29
+- term: "link, symbolic"
+  refs:
+    - 11#episode011#00:12:43
 - term: "octal"
   refs:
     - 10#episode010#00:15:23
+    - 11#episode011#00:04:40
 - term: "package"
   refs:
     - 8#episode008#00:00:33
@@ -161,6 +196,7 @@
 - term: "script, shell"
   refs:
     - 10#episode010#00:02:30
+    - 11#episode011#00:00:27
 - term: "security"
   refs:
     - 8#episode008#00:10:29
@@ -189,12 +225,18 @@
 - term: "text editor"
   refs:
     - 4#episode004#00:01:09
+- term: "USB drive"
+  refs:
+    - 11#episode011#00:21:05
 - term: "Utilities (Mac)"
   refs:
     - 1#episode001#00:04:26
 - term: "variable"
   refs:
     - 10#episode010#00:19:13
+- term: "virtual machine"
+  refs:
+    - 11#episode011#00:08:44
 - term: "wildcard"
   refs:
     - 3#episode003#00:03:54
@@ -254,16 +296,53 @@
   refs:
     - 6#episode006#00:02:58
     - 10#episode010#00:07:07
+    - 11#episode011#00:00:59
+- term: "`/bin`"
+  refs:
+    - 11#episode011#00:02:34
+- term: "`/bin` (essential commands)"
+  refs:
+    - 11#episode011#00:12:03
+- term: "`/boot` (kernel images)"
+  refs:
+    - 11#episode011#00:10:36
+- term: "`/dev` (device files)"
+  refs:
+    - 11#episode011#00:22:00
 - term: "`/etc/passwd` (user database)"
   refs:
     - 4#episode004#00:04:03
+    - 11#episode011#00:09:55
 - term: "`/etc` (system config dir)"
   refs:
     - 4#episode004#00:04:10
+    - 11#episode011#00:09:51
+- term: "`/home` (user dirs)"
+  refs:
+    - 11#episode011#00:10:31
+- term: "`/lib` (libraries)"
+  refs:
+    - 11#episode011#00:13:42
+- term: "`/proc` (process information)"
+  refs:
+    - 11#episode011#00:16:31
+- term: "`/root` (home of admin user)"
+  refs:
+    - 11#episode011#00:11:03
+- term: "`/usr/local` (user-installed software)"
+  refs:
+    - 11#episode011#00:15:08
+- term: "`/usr` (package-managed software)"
+  refs:
+    - 11#episode011#00:11:32
+- term: "`/var` (variable data files)"
+  refs:
+    - 11#episode011#00:15:54
 - term: "`/` (root directory)"
   refs:
     - 4#episode004#00:12:58
     - 6#episode006#00:16:17
+    - 11#episode011#00:05:55
 - term: "`<` (redirect stdin)"
   refs:
     - 9#episode009#00:13:18
@@ -338,6 +417,7 @@
   refs:
     - 10#episode010#00:06:28
     - 10#episode010#00:12:11
+    - 11#episode011#00:04:50
 - term: "`clear` (clear screen)"
   refs:
     - 7#episode007#00:03:15
@@ -405,6 +485,7 @@
 - term: "`echo` (display text)"
   refs:
     - 10#episode010#00:04:49
+    - 11#episode011#00:01:21
 - term: "`env` (show environment)"
   refs:
     - 10#episode010#00:20:55
@@ -414,6 +495,9 @@
 - term: "`export` (designate environment variable)"
   refs:
     - 10#episode010#00:22:05
+- term: "`fdisk` (edit partition table)"
+  refs:
+    - 11#episode011#00:24:07
 - term: "`file` (show file type)"
   refs:
     - 3#episode003#00:03:08
@@ -467,6 +551,9 @@
 - term: "`identify` (describe image files)"
   refs:
     - 7#episode007#00:06:34
+- term: "`inotify` (monitor filesystem events)"
+  refs:
+    - 11#episode011#00:17:58
 - term: "`less` (pager)"
   refs:
     - 2#episode002#00:12:34
@@ -476,6 +563,7 @@
 - term: "`ls -a` (all)"
   refs:
     - 5#episode005#00:14:18
+    - 11#episode011#00:29:29
 - term: "`ls -F` (classify)"
   refs:
     - 1#episode001#00:13:17
@@ -500,6 +588,9 @@
   refs:
     - 5#episode005#00:04:19
     - 6#episode006#00:07:05
+- term: "`mkfs` (build Linux filesystem)"
+  refs:
+    - 11#episode011#00:26:33
 - term: "`mogrify -crop`"
   refs:
     - 7#episode007#00:26:28
@@ -516,6 +607,9 @@
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
+- term: "`mount` (attach filesystem)"
+  refs:
+    - 11#episode011#00:25:08
 - term: "`mv -i` (interactive) "
   refs:
     - 5#episode005#00:09:39
@@ -541,6 +635,7 @@
 - term: "`PATH` variable"
   refs:
     - 10#episode010#00:21:32
+    - 11#episode011#00:01:11
 - term: "`pwd` (print working dir)"
   refs:
     - 1#episode001#00:10:03
@@ -585,9 +680,13 @@
 - term: "`source` (execute in current shell)"
   refs:
     - 5#episode005#00:16:06
+- term: "`sudo -s` (shell)"
+  refs:
+    - 11#episode011#00:20:23
 - term: "`sudo` (run as administrator)"
   refs:
     - 8#episode008#00:08:50
+    - 11#episode011#00:19:50
 - term: "`tail -n` (lines)"
   refs:
     - 2#episode002#00:15:08
@@ -597,6 +696,9 @@
 - term: "`tree` (list dirs in tree-like form)"
   refs:
     - 6#episode006#00:08:55
+- term: "`umount` (detach filesystem)"
+  refs:
+    - 11#episode011#00:25:54
 - term: "`uniq -c` (count)"
   refs:
     - 4#episode004#00:15:11
@@ -609,6 +711,7 @@
 - term: "`which` (show path of command)"
   refs:
     - 8#episode008#00:09:30
+    - 11#episode011#00:01:49
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
