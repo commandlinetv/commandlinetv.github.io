@@ -591,6 +591,7 @@
 
 - time: "00:08:50"
   speaker: Lopes
+  index: "`sudo` (run as administrator)"
   caption: |
     I still have to do `sudo`.
 

@@ -493,6 +493,7 @@
 
 - time: "00:07:07"
   speaker: League
+  index: "`.` (current dir)"
   cmd: |
     ./hello.sh
   caption: |

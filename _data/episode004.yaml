@@ -278,6 +278,7 @@
 
 - time: "00:04:03"
   speaker: League
+  index: "`/etc/passwd` (user database)"
   cmd: |
     cat /etc/passwd
   caption: |
@@ -286,7 +287,7 @@
 
 - time: "00:04:10"
   speaker: League
-  index: "`/etc`"
+  index: "`/etc` (system config dir)"
   caption: |
     `etc` is a directory at the top level of a UNIX
     system that keeps a lot of configuration files
@@ -934,6 +935,7 @@
 
 - time: "00:12:58"
   speaker: Lopes
+  index: "`/` (root directory)"
   caption: |
     However, some of them are the same; a lot just
     have the `/` or root as their directory,

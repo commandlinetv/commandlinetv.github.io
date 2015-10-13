@@ -1039,6 +1039,7 @@
 
 - time: "00:16:17"
   speaker: League
+  index: "`/` (root directory)"
   caption: |
     is if you put a slash here, slash is a way to
     refer to the top level of your file system,

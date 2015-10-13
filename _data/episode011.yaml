@@ -15,6 +15,7 @@
 
 - time: "00:00:27"
   speaker: Lopes
+  index: "script, shell"
   caption: |
     We did have a follow-up question regarding
     shell scripts, or just scripts in general.
@@ -56,6 +57,7 @@
 
 - time: "00:00:59"
   speaker: League
+  index: "`.` (current dir)"
   caption: |
     Then you can run the script using `./` like
     we did in the example last time.
@@ -68,18 +70,23 @@
 
 - time: "00:01:11"
   speaker: League
+  index: "`PATH` variable"
   caption: |
     the simplest thing to do is to make that
     script -- is to put it into a
 
 - time: "00:01:16"
   speaker: League
+  index: environment variable
   caption: |
     directory that's on your path. So the
     path is something that's used to
 
 - time: "00:01:21"
   speaker: League
+  index: "`echo` (display text)"
+  cmd: |
+    echo $PATH
   caption: |
     determine where to find executable files,
     right? So I'm going to do `echo $PATH` --
@@ -109,6 +116,9 @@
 
 - time: "00:01:49"
   speaker: League
+  index: "`which` (show path of command)"
+  cmd: |
+    which ls
   caption: |
     and we can tell that it's actually in
     `/usr/bin` which is the first one.
@@ -156,12 +166,14 @@
 
 - time: "00:02:34"
   speaker: League
+  index: "`/bin`"
   caption: |
     which are all called `bin` --
     that's just traditional --
 
 - time: "00:02:37"
   speaker: League
+  index: "file type, binary"
   caption: |
     it stands for binaries, which is
     like executable files.
@@ -174,6 +186,8 @@
 
 - time: "00:02:47"
   speaker: League
+  cmd: |
+    mkdir ~/bin
   caption: |
     So I'm going to make my own `bin` but put it
     underneath my home directory, like that.
@@ -186,18 +200,24 @@
 
 - time: "00:03:02"
   speaker: League
+  cmd: |
+    mv hello.sh ~/bin
   caption: |
     So if I move `hello.sh` into `~/bin`,
     then I'll be able to find it there,
 
 - time: "00:03:12"
   speaker: League
+  cmd: |
+    echo $PATH
   caption: |
     but that's not on my `PATH` yet. My
     `PATH` doesn't contain `~/bin`.
 
 - time: "00:03:17"
   speaker: League
+  cmd: |
+    nane ~/.bashrc
   caption: |
     So what I would have to do is -- in my `.bashrc`,
     set up that my `PATH` should contain --
@@ -210,6 +230,8 @@
 
 - time: "00:03:33"
   speaker: League
+  cmd: |
+    PATH=$HOME/bin:$PATH
   caption: |
     so you can use `$HOME` instead -- I just out of
     habit think that's a safer way to do this.
@@ -222,30 +244,40 @@
 
 - time: "00:03:47"
   speaker: League
+  cmd: |
+    source ~/.bashrc
   caption: |
     So when I save that and then if you log in
     again or just reload that `.bashrc`,
 
 - time: "00:03:55"
   speaker: League
+  cmd: |
+    echo $PATH
   caption: |
     now you see `/home/cltv/bin` on
     the front of my `PATH`,
 
 - time: "00:04:00"
   speaker: League
+  cmd: |
+    which hello.sh
   caption: |
     and that means that the `hello.sh` can be
     found there no matter where I am.
 
 - time: "00:04:05"
   speaker: League
+  cmd: |
+    hello.sh
   caption: |
     So I'm in `Downloads` now, but if I just
     type `hello.sh` on the command
 
 - time: "00:04:10"
   speaker: League
+  cmd: |
+    nano ~/bin/hello.sh
   caption: |
     line then it's going to run that script. And
     remember, we left an error in that script.
@@ -263,6 +295,8 @@
 
 - time: "00:04:30"
   speaker: League
+  cmd: |
+    ls -l ~/bin
   caption: |
     What did I do there?
 
@@ -274,6 +308,7 @@
 
 - time: "00:04:40"
   speaker: League
+  index: octal
   caption: |
     So I wanted to illustrate some of those
     octal codes for permissions and I
@@ -286,6 +321,9 @@
 
 - time: "00:04:50"
   speaker: League
+  index: "`chmod` (change permissions)"
+  cmd: |
+    chmod u+w ~/bin/hello.sh
   caption: |
     Let's review that -- I can do user `u+w` to say I
     should be able to write that. Okay, that's better.
@@ -310,12 +348,16 @@
 
 - time: "00:05:21"
   speaker: League
+  cmd: |
+    cd pics
+    hello.sh
   caption: |
     So if I go into `pics` then I can do `hello.sh`
     and see what's in the `pics` folder.
 
 - time: "00:05:27"
   speaker: Lopes
+  index: filesystem
   caption: |
     So the term *filesystem* can refer
     to many different things.
@@ -344,12 +386,15 @@
 
 - time: "00:05:55"
   speaker: League
+  index: "`/` (root directory)"
   caption: |
     So if you start at the top of your
     filesystem, which we call the root
 
 - time: "00:06:00"
   speaker: League
+  cmd: |
+    ls /
   caption: |
     directory (another term that's
     overloaded a lot is 'root' --
@@ -397,6 +442,7 @@
 
 - time: "00:06:46"
   speaker: League
+  index: disk format
   caption: |
     One way is that it refers
     specifically to the format of --
@@ -438,6 +484,7 @@
 
 - time: "00:07:29"
   speaker: League
+  index: journal
   caption: |
     There could be file formats that support a journal,
 
@@ -467,6 +514,7 @@
 
 - time: "00:07:54"
   speaker: League
+  index: "filesystem, virtual"
   caption: |
     There are also virtual filesystems
     which we'll take a look at.
@@ -502,6 +550,7 @@
 
 - time: "00:08:25"
   speaker: League
+  index: "file type, disk image"
   caption: |
     Another type of virtual filesystem is
     when you've got a disk image --
@@ -526,6 +575,7 @@
 
 - time: "00:08:44"
   speaker: League
+  index: virtual machine
   caption: |
     mount it as if it were a CD. So if you've
     used things like virtualbox or
@@ -562,12 +612,15 @@
 
 - time: "00:09:13"
   speaker: League
+  cmd: |
+    ls /
   caption: |
     Yeah these are some cryptic
     looking directories up here.
 
 - time: "00:09:20"
   speaker: League
+  index: filesystem hierarchy standard
   caption: |
     They're all kind of somewhat loosely
     standardized by a thing called the
@@ -580,6 +633,7 @@
 
 - time: "00:09:31"
   speaker: League
+  index: distribution
   caption: |
     Linux distributions use to manage where
     things should go on a system.
@@ -598,18 +652,22 @@
 
 - time: "00:09:51"
   speaker: League
+  index: "`/etc` (system config dir)"
   caption: |
     Yeah, we've looked at `/etc` this is a
     lot of configuration files.
 
 - time: "00:09:55"
   speaker: League
+  index: "`/etc/passwd` (user database)"
   caption: |
     So one thing that we got out of
     there was the `passwd` file,
 
 - time: "00:10:00"
   speaker: League
+  cmd: |
+    cat etc/passwd
   caption: |
     so the users that are on your system are
     defined -- oh that's interesting --
@@ -622,6 +680,8 @@
 
 - time: "00:10:14"
   speaker: League
+  cmd: |
+    cat /etc/passwd
   caption: |
     I had to put the full, absolute path, like that.
     And then I could see the `passwd` file.
@@ -640,12 +700,16 @@
 
 - time: "00:10:31"
   speaker: League
+  index: "`/home` (user dirs)"
   caption: |
     The `/home' folder is where your user
     accounts go. So we have `/home/cltv`
 
 - time: "00:10:36"
   speaker: League
+  index: "`/boot` (kernel images)"
+  cmd: |
+    ls /boot
   caption: |
     or `/home/USERNAME` in general. The `/boot`
     is where we've got the kernel images,
@@ -664,12 +728,15 @@
 
 - time: "00:11:03"
   speaker: League
+  index: "`/root` (home of admin user)"
   caption: |
     Let's see -- `/root` is just the home
     directory of the administrative user,
 
 - time: "00:11:09"
   speaker: League
+  cmd: |
+    ls /root
   caption: |
     just like regular users have like
     `/home/cltv`, root has `/root` which
@@ -694,6 +761,7 @@
 
 - time: "00:11:32"
   speaker: League
+  index: "`/usr` (package-managed software)"
   caption: |
     Okay, '/usr' is a big one. A lot of the installed
     software goes into these different trees,
@@ -724,6 +792,9 @@
 
 - time: "00:12:03"
   speaker: League
+  index: "`/bin` (essential commands)"
+  cmd: |
+    ls /bin
   caption: |
     And the programs that are in `/bin` are
     considered to be the really,
@@ -748,18 +819,23 @@
 
 - time: "00:12:33"
   speaker: League
+  cmd: |
+    ls /usr/bin
   caption: |
     Now, `/usr/bin` -- I'm seeing something
     interesting here on this system,
 
 - time: "00:12:36"
   speaker: League
+  cmd: |
+    ls -ld /bin
   caption: |
     which is -- yeah, so [laughs] -- this is
     going to contradict what I just said.
 
 - time: "00:12:43"
   speaker: League
+  index: "link, symbolic"
   caption: |
     On this particular system, with ArchLinux, they've
     decided that `/bin` should just be an alias --
@@ -820,6 +896,7 @@
 
 - time: "00:13:42"
   speaker: League
+  index: "`/lib` (libraries)"
   caption: |
     `lib` is for libraries that get
     linked in to other programs.
@@ -832,18 +909,23 @@
 
 - time: "00:13:54"
   speaker: League
+  cmd: |
+    ls /usr/lib
   caption: |
     you import that stuff, and then -- I could
     show you some examples in there.
 
 - time: "00:14:00"
   speaker: League
+  cmd: |
+    ls /usr/lib/*.so
   caption: |
     So `*.so` -- the `.so` is one of the
     extensions for libraries.
 
 - time: "00:14:07"
   speaker: League
+  index: ImageMagick
   caption: |
     So for example if you have a program that uses the
     `Magick++` -- this is the ImageMagick library.
@@ -867,6 +949,8 @@
 
 - time: "00:14:32"
   speaker: League
+  cmd: |
+    ls /usr/share
   caption: |
     And then `share` is for stuff that is not
     binary, so it's like data files,
@@ -879,6 +963,8 @@
 
 - time: "00:14:47"
   speaker: League
+  cmd: |
+    ls /usr/share/doc
   caption: |
     So there's usually a `usr/share/doc` which contains --
 
@@ -890,6 +976,8 @@
 
 - time: "00:14:55"
   speaker: League
+  cmd: |
+    ls /usr/share/doc/ImageMagick-6
   caption: |
     So I think we looked previously at
     ImageMagick documentation in there.
@@ -902,12 +990,15 @@
 
 - time: "00:15:08"
   speaker: League
+  index: "`/usr/local` (user-installed software)"
   caption: |
     structure gets repeated in other places.
     Like, a lot of systems will have
 
 - time: "00:15:13"
   speaker: League
+  cmd: |
+    ls /usr/local
   caption: |
     `usr/local` and the idea of `usr/local`
     is stuff that you personally,
@@ -919,6 +1010,8 @@
 
 - time: "00:15:24"
   speaker: League
+  cmd: |
+    ls /usr/local/bin
   caption: |
     So I might have a few things there
     -- not very much usually.
@@ -954,6 +1047,7 @@
 
 - time: "00:15:54"
   speaker: League
+  index: "`/var` (variable data files)"
   caption: |
     root level that I want to focus on are:
     `var` -- this is where things like
@@ -990,6 +1084,10 @@
 
 - time: "00:16:31"
   speaker: League
+  index: "`/proc` (process information)"
+  cmd: |
+    cd /proc
+    ls
   caption: |
     Let's look at `/proc` though -- this
     is a pretty interesting one.
@@ -1026,6 +1124,8 @@
 
 - time: "00:17:01"
   speaker: League
+  cmd: |
+    cat filesystems
   caption: |
     So if I `cat filesystems` virtual file,
     the operating system is going to
@@ -1050,11 +1150,12 @@
 - time: "00:17:24"
   speaker: League
   caption: |
-    But then the ones without `nodev` arc the actual
+    But then the ones without `nodev` are the actual
     physical formats for disks that it can use.
 
 - time: "00:17:31"
   speaker: League
+  index: "disk format, `vfat`"
   caption: |
     So `vfat` is a somewhat older
     format used by Windows systems.
@@ -1067,6 +1168,7 @@
 
 - time: "00:17:43"
   speaker: League
+  index: "disk format, `ext4`"
   caption: |
     The native system for most Linux devices
     is called `ext` and the current
@@ -1085,12 +1187,15 @@
 
 - time: "00:17:58"
   speaker: League
+  index: "`inotify` (monitor filesystem events)"
   caption: |
     Another interesting file in here that I've
     had to set on multiple occasions --
 
 - time: "00:18:04"
   speaker: League
+  cmd: |
+    cd /proc/sys/fs/inotify
   caption: |
     let's go down to `/proc/sys/fs/inotify` --
     okay. So `inotify` is a service
@@ -1127,6 +1232,8 @@
 
 - time: "00:18:49"
   speaker: League
+  cmd: |
+    cat max_user_watches
   caption: |
     files one of those programs can be watching
     -- so that's in `max_user_watches`.
@@ -1151,6 +1258,8 @@
 
 - time: "00:19:14"
   speaker: League
+  cmd: |
+    echo 1048700 > max_user_watches
   caption: |
     So I can do something like `echo` -- let's say
     `1048700` so I'll add a couple of extra watches.
@@ -1169,6 +1278,8 @@
 
 - time: "00:19:42"
   speaker: League
+  cmd: |
+    ls -l
   caption: |
     So if we take a look at its permissions,
     it's owned by `root` and writable
@@ -1181,6 +1292,9 @@
 
 - time: "00:19:50"
   speaker: League
+  index: "`sudo` (run as administrator)"
+  cmd: |
+    sudo echo 1048700 > max_user_watches
   caption: |
     You would think that you could just do
     `sudo` to fix that, but you can't.
@@ -1211,6 +1325,9 @@
 
 - time: "00:20:23"
   speaker: League
+  index: "`sudo -s` (shell)"
+  cmd: |
+    sudo -s
   caption: |
     so `sudo` supports `-s` and I've
     got to type a password here.
@@ -1223,12 +1340,16 @@
 
 - time: "00:20:37"
   speaker: League
+  cmd: |
+    echo 1048700 > max_user_watches
   caption: |
     so I'm going to do this same
     `echo` with the redirection.
 
 - time: "00:20:43"
   speaker: League
+  cmd: |
+    cat max_user_watches
   caption: |
     And now if I `cat` that file, it
     took on the new value.
@@ -1253,6 +1374,7 @@
 
 - time: "00:21:05"
   speaker: Lopes
+  index: USB drive
   caption: |
     So now that we've looked at some of the
     filesystem hierarchy in terms of
@@ -1318,12 +1440,15 @@
 
 - time: "00:22:00"
   speaker: League
+  index: "`/dev` (device files)"
   caption: |
     corresponds to this drive that we just
     plugged in. So there's another
 
 - time: "00:22:06"
   speaker: League
+  cmd: |
+    ls /dev
   caption: |
     directory from that top level hierarchy that I
     didn't introduce yet, called `/dev`.
@@ -1354,6 +1479,8 @@
 
 - time: "00:22:33"
   speaker: League
+  cmd: |
+    ls /dev/sd*
   caption: |
     be `hd` but these are like hard
     drives of various kinds.
@@ -1366,12 +1493,15 @@
 
 - time: "00:22:43"
   speaker: League
+  cmd: |
+    ls --color=no /dev/sd*
   caption: |
     [Laughs] I could tell `ls` not to
     color that. So I've got --
 
 - time: "00:22:49"
   speaker: League
+  index: disk partition
   caption: |
     `sda` is my main disk, and then `sda1`, `sda2`
     -- these are partitions of that disk.
@@ -1437,6 +1567,8 @@
 
 - time: "00:23:52"
   speaker: League
+  cmd: |
+    ls --color=no /dev/sd*
   caption: |
     and I do that `ls` again -- the `sdb` has disappeared.
 
@@ -1454,6 +1586,7 @@
 
 - time: "00:24:07"
   speaker: League
+  index: "`fdisk` (edit partition table)"
   caption: |
     So that device is `sdb`. Another thing that
     I can do to kind of investigate
@@ -1472,12 +1605,16 @@
 
 - time: "00:24:27"
   speaker: League
+  cmd: |
+    fdisk -l /dev/sdb
   caption: |
     Then I give `/dev/sdb`. But to
     open a disk in this way,
 
 - time: "00:24:32"
   speaker: League
+  cmd: |
+    sudo fdisk -l /dev/sdb
   caption: |
     to be able to look at the partition information you
     need to be the administrator. So I'll do that.
@@ -1513,6 +1650,7 @@
 
 - time: "00:25:08"
   speaker: League
+  index: "`mount` (attach filesystem)"
   caption: |
     So first I'm going to mount that filesystem so
     that I can see the files that are there.
@@ -1531,6 +1669,8 @@
 
 - time: "00:25:28"
   speaker: League
+  cmd: |
+    sudo mount /dev/sdb1 /mnt
   caption: |
     files will appear and basically it
     could be any directory --
@@ -1549,18 +1689,23 @@
 
 - time: "00:25:48"
   speaker: League
+  cmd: |
+    ls /mnt
   caption: |
     Now if I look into `/mnt` I've got
     files here that correspond to --
 
 - time: "00:25:54"
   speaker: League
+  index: "`umount` (detach filesystem)"
   caption: |
     or that are the files on that drive. Then
     unmount is actually spelled `umount` --
 
 - time: "00:26:01"
   speaker: League
+  cmd: |
+    sudo umount /mnt
   caption: |
     for some reason they thought saving that one
     character would be helpful [laughs].
@@ -1573,6 +1718,8 @@
 
 - time: "00:26:12"
   speaker: League
+  cmd: |
+    ls /mnt
   caption: |
     Now if I look back in that directory, it's
     empty again -- there's nothing there.
@@ -1596,6 +1743,7 @@
 
 - time: "00:26:33"
   speaker: League
+  index: "`mkfs` (build Linux filesystem)"
   caption: |
     There's a command called `mkfs` --
     this is the format command.
@@ -1650,12 +1798,16 @@
 
 - time: "00:27:21"
   speaker: League
+  cmd: |
+    mkfs.ext4 /dev/sdb1
   caption: |
     type `a` here because that's my real
     disk! So `sdb1` -- `mkfs`.
 
 - time: "00:27:28"
   speaker: League
+  cmd: |
+    sudo mkfs.ext4 /dev/sdb1
   caption: |
     Oh, permission denied of course, so
     `sudo` that. And it's got a little
@@ -1678,12 +1830,16 @@
 
 - time: "00:27:47"
   speaker: League
+  cmd: |
+    sudo mount /dev/sdb1 /mnt
   caption: |
     and now if I try to mount it again, let's say
     `mount /dev/sdb1` into `/mnt` -- that worked.
 
 - time: "00:27:57"
   speaker: League
+  cmd: |
+    ls /mnt
   caption: |
     And now the files that were there before are gone.
     There's this directory called `lost+found` --
@@ -1725,36 +1881,48 @@
 
 - time: "00:28:28"
   speaker: League
+  cmd: |
+    mkdir hello
   caption: |
     So I've got this new filesystem mounted and I
     can go there, I can create directories.
 
 - time: "00:28:34"
   speaker: League
+  cmd: |
+    nano readme.txt
   caption: |
     I can create a file -- "this is on my new
     drive", okay. Write that, exit.
 
 - time: "00:28:44"
   speaker: League
+  cmd: |
+    ls -l /mnt
   caption: |
     Oh I'm still in `~` I didn't mean
     that. Okay, `/mnt` -- oh yeah,
 
 - time: "00:28:49"
   speaker: League
+  cmd: |
+    ls -l
   caption: |
     so [laughs] -- I did all of that in
     `~`, that wasn't the right thing.
 
 - time: "00:28:52"
   speaker: League
+  cmd: |
+    mv readme.txt /mnt
   caption: |
     So I'm going to just `mv readme.txt` let's say into
     `/mnt` -- permission denied, interesting.
 
 - time: "00:29:01"
   speaker: League
+  cmd: |
+    ls -l /mnt
   caption: |
     So the way it mounted this, because I
     mounted it as root and I didn't give
@@ -1767,12 +1935,17 @@
 
 - time: "00:29:18"
   speaker: League
+  cmd: |
+    sudo chmod +rwx /mnt
   caption: |
     What I could do there is do a `chmod`, and
     say that everyone is allowed to read,
 
 - time: "00:29:29"
   speaker: League
+  index: "`ls -a` (all)"
+  cmd: |
+    ls -la /mnt
   caption: |
     write, and execute that folder, okay. And if I
     do that -- did we do `ls -a` before?
@@ -1801,6 +1974,8 @@
 
 - time: "00:29:57"
   speaker: League
+  cmd: |
+    sudo chmod go+w /mnt
   caption: |
     so I'm going to be more explicit about
     that. Let's see if that works.
@@ -1813,12 +1988,16 @@
 
 - time: "00:30:09"
   speaker: League
+  cmd: |
+    mv readme.txt /mnt
   caption: |
     Which means that I should be able to repeat this
     command to move `readme` over to `/mnt`.
 
 - time: "00:30:16"
   speaker: League
+  cmd: |
+    ls -l /mnt
   caption: |
     And now that exists and is owned by this
     user -- so one thing that having
@@ -1843,12 +2022,18 @@
 
 - time: "00:30:43"
   speaker: League
+  cmd: |
+    sudo umount /mnt
+    ls /mnt
   caption: |
     Okay, so I've got the `readme` file there --
     let's unmount that. So now it's empty.
 
 - time: "00:30:49"
   speaker: League
+  cmd: |
+    sudo mount /dev/sdb1 /mnt
+    ls /mnt -la
   caption: |
     And then we want to remount -- just lost it --
     that appears exactly as it did before,
@@ -1918,4 +2103,3 @@
 - time: "00:32:16"
   caption: |
     [End]
-

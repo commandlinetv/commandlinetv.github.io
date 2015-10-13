@@ -253,9 +253,17 @@
 - term: "`.` (current dir)"
   refs:
     - 6#episode006#00:02:58
-- term: "`/etc`"
+    - 10#episode010#00:07:07
+- term: "`/etc/passwd` (user database)"
+  refs:
+    - 4#episode004#00:04:03
+- term: "`/etc` (system config dir)"
   refs:
     - 4#episode004#00:04:10
+- term: "`/` (root directory)"
+  refs:
+    - 4#episode004#00:12:58
+    - 6#episode006#00:16:17
 - term: "`<` (redirect stdin)"
   refs:
     - 9#episode009#00:13:18
@@ -577,6 +585,9 @@
 - term: "`source` (execute in current shell)"
   refs:
     - 5#episode005#00:16:06
+- term: "`sudo` (run as administrator)"
+  refs:
+    - 8#episode008#00:08:50
 - term: "`tail -n` (lines)"
   refs:
     - 2#episode002#00:15:08
