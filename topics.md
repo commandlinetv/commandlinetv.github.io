@@ -22,8 +22,8 @@ or <a href="mailto:{{site.author.email}}">{{site.author.email}}</a>
   - (Episode 10) Shell scripts, `#!` notation, `for` loops
   - (Episode 10) Environment variables
   - (Episode 10) Permissions and `chmod`
-  - (Episode 11?) Filesystem management: `mount`, `umount`, `mkfs`
-  - (Episode 11?) The filesystem hierarchy (difference between `/usr`, `/etc`, `/dev`)
+  - (Episode 11) Filesystem management: `mount`, `umount`, `mkfs`
+  - (Episode 11) The filesystem hierarchy (difference between `/usr`, `/etc`, `/dev`)
   - (Episode 12) `find` command, `locate`, and `xargs`
   - Job control: `fg`, `bg`, `jobs`, `&`
   - `chgrp`, `usermod`, `umask` (revisit permissions)

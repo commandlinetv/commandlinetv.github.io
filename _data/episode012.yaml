@@ -1,7 +1,2129 @@
-- time: "00:00:00"
-  speaker: League
-  index: "``"
-  cmd: |
-    echo
+- time: "00:00:01"
   caption: |
-    Hello.
+    [Rhythmic, dark electronic intro music]
+
+- time: "00:00:18"
+  speaker: League
+  caption: |
+    Welcome back to Command Line TV. Today
+    we're going to talk about finding
+
+- time: "00:00:22"
+  speaker: League
+  caption: |
+    files using a command called `find` and
+    also an alternative called `locate`.
+
+- time: "00:00:29"
+  speaker: League
+  caption: |
+    And do we have any follow-up from last time?
+
+- time: "00:00:32"
+  speaker: Lopes
+  caption: |
+    Last time at the end of the episode, we learned
+    about formatting and modifying SD cards or,
+
+- time: "00:00:38"
+  speaker: Lopes
+  caption: |
+    sorry, external drives. How can we
+    load a drive so it's read-only?
+
+- time: "00:00:45"
+  speaker: League
+  caption: |
+    Sure, so if you want to make sure
+    that programs can't access --
+
+- time: "00:00:52"
+  speaker: League
+  caption: |
+    or can't write to the drive, there is an
+    option for that when you mount it.
+
+- time: "00:00:58"
+  speaker: League
+  caption: |
+    If I type `mount` and remember we put the
+    device name -- I guess `sdb1` --
+
+- time: "00:01:05"
+  speaker: League
+  caption: |
+    and then the path where it would be mounted,
+    the directory where it would mount.
+
+- time: "00:01:11"
+  speaker: League
+  caption: |
+    You can specify some other options here
+    using a `-o` and one of the most
+
+- time: "00:01:16"
+  speaker: League
+  caption: |
+    common options is just saying
+    read-only `ro`. If I do that,
+
+- time: "00:01:22"
+  speaker: League
+  caption: |
+    then the disk will be mounted read-only and it means
+    you can do things like `cat` and `ls` on it,
+
+- time: "00:01:31"
+  speaker: League
+  caption: |
+    but if you tried to actually edit a file or
+    copy a file to it or something like that,
+
+- time: "00:01:36"
+  speaker: League
+  caption: |
+    it would stop you right away and say "read-only
+    filesystem." So that prevents it from being written.
+
+- time: "00:01:43"
+  speaker: Lopes
+  caption: |
+    Since we'll be using the `find` command
+    today, I'm assuming that it's as
+
+- time: "00:01:46"
+  speaker: Lopes
+  caption: |
+    simple as the command name sounds.
+
+- time: "00:01:48"
+  speaker: Lopes
+  caption: |
+    We just use it to find files and other
+    things on our filesystem, correct?
+
+- time: "00:01:53"
+  speaker: League
+  caption: |
+    Yeah, you use it to find things -- what's
+    interesting about it is it's got
+
+- time: "00:01:58"
+  speaker: League
+  caption: |
+    this syntax that's available as
+    options for specifying a query --
+
+- time: "00:02:05"
+  speaker: League
+  caption: |
+    it's really like querying a database, but about files.
+
+- time: "00:02:08"
+  speaker: League
+  caption: |
+    So you can find them by name but you can
+    also find them by modification
+
+- time: "00:02:13"
+  speaker: League
+  caption: |
+    times or permissions or combine all these
+    things together into a big query.
+
+- time: "00:02:19"
+  speaker: League
+  caption: |
+    I'm going to start with the simplest
+    case, which is finding them by name.
+
+- time: "00:02:24"
+  speaker: League
+  caption: |
+    Let's say I want to find -- the first thing that I
+    give is the directory to start looking in,
+
+- time: "00:02:31"
+  speaker: League
+  caption: |
+    and then it will look in any
+    sub-directory of that too.
+
+- time: "00:02:35"
+  speaker: League
+  caption: |
+    If I want to look across this entire
+    system I could put `find /` --
+
+- time: "00:02:39"
+  speaker: League
+  caption: |
+    that would be the top level directory. Or
+    the current directory `.` or my
+
+- time: "00:02:44"
+  speaker: League
+  caption: |
+    home directory `~` (which happens to
+    be the current directory).
+
+- time: "00:02:48"
+  speaker: League
+  caption: |
+    But you could do any of those as your
+    starting point for the `find`.
+
+- time: "00:02:52"
+  speaker: League
+  caption: |
+    Then we put the query as options. So
+    `-name` is a way to search by filename
+
+- time: "00:03:00"
+  speaker: League
+  caption: |
+    and this takes wildcards so I could
+    say something like `*.png` --
+
+- time: "00:03:06"
+  speaker: League
+  caption: |
+    but there is a little bit of a catch there.
+    When you use a wildcard like this,
+
+- time: "00:03:12"
+  speaker: League
+  caption: |
+    the shell expands it before it actually
+    gives it to the `find` command.
+
+- time: "00:03:17"
+  speaker: League
+  caption: |
+    So `find` is going to get the names of
+    all the PNGs in the current
+
+- time: "00:03:22"
+  speaker: League
+  caption: |
+    directory and that's not what we want. We want that
+    star `*` actually to be passed to `find` as is.
+
+- time: "00:03:29"
+  speaker: League
+  caption: |
+    So I don't want my shell to expand the
+    wildcard, I want `find` to match the
+
+- time: "00:03:35"
+  speaker: League
+  caption: |
+    wildcard with the files that it comes
+    across. So I have to quote it,
+
+- time: "00:03:39"
+  speaker: League
+  caption: |
+    just like when you've got spaces in a
+    filename, or any special characters.
+
+- time: "00:03:44"
+  speaker: League
+  caption: |
+    You put quotes around it and then it won't
+    expand but `find` can still interpret it.
+
+- time: "00:03:48"
+  speaker: League
+  caption: |
+    So there's a simple example of a `find`
+    command. And if I run that it's
+
+- time: "00:03:54"
+  speaker: League
+  caption: |
+    going to just dump out a list of all of these PNG
+    files that exist in my home directory.
+
+- time: "00:04:00"
+  speaker: League
+  caption: |
+    So I'm going to pipe that into `less` so
+    we can see it a page at a time.
+
+- time: "00:04:05"
+  speaker: League
+  caption: |
+    You see some of them are in this
+    -- these cache folders,
+
+- time: "00:04:09"
+  speaker: League
+  caption: |
+    so this is a `.cache` which is one of those
+    hidden files, right? Starts with a dot.
+
+- time: "00:04:16"
+  speaker: League
+  caption: |
+    And so it's got little thumbnails in there of
+    images that I didn't even know about,
+
+- time: "00:04:20"
+  speaker: League
+  caption: |
+    but I can find them with `find`.
+
+- time: "00:04:24"
+  speaker: League
+  caption: |
+    The program called `inkscape` --
+    this is a drawing program.
+
+- time: "00:04:28"
+  speaker: League
+  caption: |
+    It has put some of its icons into
+    that cache, and so on.
+
+- time: "00:04:31"
+  speaker: League
+  caption: |
+    There are lots of PNGs here that you might
+    not have even thought of before.
+
+- time: "00:04:37"
+  speaker: Lopes
+  caption: |
+    So when we ran `find` just now it showed
+    all the images that we had using
+
+- time: "00:04:42"
+  speaker: Lopes
+  caption: |
+    the wildcard but then it also
+    expanded into subdirectories.
+
+- time: "00:04:46"
+  speaker: Lopes
+  caption: |
+    What if for example you wanted to locate some of
+    the playing cards that we worked with,
+
+- time: "00:04:50"
+  speaker: Lopes
+  caption: |
+    but the originals not the ones that
+    we changed the geometry on.
+
+- time: "00:04:55"
+  speaker: League
+  caption: |
+    Yep, so down here in the
+    `Downloads/Playing\ Cards` and PNG,
+
+- time: "00:05:01"
+  speaker: League
+  caption: |
+    I had these and last time we
+    created the subdirectories.
+
+- time: "00:05:06"
+  speaker: League
+  caption: |
+    So when I do a `find` here, so
+    let's say I want to find --
+
+- time: "00:05:10"
+  speaker: League
+  caption: |
+    by the way if the current directory is
+    where you want to start from then
+
+- time: "00:05:15"
+  speaker: League
+  caption: |
+    you don't actually need to specify the `.`
+    there. But if I want to find all
+
+- time: "00:05:20"
+  speaker: League
+  caption: |
+    of the filenames that have `hearts`
+    in them, I could do that.
+
+- time: "00:05:24"
+  speaker: League
+  caption: |
+    But that is getting me the ones in subdirectories
+    as well. So there's `cards33`, `cards25`.
+
+- time: "00:05:31"
+  speaker: League
+  caption: |
+    If I want to limit it to either the current
+    directory or maybe I just don't
+
+- time: "00:05:36"
+  speaker: League
+  caption: |
+    want to search too deep -- there's an
+    option called `-maxdepth`.
+
+- time: "00:05:42"
+  speaker: League
+  caption: |
+    I put `maxdepth` there and if I were to
+    say `-maxdepth 1` then we're only
+
+- time: "00:05:47"
+  speaker: League
+  caption: |
+    seeing the files that have `hearts` in
+    the name that are one level deep,
+
+- time: "00:05:52"
+  speaker: League
+  caption: |
+    so basically in the current directory.
+
+- time: "00:05:55"
+  speaker: League
+  caption: |
+    And if I went to `2` that would be enough to
+    get me these other directories as well.
+
+- time: "00:06:00"
+  speaker: League
+  caption: |
+    Now there are some other queries
+    that I can add to this.
+
+- time: "00:06:04"
+  speaker: League
+  caption: |
+    When you have multiple queries on a `find`
+    command they are joined together
+
+- time: "00:06:09"
+  speaker: League
+  caption: |
+    using a Boolean AND operator. So in other
+    words all of them have to be true
+
+- time: "00:06:14"
+  speaker: League
+  caption: |
+    in order for the file to match. One that
+    I like to use sometimes is --
+
+- time: "00:06:22"
+  speaker: League
+  caption: |
+    if you want to find files that have been
+    modified since a certain time
+
+- time: "00:06:28"
+  speaker: League
+  caption: |
+    that's an option called `-newer`.
+
+- time: "00:06:31"
+  speaker: League
+  caption: |
+    So I want to show files that are
+    newer than some other file.
+
+- time: "00:06:36"
+  speaker: League
+  caption: |
+    Let's pick one of those `hearts`
+    files, I guess `7_of_hearts.png`.
+
+- time: "00:06:44"
+  speaker: League
+  caption: |
+    First let's get back all of the
+    hearts in the current directory,
+
+- time: "00:06:50"
+  speaker: League
+  caption: |
+    and then I'm going to just do the
+    ones that are newer than the
+
+- time: "00:06:56"
+  speaker: League
+  caption: |
+    `7_of_hearts` and you see that
+    it's a subset of those.
+
+- time: "00:06:59"
+  speaker: League
+  caption: |
+    If I were to look at these by modification
+    time -- so like `-ltr` for the
+
+- time: "00:07:06"
+  speaker: League
+  caption: |
+    most recent ones at the bottom -- you're
+    going to see queen, king, 2, 6, 4,
+
+- time: "00:07:14"
+  speaker: League
+  caption: |
+    5, jack, 3 as being newer than the 7.
+    So let's see --
+
+- time: "00:07:20"
+  speaker: League
+  caption: |
+    oh but I'm seeing stuff that isn't
+    hearts so let's do it this way.
+
+- time: "00:07:26"
+  speaker: League
+  caption: |
+    King, queen, jack, 2, 3, 4, 6 -- I
+    believe that's what we had before.
+
+- time: "00:07:32"
+  speaker: League
+  caption: |
+    So these files below here are
+    newer than the `7_of_hearts`.
+
+- time: "00:07:38"
+  speaker: League
+  caption: |
+    And the order those come in -- so it's
+    showing me the modification times here --
+
+- time: "00:07:42"
+  speaker: League
+  caption: |
+    all say 2011 because that is the
+    time-stamp that was in the zip file.
+
+- time: "00:07:48"
+  speaker: League
+  caption: |
+    But they could have been zipped in a
+    particular order and there are seconds
+
+- time: "00:07:54"
+  speaker: League
+  caption: |
+    and milliseconds there that it's not showing me
+    because the date is so far in the past.
+
+- time: "00:07:59"
+  speaker: League
+  caption: |
+    But it is actually more detailed
+    than what it's showing.
+
+- time: "00:08:06"
+  speaker: Lopes
+  caption: |
+    Since these files were modified elsewhere,
+    I guess a way to represent this
+
+- time: "00:08:09"
+  speaker: Lopes
+  caption: |
+    or show a better explanation of it would
+    be to `cd` into one of the files
+
+- time: "00:08:15"
+  speaker: Lopes
+  caption: |
+    that we modified ourselves, like the
+    `size33` or `size25`, right?
+
+- time: "00:08:19"
+  speaker: League
+  caption: |
+    Yeah so the `cards25` -- these were all done when
+    we recorded that episode on September 8th.
+
+- time: "00:08:27"
+  speaker: League
+  caption: |
+    And again they all show `14:01` as the time
+    but there is more precision than that.
+
+- time: "00:08:34"
+  speaker: League
+  caption: |
+    So if I did that newer command -- but
+    let's get rid of the `-maxdepth` --
+
+- time: "00:08:42"
+  speaker: League
+  caption: |
+    right so newer than the
+    `7_of_hearts` in the current directory.
+
+- time: "00:08:46"
+  speaker: League
+  caption: |
+    You're going to get everything in those
+    subdirectories because those were
+
+- time: "00:08:50"
+  speaker: League
+  caption: |
+    modified much more recently. These also
+    are not -- don't seem to be coming
+
+- time: "00:08:56"
+  speaker: League
+  caption: |
+    out in any particular order. If you
+    wanted these to appear in some more
+
+- time: "00:09:03"
+  speaker: League
+  caption: |
+    significant order you could sort them,
+    right? So pipe it into `sort` and
+
+- time: "00:09:07"
+  speaker: League
+  caption: |
+    now they're a little more nicely organized. All the
+    `33`s will be together, stuff like that.
+
+- time: "00:09:13"
+  speaker: League
+  caption: |
+    So there are a few other queries we
+    could use. One thing that's useful
+
+- time: "00:09:19"
+  speaker: League
+  caption: |
+    besides `-name` and `-newer` is
+    matching on the type of the file.
+
+- time: "00:09:26"
+  speaker: League
+  caption: |
+    So if I do `-type` you can specify type as
+    either `f` which is a regular file,
+
+- time: "00:09:33"
+  speaker: League
+  caption: |
+    or `d` which is directory. Or there are a
+    few more options for more exotic
+
+- time: "00:09:39"
+  speaker: League
+  caption: |
+    types of files like device files and so forth,
+    which we haven't really learned much about.
+
+- time: "00:09:43"
+  speaker: League
+  caption: |
+    So `f` or `d` are the most common ones.
+
+- time: "00:09:46"
+  speaker: League
+  caption: |
+    If I wanted to find everything that's a
+    directory that contains the name `hearts`,
+
+- time: "00:09:52"
+  speaker: League
+  caption: |
+    there's nothing that matches. So there
+    were lots of things that have the
+
+- time: "00:09:56"
+  speaker: League
+  caption: |
+    name `hearts` but they're all regular files.
+    By ANDing both of these together,
+
+- time: "00:10:01"
+  speaker: League
+  caption: |
+    then my result set becomes empty. If I just
+    did `-type d` then I get a list
+
+- time: "00:10:07"
+  speaker: League
+  caption: |
+    of all the directories that I've got.
+
+- time: "00:10:12"
+  speaker: League
+  caption: |
+    Another one that I think is useful is
+    `-empty`. So `-empty` refers to
+
+- time: "00:10:16"
+  speaker: League
+  caption: |
+    whether the file has zero bytes --
+    it's a completely empty file.
+
+- time: "00:10:20"
+  speaker: League
+  caption: |
+    And sometimes there are a surprising number
+    of empty files on your filesystem.
+
+- time: "00:10:27"
+  speaker: League
+  caption: |
+    Some of them are there for good reason even
+    though they're completely empty.
+
+- time: "00:10:32"
+  speaker: League
+  caption: |
+    So these are just some of the queries you
+    can use. Do you want to guess how
+
+- time: "00:10:35"
+  speaker: League
+  caption: |
+    we could find out about more queries
+    that are available with find?
+
+- time: "00:10:40"
+  speaker: Lopes
+  caption: |
+    We could do `--version` -- sorry, I mean `-h`.
+
+- time: "00:10:45"
+  speaker: League
+  caption: |
+    `--help` or yeah I think `-h` is the
+    same -- nope! Has to be `--help`.
+
+- time: "00:10:52"
+  speaker: League
+  caption: |
+    So pipe that into `less` and there's a
+    very brief summary here of some of
+
+- time: "00:10:59"
+  speaker: League
+  caption: |
+    the queries that you can do. There's
+    `-empty` and `-type` and so on in here.
+
+- time: "00:11:10"
+  speaker: League
+  caption: |
+    But then for more detail there's
+    this 'manual' command,
+
+- time: "00:11:14"
+  speaker: League
+  caption: |
+    so `man` gives us a manual page for -- like
+    a reference page for any command.
+
+- time: "00:11:20"
+  speaker: League
+  caption: |
+    So `man find` will tell us in a much more
+    friendly (but not too friendly!)
+
+- time: "00:11:26"
+  speaker: League
+  caption: |
+    way about the capabilities of `find`. So you
+    can browse that to get some other ideas.
+
+- time: "00:11:33"
+  speaker: Lopes
+  caption: |
+    So when we pulled up the `man` for `find`
+    just now, there was a list of --
+
+- time: "00:11:37"
+  speaker: Lopes
+  caption: |
+    I guess -- options called "actions".
+    What can we do with those?
+
+- time: "00:11:45"
+  speaker: League
+  caption: |
+    Right, so it kind of carves up these
+    options into these three categories
+
+- time: "00:11:51"
+  speaker: League
+  caption: |
+    and "actions" are something you would
+    put at the end of your query.
+
+- time: "00:11:56"
+  speaker: League
+  caption: |
+    The default action if you don't specify one
+    is just to print filenames `-print`,
+
+- time: "00:12:01"
+  speaker: League
+  caption: |
+    but `find` can do things other than print filenames.
+
+- time: "00:12:05"
+  speaker: League
+  caption: |
+    There are lots of ways to specify how it prints
+    -- that's what these formats are about.
+
+- time: "00:12:09"
+  speaker: League
+  caption: |
+    I'm not going to get into those. But it can
+    also execute arbitrary other commands.
+
+- time: "00:12:14"
+  speaker: League
+  caption: |
+    And it's got a built-in one here called
+    `-delete`, so if you want to remove
+
+- time: "00:12:18"
+  speaker: League
+  caption: |
+    a bunch of files according to your query.
+
+- time: "00:12:21"
+  speaker: League
+  caption: |
+    Let's try some of those. I'm going to do a
+    `find` for the name `*jack*` --
+
+- time: "00:12:31"
+  speaker: League
+  caption: |
+    and whenever I've got an action besides
+    `-print` I always want to test it
+
+- time: "00:12:37"
+  speaker: League
+  caption: |
+    out first by doing just a print, right? So I want to
+    see all of the files that it is producing.
+
+- time: "00:12:45"
+  speaker: League
+  caption: |
+    Maybe I will simplify it a little by -- like it's
+    finding these with a dot-underscore `._` --
+
+- time: "00:12:53"
+  speaker: League
+  caption: |
+    so if I just take filenames that start with
+    `jack` and then have anything afterwards,
+
+- time: "00:12:58"
+  speaker: League
+  caption: |
+    there ought to be fewer of them.
+
+- time: "00:13:01"
+  speaker: League
+  caption: |
+    Okay so those are all of the Jack cards.
+    And then on my `find` command if I
+
+- time: "00:13:05"
+  speaker: League
+  caption: |
+    add a `-delete` at the end then they're all
+    gone! [Laughs] That was pretty fast --
+
+- time: "00:13:12"
+  speaker: League
+  caption: |
+    but now if I do `find` on `jack*` there aren't
+    any, so all of my Jacks have disappeared.
+
+- time: "00:13:18"
+  speaker: League
+  caption: |
+    So that's something obviously you
+    want to use with great care.
+
+- time: "00:13:22"
+  speaker: League
+  caption: |
+    There are ways to specify other arbitrary
+    commands you could do as well.
+
+- time: "00:13:28"
+  speaker: League
+  caption: |
+    So let's say I am looking at the
+    queens. Here are all of my queens.
+
+- time: "00:13:34"
+  speaker: League
+  caption: |
+    And I want to change permissions on
+    those so if I look at --
+
+- time: "00:13:39"
+  speaker: League
+  caption: |
+    let's go down into `Downloads`, `Playing\ Cards`, PNG.
+
+- time: "00:13:46"
+  speaker: League
+  caption: |
+    So if I look at these cards here, they all have
+    permissions `rw` and then `r`, `r`, right?
+
+- time: "00:13:54"
+  speaker: League
+  caption: |
+    Let's say that my queens are private and
+    they want to turn off the read
+
+- time: "00:13:58"
+  speaker: League
+  caption: |
+    permission for anyone but the user.
+    We're going to do a `find` with
+
+- time: "00:14:04"
+  speaker: League
+  caption: |
+    `queen*` and then it's called `-exec`. And now you
+    put the command you *want* to run, so `chmod`.
+
+- time: "00:14:13"
+  speaker: League
+  caption: |
+    And with `chmod` we specify the
+    permission change we want to make,
+
+- time: "00:14:19"
+  speaker: League
+  caption: |
+    so for group and others let's
+    turn off read permission.
+
+- time: "00:14:23"
+  speaker: League
+  caption: |
+    The user can keep read permission but
+    turn it off for the others.
+
+- time: "00:14:28"
+  speaker: League
+  caption: |
+    And then you would put the filename normally -- well,
+
+- time: "00:14:32"
+  speaker: League
+  caption: |
+    the filename is going to come
+    from the `find` command --
+
+- time: "00:14:35"
+  speaker: League
+  caption: |
+    `find` is going to generate all these filenames
+    and then execute `chmod` on all of them.
+
+- time: "00:14:39"
+  speaker: League
+  caption: |
+    So I've got a very special way to plug in the
+    filename at this point in my `chmod` command.
+
+- time: "00:14:46"
+  speaker: League
+  caption: |
+    And that is I put quote and curly braces `'{}'`
+    like just open and close curly braces.
+
+- time: "00:14:52"
+  speaker: League
+  caption: |
+    That's the signal to the `find` command
+    that that's where it wants to plug
+
+- time: "00:14:56"
+  speaker: League
+  caption: |
+    in the filename that it finds.
+
+- time: "00:15:01"
+  speaker: League
+  caption: |
+    Finally I have to say when I'm done
+    with the `chmod` command,
+
+- time: "00:15:05"
+  speaker: League
+  caption: |
+    so that `find` knows that I'm all done. The
+    way to do that is almost as weird,
+
+- time: "00:15:10"
+  speaker: League
+  caption: |
+    you do backslash semi-colon `\;`. You
+    end up using these quotes and
+
+- time: "00:15:17"
+  speaker: League
+  caption: |
+    backslashes and stuff with `find` quite a lot,
+    because of the way its command system works,
+
+- time: "00:15:24"
+  speaker: League
+  caption: |
+    you need to pass these wildcards in
+    explicitly. And normally the curly
+
+- time: "00:15:29"
+  speaker: League
+  caption: |
+    braces would be a wildcard that the shell
+    interprets, so you put quotes around that.
+
+- time: "00:15:33"
+  speaker: League
+  caption: |
+    Semi-colon means something in the shell so
+    you quote that with a backslash,
+
+- time: "00:15:38"
+  speaker: League
+  caption: |
+    so that `find` sees all that stuff as it is.
+
+- time: "00:15:42"
+  speaker: League
+  caption: |
+    Alright, so I'm going to run that. It was very fast,
+
+- time: "00:15:46"
+  speaker: League
+  caption: |
+    and what we will find in the current
+    directory is that all of our queens
+
+- time: "00:15:49"
+  speaker: League
+  caption: |
+    now do not have read permission for those
+    other two, but everybody else does.
+
+- time: "00:15:55"
+  speaker: League
+  caption: |
+    So that's sort of -- that hints at the
+    power of this `find` command,
+
+- time: "00:16:00"
+  speaker: League
+  caption: |
+    of doing very complex queries and then
+    allowing us to hook that in to some
+
+- time: "00:16:05"
+  speaker: League
+  caption: |
+    other command like `chmod` or
+    change-owner or delete --
+
+- time: "00:16:11"
+  speaker: League
+  caption: |
+    in order to execute a command on
+    lots of different files.
+
+- time: "00:16:15"
+  speaker: Lopes
+  caption: |
+    Can `chmod` be used the same way using
+    numerical values like we've done in the past?
+
+- time: "00:16:20"
+  speaker: League
+  caption: |
+    Yeah, anything that the `chmod` command
+    supports you could do in here.
+
+- time: "00:16:24"
+  speaker: League
+  caption: |
+    So one of those octal numerical values was 662 or
+    something -- just make up a weird one.
+
+- time: "00:16:35"
+  speaker: League
+  caption: |
+    So if I do that on all of the queens then we
+    see here -- this is the result of 662.
+
+- time: "00:16:44"
+  speaker: League
+  caption: |
+    Yeah, so any command can be put in there, it
+    could even be something like `echo`,
+
+- time: "00:16:51"
+  speaker: League
+  caption: |
+    some script that you wrote -- any command you could
+    normally execute and put a filename into,
+
+- time: "00:16:58"
+  speaker: League
+  caption: |
+    `find` can execute for you and then just put in
+    the filenames that match your query.
+
+- time: "00:17:03"
+  speaker: Lopes
+  caption: |
+    So when we combined that `chmod`
+    with the `find` just now,
+
+- time: "00:17:07"
+  speaker: Lopes
+  caption: |
+    it seemed sort of like when we would use a pipe.
+
+- time: "00:17:11"
+  speaker: League
+  caption: |
+    Yes, there are lots of ways to
+    combine commands together -- pipe,
+
+- time: "00:17:15"
+  speaker: League
+  caption: |
+    and we also did the command
+    substitution with those back-ticks --
+
+- time: "00:17:21"
+  speaker: League
+  caption: |
+    and `find` has a lot in common
+    with those. You're right,
+
+- time: "00:17:24"
+  speaker: League
+  caption: |
+    when I do `chmod` here with an `-exec`, I'm combining
+    the `find` command with the `chmod` command --
+
+- time: "00:17:32"
+  speaker: League
+  caption: |
+    so you might imagine another way to think of
+    that. Let's say I do `find` for the --
+
+- time: "00:17:40"
+  speaker: League
+  caption: |
+    I did queens and jacks, let's do a king --
+    and I'm going to do `-maxdepth`
+
+- time: "00:17:46"
+  speaker: League
+  caption: |
+    to make this a little bit fewer,
+    right. So there are my kings,
+
+- time: "00:17:52"
+  speaker: League
+  caption: |
+    and if I wanted to run `chmod` on all
+    of those, another way to do it
+
+- time: "00:17:58"
+  speaker: League
+  caption: |
+    actually is put `chmod` at the *beginning* okay, and
+    then my code for the permissions that I want --
+
+- time: "00:18:05"
+  speaker: League
+  caption: |
+    so maybe I want 722 -- twos don't make a lot of sense,
+
+- time: "00:18:12"
+  speaker: League
+  caption: |
+    like giving other write permission,
+    four is read permission.
+
+- time: "00:18:18"
+  speaker: League
+  caption: |
+    Let's say I want 744 and then normally
+    you would put a filename here but
+
+- time: "00:18:23"
+  speaker: League
+  caption: |
+    you can put multiple filenames on `chmod`. So
+    why don't I do that command substitution,
+
+- time: "00:18:28"
+  speaker: League
+  caption: |
+    either with the back-quotes or `$()`.
+    And so what I've done here is --
+
+- time: "00:18:39"
+  speaker: League
+  caption: |
+    this will run the `find`, and any files
+    that the `find` produces will then
+
+- time: "00:18:44"
+  speaker: League
+  caption: |
+    get plugged into the `chmod` command
+    here. And that actually works --
+
+- time: "00:18:48"
+  speaker: League
+  caption: |
+    that's pretty much the same thing. So you see my kings
+    turned green because I made them executable.
+
+- time: "00:18:57"
+  speaker: League
+  caption: |
+    So that is very similar to using `find` as the
+    outer command and then `-exec` with `chmod`.
+
+- time: "00:19:05"
+  speaker: League
+  caption: |
+    But there are some subtle differences. One
+    of the differences has to do with --
+
+- time: "00:19:12"
+  speaker: League
+  caption: |
+    first of all, there is often a limit on
+    how big a command line can get.
+
+- time: "00:19:19"
+  speaker: League
+  caption: |
+    So if this `find` were to generate a
+    hundred thousand files or something,
+
+- time: "00:19:25"
+  speaker: League
+  caption: |
+    then I might exhaust the limitation on the
+    size of the `chmod` command line.
+
+- time: "00:19:32"
+  speaker: League
+  caption: |
+    So this form with the command
+    substitution has that limitation.
+
+- time: "00:19:38"
+  speaker: League
+  caption: |
+    Whereas if I do `find` with `-exec`, it
+    can execute `chmod` multiple times
+
+- time: "00:19:44"
+  speaker: League
+  caption: |
+    rather than build up an enormous
+    single `chmod` command.
+
+- time: "00:19:49"
+  speaker: League
+  caption: |
+    So that is one difference in the
+    limitations, even though it looks like it
+
+- time: "00:19:55"
+  speaker: League
+  caption: |
+    does pretty much the same thing.
+
+- time: "00:19:58"
+  speaker: League
+  caption: |
+    But another one -- you said it's like a pipe,
+    and there is another way to use a pipe --
+
+- time: "00:20:03"
+  speaker: League
+  caption: |
+    which is a command called `xargs`. `xargs`
+    is sort of like a bridge between
+
+- time: "00:20:11"
+  speaker: League
+  caption: |
+    piping and command substitution. So let's
+    bring back the command substitution form.
+
+- time: "00:20:19"
+  speaker: League
+  caption: |
+    What is more or less equivalent to
+    this is -- let's do the `find`,
+
+- time: "00:20:24"
+  speaker: League
+  caption: |
+    so I'll copy that out and paste it out there --
+    so that's going to generate those --
+
+- time: "00:20:30"
+  speaker: League
+  caption: |
+    and then if I pipe it into `xargs` and following the
+    `xargs` I can put a command like `chmod 744`.
+
+- time: "00:20:39"
+  speaker: League
+  caption: |
+    Well let's do something different
+    so I recognize the change.
+
+- time: "00:20:44"
+  speaker: League
+  caption: |
+    Now normally `chmod` and then the
+    permission and then you put the filename.
+
+- time: "00:20:49"
+  speaker: League
+  caption: |
+    But what `xargs` will do is it'll
+    take its standard input --
+
+- time: "00:20:53"
+  speaker: League
+  caption: |
+    so the result of that `find`
+    that gets piped into it --
+
+- time: "00:20:58"
+  speaker: League
+  caption: |
+    it'll take all of the files from there and
+    put them on the `chmod` command line.
+
+- time: "00:21:04"
+  speaker: League
+  caption: |
+    So `xargs` is like building the `chmod`
+    command line based on the standard input.
+
+- time: "00:21:09"
+  speaker: League
+  caption: |
+    That allows me to turn what was a command
+    substitution into a pipe. And that works fine.
+
+- time: "00:21:16"
+  speaker: League
+  caption: |
+    Now all of the kings have 644 as their permissions.
+
+- time: "00:21:23"
+  speaker: League
+  caption: |
+    So one of the -- I said like these are three
+    different ways to do the same thing, right?
+
+- time: "00:21:29"
+  speaker: League
+  caption: |
+    We did the `find` with `-exec`, we did
+    command substitution where `chmod`
+
+- time: "00:21:34"
+  speaker: League
+  caption: |
+    is on the outside and `find` is inside,
+    and then we can do `xargs` where
+
+- time: "00:21:38"
+  speaker: League
+  caption: |
+    `find` comes first and the
+    `chmod` appears after `xargs`.
+
+- time: "00:21:43"
+  speaker: League
+  caption: |
+    They're all more or less the same but the
+    caveats and limitations are where
+
+- time: "00:21:48"
+  speaker: League
+  caption: |
+    things get a little weird. And one of
+    those limitations is when spaces --
+
+- time: "00:21:53"
+  speaker: League
+  caption: |
+    when filenames have spaces in them.
+
+- time: "00:21:58"
+  speaker: League
+  caption: |
+    I might have said before that you should be very
+    careful about naming things with spaces in them.
+
+- time: "00:22:05"
+  speaker: League
+  caption: |
+    And this is one of the reasons -- it makes it very
+    hard for commands to distinguish between files,
+
+- time: "00:22:14"
+  speaker: League
+  caption: |
+    like -- let's take a little example
+    here. I know up here I've got --
+
+- time: "00:22:22"
+  speaker: League
+  caption: |
+    outside of `Downloads` -- I've got a
+    directory which has spaces in it, right?
+
+- time: "00:22:27"
+  speaker: League
+  caption: |
+    So this directory is called `Command Line TV`.
+    So if I did `find -maxdepth 1 -type d`,
+
+- time: "00:22:36"
+  speaker: League
+  caption: |
+    I get all of the directories in the current
+    directory. So that includes that.
+
+- time: "00:22:43"
+  speaker: League
+  caption: |
+    But now if I pipe that into `xargs`, and I want to
+    do something like `chmod +x` on them --
+
+- time: "00:22:51"
+  speaker: League
+  caption: |
+    so I want to make all of those directories
+    executable, which is a reasonable thing to do.
+
+- time: "00:22:58"
+  speaker: League
+  caption: |
+    [Sigh] What happened? That "Command Line
+    TV" was one line of my output,
+
+- time: "00:23:08"
+  speaker: League
+  caption: |
+    but when I pipe it into `xargs`, it gets split into
+    three parts because it's got spaces in it.
+
+- time: "00:23:17"
+  speaker: League
+  caption: |
+    And so my `chmod` fails there because it's trying
+    to treat those as three separate things.
+
+- time: "00:23:24"
+  speaker: League
+  caption: |
+    So that's a risk with filenames with spaces in them.
+
+- time: "00:23:29"
+  speaker: League
+  caption: |
+    It's also a risk with how `find`
+    works and `xargs` works.
+
+- time: "00:23:34"
+  speaker: League
+  caption: |
+    There is a solution to it though, and
+    it's a way in which `find` and
+
+- time: "00:23:40"
+  speaker: League
+  caption: |
+    `xargs` are actually meant to work
+    together. One of those actions we saw --
+
+- time: "00:23:47"
+  speaker: League
+  caption: |
+    I said that `-print` is the default action,
+    there's also one called `-print0`.
+
+- time: "00:23:54"
+  speaker: League
+  caption: |
+    What `-print0` does is it prints
+    these directories out,
+
+- time: "00:24:01"
+  speaker: League
+  caption: |
+    but instead of separating them
+    with newlines or spaces,
+
+- time: "00:24:04"
+  speaker: League
+  caption: |
+    it separates them with the 'zero'
+    character, or the null character.
+
+- time: "00:24:09"
+  speaker: League
+  caption: |
+    So the character with the value zero. And
+    when I see them printed here on
+
+- time: "00:24:15"
+  speaker: League
+  caption: |
+    the command line it looks like
+    they're all bunched together --
+
+- time: "00:24:18"
+  speaker: League
+  caption: |
+    that's because that null character doesn't show up.
+
+- time: "00:24:22"
+  speaker: League
+  caption: |
+    But if I take that and then pipe it into
+    `xargs`, and I *also* tell `xargs`
+
+- time: "00:24:27"
+  speaker: League
+  caption: |
+    it should look for the zero character to
+    split them up -- so I've got to --
+
+- time: "00:24:33"
+  speaker: League
+  caption: |
+    let me verify with `xargs` how it does
+    that. Yeah, it's just `-0`, okay.
+
+- time: "00:24:39"
+  speaker: League
+  caption: |
+    So we're going to do the `find` with `-print0` and then
+    pipe into `xargs -0` and now try `chmod +x`.
+
+- time: "00:24:47"
+  speaker: League
+  caption: |
+    And now it works again.
+
+- time: "00:24:51"
+  speaker: League
+  caption: |
+    So it's able to keep the filename with
+    spaces in it together because it
+
+- time: "00:24:58"
+  speaker: League
+  caption: |
+    knows that spaces or newlines are not what
+    splits up the multiple directories.
+
+- time: "00:25:04"
+  speaker: League
+  caption: |
+    It's actually this null character. So
+    if you do that on both sides --
+
+- time: "00:25:07"
+  speaker: League
+  caption: |
+    the `find` says I'm going to send nulls, and the
+    `xargs` says I'm going to split on nulls --
+
+- time: "00:25:12"
+  speaker: League
+  caption: |
+    then they cooperate and this problem goes away.
+
+- time: "00:25:17"
+  speaker: Lopes
+  caption: |
+    So just to backtrack, with the null character be
+    considered that `./` or that `/.` up top?
+
+- time: "00:25:24"
+  speaker: League
+  caption: |
+    No you literally can't see it here,
+    it just doesn't print out.
+
+- time: "00:25:28"
+  speaker: League
+  caption: |
+    So what we're seeing is `../.dbus` -- that's one
+    entry -- that's one result of my `find`.
+
+- time: "00:25:36"
+  speaker: League
+  caption: |
+    And then the next result is `./.thumbnails`. But I
+    only know that because I saw them previously.
+
+- time: "00:25:43"
+  speaker: League
+  caption: |
+    The null character just doesn't
+    appear in printed output.
+
+- time: "00:25:48"
+  speaker: League
+  caption: |
+    But it will appear when you pipe it into
+    something that is expecting it.
+
+- time: "00:25:53"
+  speaker: League
+  caption: |
+    Another way that we could see it show up actually --
+
+- time: "00:25:56"
+  speaker: League
+  caption: |
+    this introduces another command, but
+    one that's pretty easy --
+
+- time: "00:26:01"
+  speaker: League
+  caption: |
+    there's a command called "octal dump"
+    (`od`) so this takes input data and
+
+- time: "00:26:07"
+  speaker: League
+  caption: |
+    just shows it to you as a series of octal
+    numbers. And you can specify that
+
+- time: "00:26:13"
+  speaker: League
+  caption: |
+    they should be like one byte big
+    instead of -- so basically -- hmm,
+
+- time: "00:26:20"
+  speaker: League
+  caption: |
+    I don't like octal so I'm going to do
+    hexadecimal -- that's better.
+
+- time: "00:26:24"
+  speaker: League
+  caption: |
+    What we're seeing here is basically -- this is the --
+
+- time: "00:26:30"
+  speaker: League
+  caption: |
+    so `0a` is a newline I believe, and
+    -- oh it's 'dot', newline,
+
+- time: "00:26:37"
+  speaker: League
+  caption: |
+    dot-slash-dot something, newline,
+    okay. So it's separating --
+
+- time: "00:26:43"
+  speaker: League
+  caption: |
+    `find` by default is separating all
+    of its results by newline.
+
+- time: "00:26:47"
+  speaker: League
+  caption: |
+    But if I do that same thing with `-print0`
+    on it, you can see the difference.
+
+- time: "00:26:52"
+  speaker: League
+  caption: |
+    Those `0a`s became `00`. That separates each of these.
+
+- time: "00:26:58"
+  speaker: League
+  caption: |
+    So I don't see that when it's just
+    output onto the terminal,
+
+- time: "00:27:02"
+  speaker: League
+  caption: |
+    but it is sent on to the next command in the pipe.
+
+- time: "00:27:06"
+  speaker: Lopes
+  caption: |
+    So `find` seems like a really useful command to use.
+
+- time: "00:27:10"
+  speaker: Lopes
+  caption: |
+    I would say that it works especially
+    well when you're working with a
+
+- time: "00:27:13"
+  speaker: Lopes
+  caption: |
+    confined or constrained search area. Is
+    that command the best to use when
+
+- time: "00:27:19"
+  speaker: Lopes
+  caption: |
+    you're searching your entire system?
+
+- time: "00:27:22"
+  speaker: League
+  caption: |
+    Yeah, so you can -- you know, when you
+    specify `find` you can put a `/`
+
+- time: "00:27:26"
+  speaker: League
+  caption: |
+    here to say search the entire system. And
+    sometimes you might need to do that.
+
+- time: "00:27:32"
+  speaker: League
+  caption: |
+    But it's very time-consuming, if it has to do that.
+
+- time: "00:27:36"
+  speaker: League
+  caption: |
+    If you're not the administrative
+    user, you're a regular user,
+
+- time: "00:27:40"
+  speaker: League
+  caption: |
+    it's going to encounter lots of directories
+    you're not even allowed to read.
+
+- time: "00:27:43"
+  speaker: League
+  caption: |
+    So it will give you some error
+    messages about stuff like that.
+
+- time: "00:27:48"
+  speaker: League
+  caption: |
+    There is a better command for searching
+    the entire disk for a pattern.
+
+- time: "00:27:53"
+  speaker: League
+  caption: |
+    The trade-off -- well there are
+    a couple of trade-offs.
+
+- time: "00:27:56"
+  speaker: League
+  caption: |
+    One trade-off is that it support as
+    many queries as `find` does.
+
+- time: "00:28:03"
+  speaker: League
+  caption: |
+    You know, `find` had `-newer` and by
+    file type and things like that.
+
+- time: "00:28:08"
+  speaker: League
+  caption: |
+    The command that I'm going to introduce now --
+    `locate`, it's basically searching by filename.
+
+- time: "00:28:14"
+  speaker: League
+  caption: |
+    So it can do pattern matching on
+    filenames, but that's pretty much it.
+
+- time: "00:28:19"
+  speaker: League
+  caption: |
+    So let's say I do `locate` and I
+    want to do -- I don't know,
+
+- time: "00:28:24"
+  speaker: League
+  caption: |
+    anything that has to do with the password file,
+    right? So this will respond pretty quickly.
+
+- time: "00:28:32"
+  speaker: League
+  caption: |
+    And the reason it can respond pretty
+    quickly and still find stuff all over
+
+- time: "00:28:36"
+  speaker: League
+  caption: |
+    your disk is that it uses a database. There's a
+    database that only gets updated periodically,
+
+- time: "00:28:45"
+  speaker: League
+  caption: |
+    that basically indexes all of
+    the files on your system.
+
+- time: "00:28:49"
+  speaker: League
+  caption: |
+    And then `locate` can read that database
+    and give you results that match.
+
+- time: "00:28:54"
+  speaker: League
+  caption: |
+    So we can use it like that. Or lets say I want
+    anything that has to do with ImageMagick.
+
+- time: "00:28:59"
+  speaker: League
+  caption: |
+    So it gives me anything across the whole
+    system, and it's pretty fast.
+
+- time: "00:29:05"
+  speaker: League
+  caption: |
+    If I wanted to find stuff that's very recent,
+    very new -- that's more of a problem.
+
+- time: "00:29:14"
+  speaker: League
+  caption: |
+    So let's go into my `Downloads` folder and I've
+    got here some files called `weblog`, right?
+
+- time: "00:29:22"
+  speaker: League
+  caption: |
+    So suppose I want to locate files
+    which have this pattern.
+
+- time: "00:29:28"
+  speaker: League
+  caption: |
+    And I believe `locate` sort of implicitly puts
+    a star `*` on each side of your query?
+
+- time: "00:29:36"
+  speaker: League
+  caption: |
+    So I don't really need to do that, although if you
+    wanted to put stars in there somewhere,
+
+- time: "00:29:41"
+  speaker: League
+  caption: |
+    you do again just like -- for the same reason as
+    with `find` you do have to put quotes.
+
+- time: "00:29:48"
+  speaker: League
+  caption: |
+    So we can search for that. And these are
+    all of the files that say `weblog`.
+
+- time: "00:29:55"
+  speaker: League
+  caption: |
+    But it's able to find those
+    because it's got this database,
+
+- time: "00:30:00"
+  speaker: League
+  caption: |
+    so if I add a new file right now -- let's
+    create `weblog-2015` September-something.
+
+- time: "00:30:09"
+  speaker: League
+  caption: |
+    So now that file exists, and it wasn't there before.
+
+- time: "00:30:16"
+  speaker: League
+  caption: |
+    When I do `locate` it still doesn't
+    find September 17th, okay?
+
+- time: "00:30:23"
+  speaker: League
+  caption: |
+    That's because the database is now out of date.
+
+- time: "00:30:28"
+  speaker: League
+  caption: |
+    If I wanted to update the database manually, I can.
+
+- time: "00:30:31"
+  speaker: League
+  caption: |
+    Normally what happens is it's
+    scheduled as like a periodic job --
+
+- time: "00:30:35"
+  speaker: League
+  caption: |
+    like once a day or every couple of hours or
+    something -- it will run a command.
+
+- time: "00:30:41"
+  speaker: League
+  caption: |
+    The command is called `updatedb` and it has to be run
+    as the administrator, so we want to do `sudo`.
+
+- time: "00:30:50"
+  speaker: League
+  caption: |
+    When I do this, it's going to reindex the
+    entire disk, so it can take a little while.
+
+- time: "00:30:56"
+  speaker: League
+  caption: |
+    But then it updates the database and then
+    we'll be able to see the result.
+
+- time: "00:31:03"
+  speaker: League
+  caption: |
+    Actually that was pretty fast -- I'm not sure it
+    did what I thought it was going to do!
+
+- time: "00:31:08"
+  speaker: League
+  caption: |
+    But we'll try it -- let's try
+    `locate` again. And indeed,
+
+- time: "00:31:11"
+  speaker: League
+  caption: |
+    `locate` now finds September 17th, so somehow
+    `updatedb` did a really fast job of that -- great.
+
+- time: "00:31:19"
+  speaker: Lopes
+  caption: |
+    So like most commands on the terminal that we've
+    been running, a lot of it is case-sensitive.
+
+- time: "00:31:24"
+  speaker: Lopes
+  caption: |
+    What would we do, or what option would we have
+    to set to turn off case-sensitivity.
+
+- time: "00:31:30"
+  speaker: League
+  caption: |
+    Yeah, both `locate` and `find` when you do
+    those patterns on the filename,
+
+- time: "00:31:34"
+  speaker: League
+  caption: |
+    it's assuming a case-sensitive match. So
+    if I did `locate` and maybe I
+
+- time: "00:31:41"
+  speaker: League
+  caption: |
+    falsely remembered that my weblog files were
+    capitalized like that -- it's not going to find them.
+
+- time: "00:31:46"
+  speaker: League
+  caption: |
+    But there is an option `locate -i` for insensitive --
+
+- time: "00:31:50"
+  speaker: League
+  caption: |
+    it's the same that `grep` uses for
+    insensitive matching -- `-i`.
+
+- time: "00:31:55"
+  speaker: League
+  caption: |
+    And then it will ignore the difference in case
+    between your pattern and the filename itself.
+
+- time: "00:32:01"
+  speaker: League
+  caption: |
+    That helps me find more things.
+
+- time: "00:32:03"
+  speaker: League
+  caption: |
+    `find` is very similar -- the file matching feature
+    in `find` was called `-name` and I did --
+
+- time: "00:32:12"
+  speaker: League
+  caption: |
+    first of all let's verify that `find` does not
+    implicitly put the `*` before and after,
+
+- time: "00:32:20"
+  speaker: League
+  caption: |
+    like `locate` does. So `locate` with that
+    `weblog-2015` and no asterisks
+
+- time: "00:32:25"
+  speaker: League
+  caption: |
+    still found these files but `find` will
+    not. So it wants the star there.
+
+- time: "00:32:30"
+  speaker: League
+  caption: |
+    But same thing -- `find` with `-name` is
+    case-sensitive so if I do capital,
+
+- time: "00:32:34"
+  speaker: League
+  caption: |
+    it's going to look for capitals. So the
+    fix there is that there's just a
+
+- time: "00:32:39"
+  speaker: League
+  caption: |
+    separate query operator called `-iname`
+    and that's an insensitive match.
+
+- time: "00:32:44"
+  speaker: League
+  caption: |
+    And then it'll find those files.
+
+- time: "00:32:48"
+  speaker: Lopes
+  caption: |
+    So in today's episode we touched base on
+    locating files using three commands,
+
+- time: "00:32:53"
+  speaker: Lopes
+  caption: |
+    `find`, `locate`, and `xargs`. That
+    wraps up today's episode.
+
+- time: "00:32:58"
+  speaker: Lopes
+  caption: |
+    That also wraps up Season 1 of Command Line TV.
+
+- time: "00:33:02"
+  speaker: League
+  caption: |
+    Yes, we hope you found this useful -- we covered
+    lots of things since we started this --
+
+- time: "00:33:07"
+  speaker: League
+  caption: |
+    so, navigating through files with `cd`, creating
+    pipelines to do some text processing,
+
+- time: "00:33:15"
+  speaker: League
+  caption: |
+    searching for stuff, image processing,
+    package management, redirection,
+
+- time: "00:33:22"
+  speaker: League
+  caption: |
+    shell scripts -- so we did lots of
+    things. And if you found this useful,
+
+- time: "00:33:26"
+  speaker: League
+  caption: |
+    I hope you'll get in touch with us.
+
+- time: "00:33:29"
+  speaker: Lopes
+  caption: |
+    You can reach us at `heychris@commandline.tv` or
+    follow us on Twitter `@commandlinetv`.
+
+- time: "00:33:36"
+  speaker: League
+  caption: |
+    And if we have good feedback from you and you
+    found this useful then we'll try to do more!
+
+- time: "00:33:45"
+  caption: |
+    [Dark electronic beat]
+
+- time: "00:33:55"
+  caption: |
+    [Captions by Christopher League]
+
+- time: "00:34:13"
+  caption: |
+    [End]
+

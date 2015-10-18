@@ -1,0 +1,1460 @@
+0:01
+[Rhythmic, dark electronic intro music]
+
+:League
+
+0:18
+Welcome back to Command Line TV. Today
+we're going to talk about finding
+
+0:22
+files using a command called `find` and
+also an alternative called `locate`.
+
+0:29
+And do we have any follow-up from last time?
+
+:Lopes
+
+0:32
+Last time at the end of the episode, we learned
+about formatting and modifying SD cards or,
+
+0:38
+sorry, external drives. How can we
+load a drive so it's read-only?
+
+:League
+
+0:45
+Sure, so if you want to make sure
+that programs can't access --
+
+0:52
+or can't write to the drive, there is an
+option for that when you mount it.
+
+0:58
+If I type `mount` and remember we put the
+device name -- I guess `sdb1` --
+
+1:05
+and then the path where it would be mounted,
+the directory where it would mount.
+
+1:11
+You can specify some other options here
+using a `-o` and one of the most
+
+1:16
+common options is just saying
+read-only `ro`. If I do that,
+
+1:22
+then the disk will be mounted read-only and it means
+you can do things like `cat` and `ls` on it,
+
+1:31
+but if you tried to actually edit a file or
+copy a file to it or something like that,
+
+1:36
+it would stop you right away and say "read-only
+filesystem." So that prevents it from being written.
+
+:Lopes
+
+1:43
+Since we'll be using the `find` command
+today, I'm assuming that it's as
+
+1:46
+simple as the command name sounds.
+
+1:48
+We just use it to find files and other
+things on our filesystem, correct?
+
+:League
+
+1:53
+Yeah, you use it to find things -- what's
+interesting about it is it's got
+
+1:58
+this syntax that's available as
+options for specifying a query --
+
+2:05
+it's really like querying a database, but about files.
+
+2:08
+So you can find them by name but you can
+also find them by modification
+
+2:13
+times or permissions or combine all these
+things together into a big query.
+
+2:19
+I'm going to start with the simplest
+case, which is finding them by name.
+
+2:24
+Let's say I want to find -- the first thing that I
+give is the directory to start looking in,
+
+2:31
+and then it will look in any
+sub-directory of that too.
+
+2:35
+If I want to look across this entire
+system I could put `find /` --
+
+2:39
+that would be the top level directory. Or
+the current directory `.` or my
+
+2:44
+home directory `~` (which happens to
+be the current directory).
+
+2:48
+But you could do any of those as your
+starting point for the `find`.
+
+2:52
+Then we put the query as options. So
+`-name` is a way to search by filename
+
+3:00
+and this takes wildcards so I could
+say something like `*.png` --
+
+3:06
+but there is a little bit of a catch there.
+When you use a wildcard like this,
+
+3:12
+the shell expands it before it actually
+gives it to the `find` command.
+
+3:17
+So `find` is going to get the names of
+all the PNGs in the current
+
+3:22
+directory and that's not what we want. We want that
+star `*` actually to be passed to `find` as is.
+
+3:29
+So I don't want my shell to expand the
+wildcard, I want `find` to match the
+
+3:35
+wildcard with the files that it comes
+across. So I have to quote it,
+
+3:39
+just like when you've got spaces in a
+filename, or any special characters.
+
+3:44
+You put quotes around it and then it won't
+expand but `find` can still interpret it.
+
+3:48
+So there's a simple example of a `find`
+command. And if I run that it's
+
+3:54
+going to just dump out a list of all of these PNG
+files that exist in my home directory.
+
+4:00
+So I'm going to pipe that into `less` so
+we can see it a page at a time.
+
+4:05
+You see some of them are in this
+-- these cache folders,
+
+4:09
+so this is a `.cache` which is one of those
+hidden files, right? Starts with a dot.
+
+4:16
+And so it's got little thumbnails in there of
+images that I didn't even know about,
+
+4:20
+but I can find them with `find`.
+
+4:24
+The program called `inkscape` --
+this is a drawing program.
+
+4:28
+It has put some of its icons into
+that cache, and so on.
+
+4:31
+There are lots of PNGs here that you might
+not have even thought of before.
+
+:Lopes
+
+4:37
+So when we ran `find` just now it showed
+all the images that we had using
+
+4:42
+the wildcard but then it also
+expanded into subdirectories.
+
+4:46
+What if for example you wanted to locate some of
+the playing cards that we worked with,
+
+4:50
+but the originals not the ones that
+we changed the geometry on.
+
+:League
+
+4:55
+Yep, so down here in the
+`Downloads/Playing\ Cards` and PNG,
+
+5:01
+I had these and last time we
+created the subdirectories.
+
+5:06
+So when I do a `find` here, so
+let's say I want to find --
+
+5:10
+by the way if the current directory is
+where you want to start from then
+
+5:15
+you don't actually need to specify the `.`
+there. But if I want to find all
+
+5:20
+of the filenames that have `hearts`
+in them, I could do that.
+
+5:24
+But that is getting me the ones in subdirectories
+as well. So there's `cards33`, `cards25`.
+
+5:31
+If I want to limit it to either the current
+directory or maybe I just don't
+
+5:36
+want to search too deep -- there's an
+option called `-maxdepth`.
+
+5:42
+I put `maxdepth` there and if I were to
+say `-maxdepth 1` then we're only
+
+5:47
+seeing the files that have `hearts` in
+the name that are one level deep,
+
+5:52
+so basically in the current directory.
+
+5:55
+And if I went to `2` that would be enough to
+get me these other directories as well.
+
+6:00
+Now there are some other queries
+that I can add to this.
+
+6:04
+When you have multiple queries on a `find`
+command they are joined together
+
+6:09
+using a Boolean AND operator. So in other
+words all of them have to be true
+
+6:14
+in order for the file to match. One that
+I like to use sometimes is --
+
+6:22
+if you want to find files that have been
+modified since a certain time
+
+6:28
+that's an option called `-newer`.
+
+6:31
+So I want to show files that are
+newer than some other file.
+
+6:36
+Let's pick one of those `hearts`
+files, I guess `7_of_hearts.png`.
+
+6:44
+First let's get back all of the
+hearts in the current directory,
+
+6:50
+and then I'm going to just do the
+ones that are newer than the
+
+6:56
+`7_of_hearts` and you see that
+it's a subset of those.
+
+6:59
+If I were to look at these by modification
+time -- so like `-ltr` for the
+
+7:06
+most recent ones at the bottom -- you're
+going to see queen, king, 2, 6, 4,
+
+7:14
+5, jack, 3 as being newer than the 7.
+So let's see --
+
+7:20
+oh but I'm seeing stuff that isn't
+hearts so let's do it this way.
+
+7:26
+King, queen, jack, 2, 3, 4, 6 -- I
+believe that's what we had before.
+
+7:32
+So these files below here are
+newer than the `7_of_hearts`.
+
+7:38
+And the order those come in -- so it's
+showing me the modification times here --
+
+7:42
+all say 2011 because that is the
+time-stamp that was in the zip file.
+
+7:48
+But they could have been zipped in a
+particular order and there are seconds
+
+7:54
+and milliseconds there that it's not showing me
+because the date is so far in the past.
+
+7:59
+But it is actually more detailed
+than what it's showing.
+
+:Lopes
+
+8:06
+Since these files were modified elsewhere,
+I guess a way to represent this
+
+8:09
+or show a better explanation of it would
+be to `cd` into one of the files
+
+8:15
+that we modified ourselves, like the
+`size33` or `size25`, right?
+
+:League
+
+8:19
+Yeah so the `cards25` -- these were all done when
+we recorded that episode on September 8th.
+
+8:27
+And again they all show `14:01` as the time
+but there is more precision than that.
+
+8:34
+So if I did that newer command -- but
+let's get rid of the `-maxdepth` --
+
+8:42
+right so newer than the
+`7_of_hearts` in the current directory.
+
+8:46
+You're going to get everything in those
+subdirectories because those were
+
+8:50
+modified much more recently. These also
+are not -- don't seem to be coming
+
+8:56
+out in any particular order. If you
+wanted these to appear in some more
+
+9:03
+significant order you could sort them,
+right? So pipe it into `sort` and
+
+9:07
+now they're a little more nicely organized. All the
+`33`s will be together, stuff like that.
+
+9:13
+So there are a few other queries we
+could use. One thing that's useful
+
+9:19
+besides `-name` and `-newer` is
+matching on the type of the file.
+
+9:26
+So if I do `-type` you can specify type as
+either `f` which is a regular file,
+
+9:33
+or `d` which is directory. Or there are a
+few more options for more exotic
+
+9:39
+types of files like device files and so forth,
+which we haven't really learned much about.
+
+9:43
+So `f` or `d` are the most common ones.
+
+9:46
+If I wanted to find everything that's a
+directory that contains the name `hearts`,
+
+9:52
+there's nothing that matches. So there
+were lots of things that have the
+
+9:56
+name `hearts` but they're all regular files.
+By ANDing both of these together,
+
+10:01
+then my result set becomes empty. If I just
+did `-type d` then I get a list
+
+10:07
+of all the directories that I've got.
+
+10:12
+Another one that I think is useful is
+`-empty`. So `-empty` refers to
+
+10:16
+whether the file has zero bytes --
+it's a completely empty file.
+
+10:20
+And sometimes there are a surprising number
+of empty files on your filesystem.
+
+10:27
+Some of them are there for good reason even
+though they're completely empty.
+
+10:32
+So these are just some of the queries you
+can use. Do you want to guess how
+
+10:35
+we could find out about more queries
+that are available with find?
+
+:Lopes
+
+10:40
+We could do `--version` -- sorry, I mean `-h`.
+
+:League
+
+10:45
+`--help` or yeah I think `-h` is the
+same -- nope! Has to be `--help`.
+
+10:52
+So pipe that into `less` and there's a
+very brief summary here of some of
+
+10:59
+the queries that you can do. There's
+`-empty` and `-type` and so on in here.
+
+11:10
+But then for more detail there's
+this 'manual' command,
+
+11:14
+so `man` gives us a manual page for -- like
+a reference page for any command.
+
+11:20
+So `man find` will tell us in a much more
+friendly (but not too friendly!)
+
+11:26
+way about the capabilities of `find`. So you
+can browse that to get some other ideas.
+
+:Lopes
+
+11:33
+So when we pulled up the `man` for `find`
+just now, there was a list of --
+
+11:37
+I guess -- options called "actions".
+What can we do with those?
+
+:League
+
+11:45
+Right, so it kind of carves up these
+options into these three categories
+
+11:51
+and "actions" are something you would
+put at the end of your query.
+
+11:56
+The default action if you don't specify one
+is just to print filenames `-print`,
+
+12:01
+but `find` can do things other than print filenames.
+
+12:05
+There are lots of ways to specify how it prints
+-- that's what these formats are about.
+
+12:09
+I'm not going to get into those. But it can
+also execute arbitrary other commands.
+
+12:14
+And it's got a built-in one here called
+`-delete`, so if you want to remove
+
+12:18
+a bunch of files according to your query.
+
+12:21
+Let's try some of those. I'm going to do a
+`find` for the name `*jack*` --
+
+12:31
+and whenever I've got an action besides
+`-print` I always want to test it
+
+12:37
+out first by doing just a print, right? So I want to
+see all of the files that it is producing.
+
+12:45
+Maybe I will simplify it a little by -- like it's
+finding these with a dot-underscore `._` --
+
+12:53
+so if I just take filenames that start with
+`jack` and then have anything afterwards,
+
+12:58
+there ought to be fewer of them.
+
+13:01
+Okay so those are all of the Jack cards.
+And then on my `find` command if I
+
+13:05
+add a `-delete` at the end then they're all
+gone! [Laughs] That was pretty fast --
+
+13:12
+but now if I do `find` on `jack*` there aren't
+any, so all of my Jacks have disappeared.
+
+13:18
+So that's something obviously you
+want to use with great care.
+
+13:22
+There are ways to specify other arbitrary
+commands you could do as well.
+
+13:28
+So let's say I am looking at the
+queens. Here are all of my queens.
+
+13:34
+And I want to change permissions on
+those so if I look at --
+
+13:39
+let's go down into `Downloads`, `Playing\ Cards`, PNG.
+
+13:46
+So if I look at these cards here, they all have
+permissions `rw` and then `r`, `r`, right?
+
+13:54
+Let's say that my queens are private and
+they want to turn off the read
+
+13:58
+permission for anyone but the user.
+We're going to do a `find` with
+
+14:04
+`queen*` and then it's called `-exec`. And now you
+put the command you *want* to run, so `chmod`.
+
+14:13
+And with `chmod` we specify the
+permission change we want to make,
+
+14:19
+so for group and others let's
+turn off read permission.
+
+14:23
+The user can keep read permission but
+turn it off for the others.
+
+14:28
+And then you would put the filename normally -- well,
+
+14:32
+the filename is going to come
+from the `find` command --
+
+14:35
+`find` is going to generate all these filenames
+and then execute `chmod` on all of them.
+
+14:39
+So I've got a very special way to plug in the
+filename at this point in my `chmod` command.
+
+14:46
+And that is I put quote and curly braces `'{}'`
+like just open and close curly braces.
+
+14:52
+That's the signal to the `find` command
+that that's where it wants to plug
+
+14:56
+in the filename that it finds.
+
+15:01
+Finally I have to say when I'm done
+with the `chmod` command,
+
+15:05
+so that `find` knows that I'm all done. The
+way to do that is almost as weird,
+
+15:10
+you do backslash semi-colon `\;`. You
+end up using these quotes and
+
+15:17
+backslashes and stuff with `find` quite a lot,
+because of the way its command system works,
+
+15:24
+you need to pass these wildcards in
+explicitly. And normally the curly
+
+15:29
+braces would be a wildcard that the shell
+interprets, so you put quotes around that.
+
+15:33
+Semi-colon means something in the shell so
+you quote that with a backslash,
+
+15:38
+so that `find` sees all that stuff as it is.
+
+15:42
+Alright, so I'm going to run that. It was very fast,
+
+15:46
+and what we will find in the current
+directory is that all of our queens
+
+15:49
+now do not have read permission for those
+other two, but everybody else does.
+
+15:55
+So that's sort of -- that hints at the
+power of this `find` command,
+
+16:00
+of doing very complex queries and then
+allowing us to hook that in to some
+
+16:05
+other command like `chmod` or
+change-owner or delete --
+
+16:11
+in order to execute a command on
+lots of different files.
+
+:Lopes
+
+16:15
+Can `chmod` be used the same way using
+numerical values like we've done in the past?
+
+:League
+
+16:20
+Yeah, anything that the `chmod` command
+supports you could do in here.
+
+16:24
+So one of those octal numerical values was 662 or
+something -- just make up a weird one.
+
+16:35
+So if I do that on all of the queens then we
+see here -- this is the result of 662.
+
+16:44
+Yeah, so any command can be put in there, it
+could even be something like `echo`,
+
+16:51
+some script that you wrote -- any command you could
+normally execute and put a filename into,
+
+16:58
+`find` can execute for you and then just put in
+the filenames that match your query.
+
+:Lopes
+
+17:03
+So when we combined that `chmod`
+with the `find` just now,
+
+17:07
+it seemed sort of like when we would use a pipe.
+
+:League
+
+17:11
+Yes, there are lots of ways to
+combine commands together -- pipe,
+
+17:15
+and we also did the command
+substitution with those back-ticks --
+
+17:21
+and `find` has a lot in common
+with those. You're right,
+
+17:24
+when I do `chmod` here with an `-exec`, I'm combining
+the `find` command with the `chmod` command --
+
+17:32
+so you might imagine another way to think of
+that. Let's say I do `find` for the --
+
+17:40
+I did queens and jacks, let's do a king --
+and I'm going to do `-maxdepth`
+
+17:46
+to make this a little bit fewer,
+right. So there are my kings,
+
+17:52
+and if I wanted to run `chmod` on all
+of those, another way to do it
+
+17:58
+actually is put `chmod` at the *beginning* okay, and
+then my code for the permissions that I want --
+
+18:05
+so maybe I want 722 -- twos don't make a lot of sense,
+
+18:12
+like giving other write permission,
+four is read permission.
+
+18:18
+Let's say I want 744 and then normally
+you would put a filename here but
+
+18:23
+you can put multiple filenames on `chmod`. So
+why don't I do that command substitution,
+
+18:28
+either with the back-quotes or `$()`.
+And so what I've done here is --
+
+18:39
+this will run the `find`, and any files
+that the `find` produces will then
+
+18:44
+get plugged into the `chmod` command
+here. And that actually works --
+
+18:48
+that's pretty much the same thing. So you see my kings
+turned green because I made them executable.
+
+18:57
+So that is very similar to using `find` as the
+outer command and then `-exec` with `chmod`.
+
+19:05
+But there are some subtle differences. One
+of the differences has to do with --
+
+19:12
+first of all, there is often a limit on
+how big a command line can get.
+
+19:19
+So if this `find` were to generate a
+hundred thousand files or something,
+
+19:25
+then I might exhaust the limitation on the
+size of the `chmod` command line.
+
+19:32
+So this form with the command
+substitution has that limitation.
+
+19:38
+Whereas if I do `find` with `-exec`, it
+can execute `chmod` multiple times
+
+19:44
+rather than build up an enormous
+single `chmod` command.
+
+19:49
+So that is one difference in the
+limitations, even though it looks like it
+
+19:55
+does pretty much the same thing.
+
+19:58
+But another one -- you said it's like a pipe,
+and there is another way to use a pipe --
+
+20:03
+which is a command called `xargs`. `xargs`
+is sort of like a bridge between
+
+20:11
+piping and command substitution. So let's
+bring back the command substitution form.
+
+20:19
+What is more or less equivalent to
+this is -- let's do the `find`,
+
+20:24
+so I'll copy that out and paste it out there --
+so that's going to generate those --
+
+20:30
+and then if I pipe it into `xargs` and following the
+`xargs` I can put a command like `chmod 744`.
+
+20:39
+Well let's do something different
+so I recognize the change.
+
+20:44
+Now normally `chmod` and then the
+permission and then you put the filename.
+
+20:49
+But what `xargs` will do is it'll
+take its standard input --
+
+20:53
+so the result of that `find`
+that gets piped into it --
+
+20:58
+it'll take all of the files from there and
+put them on the `chmod` command line.
+
+21:04
+So `xargs` is like building the `chmod`
+command line based on the standard input.
+
+21:09
+That allows me to turn what was a command
+substitution into a pipe. And that works fine.
+
+21:16
+Now all of the kings have 644 as their permissions.
+
+21:23
+So one of the -- I said like these are three
+different ways to do the same thing, right?
+
+21:29
+We did the `find` with `-exec`, we did
+command substitution where `chmod`
+
+21:34
+is on the outside and `find` is inside,
+and then we can do `xargs` where
+
+21:38
+`find` comes first and the
+`chmod` appears after `xargs`.
+
+21:43
+They're all more or less the same but the
+caveats and limitations are where
+
+21:48
+things get a little weird. And one of
+those limitations is when spaces --
+
+21:53
+when filenames have spaces in them.
+
+21:58
+I might have said before that you should be very
+careful about naming things with spaces in them.
+
+22:05
+And this is one of the reasons -- it makes it very
+hard for commands to distinguish between files,
+
+22:14
+like -- let's take a little example
+here. I know up here I've got --
+
+22:22
+outside of `Downloads` -- I've got a
+directory which has spaces in it, right?
+
+22:27
+So this directory is called `Command Line TV`.
+So if I did `find -maxdepth 1 -type d`,
+
+22:36
+I get all of the directories in the current
+directory. So that includes that.
+
+22:43
+But now if I pipe that into `xargs`, and I want to
+do something like `chmod +x` on them --
+
+22:51
+so I want to make all of those directories
+executable, which is a reasonable thing to do.
+
+22:58
+[Sigh] What happened? That "Command Line
+TV" was one line of my output,
+
+23:08
+but when I pipe it into `xargs`, it gets split into
+three parts because it's got spaces in it.
+
+23:17
+And so my `chmod` fails there because it's trying
+to treat those as three separate things.
+
+23:24
+So that's a risk with filenames with spaces in them.
+
+23:29
+It's also a risk with how `find`
+works and `xargs` works.
+
+23:34
+There is a solution to it though, and
+it's a way in which `find` and
+
+23:40
+`xargs` are actually meant to work
+together. One of those actions we saw --
+
+23:47
+I said that `-print` is the default action,
+there's also one called `-print0`.
+
+23:54
+What `-print0` does is it prints
+these directories out,
+
+24:01
+but instead of separating them
+with newlines or spaces,
+
+24:04
+it separates them with the 'zero'
+character, or the null character.
+
+24:09
+So the character with the value zero. And
+when I see them printed here on
+
+24:15
+the command line it looks like
+they're all bunched together --
+
+24:18
+that's because that null character doesn't show up.
+
+24:22
+But if I take that and then pipe it into
+`xargs`, and I *also* tell `xargs`
+
+24:27
+it should look for the zero character to
+split them up -- so I've got to --
+
+24:33
+let me verify with `xargs` how it does
+that. Yeah, it's just `-0`, okay.
+
+24:39
+So we're going to do the `find` with `-print0` and then
+pipe into `xargs -0` and now try `chmod +x`.
+
+24:47
+And now it works again.
+
+24:51
+So it's able to keep the filename with
+spaces in it together because it
+
+24:58
+knows that spaces or newlines are not what
+splits up the multiple directories.
+
+25:04
+It's actually this null character. So
+if you do that on both sides --
+
+25:07
+the `find` says I'm going to send nulls, and the
+`xargs` says I'm going to split on nulls --
+
+25:12
+then they cooperate and this problem goes away.
+
+:Lopes
+
+25:17
+So just to backtrack, with the null character be
+considered that `./` or that `/.` up top?
+
+:League
+
+25:24
+No you literally can't see it here,
+it just doesn't print out.
+
+25:28
+So what we're seeing is `../.dbus` -- that's one
+entry -- that's one result of my `find`.
+
+25:36
+And then the next result is `./.thumbnails`. But I
+only know that because I saw them previously.
+
+25:43
+The null character just doesn't
+appear in printed output.
+
+25:48
+But it will appear when you pipe it into
+something that is expecting it.
+
+25:53
+Another way that we could see it show up actually --
+
+25:56
+this introduces another command, but
+one that's pretty easy --
+
+26:01
+there's a command called "octal dump"
+(`od`) so this takes input data and
+
+26:07
+just shows it to you as a series of octal
+numbers. And you can specify that
+
+26:13
+they should be like one byte big
+instead of -- so basically -- hmm,
+
+26:20
+I don't like octal so I'm going to do
+hexadecimal -- that's better.
+
+26:24
+What we're seeing here is basically -- this is the --
+
+26:30
+so `0a` is a newline I believe, and
+-- oh it's 'dot', newline,
+
+26:37
+dot-slash-dot something, newline,
+okay. So it's separating --
+
+26:43
+`find` by default is separating all
+of its results by newline.
+
+26:47
+But if I do that same thing with `-print0`
+on it, you can see the difference.
+
+26:52
+Those `0a`s became `00`. That separates each of these.
+
+26:58
+So I don't see that when it's just
+output onto the terminal,
+
+27:02
+but it is sent on to the next command in the pipe.
+
+:Lopes
+
+27:06
+So `find` seems like a really useful command to use.
+
+27:10
+I would say that it works especially
+well when you're working with a
+
+27:13
+confined or constrained search area. Is
+that command the best to use when
+
+27:19
+you're searching your entire system?
+
+:League
+
+27:22
+Yeah, so you can -- you know, when you
+specify `find` you can put a `/`
+
+27:26
+here to say search the entire system. And
+sometimes you might need to do that.
+
+27:32
+But it's very time-consuming, if it has to do that.
+
+27:36
+If you're not the administrative
+user, you're a regular user,
+
+27:40
+it's going to encounter lots of directories
+you're not even allowed to read.
+
+27:43
+So it will give you some error
+messages about stuff like that.
+
+27:48
+There is a better command for searching
+the entire disk for a pattern.
+
+27:53
+The trade-off -- well there are
+a couple of trade-offs.
+
+27:56
+One trade-off is that it support as
+many queries as `find` does.
+
+28:03
+You know, `find` had `-newer` and by
+file type and things like that.
+
+28:08
+The command that I'm going to introduce now --
+`locate`, it's basically searching by filename.
+
+28:14
+So it can do pattern matching on
+filenames, but that's pretty much it.
+
+28:19
+So let's say I do `locate` and I
+want to do -- I don't know,
+
+28:24
+anything that has to do with the password file,
+right? So this will respond pretty quickly.
+
+28:32
+And the reason it can respond pretty
+quickly and still find stuff all over
+
+28:36
+your disk is that it uses a database. There's a
+database that only gets updated periodically,
+
+28:45
+that basically indexes all of
+the files on your system.
+
+28:49
+And then `locate` can read that database
+and give you results that match.
+
+28:54
+So we can use it like that. Or lets say I want
+anything that has to do with ImageMagick.
+
+28:59
+So it gives me anything across the whole
+system, and it's pretty fast.
+
+29:05
+If I wanted to find stuff that's very recent,
+very new -- that's more of a problem.
+
+29:14
+So let's go into my `Downloads` folder and I've
+got here some files called `weblog`, right?
+
+29:22
+So suppose I want to locate files
+which have this pattern.
+
+29:28
+And I believe `locate` sort of implicitly puts
+a star `*` on each side of your query?
+
+29:36
+So I don't really need to do that, although if you
+wanted to put stars in there somewhere,
+
+29:41
+you do again just like -- for the same reason as
+with `find` you do have to put quotes.
+
+29:48
+So we can search for that. And these are
+all of the files that say `weblog`.
+
+29:55
+But it's able to find those
+because it's got this database,
+
+30:00
+so if I add a new file right now -- let's
+create `weblog-2015` September-something.
+
+30:09
+So now that file exists, and it wasn't there before.
+
+30:16
+When I do `locate` it still doesn't
+find September 17th, okay?
+
+30:23
+That's because the database is now out of date.
+
+30:28
+If I wanted to update the database manually, I can.
+
+30:31
+Normally what happens is it's
+scheduled as like a periodic job --
+
+30:35
+like once a day or every couple of hours or
+something -- it will run a command.
+
+30:41
+The command is called `updatedb` and it has to be run
+as the administrator, so we want to do `sudo`.
+
+30:50
+When I do this, it's going to reindex the
+entire disk, so it can take a little while.
+
+30:56
+But then it updates the database and then
+we'll be able to see the result.
+
+31:03
+Actually that was pretty fast -- I'm not sure it
+did what I thought it was going to do!
+
+31:08
+But we'll try it -- let's try
+`locate` again. And indeed,
+
+31:11
+`locate` now finds September 17th, so somehow
+`updatedb` did a really fast job of that -- great.
+
+:Lopes
+
+31:19
+So like most commands on the terminal that we've
+been running, a lot of it is case-sensitive.
+
+31:24
+What would we do, or what option would we have
+to set to turn off case-sensitivity.
+
+:League
+
+31:30
+Yeah, both `locate` and `find` when you do
+those patterns on the filename,
+
+31:34
+it's assuming a case-sensitive match. So
+if I did `locate` and maybe I
+
+31:41
+falsely remembered that my weblog files were
+capitalized like that -- it's not going to find them.
+
+31:46
+But there is an option `locate -i` for insensitive --
+
+31:50
+it's the same that `grep` uses for
+insensitive matching -- `-i`.
+
+31:55
+And then it will ignore the difference in case
+between your pattern and the filename itself.
+
+32:01
+That helps me find more things.
+
+32:03
+`find` is very similar -- the file matching feature
+in `find` was called `-name` and I did --
+
+32:12
+first of all let's verify that `find` does not
+implicitly put the `*` before and after,
+
+32:20
+like `locate` does. So `locate` with that
+`weblog-2015` and no asterisks
+
+32:25
+still found these files but `find` will
+not. So it wants the star there.
+
+32:30
+But same thing -- `find` with `-name` is
+case-sensitive so if I do capital,
+
+32:34
+it's going to look for capitals. So the
+fix there is that there's just a
+
+32:39
+separate query operator called `-iname`
+and that's an insensitive match.
+
+32:44
+And then it'll find those files.
+
+:Lopes
+
+32:48
+So in today's episode we touched base on
+locating files using three commands,
+
+32:53
+`find`, `locate`, and `xargs`. That
+wraps up today's episode.
+
+32:58
+That also wraps up Season 1 of Command Line TV.
+
+:League
+
+33:02
+Yes, we hope you found this useful -- we covered
+lots of things since we started this --
+
+33:07
+so, navigating through files with `cd`, creating
+pipelines to do some text processing,
+
+33:15
+searching for stuff, image processing,
+package management, redirection,
+
+33:22
+shell scripts -- so we did lots of
+things. And if you found this useful,
+
+33:26
+I hope you'll get in touch with us.
+
+:Lopes
+
+33:29
+You can reach us at `heychris@commandline.tv` or
+follow us on Twitter `@commandlinetv`.
+
+:League
+
+33:36
+And if we have good feedback from you and you
+found this useful then we'll try to do more!
+
+33:45
+[Dark electronic beat]
+
+33:55
+[Captions by Christopher League]
+
+34:13
+[End]
