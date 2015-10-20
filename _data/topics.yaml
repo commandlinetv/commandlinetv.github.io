@@ -14,6 +14,7 @@
 - term: "command substitution"
   refs:
     - 9#episode009#00:17:26
+    - 12#episode012#00:17:15
 - term: "completion"
   refs:
     - 1#episode001#00:16:23
@@ -146,6 +147,7 @@
   refs:
     - 10#episode010#00:15:23
     - 11#episode011#00:04:40
+    - 12#episode012#00:25:53
 - term: "package"
   refs:
     - 8#episode008#00:00:33
@@ -181,12 +183,16 @@
   refs:
     - 2#episode002#00:11:51
     - 3#episode003#00:00:25
+    - 12#episode012#00:17:03
 - term: "quoting"
   refs:
     - 3#episode003#00:23:04
 - term: "rationale for command line"
   refs:
     - 1#episode001#00:01:36
+- term: "read-only"
+  refs:
+    - 12#episode012#00:00:38
 - term: "redirection"
   refs:
     - 9#episode009#00:04:33
@@ -207,12 +213,14 @@
   refs:
     - 1#episode001#00:17:11
     - 3#episode003#00:22:57
+    - 12#episode012#00:21:48
 - term: "standard error"
   refs:
     - 9#episode009#00:05:06
 - term: "standard input"
   refs:
     - 9#episode009#00:04:51
+    - 12#episode012#00:20:49
 - term: "standard output"
   refs:
     - 9#episode009#00:04:57
@@ -418,6 +426,7 @@
     - 10#episode010#00:06:28
     - 10#episode010#00:12:11
     - 11#episode011#00:04:50
+    - 12#episode012#00:14:04
 - term: "`clear` (clear screen)"
   refs:
     - 7#episode007#00:03:15
@@ -501,6 +510,39 @@
 - term: "`file` (show file type)"
   refs:
     - 3#episode003#00:03:08
+- term: "`find -delete`"
+  refs:
+    - 12#episode012#00:12:14
+- term: "`find -empty`"
+  refs:
+    - 12#episode012#00:10:12
+- term: "`find -exec`"
+  refs:
+    - 12#episode012#00:13:22
+- term: "`find -iname`"
+  refs:
+    - 12#episode012#00:32:30
+- term: "`find -maxdepth`"
+  refs:
+    - 12#episode012#00:05:31
+- term: "`find -name`"
+  refs:
+    - 12#episode012#00:02:52
+- term: "`find -newer`"
+  refs:
+    - 12#episode012#00:06:22
+- term: "`find -print0`"
+  refs:
+    - 12#episode012#00:23:34
+- term: "`find -print`"
+  refs:
+    - 12#episode012#00:11:56
+- term: "`find -type`"
+  refs:
+    - 12#episode012#00:09:13
+- term: "`find` (search files)"
+  refs:
+    - 12#episode012#00:01:43
 - term: "`for` loop"
   refs:
     - 10#episode010#00:22:53
@@ -560,6 +602,12 @@
 - term: "`less` search (`/`)"
   refs:
     - 8#episode008#00:13:42
+- term: "`locate -i` (ignore-case)"
+  refs:
+    - 12#episode012#00:31:46
+- term: "`locate` (find files by name)"
+  refs:
+    - 12#episode012#00:27:48
 - term: "`ls -a` (all)"
   refs:
     - 5#episode005#00:14:18
@@ -580,6 +628,9 @@
 - term: "`ls` (list files)"
   refs:
     - 1#episode001#00:08:40
+- term: "`man` (show manual page)"
+  refs:
+    - 12#episode012#00:11:10
 - term: "`mkdir -p` (parents)"
   refs:
     - 6#episode006#00:07:16
@@ -607,9 +658,13 @@
 - term: "`more` (pager)"
   refs:
     - 2#episode002#00:05:37
+- term: "`mount -o` (options)"
+  refs:
+    - 12#episode012#00:01:11
 - term: "`mount` (attach filesystem)"
   refs:
     - 11#episode011#00:25:08
+    - 12#episode012#00:00:58
 - term: "`mv -i` (interactive) "
   refs:
     - 5#episode005#00:09:39
@@ -626,6 +681,9 @@
 - term: "`nano` (editor)"
   refs:
     - 4#episode004#00:01:13
+- term: "`od` (octal dump)"
+  refs:
+    - 12#episode012#00:25:56
 - term: "`open -e` (Mac TextEdit)"
   refs:
     - 4#episode004#00:03:07
@@ -677,6 +735,7 @@
 - term: "`sort` (put lines in order)"
   refs:
     - 4#episode004#00:10:18
+    - 12#episode012#00:08:56
 - term: "`source` (execute in current shell)"
   refs:
     - 5#episode005#00:16:06
@@ -693,6 +752,9 @@
 - term: "`tail` (last few lines)"
   refs:
     - 2#episode002#00:14:20
+- term: "`touch` (change file timestamps)"
+  refs:
+    - 12#episode012#00:30:00
 - term: "`tree` (list dirs in tree-like form)"
   refs:
     - 6#episode006#00:08:55
@@ -708,10 +770,19 @@
 - term: "`unzip` (extract compressed files)"
   refs:
     - 10#episode010#00:26:47
+- term: "`updatedb` (update locate data)"
+  refs:
+    - 12#episode012#00:30:41
 - term: "`which` (show path of command)"
   refs:
     - 8#episode008#00:09:30
     - 11#episode011#00:01:49
+- term: "`xargs -0` (split on null)"
+  refs:
+    - 12#episode012#00:24:22
+- term: "`xargs` (build cmd from stdin)"
+  refs:
+    - 12#episode012#00:19:58
 - term: "`xdg-open` (Linux desktop)"
   refs:
     - 2#episode002#00:08:03
