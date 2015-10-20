@@ -27,6 +27,7 @@
 
 - time: "00:00:38"
   speaker: Lopes
+  index: read-only
   caption: |
     sorry, external drives. How can we
     load a drive so it's read-only?
@@ -45,6 +46,7 @@
 
 - time: "00:00:58"
   speaker: League
+  index: "`mount` (attach filesystem)"
   caption: |
     If I type `mount` and remember we put the
     device name -- I guess `sdb1` --
@@ -57,12 +59,15 @@
 
 - time: "00:01:11"
   speaker: League
+  index: "`mount -o` (options)"
   caption: |
     You can specify some other options here
     using a `-o` and one of the most
 
 - time: "00:01:16"
   speaker: League
+  cmd: |
+    mount -o ro /dev/sdb1 /mnt
   caption: |
     common options is just saying
     read-only `ro`. If I do that,
@@ -87,6 +92,7 @@
 
 - time: "00:01:43"
   speaker: Lopes
+  index: "`find` (search files)"
   caption: |
     Since we'll be using the `find` command
     today, I'm assuming that it's as
@@ -175,6 +181,7 @@
 
 - time: "00:02:52"
   speaker: League
+  index: "`find -name`"
   caption: |
     Then we put the query as options. So
     `-name` is a way to search by filename
@@ -223,6 +230,8 @@
 
 - time: "00:03:39"
   speaker: League
+  cmd: |
+    find ~ -name '*.png'
   caption: |
     just like when you've got spaces in a
     filename, or any special characters.
@@ -247,6 +256,8 @@
 
 - time: "00:04:00"
   speaker: League
+  cmd: |
+    find ~ -name '*.png' | less
   caption: |
     So I'm going to pipe that into `less` so
     we can see it a page at a time.
@@ -318,6 +329,10 @@
 
 - time: "00:04:55"
   speaker: League
+  cmd: |
+    cd Downloads/Playing\ Cards
+    cd PNG-cards-1.3
+    ls
   caption: |
     Yep, so down here in the
     `Downloads/Playing\ Cards` and PNG,
@@ -348,6 +363,8 @@
 
 - time: "00:05:20"
   speaker: League
+  cmd: |
+    find . -name '*hearts*'
   caption: |
     of the filenames that have `hearts`
     in them, I could do that.
@@ -360,6 +377,7 @@
 
 - time: "00:05:31"
   speaker: League
+  index: "`find -maxdepth`"
   caption: |
     If I want to limit it to either the current
     directory or maybe I just don't
@@ -372,6 +390,8 @@
 
 - time: "00:05:42"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -name '*hearts*'
   caption: |
     I put `maxdepth` there and if I were to
     say `-maxdepth 1` then we're only
@@ -389,6 +409,8 @@
 
 - time: "00:05:55"
   speaker: League
+  cmd: |
+    find -maxdepth 2 -name '*hearts*'
   caption: |
     And if I went to `2` that would be enough to
     get me these other directories as well.
@@ -419,6 +441,7 @@
 
 - time: "00:06:22"
   speaker: League
+  index: "`find -newer`"
   caption: |
     if you want to find files that have been
     modified since a certain time
@@ -454,12 +477,16 @@
 
 - time: "00:06:56"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -name '*hearts*' -newer 7_of_hearts.png
   caption: |
     `7_of_hearts` and you see that
     it's a subset of those.
 
 - time: "00:06:59"
   speaker: League
+  cmd: |
+    ls -ltr
   caption: |
     If I were to look at these by modification
     time -- so like `-ltr` for the
@@ -478,6 +505,8 @@
 
 - time: "00:07:20"
   speaker: League
+  cmd: |
+    ls -ltr *hearts*
   caption: |
     oh but I'm seeing stuff that isn't
     hearts so let's do it this way.
@@ -562,6 +591,8 @@
 
 - time: "00:08:42"
   speaker: League
+  cmd: |
+    find -name '*hearts*' -newer 7_of_hearts.png
   caption: |
     right so newer than the
     `7_of_hearts` in the current directory.
@@ -580,12 +611,15 @@
 
 - time: "00:08:56"
   speaker: League
+  index: "`sort` (put lines in order)"
   caption: |
     out in any particular order. If you
     wanted these to appear in some more
 
 - time: "00:09:03"
   speaker: League
+  cmd: |
+    find -name '*hearts*' -newer 7_of_hearts.png |sort
   caption: |
     significant order you could sort them,
     right? So pipe it into `sort` and
@@ -598,6 +632,7 @@
 
 - time: "00:09:13"
   speaker: League
+  index: "`find -type`"
   caption: |
     So there are a few other queries we
     could use. One thing that's useful
@@ -633,6 +668,8 @@
 
 - time: "00:09:46"
   speaker: League
+  cmd: |
+    find -type d -name '*hearts*'
   caption: |
     If I wanted to find everything that's a
     directory that contains the name `hearts`,
@@ -651,6 +688,8 @@
 
 - time: "00:10:01"
   speaker: League
+  cmd: |
+    find -type d
   caption: |
     then my result set becomes empty. If I just
     did `-type d` then I get a list
@@ -662,12 +701,15 @@
 
 - time: "00:10:12"
   speaker: League
+  index: "`find -empty`"
   caption: |
     Another one that I think is useful is
     `-empty`. So `-empty` refers to
 
 - time: "00:10:16"
   speaker: League
+  cmd: |
+    find -empty
   caption: |
     whether the file has zero bytes --
     it's a completely empty file.
@@ -703,12 +745,17 @@
 
 - time: "00:10:45"
   speaker: League
+  cmd: |
+    find -h
+    find --help
   caption: |
     `--help` or yeah I think `-h` is the
     same -- nope! Has to be `--help`.
 
 - time: "00:10:52"
   speaker: League
+  cmd: |
+    find --help | less
   caption: |
     So pipe that into `less` and there's a
     very brief summary here of some of
@@ -721,12 +768,15 @@
 
 - time: "00:11:10"
   speaker: League
+  index: "`man` (show manual page)"
   caption: |
     But then for more detail there's
     this 'manual' command,
 
 - time: "00:11:14"
   speaker: League
+  cmd: |
+    man find
   caption: |
     so `man` gives us a manual page for -- like
     a reference page for any command.
@@ -769,6 +819,7 @@
 
 - time: "00:11:56"
   speaker: League
+  index: "`find -print`"
   caption: |
     The default action if you don't specify one
     is just to print filenames `-print`,
@@ -792,6 +843,7 @@
 
 - time: "00:12:14"
   speaker: League
+  index: "`find -delete`"
   caption: |
     And it's got a built-in one here called
     `-delete`, so if you want to remove
@@ -809,6 +861,8 @@
 
 - time: "00:12:31"
   speaker: League
+  cmd: |
+    find -name '*jack*' |less
   caption: |
     and whenever I've got an action besides
     `-print` I always want to test it
@@ -827,6 +881,8 @@
 
 - time: "00:12:53"
   speaker: League
+  cmd: |
+    find -name 'jack*' |less
   caption: |
     so if I just take filenames that start with
     `jack` and then have anything afterwards,
@@ -844,12 +900,16 @@
 
 - time: "00:13:05"
   speaker: League
+  cmd: |
+    find -name 'jack*' -delete
   caption: |
     add a `-delete` at the end then they're all
     gone! [Laughs] That was pretty fast --
 
 - time: "00:13:12"
   speaker: League
+  cmd: |
+    find -name 'jack*'
   caption: |
     but now if I do `find` on `jack*` there aren't
     any, so all of my Jacks have disappeared.
@@ -862,12 +922,15 @@
 
 - time: "00:13:22"
   speaker: League
+  index: "`find -exec`"
   caption: |
     There are ways to specify other arbitrary
     commands you could do as well.
 
 - time: "00:13:28"
   speaker: League
+  cmd: |
+    find -name 'queen*'
   caption: |
     So let's say I am looking at the
     queens. Here are all of my queens.
@@ -880,6 +943,9 @@
 
 - time: "00:13:39"
   speaker: League
+  cmd: |
+    cd Downloads/Playing\ Cards/PNG-cards-1.3/
+    ls -l
   caption: |
     let's go down into `Downloads`, `Playing\ Cards`, PNG.
 
@@ -903,6 +969,7 @@
 
 - time: "00:14:04"
   speaker: League
+  index: "`chmod` (change permissions)"
   caption: |
     `queen*` and then it's called `-exec`. And now you
     put the command you *want* to run, so `chmod`.
@@ -979,6 +1046,8 @@
 
 - time: "00:15:10"
   speaker: League
+  cmd: |
+    find -name 'queen*' -exec chmod go-r '{}' \;
   caption: |
     you do backslash semi-colon `\;`. You
     end up using these quotes and
@@ -1019,6 +1088,8 @@
 
 - time: "00:15:46"
   speaker: League
+  cmd: |
+    ls -l
   caption: |
     and what we will find in the current
     directory is that all of our queens
@@ -1073,6 +1144,8 @@
 
 - time: "00:16:35"
   speaker: League
+  cmd: |
+    find -name 'queen*' -exec chmod 662 '{}' \;
   caption: |
     So if I do that on all of the queens then we
     see here -- this is the result of 662.
@@ -1085,6 +1158,8 @@
 
 - time: "00:16:51"
   speaker: League
+  cmd: |
+    find -name 'queen*' -exec ./resize '{}' \;
   caption: |
     some script that you wrote -- any command you could
     normally execute and put a filename into,
@@ -1097,6 +1172,7 @@
 
 - time: "00:17:03"
   speaker: Lopes
+  index: pipeline
   caption: |
     So when we combined that `chmod`
     with the `find` just now,
@@ -1114,6 +1190,7 @@
 
 - time: "00:17:15"
   speaker: League
+  index: command substitution
   caption: |
     and we also did the command
     substitution with those back-ticks --
@@ -1126,6 +1203,8 @@
 
 - time: "00:17:24"
   speaker: League
+  cmd: |
+    find -name 'queen*' -exec chmod go-r '{}' \;
   caption: |
     when I do `chmod` here with an `-exec`, I'm combining
     the `find` command with the `chmod` command --
@@ -1144,6 +1223,8 @@
 
 - time: "00:17:46"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -name 'king*'
   caption: |
     to make this a little bit fewer,
     right. So there are my kings,
@@ -1185,6 +1266,8 @@
 
 - time: "00:18:28"
   speaker: League
+  cmd: |
+    chmod 744 $(find -maxdepth 1 -name 'king*')
   caption: |
     either with the back-quotes or `$()`.
     And so what I've done here is --
@@ -1268,6 +1351,7 @@
 
 - time: "00:19:58"
   speaker: League
+  index: "`xargs` (build cmd from stdin)"
   caption: |
     But another one -- you said it's like a pipe,
     and there is another way to use a pipe --
@@ -1280,6 +1364,8 @@
 
 - time: "00:20:11"
   speaker: League
+  cmd: |
+    chmod 744 $(find -maxdepth 1 -name 'king*')
   caption: |
     piping and command substitution. So let's
     bring back the command substitution form.
@@ -1292,6 +1378,8 @@
 
 - time: "00:20:24"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -name 'king*'
   caption: |
     so I'll copy that out and paste it out there --
     so that's going to generate those --
@@ -1316,6 +1404,7 @@
 
 - time: "00:20:49"
   speaker: League
+  index: standard input
   caption: |
     But what `xargs` will do is it'll
     take its standard input --
@@ -1328,6 +1417,8 @@
 
 - time: "00:20:58"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -name 'king*' | xargs chmod 644
   caption: |
     it'll take all of the files from there and
     put them on the `chmod` command line.
@@ -1346,6 +1437,8 @@
 
 - time: "00:21:16"
   speaker: League
+  cmd: |
+    ls -l
   caption: |
     Now all of the kings have 644 as their permissions.
 
@@ -1381,6 +1474,7 @@
 
 - time: "00:21:48"
   speaker: League
+  index: spaces
   caption: |
     things get a little weird. And one of
     those limitations is when spaces --
@@ -1404,6 +1498,8 @@
 
 - time: "00:22:14"
   speaker: League
+  cmd: |
+    cd ~
   caption: |
     like -- let's take a little example
     here. I know up here I've got --
@@ -1416,6 +1512,8 @@
 
 - time: "00:22:27"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d
   caption: |
     So this directory is called `Command Line TV`.
     So if I did `find -maxdepth 1 -type d`,
@@ -1428,6 +1526,8 @@
 
 - time: "00:22:43"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d | xargs chmod +x
   caption: |
     But now if I pipe that into `xargs`, and I want to
     do something like `chmod +x` on them --
@@ -1469,12 +1569,15 @@
 
 - time: "00:23:34"
   speaker: League
+  index: "`find -print0`"
   caption: |
     There is a solution to it though, and
     it's a way in which `find` and
 
 - time: "00:23:40"
   speaker: League
+  cmd: |
+    find --help
   caption: |
     `xargs` are actually meant to work
     together. One of those actions we saw --
@@ -1487,6 +1590,8 @@
 
 - time: "00:23:54"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d -print0
   caption: |
     What `-print0` does is it prints
     these directories out,
@@ -1522,6 +1627,7 @@
 
 - time: "00:24:22"
   speaker: League
+  index: "`xargs -0` (split on null)"
   caption: |
     But if I take that and then pipe it into
     `xargs`, and I *also* tell `xargs`
@@ -1534,12 +1640,16 @@
 
 - time: "00:24:33"
   speaker: League
+  cmd: |
+    xargs --help
   caption: |
     let me verify with `xargs` how it does
     that. Yeah, it's just `-0`, okay.
 
 - time: "00:24:39"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d -print0 | xargs -0 chmod +x
   caption: |
     So we're going to do the `find` with `-print0` and then
     pipe into `xargs -0` and now try `chmod +x`.
@@ -1581,8 +1691,8 @@
 - time: "00:25:17"
   speaker: Lopes
   caption: |
-    So just to backtrack, with the null character be
-    considered that `./` or that `/.` up top?
+    So just to backtrack, would the null character
+    be considered that `./` or that `/.` up top?
 
 - time: "00:25:24"
   speaker: League
@@ -1616,17 +1726,21 @@
 
 - time: "00:25:53"
   speaker: League
+  index: "octal"
   caption: |
     Another way that we could see it show up actually --
 
 - time: "00:25:56"
   speaker: League
+  index: "`od` (octal dump)"
   caption: |
     this introduces another command, but
     one that's pretty easy --
 
 - time: "00:26:01"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d | od
   caption: |
     there's a command called "octal dump"
     (`od`) so this takes input data and
@@ -1639,12 +1753,16 @@
 
 - time: "00:26:13"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d | od -t o1
   caption: |
     they should be like one byte big
     instead of -- so basically -- hmm,
 
 - time: "00:26:20"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d | od -t x1
   caption: |
     I don't like octal so I'm going to do
     hexadecimal -- that's better.
@@ -1674,6 +1792,8 @@
 
 - time: "00:26:47"
   speaker: League
+  cmd: |
+    find -maxdepth 1 -type d -print0 | od -t x1
   caption: |
     But if I do that same thing with `-print0`
     on it, you can see the difference.
@@ -1718,6 +1838,8 @@
 
 - time: "00:27:22"
   speaker: League
+  cmd: |
+    find /
   caption: |
     Yeah, so you can -- you know, when you
     specify `find` you can put a `/`
@@ -1753,6 +1875,7 @@
 
 - time: "00:27:48"
   speaker: League
+  index: "`locate` (find files by name)"
   caption: |
     There is a better command for searching
     the entire disk for a pattern.
@@ -1795,6 +1918,8 @@
 
 - time: "00:28:24"
   speaker: League
+  cmd: |
+    locate passwd
   caption: |
     anything that has to do with the password file,
     right? So this will respond pretty quickly.
@@ -1825,6 +1950,8 @@
 
 - time: "00:28:54"
   speaker: League
+  cmd: |
+    locate Magick
   caption: |
     So we can use it like that. Or lets say I want
     anything that has to do with ImageMagick.
@@ -1843,12 +1970,16 @@
 
 - time: "00:29:14"
   speaker: League
+  cmd: |
+    cd Downloads
   caption: |
     So let's go into my `Downloads` folder and I've
     got here some files called `weblog`, right?
 
 - time: "00:29:22"
   speaker: League
+  cmd: |
+    locate weblog-2015
   caption: |
     So suppose I want to locate files
     which have this pattern.
@@ -1885,6 +2016,10 @@
 
 - time: "00:30:00"
   speaker: League
+  index: "`touch` (change file timestamps)"
+  cmd: |
+    touch weblog-2015-09-17.txt
+    ls
   caption: |
     so if I add a new file right now -- let's
     create `weblog-2015` September-something.
@@ -1896,6 +2031,8 @@
 
 - time: "00:30:16"
   speaker: League
+  cmd: |
+    locate weblog-2015
   caption: |
     When I do `locate` it still doesn't
     find September 17th, okay?
@@ -1924,6 +2061,7 @@
 
 - time: "00:30:41"
   speaker: League
+  index: "`updatedb` (update locate data)"
   caption: |
     The command is called `updatedb` and it has to be run
     as the administrator, so we want to do `sudo`.
@@ -1936,6 +2074,8 @@
 
 - time: "00:30:56"
   speaker: League
+  cmd: |
+    sudo updatedb
   caption: |
     But then it updates the database and then
     we'll be able to see the result.
@@ -1948,6 +2088,8 @@
 
 - time: "00:31:08"
   speaker: League
+  cmd: |
+    locate weblog-2015
   caption: |
     But we'll try it -- let's try
     `locate` again. And indeed,
@@ -1984,17 +2126,22 @@
 
 - time: "00:31:41"
   speaker: League
+  cmd: |
+    locate WEBLOG-2015
   caption: |
     falsely remembered that my weblog files were
     capitalized like that -- it's not going to find them.
 
 - time: "00:31:46"
   speaker: League
+  index: "`locate -i` (ignore-case)"
   caption: |
     But there is an option `locate -i` for insensitive --
 
 - time: "00:31:50"
   speaker: League
+  cmd: |
+    locate -i WEBLOG-2015
   caption: |
     it's the same that `grep` uses for
     insensitive matching -- `-i`.
@@ -2018,6 +2165,8 @@
 
 - time: "00:32:12"
   speaker: League
+  cmd: |
+    find -name weblog-2015
   caption: |
     first of all let's verify that `find` does not
     implicitly put the `*` before and after,
@@ -2030,12 +2179,17 @@
 
 - time: "00:32:25"
   speaker: League
+  cmd: |
+    find -name 'weblog-2015*'
   caption: |
     still found these files but `find` will
     not. So it wants the star there.
 
 - time: "00:32:30"
   speaker: League
+  index: "`find -iname`"
+  cmd: |
+    find -name 'WEBLOG-2015*'
   caption: |
     But same thing -- `find` with `-name` is
     case-sensitive so if I do capital,
@@ -2048,6 +2202,8 @@
 
 - time: "00:32:39"
   speaker: League
+  cmd: |
+    find -iname 'WEBLOG-2015*'
   caption: |
     separate query operator called `-iname`
     and that's an insensitive match.
@@ -2126,4 +2282,3 @@
 - time: "00:34:13"
   caption: |
     [End]
-
